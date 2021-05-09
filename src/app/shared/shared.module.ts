@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule, NGX_MAT_NATIVE_DATE_FORMATS, NGX_MAT_DATE_FORMATS } from '@angular-material-components/datetime-picker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,12 +30,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-// Custom Components
-import { InputSpinnerComponent } from './input-spinner/input-spinner.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
-import { SystemNotificationComponent } from './system-notification/system-notification.component';
-import { CKEditorModule } from 'ckeditor4-angular';
-
 // Format used for the Intl format functions
 const fullDateTimeOptions = {
   year: 'numeric', month: 'numeric',
@@ -49,7 +42,6 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
 
 @NgModule({
   imports: [
-    CKEditorModule,
     CommonModule,
     FormsModule,
     MatAutocompleteModule,
@@ -62,9 +54,7 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     NgxMatTimepickerModule,
   ],
   exports: [
-    CKEditorModule,
     CommonModule,
-    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     NgxMatDatetimePickerModule,
@@ -101,21 +91,9 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-
-    // Custom Components
-    InputSpinnerComponent,
-    LoadingSpinnerComponent,
-    SystemNotificationComponent
   ],
-  declarations: [
-    // Custom Components
-    InputSpinnerComponent,
-    LoadingSpinnerComponent,
-    SystemNotificationComponent
-  ],
-  entryComponents: [
-    SystemNotificationComponent,
-  ],
+  declarations: [],
+  entryComponents: [],
   providers: [
     { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS }
   ]

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sharToturial": {
+    "sharp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sharToturial",
+            "outputPath": "dist/sharp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,8 +31,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -69,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sharToturial:build"
+            "browserTarget": "sharp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sharToturial:build:production"
+              "browserTarget": "sharp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sharToturial:build"
+            "browserTarget": "sharp:build"
           }
         },
         "test": {
@@ -95,8 +94,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -118,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sharToturial:serve"
+            "devServerTarget": "sharp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sharToturial:serve:production"
+              "devServerTarget": "sharp:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "sharToturial"
+  "defaultProject": "sharp"
 }
