@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Views
-import { MainComponent } from './main.component';
+import { TestimonialsComponent } from './testimonials.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    component: TestimonialsComponent,
   }
 ];
 
@@ -19,9 +19,9 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class MainRoutingModule { }
+export class TestimonialsRoutingModule { }
 
 export const routedComponents = [
-  MainComponent
+  TestimonialsComponent,
 ];
 
