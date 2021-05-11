@@ -14,7 +14,9 @@ export class LayoutSidemenuComponent {
     .pipe(
       map(result => result.matches),
       shareReplay()
-    );
+  );
+
+  public showNav: boolean = true;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
