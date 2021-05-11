@@ -1,22 +1,59 @@
+<!--<mat-toolbar fxFlex="48px">
+  <mat-toolbar-row>
+    <img class="logo-img" src="./assets/logo_notext.png" height="50" width="50" />  Sharp Tutorials
+  </mat-toolbar-row>
+</mat-toolbar>-->
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
-               [opened]="(isHandset$ | async) === false">
+               [opened]="(isHandset$ | async) === false"
+               style="background-color: #f2f5f7">
     <mat-toolbar><i class="fas fa-stream icon-p"></i>Menu</mat-toolbar>
-    <mat-nav-list>
+    <mat-nav-list >
 
-      <a mat-list-item [routerLink]="['/']"><i class="fas fa-home icon-p"></i> Home</a>
-      <a mat-list-item [routerLink]="['/about']"><i class="fas fa-address-card icon-p"></i>About</a>
-      <a mat-list-item [routerLink]="['/course']"><i class="fas fa-book icon-p"></i>Course</a>
-      <a mat-list-item [routerLink]="['/testimonials']"><i class="fas fa-quote-right icon-p"></i>Testimonials</a>
-      <a mat-list-item [routerLink]="['/results']"><i class="fas fa-poll icon-p"></i>Results</a>
-      <a mat-list-item [routerLink]="['/blog']"><i class="fas fa-blog icon-p"></i>Blog</a>
-      <a mat-list-item [routerLink]="['/contactus']"><i class="fas fa-address-book icon-p"></i>Contact Us</a>
+      <mat-list-item [routerLink]="['/']" [routerLinkActive]="['accent-bgcolor-blue']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-home icon-p"></i>
+        Home
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/about']" [routerLinkActive]="['accent-bgcolor-blue']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-address-card icon-p"></i>
+        About
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/course']" [routerLinkActive]="['accent-bgcolor-blue']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-book icon-p"></i>
+        Course
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/testimonials']" [routerLinkActive]="['accent-bgcolor-blue']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-quote-right icon-p"></i>
+        Testimonials
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/results']" [routerLinkActive]="['accent-bgcolor-blue']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-poll icon-p"></i>
+        Results
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/blog']" [routerLinkActive]="['accent-bgcolor-blue']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-blog icon-p"></i>
+        Blog
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/contactus']" [routerLinkActive]="['accent-bgcolor-blue']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-address-book icon-p"></i>
+        Contact Us
+      </mat-list-item>
+
     </mat-nav-list>
+
   </mat-sidenav>
+
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button type="button"
               aria-label="Toggle sidenav"
               mat-icon-button
@@ -24,7 +61,7 @@
               *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span><img class="logo-img" src="./assets/logo_notext.png" height="50" width="50"/>  Sharp Tutorials</span>
+      <span> <img class="logo-img" src="./assets/logo_notext.png" height="50" width="50" />  Sharp Tutorials</span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
