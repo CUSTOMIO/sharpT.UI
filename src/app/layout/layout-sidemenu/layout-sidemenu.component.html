@@ -1,15 +1,3 @@
-<mat-toolbar p-0>
-  <button type="button"
-          class="mr-16"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle() && showNav = !showNav">
-    <i *ngIf="!showNav" class="fas fa-chevron-right fa-2x"></i>
-    <i *ngIf="showNav" class="fas fa-chevron-left fa-2x"></i>
-  </button>
-  <span> <img class="logo-img" src="./assets/logo_notext.png" height="50" width="50" />  Sharp Tutorials</span>
-</mat-toolbar>
-
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -60,6 +48,17 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
+    <mat-toolbar p-0>
+      <button type="button"
+              class="mr-16"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle() && showNav = !showNav">
+        <i *ngIf="!showNav" class="fas fa-chevron-right fa-2x"></i>
+        <i *ngIf="showNav" class="fas fa-chevron-left fa-2x"></i>
+      </button>
+      <span> <img class="logo-img" src="./assets/logo_notext.png" height="50" width="50" />  Sharp Tutorials</span>
+    </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
