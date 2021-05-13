@@ -1,0 +1,82 @@
+/*FLEX CONTAINER*/
+.container-flex {
+  text-align: center;
+  display: block;
+
+}
+
+.flex-child {
+  display: inline-block;
+}
+
+/*BANNER*/
+.aboutus-bg {
+  background: url('/../../assets/about.gif') no-repeat;
+  background-position: center;
+  max-width: 100%;
+  border-radius: 10px;
+  height: 323px;
+
+}
+
+
+/*ABOUT US*/
+.left-content{
+  float: left;
+  width: 51%;
+  margin: 0;
+  margin-right: 2%;
+  padding: 0;
+}
+.right-content {
+  float: left;
+  width: 45%;
+  height:100%;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .left-content {
+    float: none;
+    width: 98%;
+  }
+
+  .right-content {
+    float: none;
+    width: 85%;
+  }
+}
+
+
+
+/*WHY CHOOSE US*/
+.circle-img-div {
+  width: 200px;
+  margin-left: 2%;
+  margin-right: 2%;
+  height: fit-content();
+  border-radius: 10px;
+  background-color: #d3e4f0;
+  margin-bottom: 30px;
+  box-shadow: 2px 6px 6px #888888;
+}
+.circle-img {
+  background-color: inherit;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border-bottom: 0.5px solid #fca311;
+}
+.circle-img-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  font-family: 'Montserrat';
+}
+
+
+
+
+
