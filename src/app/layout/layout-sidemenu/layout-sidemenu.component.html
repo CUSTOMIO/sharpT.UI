@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" >
   <mat-sidenav #drawer class="sidenav  bgcolor-blue-light" fixedInViewport="false"
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -50,8 +50,9 @@
 
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-toolbar p-0 *ngIf="(isHandset$ | async)">
+  <mat-sidenav-content >
+    
+       <mat-toolbar p-0 *ngIf="(isHandset$ | async)"  >
       <button type="button"
               class="mr-16"
               aria-label="Toggle sidenav"
@@ -60,6 +61,8 @@
         <i class="fas fa-chevron-right fa-2x"></i>
       </button>
     </mat-toolbar>
+    
+   
     <!-- Add Content Here -->
     <router-outlet ></router-outlet>
   </mat-sidenav-content>
