@@ -4,7 +4,7 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
 //Google font
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
 
 @include mat-core();
 $sharp-primary: mat-palette($mat-indigo);
@@ -64,21 +64,23 @@ body {
 //HEADER
 .header-title {
   font-size: 36px;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 64px;
   font-family: 'Montserrat';
   /*font: normal normal 100 42px/64px 'Recursive';*/
 }
 .header-subtitle {
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 24px;
+  font-weight: 300;
   line-height: 26px;
   font-family: 'Montserrat';
   /*font: normal normal 100 42px/64px 'Recursive';*/
 }
 .header-content {
   font-size: 18px;
+  line-height: 18px;
   font-weight: 400;
+  font-family: 'Montserrat';  
   /*font: normal normal 100 42px/64px 'Recursive';*/
 }
 
