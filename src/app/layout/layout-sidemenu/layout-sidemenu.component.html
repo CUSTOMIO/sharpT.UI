@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container" >
+<mat-sidenav-container class="sidenav-container" style="width: 100%; height: 100%;">
   <mat-sidenav #drawer class="sidenav  bgcolor-blue-light" fixedInViewport="false"
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -64,7 +64,7 @@
     
    
     <!-- Add Content Here -->
-    <router-outlet ></router-outlet>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

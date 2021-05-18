@@ -110,15 +110,17 @@ body {
   }
 }
 
-.no-v-scroll {
-  height: 100%;
-  overflow-y: hidden;
-  display: flex;
-  flex-direction: column;
+
+/*CARD NON_MATERIAL*/
+
+.card {
+  border-radius: 10px;
+  background-color: #d3e4f0;
+  box-shadow: 1px 3px 3px #888888;
 }
 
-
-.mat-sidenav {
-  display: flex;
-  flex-direction: column;
+.card:hover {
+  transition-duration: 0.25s;
+  box-shadow: 1px 5px 5px #888888;
 }
+

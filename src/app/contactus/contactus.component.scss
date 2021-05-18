@@ -1,0 +1,26 @@
+.reachus-header {
+  max-width: 100%;
+  border-bottom: 1px solid #fca311;
+  .reachus-header-img-div {
+    float: left;
+    width: 200px;
+  }
+  .reachus-header-text {
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 200px;
+    vertical-align: middle;
+  }
+}
+
+.container-flex {
+  width: 100%;
+  background-color: #d3e4f0;
+    .detail-field {
+      padding: 10px 10px 0px 20px;
+      font-weight: 400;
+    }
+    .detail-value {
+      padding: 0px 10px 10px 30px;
+    }
+}

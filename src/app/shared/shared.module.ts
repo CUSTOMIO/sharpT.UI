@@ -29,6 +29,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Format used for the Intl format functions
 const fullDateTimeOptions = {
@@ -91,6 +92,9 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+
+    //Flex references
+    FlexLayoutModule
   ],
   declarations: [],
   entryComponents: [],
