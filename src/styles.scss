@@ -3,9 +3,6 @@
 // font awesone
 @import '@fortawesome/fontawesome-free/css/all.css';
 
-//Google font
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
-
 @include mat-core();
 $sharp-primary: mat-palette($mat-indigo);
 $sharp-accent: mat-palette($mat-pink, A200, A100, A400);
@@ -30,9 +27,10 @@ $sharp-theme: mat-light-theme((
 html, body {
   height: 100%;
 }
+
 body {
   margin: 0;
-  font-family: 'Montserrat';
+  font-family: 'Roboto', sans-serif;
   overflow: hidden;
 }
 
@@ -43,45 +41,19 @@ body {
 .bgcolor-yellow {
   background-color: #fca311 !important;
 }
-
 .color-blue {
   color: #0a4191 !important;
 }
 .bgcolor-blue {
   background-color: #0a4191 !important;
 }
-
 .bgcolor-blue-light {
   background-color: #f2f5f7 !important;
 }
-
 .bgcolor-yellow-light {
   background-color: #fffaf2 !important;
 }
 
-
-//HEADER
-.header-title {
-  font-size: 36px;
-  font-weight: 200;
-  line-height: 64px;
-  font-family: 'Montserrat';
-  /*font: normal normal 100 42px/64px 'Recursive';*/
-}
-.header-subtitle {
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 26px;
-  font-family: 'Montserrat';
-  /*font: normal normal 100 42px/64px 'Recursive';*/
-}
-.header-content {
-  font-size: 18px;
-  line-height: 18px;
-  font-weight: 400;
-  font-family: 'Montserrat';  
-  /*font: normal normal 100 42px/64px 'Recursive';*/
-}
 
 ///SCROLLBAR
 ::-webkit-scrollbar {
@@ -99,28 +71,9 @@ body {
   background: #0a4191;
 }
 
-
-//MEDIA QUERY
-//Header
-@media only screen and (max-width: 600px) {
-  .header-title {
-    font-size: 34px;
-    font-weight: 300;
-    line-height: 64px;
-  }
-}
-
-
-/*CARD NON_MATERIAL*/
-
+/*CARD*/
 .card {
+  background-color: #d4e5ff !important;
   border-radius: 10px;
-  background-color: #d3e4f0;
-  box-shadow: 1px 3px 3px #888888;
-}
-
-.card:hover {
-  transition-duration: 0.25s;
-  box-shadow: 1px 5px 5px #888888;
 }
 

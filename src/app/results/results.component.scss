@@ -1,17 +1,19 @@
 .div-one {
   margin-left: 1%;
+  width: 30%;
+  margin-left: 1%;
+  position: fixed;
+  top: 50%;
+  margin-top: -200px;
+
   .img-div-one {
     width: 100%;
-  }
-  .div-one-text {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 48px
   }
 }
 
 .div-two { 
  padding: 2%;
+ margin-left: 40%;
   .div-two-text {
     font-size: 56px;
     font-weight: 300;
@@ -20,5 +22,14 @@
   }
   .form-div {  
     padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .div-one {
+    display: none
+  }
+  .div-two {
+      margin-left: 0px;
   }
 }
