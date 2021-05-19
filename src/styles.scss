@@ -1,25 +1,14 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
+// font awesone
+@import '@fortawesome/fontawesome-free/css/all.css';
+
 @include mat-core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
 $sharp-primary: mat-palette($mat-indigo);
 $sharp-accent: mat-palette($mat-pink, A200, A100, A400);
 
-// The warn palette is optional (defaults to red).
 $sharp-warn: mat-palette($mat-red);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
 $sharp-theme: mat-light-theme((
   color: (
     primary: $sharp-primary,
@@ -28,12 +17,63 @@ $sharp-theme: mat-light-theme((
   )
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include angular-material-theme($sharp-theme);
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "./theme/theme.scss";
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+}
+
+//COLORS
+.color-yellow {
+  color: #fca311 !important;
+} 
+.bgcolor-yellow {
+  background-color: #fca311 !important;
+}
+.color-blue {
+  color: #0a4191 !important;
+}
+.bgcolor-blue {
+  background-color: #0a4191 !important;
+}
+.bgcolor-blue-light {
+  background-color: #f2f5f7 !important;
+}
+.bgcolor-yellow-light {
+  background-color: #fffaf2 !important;
+}
+
+
+///SCROLLBAR
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color: #fca311;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #0a4191;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0a4191;
+}
+
+/*CARD*/
+.card {
+  background-color: #d4e5ff !important;
+  border-radius: 10px;
+}
+

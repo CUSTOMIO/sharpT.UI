@@ -1,0 +1,70 @@
+<mat-sidenav-container class="sidenav-container" style="width: 100%; height: 100%;">
+  <mat-sidenav #drawer class="sidenav  bgcolor-blue-light" fixedInViewport="false"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <mat-list-item *ngIf="showNav">Menu</mat-list-item>
+      <span *ngIf="!(isHandset$ | async)">
+        <i *ngIf="!showNav" (click)="showNav = !showNav" class="fas fa-chevron-right fa-2x"></i>
+        <i *ngIf="showNav" (click)="showNav = !showNav" class="fas fa-chevron-left fa-2x"></i>
+      </span>
+    </mat-toolbar>
+    <mat-nav-list >
+      <mat-list-item [routerLink]="['/']" [routerLinkActive]="['active-nav-item']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-home fa-lg m-10 color-yellow"></i>
+        <span *ngIf="showNav">Home</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-address-card m-10 fa-lg color-yellow"></i>
+        <span *ngIf="showNav">About</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/course']" [routerLinkActive]="['active-nav-item']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-book fa-lg m-10 color-yellow"></i>
+        <span *ngIf="showNav">Course</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-quote-right fa-lg m-10 color-yellow"></i>
+        <span *ngIf="showNav">Testimonials</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/results']" [routerLinkActive]="['active-nav-item']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-poll fa-lg m-10 color-yellow"></i>
+        <span *ngIf="showNav">Results</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/blog']" [routerLinkActive]="['active-nav-item']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-blog fa-lg m-10 color-yellow"></i>
+        <span *ngIf="showNav">Blog</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']"
+                     [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-address-book fa-lg m-10 color-yellow"></i>
+        <span *ngIf="showNav">Contact Us</span>
+      </mat-list-item>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    
+       <mat-toolbar p-0 *ngIf="(isHandset$ | async)"  >
+      <button type="button"
+              class="mr-16"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()">
+        <i class="fas fa-chevron-right fa-2x"></i>
+      </button>
+    </mat-toolbar>
+    
+   
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
