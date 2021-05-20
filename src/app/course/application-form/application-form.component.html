@@ -18,22 +18,22 @@
   <div class="pb-50">
     <span class="mat-headline pl-35">Form</span>
 
-    <div fxLayout="row" fxLayoutgap="10px">
-      <form fxFlex="20" class="p-35">
+    <div fxLayout="row" fxLayoutgap="20px">
+      <form fxFlex="25" class="p-35">
         <mat-form-field appearance="standard">
           <mat-label>First Name</mat-label>
           <input matInput>
         </mat-form-field>
       </form>
 
-      <form fxFlex="20" class="p-35">
+      <form fxFlex="25" class="p-35">
         <mat-form-field appearance="standard">
           <mat-label>Middle Name</mat-label>
           <input matInput>
         </mat-form-field>
       </form>
 
-      <form fxFlex="20" class="p-35">
+      <form fxFlex="25" class="p-35">
         <mat-form-field appearance="standard">
           <mat-label>Last Name</mat-label>
           <input matInput>
@@ -44,3 +44,25 @@
 
 </div>
 
+<mat-vertical-stepper>
+  <mat-step>
+    <ng-template matStepLabel>Basic Detail</ng-template>
+    <ng-template matStepContent>
+      <p>This content was rendered lazily</p>
+      <button mat-button matStepperNext>Next</button>
+    </ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Step 2</ng-template>
+    <ng-template matStepContent>
+      <p>This content was also rendered lazily</p>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Step 3</ng-template>
+    <p>This content was rendered eagerly</p>
+    <button mat-button matStepperPrevious>Back</button>
+  </mat-step>
+</mat-vertical-stepper>
