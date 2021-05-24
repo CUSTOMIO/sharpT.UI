@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 33351",
-    "build": "ng build --prod && mv dist/sharp _static",
+    "build": "ng build --port 33352",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

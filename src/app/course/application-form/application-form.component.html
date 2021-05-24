@@ -17,52 +17,32 @@
 
   <div class="pb-50">
     <span class="mat-headline pl-35">Form</span>
-
-    <div fxLayout="row" fxLayoutgap="20px">
-      <form fxFlex="25" class="p-35">
-        <mat-form-field appearance="standard">
-          <mat-label>First Name</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </form>
-
-      <form fxFlex="25" class="p-35">
-        <mat-form-field appearance="standard">
-          <mat-label>Middle Name</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </form>
-
-      <form fxFlex="25" class="p-35">
-        <mat-form-field appearance="standard">
-          <mat-label>Last Name</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </form>
-    </div>
   </div>
-
 </div>
 
-<mat-vertical-stepper>
-  <mat-step>
-    <ng-template matStepLabel>Basic Detail</ng-template>
-    <ng-template matStepContent>
-      <p>This content was rendered lazily</p>
-      <button mat-button matStepperNext>Next</button>
-    </ng-template>
+<mat-vertical-stepper [@.disabled]="true" selectedIndex="0" [linear]="true" #stepper>
+
+  <mat-step completed="false" [stepControl]="formArray?.get([0])">
+    <ng-template matStepLabel>Basic</ng-template>
+    <app-basic-details [formGroup]="formArray?.get([0])"></app-basic-details>
   </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Step 2</ng-template>
-    <ng-template matStepContent>
-      <p>This content was also rendered lazily</p>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
-    </ng-template>
+
+  <mat-step completed="false" [stepControl]="formArray?.get([1])">
+    <ng-template matStepLabel>Contact</ng-template>
+    <app-contact-details [formGroup]="formArray?.get([1])"></app-contact-details>
   </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Step 3</ng-template>
-    <p>This content was rendered eagerly</p>
-    <button mat-button matStepperPrevious>Back</button>
+
+  <mat-step completed="false" [stepControl]="formArray?.get([2])">
+    <ng-template matStepLabel>Course</ng-template>
+    <app-course-details [formGroup]="formArray?.get([2])"></app-course-details>
   </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Review</ng-template>
+    <app-review-details [formGroup]="appForm"></app-review-details>
+  </mat-step>
+
 </mat-vertical-stepper>
+
+
+

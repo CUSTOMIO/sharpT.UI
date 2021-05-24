@@ -1,11 +1,12 @@
- .text-header {
-    max-height: 80px;
-    border-bottom: 1px solid #fca311;
-    line-height: 80px;
-  }
+.text-header {
+  max-height: 80px;
+  border-bottom: 1px solid #fca311;
+  line-height: 80px;
+}
 
 
 ::ng-deep .mat-tab-label {
   font: 400 34px/40px Roboto, "Helvetica Neue", sans-serif !important;
   height: 80px !important;
 }
+

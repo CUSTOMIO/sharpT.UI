@@ -1,0 +1,36 @@
+<form [formGroup]="appForm">
+  <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutgap="10px">
+
+    <div fxFlex="25" fxFlex.sm="33" fxFlex.xs="80" class="pl-25 pr-25">
+      <mat-form-field appearance="standard" style="width: 100% !important;">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="25" fxFlex.sm="33" fxFlex.xs="80" class="pl-25 pr-25">
+      <mat-form-field appearance="standard" style="width: 100% !important;">
+        <mat-label>Student's Phone Number</mat-label>
+        <input matInput type="tel" formControlName="studentPN">
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="25" fxFlex.sm="33" fxFlex.xs="80" class="pl-25 pr-25">
+      <mat-form-field appearance="standard" style="width: 100% !important;">
+        <mat-label>Parent's Phone Number</mat-label>
+        <input matInput type="tel" formControlName="parentPN">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutgap="10px">
+    <div fxFlex="61" fxFlex.sm="100" fxFlex.xs="100" class="pl-25 pr-25">
+      <mat-form-field appearance="standard" style="width: 100% !important;">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <button mat-button matStepperNext>Next</button>
+</form>

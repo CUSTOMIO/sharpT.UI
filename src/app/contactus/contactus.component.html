@@ -15,8 +15,9 @@
 
       <div class="detail-container mb-25">
         <p class="mat-title detail-field m-0">
-        <i class="fas fa-map-signs m-10 fa-sm">
-          </i>Address</p>
+          <i class="fas fa-map-signs m-10 fa-sm">
+          </i>Address
+        </p>
         <p class="subheading-2 detail-value">
           Murga Giran chsg, opposite Hotel Kalpana Palace, near Daulat
           Complex, Grant Road(East), Mumbai 400 008
@@ -64,18 +65,35 @@
          class="contact-form flex-child pl-10 pr-10" align="center">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Contact Form</mat-card-title>
+          <mat-card-title>Fill in the Form to Secure a Strong Foundation For Your Child's Career</mat-card-title>
         </mat-card-header>
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button class="bgcolor-yellow">Submit</button>
-        </mat-card-actions>
+          <div class="p-20">
+        <form [formGroup]="contactUs" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="standard" style="width: 100% !important">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+            <mat-hint style="color: red" *ngIf="name.touched && name.hasError('required')">Required</mat-hint>
+          </mat-form-field>
+
+            <mat-form-field appearance="standard" style="width: 100% !important">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" style="width: 100% !important">
+              <mat-label>Standard</mat-label>
+              <input matInput formControlName="standard">
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" style="width: 100% !important">
+              <mat-label>Message</mat-label>
+              <input matInput formControlName="message">
+            </mat-form-field>
+          <button type="submit" [disabled]="!contactUs.valid" mat-button class="bgcolor-yellow">Submit</button>
+        </form>
+        </div>
+      
+       
       </mat-card>
     </div>
   </div>
