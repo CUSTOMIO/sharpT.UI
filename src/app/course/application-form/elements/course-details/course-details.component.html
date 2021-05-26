@@ -3,8 +3,8 @@
     <div class="pl-25 pr-25" fxFlex="25" fxFlex.sm="20" fxFlex.xs="100">
       <mat-form-field appearance="standard" style="width: 100% !important;">
         <mat-label>Standard</mat-label>
-        <mat-select formControlName="standard" >
-          <mat-option value="one" *ngFor="let s of this.standard">{{s.name}}</mat-option>
+        <mat-select formControlName="standard">
+          <mat-option  *ngFor="let s of this.standard" value="{{s.name}}" >{{s.name}}</mat-option>
           <!--<mat-option value="two">Second option</mat-option>-->
         </mat-select>
       </mat-form-field>

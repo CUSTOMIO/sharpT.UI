@@ -28,6 +28,7 @@ export class ElementsReviewDetails implements OnInit {
           reader.onload = () => {
             this.imageURL = reader.result as string;
           }
+     
           reader.readAsDataURL(this.formArray.controls[2].get('image').value);
         } else {
           return this.formArray.controls[index].get(controlName).value
