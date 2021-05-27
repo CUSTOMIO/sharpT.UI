@@ -8,6 +8,9 @@ import { ElementsBasicDetails } from './application-form/elements/basic-details/
 import { ElementsContactDetails } from './application-form/elements/contact-details/contact-details.component';
 import { ElementsCourseDetails } from './application-form/elements/course-details/course-details.component';
 import { ElementsReviewDetails } from './application-form/elements/review-details/review-details.component';
+import { CollegeComponent } from './college/college.component';
+import { DegreeComponent } from './degree/degree.component';
+import { SchoolComponent } from './school/school.component';
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import { ElementsReviewDetails } from './application-form/elements/review-detail
   declarations: [
     routedComponents,
     ApplicationFormComponent,
+    CollegeComponent,
+    DegreeComponent,
+    SchoolComponent,
     ElementsBasicDetails,
     ElementsContactDetails,
     ElementsCourseDetails,

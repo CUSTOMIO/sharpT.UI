@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 // Views
 import { CourseComponent } from './course.component';
 import { ApplicationFormComponent } from './application-form/application-form.component'
+import { CollegeComponent } from './college/college.component';
+import { SchoolComponent } from './school/school.component';
+import { DegreeComponent } from './degree/degree.component';
 
 const routes: Routes = [
   {
@@ -13,6 +16,16 @@ const routes: Routes = [
   {
     path: 'enroll',
     component: ApplicationFormComponent,
+  },
+  {
+    path: 'college',
+    component: CollegeComponent,
+  }, {
+    path: 'school',
+    component: SchoolComponent,
+  }, {
+    path: 'degree',
+    component: DegreeComponent,
   }
 ];
 

@@ -1,10 +1,10 @@
-export class Standard {
+export class Subject {
   name: string;
   description: string;
   isActive: boolean;
-  courseId: number;
+  standardId: number;
 
-  constructor(item: Standard) {
+  constructor(item: Subject) {
     Object.assign(this, item)
   }
 }

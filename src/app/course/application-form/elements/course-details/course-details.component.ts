@@ -23,7 +23,7 @@ export class ElementsCourseDetails implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.standardService.getStandards().subscribe(async res => {
+    this.standardService.getStandard().subscribe(async res => {
       this.standard = await res;
       console.log(res[0]);
     }, (error) => {
@@ -40,9 +40,7 @@ export class ElementsCourseDetails implements OnInit {
 
   showPreview(event) {
     const file = (event.target as HTMLInputElement).files[0];
-    this.appForm.patchValue({
-      image: file
-    });
+ 
     this.appForm.get('image').setValue(file);
     this.appForm.get('image').updateValueAndValidity();
 

@@ -4,7 +4,7 @@
       <mat-form-field appearance="standard" style="width: 100% !important;">
         <mat-label>Standard</mat-label>
         <mat-select formControlName="standard">
-          <mat-option  *ngFor="let s of this.standard" value="{{s.name}}" >{{s.name}}</mat-option>
+          <mat-option  *ngFor="let s of this.standard" value="{{s.id}}" >{{s.name}}</mat-option>
           <!--<mat-option value="two">Second option</mat-option>-->
         </mat-select>
       </mat-form-field>

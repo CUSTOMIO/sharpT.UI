@@ -10,3 +10,16 @@
   height: 80px !important;
 }
 
+@media only screen and (max-width: 600px) {
+  .text-header {
+    max-height: 30px;
+    line-height: 30px;
+  }
+
+
+  ::ng-deep .mat-tab-label {
+    font: 300 24px/30px Roboto, "Helvetica Neue", sans-serif !important;
+    height: 30px !important;
+    width: fit-content() !important;
+  }
+}

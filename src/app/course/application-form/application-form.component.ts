@@ -72,7 +72,7 @@ export class ApplicationFormComponent implements OnInit {
 
   submitForm() {
     const submitAppForm = new ApplicationForm();
- 
+    const fd = new FormData();
 
     //fd['firstName'] = this.getValue(0, 'firstName'); 
     //fd['middleName'] = this.getValue(0, 'middleName'); 
@@ -84,28 +84,28 @@ export class ApplicationFormComponent implements OnInit {
     //fd['standard'] = this.getValue(2, 'standard'); 
     //fd['school'] = this.getValue(2, 'school');
     //fd['image'] = this.formArray.controls[2].get('image').value 
-    //fd.append('firstName', this.getValue(0, 'firstName'));
-    //fd.append('middleName', this.getValue(0, 'middleName'));
-    //fd.append('lastName', this.getValue(0, 'lastName'));
-    //fd.append('email', this.getValue(1, 'email'));
-    //fd.append('studentPN', this.getValue(1, 'studentPN'))
-    //fd.append('parentPN', this.getValue(1, 'parentPN'));
-    //fd.append('address', this.getValue(1, 'address'));
-    //fd.append('standard', this.getValue(2, 'standard'));
-    //fd.append('school', this.getValue(2, 'school'));
-    //fd.append('image', this.formArray.controls[2].get('image').value,
-    //  this.formArray.controls[2].get('image').value.name);
+    fd.append('firstName', this.getValue(0, 'firstName'));
+    fd.append('middleName', this.getValue(0, 'middleName'));
+    fd.append('lastName', this.getValue(0, 'lastName'));
+    fd.append('email', this.getValue(1, 'email'));
+    fd.append('studentPN', this.getValue(1, 'studentPN'))
+    fd.append('parentPN', this.getValue(1, 'parentPN'));
+    fd.append('address', this.getValue(1, 'address'));
+    fd.append('standard', this.getValue(2, 'standard'));
+    fd.append('school', this.getValue(2, 'school'));
+    fd.append('image', this.formArray.controls[2].get('image').value,
+      this.formArray.controls[2].get('image').value.name);
 
-    submitAppForm.firstName = this.getValue(0, 'firstName');
-    submitAppForm.middleName = this.getValue(0, 'middleName');
-    submitAppForm.lastName = this.getValue(0, 'lastName');
-    submitAppForm.email = this.getValue(1, 'email');
-    submitAppForm.studentPN = this.getValue(1, 'studentPN');
-    submitAppForm.parentPN = this.getValue(1, 'parentPN');
-    submitAppForm.address = this.getValue(1, 'address');
-    submitAppForm.standard = this.getValue(2, 'standard');
-    submitAppForm.school = this.getValue(2, 'school');
-    submitAppForm.image = this.formArray.controls[2].get('image').value;
+    //submitAppForm.firstName = this.getValue(0, 'firstName');
+    //submitAppForm.middleName = this.getValue(0, 'middleName');
+    //submitAppForm.lastName = this.getValue(0, 'lastName');
+    //submitAppForm.email = this.getValue(1, 'email');
+    //submitAppForm.studentPN = this.getValue(1, 'studentPN');
+    //submitAppForm.parentPN = this.getValue(1, 'parentPN');
+    //submitAppForm.address = this.getValue(1, 'address');
+    //submitAppForm.standard = this.getValue(2, 'standard');
+    //submitAppForm.school = this.getValue(2, 'school');
+    //submitAppForm.image = this.formArray.controls[2].get('image').value;
 
     //fd.forEach((value, key) => {
     //  console.log("key %s: value %s", key, value);
@@ -123,7 +123,7 @@ export class ApplicationFormComponent implements OnInit {
 
     console.log(submitAppForm);
 
-    this.applicationFormService.postApplicationForm(submitAppForm)
+    this.applicationFormService.postApplicationForm(fd)
       .subscribe((result) => {
         console.log(result) 
       }, (error) => {
