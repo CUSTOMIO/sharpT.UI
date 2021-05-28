@@ -13,7 +13,7 @@ export class SubjectService {
   constructor(private http: HttpClient) { }
 
   public getSubject() {
-    const url = `${environment.api_endpoint}/subject?getAcive=true`;
+    const url = `${environment.api_endpoint}/subject?getActive=true`;
     return this.http.get<Subject[]>(url)
       .pipe(
         map(data =>
@@ -21,4 +21,13 @@ export class SubjectService {
         )
       );
   }
+  //public getSubjectByStandardId(standardId) {
+  //  const url = `${environment.api_endpoint}/subject/${standardId}?getActive=true`;
+  //  return this.http.get<Subject[]>(url)
+  //    .pipe(
+  //      map(data =>
+  //        data.map(x => new Subject(x))
+  //      )
+  //    );
+  //}
 }

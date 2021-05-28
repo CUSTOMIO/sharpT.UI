@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StandardService } from '../../core/data-service';
-import { Standard } from '../../core/model';
+import { StandardService, SubjectService } from '../../core/data-service';
+import { Standard, Subject } from '../../core/model';
 
 @Component({
   selector: 'app-school',
@@ -11,9 +11,12 @@ export class SchoolComponent implements OnInit {
 
   public standard: Standard[] = [];
   public courseId = 1;
+  public subject: Subject[] = [];
+  public standardId: number;
   public loading: boolean = true;
 
-  constructor(private standardService: StandardService) { }
+  constructor(private standardService: StandardService,
+    private subjectService: SubjectService  ) { }
 
 
   ngOnInit(): void {
@@ -24,6 +27,13 @@ export class SchoolComponent implements OnInit {
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
+    this.subjectService.getSubject().subscribe(res => {
+      this.subject = res;
+      console.log(res);
+      this.loading = false;
+    }, (error) => {
+      console.log(`THis is the error: ${error}`)
+    }); 
   }
 
 }

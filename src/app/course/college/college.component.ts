@@ -10,8 +10,9 @@ import { Standard, Subject } from '../../core/model';
 export class CollegeComponent implements OnInit {
 
   public standard: Standard[] = [];
-  public subject: Subject[] = [];
   public courseId = 2;
+  public subject: Subject[] = [];
+  public standardId: number;
   public loading: boolean = true;
 
   constructor(private standardService: StandardService,
@@ -21,19 +22,17 @@ export class CollegeComponent implements OnInit {
   ngOnInit(): void {
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
       this.standard = res;
-      console.log(res);
+      //console.log(res);
       this.loading = false;
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
-    this.subjectService.getSubject().subscribe(res => {
-      this.subject = res;
-      console.log(res);
-      this.loading = false;
-    }, (error) => {
-      console.log(`THis is the error: ${error}`)
-    });
-
+      this.subjectService.getSubject().subscribe(res => {
+        this.subject = res;
+        console.log(res);
+        this.loading = false;
+      }, (error) => {
+        console.log(`THis is the error: ${error}`)
+      }); 
   }
-
 }

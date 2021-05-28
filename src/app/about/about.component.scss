@@ -8,19 +8,6 @@
   display: inline-block;
 }
 
-/*BANNER*/
-.aboutus-bg {
-  background: url('/../../assets/about.gif') no-repeat;
-  background-position: center;
-  border-radius: 10px;
-  height: 323px;
-}
-
-  @media only screen and (max-width: 600px) {
-    .aboutus-bg {
-      height: 250px;
-    }
-}
 /*ABOUT US*/
 .right-content-div {
   position: relative;

@@ -1,5 +1,5 @@
 
-<div class="content p-15"
+<div class="content p-15 mb-75"
      fxLayout="column" fxLayout.sm="column"
      fxLayout.xs="column" fxLayoutGap="20px" align="center">
   <div fxFlex="60" fxFlex.sm="80" fxFlex.xs="90">
@@ -7,18 +7,17 @@
   </div>
 
   <div class="content" fxFlex="60" fxFlex.sm="80" fxFlex.xs="100" *ngFor="let s of standard">
-    <mat-card class="example-card">
+    <mat-card>
       <mat-card-header>
         <mat-card-title>{{s.name}}</mat-card-title>
       </mat-card-header>
       <mat-card-content class="pt-25" style="border-top: 1px solid #fca311;">
         <p>
-          Std. IX is the Stepping Stone to the Biggest Finale of a Child’s School Career.
-          Conceptual Clarity in Maths, Science & Languages is a must to excel in S.S.C.
+          {{s.description}}
         </p>
           <p class="ml-35" align="left">Subjects</p>
-        <div *ngFor="let sb of subject">
-          <ul align="left" >
+        <div  *ngFor="let sb of subject">
+          <ul align="left" *ngIf="sb.standardId == s.id" >
             <li>{{sb.name}}</li>
           </ul>
         </div>
