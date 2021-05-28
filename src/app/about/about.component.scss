@@ -21,7 +21,7 @@
 }
 .right-content {
   display:block;
-  width: 400px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -67,3 +67,11 @@
     width: 100%;
     height: 65%;   
 }
+
+
+@media only screen and (max-width: 600px) {
+  .mb-fix {
+      margin-bottom: -10px !important;
+  }
+}
+
