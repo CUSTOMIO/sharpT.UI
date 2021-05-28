@@ -93,8 +93,7 @@ export class ApplicationFormComponent implements OnInit {
     fd.append('address', this.getValue(1, 'address'));
     fd.append('standard', this.getValue(2, 'standard'));
     fd.append('school', this.getValue(2, 'school'));
-    fd.append('image', this.formArray.controls[2].get('image').value,
-      this.formArray.controls[2].get('image').value.name);
+    fd.append('image', this.formArray.controls[2].get('image').value);
 
     //submitAppForm.firstName = this.getValue(0, 'firstName');
     //submitAppForm.middleName = this.getValue(0, 'middleName');

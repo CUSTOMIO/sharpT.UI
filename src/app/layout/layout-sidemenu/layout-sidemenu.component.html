@@ -1,65 +1,60 @@
-<mat-sidenav-container class="sidenav-container" style="width: 100%; height: 100%;">
+<mat-sidenav-container class="sidenav-container" >
 
   <mat-sidenav #drawer class="sidenav  bgcolor-blue-light" fixedInViewport="false"
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
-               [opened]="(isHandset$ | async) === false">
+               [opened]="(isHandset$ | async) === false" id="sidenav"
+               [ngClass]="{'menu-open' : isMenuOpen, 'menu-close' : !isMenuOpen}" >
     <mat-toolbar>
-      <mat-list-item *ngIf="showNav">Menu</mat-list-item>
+      <mat-list-item  *ngIf="isMenuOpen" >Menu</mat-list-item>
       <span *ngIf="!(isHandset$ | async)">
-        <i *ngIf="!showNav" (click)="showNav = !showNav" class="fas fa-chevron-right fa-2x"></i>
-        <i *ngIf="showNav" (click)="showNav = !showNav" class="fas fa-chevron-left fa-2x"></i>
+        <mat-icon (click)="toggleMenu()">menu</mat-icon>
       </span>
     </mat-toolbar>
     <mat-nav-list>
       <mat-list-item [routerLink]="['/']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}">
+                     [routerLinkActiveOptions]="{exact: true}" role="main">
         <i class="fas fa-home fa-lg m-10 color-yellow"></i>
-        <span *ngIf="showNav">Home</span>
+        <span *ngIf="isMenuOpen">Home</span>
       </mat-list-item>
       <mat-list-item [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}">
+                     [routerLinkActiveOptions]="{exact: true}" role="main">
         <i class="fas fa-address-card m-10 fa-lg color-yellow"></i>
-        <span *ngIf="showNav">About</span>
+        <span *ngIf="isMenuOpen">About</span>
       </mat-list-item>
-      <!--<mat-list-item [routerLink]="['/course']" [routerLinkActive]="['active-nav-item']"
-                 [routerLinkActiveOptions]="{exact: true}">
-    <i class="fas fa-book fa-lg m-10 color-yellow"></i>
-    <span *ngIf="showNav">Course</span>
-  </mat-list-item>-->
-      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" 
+      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent"
                      [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}">
         <span class="full-width" *ngIf="isExpanded || isShowing">
           <i class="fas fa-book fa-lg m-10 color-yellow"></i>
-          Course
+          <span *ngIf="isMenuOpen">Course</span>
         </span>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">
           expand_more
         </mat-icon>
       </mat-list-item>
-      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded && isMenuOpen">
         <a mat-list-item href="..." *ngFor="let c of course" routerLink="/course/{{c.name.toLowerCase()}}">{{c.name}}</a>
       </div>
       <mat-list-item [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}">
+                     [routerLinkActiveOptions]="{exact: true}" role="main">
         <i class="fas fa-quote-right fa-lg m-10 color-yellow"></i>
-        <span *ngIf="showNav">Testimonials</span>
+        <span *ngIf="isMenuOpen">Testimonials</span>
       </mat-list-item>
       <mat-list-item [routerLink]="['/results']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}">
+                     [routerLinkActiveOptions]="{exact: true}" role="main">
         <i class="fas fa-poll fa-lg m-10 color-yellow"></i>
-        <span *ngIf="showNav">Results</span>
+        <span *ngIf="isMenuOpen">Results</span>
       </mat-list-item>
       <mat-list-item [routerLink]="['/blog']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}">
+                     [routerLinkActiveOptions]="{exact: true}" role="main">
         <i class="fas fa-blog fa-lg m-10 color-yellow"></i>
-        <span *ngIf="showNav">Blog</span>
+        <span *ngIf="isMenuOpen">Blog</span>
       </mat-list-item>
       <mat-list-item [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}">
+                     [routerLinkActiveOptions]="{exact: true}" role="main">
         <i class="fas fa-address-book fa-lg m-10 color-yellow"></i>
-        <span *ngIf="showNav">Contact Us</span>
+        <span *ngIf="isMenuOpen">Contact Us</span>
       </mat-list-item>
 
 
@@ -76,7 +71,7 @@
               aria-label="Toggle sidenav"
               mat-icon-button
               (click)="drawer.toggle()">
-        <i class="fas fa-chevron-right fa-2x"></i>
+        <mat-icon>menu</mat-icon>
       </button>
     </mat-toolbar>
 
@@ -85,4 +80,3 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-

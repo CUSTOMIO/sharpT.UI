@@ -10,7 +10,7 @@ import { Course } from '../../core/model';
   templateUrl: './layout-sidemenu.component.html',
   styleUrls: ['./layout-sidemenu.component.scss']
 })
-export class LayoutSidemenuComponent implements OnInit{
+export class LayoutSidemenuComponent implements OnInit {
 
   public course: Course[];
   isExpanded = true;
@@ -18,13 +18,16 @@ export class LayoutSidemenuComponent implements OnInit{
   isShowing = false;
   showSubSubMenu: boolean = false;
 
+  isMenuOpen = true;
+  contentMargin = 240;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
-  );
+    );
 
-  public showNav: boolean = true;
+
 
   constructor(private breakpointObserver: BreakpointObserver,
     private courseService: CourseService) { }
@@ -35,5 +38,16 @@ export class LayoutSidemenuComponent implements OnInit{
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
+  }
+
+  toggleMenu() {
+    console.log('On toolbar toggled', this.isMenuOpen);
+    this.isMenuOpen = !this.isMenuOpen;
+
+    if (!this.isMenuOpen) {
+      this.contentMargin = 70;
+    } else {
+      this.contentMargin = 240;
+    }
   }
 }

@@ -15,7 +15,7 @@
 }
 
 .mat-expansion-panel-header {
-    overflow: auto !important
+  overflow: auto !important
 }
 
 
@@ -45,4 +45,18 @@
   transition: 1s;
   display: block;
   transform: scaleY(1);
+}
+
+.mat-icon {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+#sidenav.menu-close {
+  width: 70px !important
+}
+
+#sidenav.menu-open {
+  width: 240px !important
 }

@@ -3,14 +3,19 @@
   width: 90%;
 }
 
+
+.img-course {
+  padding: 10px 0;
+  width: 400px;
+  margin: 0 auto;
+}
+
 @media only screen and (max-width: 600px) {
   .content {
     width: 100%;
   }
-}
 
-
-.img-course {
-  height: 300px;
-  margin: 0 auto;
+  .img-course {
+    width: 250px;
+  }
 }
