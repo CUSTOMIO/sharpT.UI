@@ -13,13 +13,11 @@ import { Course } from '../../core/model';
 export class LayoutSidemenuComponent implements OnInit {
 
   public course: Course[];
-  isExpanded = true;
-  showSubmenu: boolean = false;
-  isShowing = false;
-  showSubSubMenu: boolean = false;
-
-  isMenuOpen = true;
   contentMargin = 240;
+  isExpanded = true;
+  isMenuOpen = true;
+  isShowing = false;
+  showSubmenu: boolean = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -27,9 +25,8 @@ export class LayoutSidemenuComponent implements OnInit {
       shareReplay()
     );
 
-
-
-  constructor(private breakpointObserver: BreakpointObserver,
+  constructor(
+    private breakpointObserver: BreakpointObserver,
     private courseService: CourseService) { }
 
   ngOnInit(): void {
@@ -41,7 +38,6 @@ export class LayoutSidemenuComponent implements OnInit {
   }
 
   toggleMenu() {
-    console.log('On toolbar toggled', this.isMenuOpen);
     this.isMenuOpen = !this.isMenuOpen;
 
     if (!this.isMenuOpen) {

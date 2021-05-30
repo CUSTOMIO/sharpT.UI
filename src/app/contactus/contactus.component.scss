@@ -11,12 +11,17 @@
 .contact-div {
   width: 100%;
 
+  .detail-container {
+    display: flex;
+    align-items: center;
+  }
+
   .detail-field {
     padding: 0px 10px 0px 10px;
   }
 
   .detail-value {
-    margin: 0px 10px 0px 50px;
+    padding-left: 10px;
     color: black;
   }
 

@@ -35,11 +35,12 @@
   <mat-step completed="false" [stepControl]="formArray?.get([2])">
     <ng-template matStepLabel>Course</ng-template>
     <app-course-details [formGroup]="formArray?.get([2])"></app-course-details>
+    <button mat-button matStepperNext (click)="loadMyChildComponent();">Next</button>
   </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>Review</ng-template>
-    <app-review-details [formGroup]="appForm"></app-review-details>
+    <app-review-details *ngIf= 'loadComponent' [formGroup]="appForm"></app-review-details>
     <button type="submit" mat-raised-button (click)="submitForm()">Submit Button</button>
   </mat-step>
 

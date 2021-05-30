@@ -15,6 +15,7 @@ import { ApplicationForm } from '../../core/model/index';
 export class ApplicationFormComponent implements OnInit {
   public appForm: FormGroup;
   public imageURL: string;
+  public loadComponent: boolean = false;
   
   get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
 
@@ -39,14 +40,14 @@ export class ApplicationFormComponent implements OnInit {
         this.formBuilder.group({
           standard: [null, [Validators.required, this.whitespaceValidator]],
           school: [null, [Validators.required, this.whitespaceValidator]],
-          image: [null, [Validators.required]]
+          image: [null, [Validators.required]],
+          imageBase64: [null]
         })
       ])
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   public whitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
@@ -68,6 +69,10 @@ export class ApplicationFormComponent implements OnInit {
         }
       }
     }
+  }
+
+  loadMyChildComponent() {
+    this.loadComponent = true;
   }
 
   submitForm() {
@@ -120,14 +125,11 @@ export class ApplicationFormComponent implements OnInit {
     //console.log(this.formArray.controls[2].get('image').value);
     //this.formArray.controls[2].get('image').value
 
-    console.log(submitAppForm);
-
     this.applicationFormService.postApplicationForm(fd)
       .subscribe((result) => {
         console.log(result) 
       }, (error) => {
           console.log(error)
       })
-    
   }
 }

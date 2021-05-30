@@ -15,25 +15,13 @@ export class ElementsReviewDetails implements OnInit {
   constructor(
     private controlContainer: ControlContainer
   ) { }
-  
+
   ngOnInit() {
     this.appForm = this.controlContainer.control as FormGroup;
+    this.imageURL = this.appForm.value.formArray[2].imageBase64
   }
 
   getValue(index: number, controlName: string) {
-    if (this.formArray && this.formArray.controls[index]) {
-      if (this.formArray.controls[index].get(controlName).value) {
-        if (controlName === 'image') {
-          const reader = new FileReader();
-          reader.onload = () => {
-            this.imageURL = reader.result as string;
-          }
-     
-          reader.readAsDataURL(this.formArray.controls[2].get('image').value);
-        } else {
-          return this.formArray.controls[index].get(controlName).value
-        }
-      }
-    }
+    return this.formArray.controls[index].get(controlName).value
   }
 }

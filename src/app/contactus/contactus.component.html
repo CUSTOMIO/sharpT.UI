@@ -1,6 +1,6 @@
 <div>
   <div class="reachus-header">
-    <div class="mat-display-2 reachus-header-text ml-20">
+    <div class="mat-display-1 reachus-header-text ml-20">
       <i class="fas fa-user-friends fa-sm"></i>
       REACH US
     </div>
@@ -10,54 +10,45 @@
        fxLayout="row" fxLayout.xs="column" fxLayout.sm="column"
        fxLayoutGap="20px">
     <div fxFlex="48" fxFlex.xs="100" fxFlex.sm="100"
-         fxLayoutGap="20px" class="contact-detail" align="left">
-      <p class="mat-display-1 m-20" align="center">Contact Detail</p>
+         fxLayoutGap="20px" class="contact-detail pl-25" align="left">
+      <p class="mat-headline m-20" align="center">Contact Detail</p>
 
-      <div class="detail-container mb-25">
-        <p class="mat-title detail-field m-0">
-          <i class="fas fa-map-signs m-10 fa-sm">
-          </i>Address
-        </p>
-        <p class="subheading-2 detail-value">
+      <div class="mb-25">
+          <i class="fas fa-map-signs fa-sm pt-10" style="float: left"></i>
+        <p class="mat-body-2 detail-value ml-10">
           Murga Giran chsg, opposite Hotel Kalpana Palace, near Daulat
           Complex, Grant Road(East), Mumbai 400 008
         </p>
       </div>
 
-      <div class="detail-container mb-25">
-        <p class="mat-title detail-field m-0">
-          <i class="fas fa-phone m-10 fa-sm"></i>Mobile N0.
-        </p>
-        <a class="subheading-2	 detail-value"
-           href="tel:+919167945708"
-           matTooltip="Click on me to send a mail!"
-           matTooltipPosition="before">
-          +91 9167945708
-        </a>
+      <div class="detail-container mb-25 ">
+          <i class="fas fa-phone fa-sm" style="float: left"></i>
+          <a class="mat-body-2 detail-value"
+             href="tel:+919167945708"
+             matTooltip="Click on me to send a mail!"
+             matTooltipPosition="before">
+            +91 9167945708
+          </a> 
       </div>
 
       <div class="detail-container mb-25">
-        <p class="mat-title detail-field m-0">
-          <i class="fas fa-tty m-10 fa-sm"></i>Telephone No.
-        </p>
-        <a class="subheading-2	 detail-value"
+        <i class="fas fa-tty fa-sm" style="float: left"></i>
+        <a class="mat-body-2 detail-value"
            href="tel:+917021186955"
            matTooltip="Click on me to send a mail!"
            matTooltipPosition="before">
-          +91 70211 86955
+          +91 7021186955
         </a>
       </div>
 
       <div class="detail-container mb-25">
-        <p class="mat-title detail-field m-0">
-          <i class="fas fa-at m-10 fa-sm"></i>Email
-        </p>
-        <a class="subheading-2 detail-value"
-           href="mailto:info@sharptutorials.com"
-           matTooltip="Click on me to send a mail!"
-           matTooltipPosition="before">
-          info@sharptutorials.com
-        </a>
+          <i class="fas fa-at fa-sm" style="float: left"></i>
+          <a class="mat-body-2 detail-value"
+             href="mailto:info@sharptutorials.com"
+             matTooltip="Click on me to send a mail!"
+             matTooltipPosition="before">
+            info@sharptutorials.com
+          </a>
       </div>
     </div>
 
@@ -65,7 +56,7 @@
          class="contact-form flex-child pl-10 pr-10" align="center">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Fill in the Form to Secure a Strong Foundation For Your Child's Career</mat-card-title>
+          <mat-card-title class="mat-headline" >Fill in the Form to Secure a Strong Foundation For Your Child's Career</mat-card-title>
         </mat-card-header>
           <div class="p-20">
         <form [formGroup]="contactUs" (ngSubmit)="onSubmit()">
@@ -81,24 +72,18 @@
             </mat-form-field>
 
             <mat-form-field appearance="standard" style="width: 100% !important">
-              <mat-label>Standard</mat-label>
-              <input matInput formControlName="standard">
-            </mat-form-field>
-
-            <mat-form-field appearance="standard" style="width: 100% !important">
               <mat-label>Message</mat-label>
-              <input matInput formControlName="message">
+              <textarea matInput formControlName="message"></textarea>
             </mat-form-field>
-          <button type="submit" [disabled]="!contactUs.valid" mat-button class="bgcolor-yellow">Submit</button>
+          <button type="submit" [disabled]="!contactUs.valid"
+                  mat-button class="bgcolor-yellow" >Submit</button>
         </form>
         </div>
-      
        
       </mat-card>
     </div>
   </div>
 </div>
-
 
 <div class="map-div">
   <div class="map">

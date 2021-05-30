@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-
+import { ReachUsService } from './../core/data-service'
+import { ReachUs } from './../core/model'
 
 @Component({
   selector: 'app-contactus',
@@ -9,10 +10,9 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class ContactusComponent implements OnInit {
 
-  contactUs: any; 
+  contactUs: any = ReachUs['']; 
 
- 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private reachusService: ReachUsService) { }
 
   ngOnInit(): void {
     this.contactUs = this.fb.group({
@@ -22,9 +22,6 @@ export class ContactusComponent implements OnInit {
       email: ['',
         [Validators.required, Validators.email,
         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]
-      ],
-      standard: ['',
-        [Validators.required]
       ],
       message: ['',
         [Validators.required]
@@ -37,6 +34,12 @@ export class ContactusComponent implements OnInit {
   }
 
   onSubmit() {
-    console.warn(this.contactUs.value);
+    console.log(this.contactUs)
+    this.reachusService.postReachus(this.contactUs.value)
+      .subscribe((result) => {
+        console.log(result)
+      }, (error) => {
+        console.log(error)
+      })
   }
 }
