@@ -11,22 +11,22 @@
     </button>
   </span>
   <img class="logo-img m-10" src="./assets/logo_notext.jpg" />
-  <span class="title">Sharp Tutorials</span>
+  <span class="title color-not-so-black">Sharp Tutorials</span>
   <div class="social-icon">
     <a href="https://www.instagram.com/sharptutorials_/">
-      <i class="fab fa-instagram fa-lg mr-10"></i>
+      <i class="fab fa-instagram fa-lg mr-10 color-not-so-black"></i>
     </a>
     <a href="https://www.facebook.com/632508334061501/posts/632574827388185/">
-      <i class="fab fa-facebook fa-lg mr-10"></i>
+      <i class="fab fa-facebook fa-lg mr-10 color-not-so-black"></i>
     </a>
     <a href="https://www.linkedin.com/company/sharp-tutorials/">
-      <i class="fab fa-linkedin fa-lg mr-10"></i>
+      <i class="fab fa-linkedin fa-lg mr-10 color-not-so-black"></i>
     </a>
     <a href="https://www.youtube.com/channel/UCid9_yoxEfu02gtVXItEiYQ?app=desktop">
-      <i class="fab fa-youtube fa-lg mr-10"></i>
+      <i class="fab fa-youtube fa-lg mr-10 color-not-so-black"></i>
     </a>
     <a href="https://wa.me/917021186955?text=I%27m%20Interested%20with%20Sharp%20Tutorials">
-      <i class="fab fa-whatsapp fa-lg"></i>
+      <i class="fab fa-whatsapp fa-lg color-not-so-black"></i>
     </a>
   </div>
 </mat-toolbar>
@@ -45,19 +45,19 @@
     <mat-nav-list>
       <mat-list-item [routerLink]="['/']" [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-home fa-lg m-10"></i>
+        <i class="fas fa-home fa-lg m-10 color-not-so-black"></i>
         <span *ngIf="isMenuOpen">Home</span>
       </mat-list-item>
       <mat-list-item [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-address-card m-10 fa-lg"></i>
+        <i class="fas fa-address-card m-10 fa-lg color-not-so-black"></i>
         <span *ngIf="isMenuOpen">About</span>
       </mat-list-item>
       <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent"
                      [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}">
         <span class="full-width" *ngIf="isExpanded || isShowing">
-          <i class="fas fa-book fa-lg m-10"></i>
+          <i class="fas fa-book fa-lg m-10 color-not-so-black"></i>
           <span *ngIf="isMenuOpen">Course</span>
         </span>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}"
@@ -70,22 +70,22 @@
       </div>
       <mat-list-item [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-quote-right fa-lg m-10"></i>
+        <i class="fas fa-quote-right fa-lg m-10 color-not-so-black"></i>
         <span *ngIf="isMenuOpen">Testimonials</span>
       </mat-list-item>
       <mat-list-item [routerLink]="['/results']" [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-poll fa-lg m-10"></i>
+        <i class="fas fa-poll fa-lg m-10 color-not-so-black"></i>
         <span *ngIf="isMenuOpen">Results</span>
       </mat-list-item>
       <mat-list-item [routerLink]="['/blog']" [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-blog fa-lg m-10"></i>
+        <i class="fas fa-blog fa-lg m-10 color-not-so-black"></i>
         <span *ngIf="isMenuOpen">Blog</span>
       </mat-list-item>
       <mat-list-item [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-address-book fa-lg m-10"></i>
+        <i class="fas fa-address-book fa-lg m-10 color-not-so-black"></i>
         <span *ngIf="isMenuOpen">Contact Us</span>
       </mat-list-item>
     </mat-nav-list>

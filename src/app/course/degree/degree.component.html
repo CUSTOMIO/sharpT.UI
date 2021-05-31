@@ -26,9 +26,7 @@
   <div *ngIf="standard.length === 0 && !loading">
     No courses found
   </div>
-  <div *ngIf="loading">
-    loading ...
-  </div>
+  <mat-spinner *ngIf="loading"></mat-spinner>
 </div>
 
 
