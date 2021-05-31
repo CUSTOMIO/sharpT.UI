@@ -8,61 +8,58 @@
   }
 }
 
-.contact-div {
-  width: 100%;
-
-  .detail-container {
-    display: flex;
-    align-items: center;
-  }
-
-  .detail-field {
-    padding: 0px 10px 0px 10px;
-  }
-
-  .detail-value {
-    padding-left: 10px;
-    color: black;
-  }
+.contact-element {
+  margin-left: 20px;
 
   a {
-    display: block;
+    color: black;
   }
 }
 
 
-.map-div {
-    background-color: #EFEFEF;
-    padding: 30px;
-  .map {
-    border-radius: 10px;
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
-  }
-  .map iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  }
+
+.map {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  width: 100%;
 }
+
+.map iframe {
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 95%;
+  height: 409.38px;
+  border: 0;
+}
+
+
+.fas.address {
+  /*display: inline-block;*/
+  line-height: 40px;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.phone {
+  height: 30px;
+}
+
 
 @media only screen and (max-width: 600px) {
-   .map-div {
-    padding: 10px;
+  .map-div {
+    margin: 0 auto;
   }
+
   .contact-form {
     border-radius: 0px;
     box-shadow: none;
+    margin-top: 50px;
   }
+
   .reachus-header-text {
     margin-left: 0px;
-  }
-  .coontact-detail {
-      margin: 5px;
-      padding-right: 0;
   }
 }

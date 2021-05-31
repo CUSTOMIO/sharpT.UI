@@ -13,7 +13,7 @@ import { Course } from '../../core/model';
 export class LayoutSidemenuComponent implements OnInit {
 
   public course: Course[];
-  contentMargin = 240;
+  contentMargin = 200;
   isExpanded = true;
   isMenuOpen = true;
   isShowing = false;
@@ -43,7 +43,7 @@ export class LayoutSidemenuComponent implements OnInit {
     if (!this.isMenuOpen) {
       this.contentMargin = 70;
     } else {
-      this.contentMargin = 240;
+      this.contentMargin = 200;
     }
   }
 }

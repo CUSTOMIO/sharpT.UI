@@ -1,15 +1,47 @@
-<mat-sidenav-container class="sidenav-container" >
+<mat-toolbar class="bgcolor-yellow-light bottom-shadow">
+  <span class="mat-button" *ngIf="!(isHandset$ | async)">
+    <mat-icon (click)="toggleMenu()">menu</mat-icon>
+  </span>
+  <span *ngIf="(isHandset$ | async)">
+    <button type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </span>
+  <img class="logo-img m-10" src="./assets/logo_notext.jpg" />
+  <span class="title">Sharp Tutorials</span>
+  <div class="social-icon">
+    <a href="https://www.instagram.com/sharptutorials_/">
+      <i class="fab fa-instagram fa-lg mr-10"></i>
+    </a>
+    <a href="https://www.facebook.com/632508334061501/posts/632574827388185/">
+      <i class="fab fa-facebook fa-lg mr-10"></i>
+    </a>
+    <a href="https://www.linkedin.com/company/sharp-tutorials/">
+      <i class="fab fa-linkedin fa-lg mr-10"></i>
+    </a>
+    <a href="https://www.youtube.com/channel/UCid9_yoxEfu02gtVXItEiYQ?app=desktop">
+      <i class="fab fa-youtube fa-lg mr-10"></i>
+    </a>
+    <a href="https://wa.me/917021186955?text=I%27m%20Interested%20with%20Sharp%20Tutorials">
+      <i class="fab fa-whatsapp fa-lg"></i>
+    </a>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav  bgcolor-blue-light" fixedInViewport="false"
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false" id="sidenav"
-               [ngClass]="{'menu-open' : isMenuOpen, 'menu-close' : !isMenuOpen}" >
-    <mat-toolbar>
-      <mat-list-item  *ngIf="isMenuOpen" class="ml-40">Menu</mat-list-item>
+               [ngClass]="{'menu-open' : isMenuOpen, 'menu-close' : !isMenuOpen}">
+    <!--<mat-toolbar>
+      <mat-list-item *ngIf="isMenuOpen" class="ml-40">Menu</mat-list-item>
       <span *ngIf="!(isHandset$ | async)">
         <mat-icon (click)="toggleMenu()">menu</mat-icon>
       </span>
-    </mat-toolbar>
+    </mat-toolbar>-->
     <mat-nav-list>
       <mat-list-item [routerLink]="['/']" [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}" role="main">
@@ -29,7 +61,7 @@
           <span *ngIf="isMenuOpen">Course</span>
         </span>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}"
-                  *ngIf="(isExpanded || isShowing) && isMenuOpen" style="color: #b5b5b5" >
+                  *ngIf="(isExpanded || isShowing) && isMenuOpen" style="color: #b5b5b5">
           expand_more
         </mat-icon>
       </mat-list-item>
@@ -58,8 +90,8 @@
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar p-0 *ngIf="(isHandset$ | async)">
+  <mat-sidenav-content [ngStyle]="{ 'margin-left.px': contentMargin, 'transition': '300ms' }">
+    <!--<mat-toolbar p-0 *ngIf="(isHandset$ | async)">
       <button type="button"
               class="mr-16"
               aria-label="Toggle sidenav"
@@ -67,7 +99,7 @@
               (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-    </mat-toolbar>
+    </mat-toolbar>-->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
