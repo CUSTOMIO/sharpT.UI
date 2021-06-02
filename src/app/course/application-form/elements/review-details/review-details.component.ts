@@ -13,8 +13,7 @@ export class ElementsReviewDetails implements OnInit {
   get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
 
   constructor(
-    private controlContainer: ControlContainer
-  ) { }
+    private controlContainer: ControlContainer) { }
 
   ngOnInit() {
     this.appForm = this.controlContainer.control as FormGroup;

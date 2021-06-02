@@ -80,3 +80,11 @@ body {
   border-radius: 10px;
 }
 
+
+@media screen and (max-width: 600px) {
+  .m-mq-auto {
+    margin: 0 auto;
+  }
+}
+ 
+

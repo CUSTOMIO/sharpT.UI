@@ -41,6 +41,7 @@
   <mat-step>
     <ng-template matStepLabel>Review</ng-template>
     <app-review-details *ngIf= 'loadComponent' [formGroup]="appForm"></app-review-details>
+    <button mat-raised-button (click)="openDialog()">Verify</button>
     <button type="submit" mat-raised-button (click)="submitForm()">Submit Button</button>
   </mat-step>
 
