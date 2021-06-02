@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormArray, FormGroup,  Validators, FormControl } from '@angular/forms';
 import { ApplicationFormService } from '../../core/data-service/index';
 import { ApplicationForm } from '../../core/model/index';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { VerifyComponent } from './elements/verify/verify.component'
 
 @Component({
   selector: 'app-application-form',
@@ -17,6 +18,7 @@ export class ApplicationFormComponent implements OnInit {
   public appForm: FormGroup;
   public imageURL: string;
   public loadComponent: boolean = false;
+  public sendEmail: boolean = true;
   
   get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
 
@@ -78,12 +80,14 @@ export class ApplicationFormComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(VerifyComponent, {
-      width: '250px',
+      width: '350px',
+      data: { email: this.getValue(1, 'email'), sendEmail: this.sendEmail }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+    this.sendEmail = false
   }
 
   submitForm() {
@@ -146,12 +150,4 @@ export class ApplicationFormComponent implements OnInit {
 }
 
 
-@Component({
-  selector: 'app-verify',
-  templateUrl: './verify.component.html',
-})
-export class VerifyComponent {
 
-  constructor() { }
-
-}

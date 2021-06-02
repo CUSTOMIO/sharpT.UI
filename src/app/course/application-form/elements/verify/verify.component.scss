@@ -1,0 +1,23 @@
+.verify-body {
+    position: relative;
+}
+
+.resend-container {
+    margin-top: 10.5px;
+  color: grey;
+  font-size: 75%;
+  .resend {
+    text-decoration: underline;
+    cursor: pointer;
+    color: black !important
+  }
+}
+
+.email{
+    font-weight: 500
+}
+
+.mat-form-field {
+    width: 140px !important;
+    margin-right: 20px;
+}

@@ -1,0 +1,19 @@
+<div class="verify-body">
+  <h1 mat-dialog-title>Verify Email</h1>
+  <div mat-dialog-content>
+    <p>An OTP is send to <span class="email" [innerHtml]="data.email"></span></p>
+    <form [formGroup]="verifyForm">
+      <mat-form-field class="m-mq-auto" appearance="standard">
+        <mat-label>Type your OTP here</mat-label>
+        <input matInput type="text"
+               inputmode="numeric"
+               autocomplete="one-time-code"
+               pattern="\d{6}"
+               formControlName="otp">
+      </mat-form-field>
+      <button class="m-mq-auto" type="submit" mat-stroked-button (click)="verifyOtp()">Verify OTP</button>
+    </form>
+      <p class="resend-container">Didn't recieve? <span class="resend" (click)="generateOtp()">Resend</span></p>
+  </div>
+</div>
+

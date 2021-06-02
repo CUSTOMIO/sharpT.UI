@@ -81,9 +81,10 @@ body {
 }
 
 
-@media screen and (max-width: 600px) {
+@media  (max-width: 600px) {
   .m-mq-auto {
-    margin: 0 auto;
+    display: block !important;
+    margin: 0 auto !important;
   }
 }
  
