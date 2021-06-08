@@ -11,8 +11,14 @@
                pattern="\d{6}"
                formControlName="otp">
       </mat-form-field>
-      <button class="m-mq-auto" type="submit" mat-stroked-button (click)="verifyOtp()">Verify OTP</button>
+      <button class="m-mq-auto"
+              type="submit"
+              mat-stroked-button
+              (click)="verifyOtp()"
+              [mat-dialog-close]="data.submitButton">Verify OTP</button>
     </form>
+    <p *ngIf="successMessage" [innerHtml]="successMessage.result"></p>
+    <span *ngIf="errorMessage">Your email is incorrect</span>
       <p class="resend-container">Didn't recieve? <span class="resend" (click)="generateOtp()">Resend</span></p>
   </div>
 </div>

@@ -1,0 +1,10 @@
+.card {
+  max-width: 100%;
+  height: fit-content();
+  margin: 10px;
+
+  .border-top {
+    border-top: 1px solid black;
+  }
+}
+

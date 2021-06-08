@@ -13,9 +13,9 @@
         <p class="mat-subheading-1" [innerHtml]="s.description"></p>
         <p class="ml-35 mat-h3" align="left">Subjects</p>
         <div *ngFor="let sb of subject">
-          <mat-list role="list" align="left" *ngIf="sb.standardId == s.id">
-            <mat-list-item class="mat-h3" role="listitem" [innerHtml]="sb.name"></mat-list-item>
-          </mat-list>
+          <ul align="left" *ngIf="sb.standardId == s.id">
+            <li class="list-item" role="listitem" [innerHtml]="sb.name"></li>
+          </ul> 
         </div>
       </mat-card-content>
       <mat-card-actions>

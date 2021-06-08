@@ -10,11 +10,15 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class VerifyComponent implements OnInit {
 
-  public verifyForm: FormGroup; 
+  public verifyForm: FormGroup;
+  public successMessage: object;
+  public errorMessage: boolean;
+  public isVerified: boolean = false;
+  public verifyMessage: object;
   
   constructor(private authService: AuthService,
     private formbuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: { email: string, sendEmail: boolean }) {
+    @Inject(MAT_DIALOG_DATA) public data: { email: string, sendEmail: boolean, submitButton: boolean }) {
   }
 
   ngOnInit() {
@@ -32,20 +36,38 @@ export class VerifyComponent implements OnInit {
     this.authService.generateOtp(this.data.email)
       .subscribe({
         next: data => {
-          console.log('Data: ' + data)
+          if (data) {
+            this.successMessage = data;
+            console.log(this.successMessage)
+          }
         },
         error: error => {
-          console.error('There was an error!', error);
+          if (error) {
+            this.errorMessage = true;
+            console.log(this.errorMessage)
+          }
         }
       })
   }
 
   verifyOtp() {
-    console.log(this.verifyForm)
+    console.log(this.verifyForm.value)
     this.authService.VerifyOtp(this.verifyForm.value)
-      .subscribe(result => {
-        console.log(result)
-      }, err => console.log(err))
+      .subscribe({
+        next: data => {
+          if (data) {
+            console.log(this.data.submitButton)
+            this.data.submitButton = true;
+            console.log(this.data.submitButton)
+            this.verifyMessage = data;
+            console.log(this.verifyMessage)
+
+          }
+        },
+        error: error => {
+          console.log(error)
+        }
+      })
   }
 
 }

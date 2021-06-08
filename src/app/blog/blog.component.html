@@ -1,1 +1,26 @@
-<p>blog works!</p>
+<mat-grid-list class="m-20 mt-50" #grid [cols]="cols" rowHeight="1:1" *ngIf="blog">
+  <mat-grid-tile align="center" *ngFor="let b of blog">
+    <mat-card appMaterialElevation class="card">
+      <mat-card-header class="mt-10">
+        <mat-card-title [innerHtml]="b.title">
+        </mat-card-title>
+        <mat-card-subtitle class="pt-10" [innerHtml]="b.published"></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="border-top pt-20">
+        <p [innerHtml]="b.content"></p>
+      </mat-card-content>
+      <mat-card-actions class="pb-8">
+        <p></p>
+        <button mat-button style="background-color: #f2eee6;" [routerLink]="[b.id]">Read</button>
+        <button mat-button style="background-color: #f2eee6;">Share</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+  <mat-grid-tile>5</mat-grid-tile>
+  <mat-grid-tile>6</mat-grid-tile>
+  <mat-grid-tile>7</mat-grid-tile>
+  <mat-grid-tile>8</mat-grid-tile>
+</mat-grid-list>

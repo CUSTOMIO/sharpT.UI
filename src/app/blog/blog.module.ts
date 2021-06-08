@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/shared.module';
 import { BlogRoutingModule, routedComponents } from './blog-routing.module';
-
+import { MaterialElevationDirective } from './material-elevation.directive';
 
 @NgModule({
   imports: [
@@ -13,6 +13,7 @@ import { BlogRoutingModule, routedComponents } from './blog-routing.module';
   ],
   declarations: [
     routedComponents,
+    MaterialElevationDirective
   ],
   providers: [
   ]

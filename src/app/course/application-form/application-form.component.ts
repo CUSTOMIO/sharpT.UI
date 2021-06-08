@@ -19,6 +19,7 @@ export class ApplicationFormComponent implements OnInit {
   public imageURL: string;
   public loadComponent: boolean = false;
   public sendEmail: boolean = true;
+  public submitButton: boolean = false;
   
   get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
 
@@ -81,11 +82,16 @@ export class ApplicationFormComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(VerifyComponent, {
       width: '350px',
-      data: { email: this.getValue(1, 'email'), sendEmail: this.sendEmail }
+      data: {
+        email: this.getValue(1, 'email'),
+        sendEmail: this.sendEmail,
+        submitButton: this.submitButton
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      console.log(this.submitButton);
     });
     this.sendEmail = false
   }
