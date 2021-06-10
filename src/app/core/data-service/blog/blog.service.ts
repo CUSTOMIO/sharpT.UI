@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../../environments/environment';
-import { Blog } from '../../model';
+import { BlogById, Blog } from '../../model';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -20,5 +20,16 @@ export class BlogService {
           data.map(x => new Blog(x))
         )
       );
+  }
+
+  public getBlogbyId(id) {
+    const url = `${environment.api_endpoint}/blog/${id}`;
+  
+    return this.http.get<BlogById[]>(url)
+        //.pipe(
+        //  map(data =>
+        //    data.map(x => new BlogById(x))
+        //  )
+        //);
   }
 }

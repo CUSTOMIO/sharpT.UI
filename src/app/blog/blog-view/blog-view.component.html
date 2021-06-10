@@ -1,0 +1,19 @@
+<div class="main pb-75" *ngIf="!isLoading">
+  <div class="img-div">
+    <img src="assets/blog.png" />
+  </div>
+  <div class="container" align="center" *ngIf="blog">
+    <p class="mat-display-1" [innerHtml]="blog.title"></p>
+    <p class="mat-subtitle" [innerHtml]="blog.published"></p>
+    <p class="mat-subtitle" [innerHtml]="blog.updated"></p>
+    <p class="mat-subheading-2" [innerHtml]="blog.content"></p>
+    <p class="mat-subheading-2" [innerHtml]="blog.content"></p>
+    <p class="mat-subheading-2" [innerHtml]="blog.content"></p>
+  </div>
+</div>
+
+<!--<mat-spinner *ngIf="isLoading"></mat-spinner>-->
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
+
+<!--<iframe src="https://sharptutorials-howto.blogspot.com/2021/06/this-is-second-post.html" allowFullscreen="" height="100%" width="100%"></iframe>-->

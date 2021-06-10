@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { BlogService } from '../core/data-service';
-import { Blog } from '../core/model';
 
 @Component({
   selector: 'app-blog',
@@ -13,6 +12,7 @@ export class BlogComponent implements OnInit {
   raisedElevation = 8;
 
   public blog: Array<object>;
+  isLoading: boolean = true;
 
   cols: number;
 
@@ -56,6 +56,7 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.blogService.getBlog().subscribe(res => {
       this.blog = res;
+      this.isLoading = false
       console.log(this.blog)
       }, (error) => {
         console.log(`THis is the error: ${error}`)

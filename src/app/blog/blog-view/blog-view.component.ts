@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogService } from '../../core/data-service';
 
 @Component({
   selector: 'app-blog-view',
@@ -7,8 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogViewComponent implements OnInit {
 
-  constructor(){}
+  bodyTag: HTMLBodyElement = document.getElementsByTagName('body')[0];
 
-  ngOnInit() {}
+  blogId: number;
+  blog: object;
+
+  isLoading: boolean = true;
+
+  constructor(private activatedRoute: ActivatedRoute,
+    private blogService: BlogService) { }
+
+  ngOnInit() {
+    this.bodyTag.classList.add('main');
+
+    this.activatedRoute.params.subscribe(params => {
+      this.blogId = params.id;
+      console.log(this.blogId)
+    });
+    this.blogService.getBlogbyId(this.blogId).subscribe(res => {
+      this.blog = res;
+      this.isLoading = false;
+      console.log(this.blog)
+    }, (error) => {
+      console.log(`THis is the error: ${error}`)
+    });
+  }
+  ngOnDestroy() {
+    // remove the the body classes
+    this.bodyTag.classList.remove('main');
+   }
 
 }
