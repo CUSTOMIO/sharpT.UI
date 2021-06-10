@@ -2,13 +2,14 @@
   <div class="img-div">
     <img src="assets/blog.png" />
   </div>
-  <div class="container" align="center" *ngIf="blog">
+  <div class="container" align="left" *ngIf="blog">
     <p class="mat-display-1" [innerHtml]="blog.title"></p>
-    <p class="mat-subtitle" [innerHtml]="blog.published"></p>
-    <p class="mat-subtitle" [innerHtml]="blog.updated"></p>
+    <p class="mat-caption" [innerHtml]="blog.published"></p>
+    <mat-divider></mat-divider>
+    <p class="mat-subheading-2 pt-25" [innerHtml]="blog.content"></p>
     <p class="mat-subheading-2" [innerHtml]="blog.content"></p>
     <p class="mat-subheading-2" [innerHtml]="blog.content"></p>
-    <p class="mat-subheading-2" [innerHtml]="blog.content"></p>
+    <p class="mat-title" align="right">- <span [innerHtml]="blog.author.displayName"></span></p>
   </div>
 </div>
 
