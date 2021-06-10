@@ -80,6 +80,11 @@ body {
   border-radius: 10px;
 }
 
+/*Image bg transparent*/
+img {
+  background: transparent !important;
+}
+
 @media  (max-width: 600px) {
   .m-mq-auto {
     display: block !important;
