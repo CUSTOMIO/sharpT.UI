@@ -3,6 +3,7 @@ export class Blog {
   published: string;
   title: string;
   content: string;
+  url: string;
 
   constructor(item: Blog) {
     Object.assign(this, item)

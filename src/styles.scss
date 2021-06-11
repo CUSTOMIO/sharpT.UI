@@ -84,6 +84,9 @@ body {
 img {
   background: transparent !important;
 }
+.post img {
+  background: transparent;
+}
 
 @media  (max-width: 600px) {
   .m-mq-auto {

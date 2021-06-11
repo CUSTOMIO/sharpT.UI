@@ -3,12 +3,15 @@
     <img src="assets/blog.png" />
   </div>
   <div class="container" align="left" *ngIf="blog">
-    <p class="mat-display-1" [innerHtml]="blog.title"></p>
-    <p class="mat-caption" [innerHtml]="blog.published"></p>
+    <p class="mat-display-1 mt-10 mb-10"  [innerHtml]="blog.title"></p>
+    <div class="icon">
+      <mat-icon (click)="copyLink()" matTooltip="copy link">share</mat-icon>
+    </div>
     <mat-divider></mat-divider>
     <p class="mat-subheading-2 pt-25" [innerHtml]="blog.content"></p>
     <p class="mat-subheading-2" [innerHtml]="blog.content"></p>
     <p class="mat-subheading-2" [innerHtml]="blog.content"></p>
+    <p class="mat-caption pl-10 pt-10" [innerHtml]="blog.published" align="right"></p>
     <p class="mat-title" align="right">- <span [innerHtml]="blog.author.displayName"></span></p>
   </div>
 </div>

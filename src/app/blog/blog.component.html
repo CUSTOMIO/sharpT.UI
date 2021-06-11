@@ -5,7 +5,10 @@
         <mat-card-title [innerHtml]="b.title">
           Hello there
         </mat-card-title>
-        <mat-card-subtitle [innerHtml]="b.published" class="pt-10">Subtitle</mat-card-subtitle>
+        <mat-card-subtitle [innerHtml]="b.published" class="pt-5"></mat-card-subtitle>
+        <div class="icon">
+          <mat-icon (click)="newTab(b.url)" matTooltip="open in blogger">open_in_new</mat-icon>
+        </div>
       </mat-card-header>
       <mat-card-content class="border-top pt-20" [innerHtml]="b.content">
         <p> body text </p>

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../../core/data-service';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-blog-view',
@@ -17,7 +18,8 @@ export class BlogViewComponent implements OnInit {
   isLoading: boolean = true;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private blogService: BlogService) { }
+    private blogService: BlogService,
+    private clipboard: Clipboard) { }
 
   ngOnInit() {
     this.bodyTag.classList.add('main');
@@ -35,8 +37,12 @@ export class BlogViewComponent implements OnInit {
     });
   }
   ngOnDestroy() {
-    // remove the the body classes
     this.bodyTag.classList.remove('main');
-   }
+  }
+
+
+  copyLink() {
+    this.clipboard.copy(window.location.href)
+  }
 
 }

@@ -11,6 +11,9 @@ export class BlogComponent implements OnInit {
   defaultElevation = 2;
   raisedElevation = 8;
 
+  bloggerLink: string;
+
+
   public blog: Array<object>;
   isLoading: boolean = true;
 
@@ -64,4 +67,7 @@ export class BlogComponent implements OnInit {
 
   }
 
+  newTab(url) {
+    window.open(url, "_blank");
+  }
 }
