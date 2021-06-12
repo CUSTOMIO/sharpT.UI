@@ -1,16 +1,39 @@
 <mat-toolbar class="bgcolor-yellow-light bottom-shadow">
-  <span class="mat-button" *ngIf="!(isHandset$ | async)">
-    <mat-icon (click)="toggleMenu()">menu</mat-icon>
-  </span>
+  <span *ngIf="!(isHandset$ | async)">
+      <div class="plate plate4" onclick="this.classList.toggle('active')" (click)="toggleMenu()">
+    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line line1" d="M 50,35 H 30" />
+      <path class="line line2" d="M 50,35 H 70" />
+      <path class="line line3" d="M 50,50 H 30" />
+      <path class="line line4" d="M 50,50 H 70" />
+      <path class="line line5" d="M 50,65 H 30" />
+      <path class="line line6" d="M 50,65 H 70" />
+    </svg>
+    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line" d="M 34,32 L 66,68" />
+      <path class="line" d="M 66,32 L 34,68" />
+    </svg>
+  </div>
+    </span>
+  
+  <!--Mobile View Only-->
   <span *ngIf="(isHandset$ | async)">
-    <button type="button"
-            aria-label="Toggle sidenav"
-            mat-icon-button
-            (click)="drawer.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
+  <div class="plate plate4" onclick="this.classList.toggle('active')" (click)="!drawer.toggle()">
+      <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+        <path class="line line1" d="M 50,35 H 30" />
+        <path class="line line2" d="M 50,35 H 70" />
+        <path class="line line3" d="M 50,50 H 30" />
+        <path class="line line4" d="M 50,50 H 70" />
+        <path class="line line5" d="M 50,65 H 30" />
+        <path class="line line6" d="M 50,65 H 70" />
+      </svg>
+      <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+        <path class="line" d="M 34,32 L 66,68" />
+        <path class="line" d="M 66,32 L 34,68" />
+      </svg>
+    </div>
   </span>
-  <img class="logo-img m-10" src="./assets/logo_notext.jpg" />
+  <img class="logo-img" src="./assets/logo_notext.jpg" />
   <span class="title color-not-so-black">Sharp Tutorials</span>
   <div class="social-icon">
     <a href="https://www.instagram.com/sharptutorials_/">
@@ -37,11 +60,11 @@
                [opened]="(isHandset$ | async) === false" id="sidenav"
                [ngClass]="{'menu-open' : isMenuOpen, 'menu-close' : !isMenuOpen}">
     <!--<mat-toolbar>
-      <mat-list-item *ngIf="isMenuOpen" class="ml-40">Menu</mat-list-item>
-      <span *ngIf="!(isHandset$ | async)">
-        <mat-icon (click)="toggleMenu()">menu</mat-icon>
-      </span>
-    </mat-toolbar>-->
+    <mat-list-item *ngIf="isMenuOpen" class="ml-40">Menu</mat-list-item>
+    <span *ngIf="!(isHandset$ | async)">
+      <mat-icon (click)="toggleMenu()">menu</mat-icon>
+    </span>
+  </mat-toolbar>-->
     <mat-nav-list>
       <mat-list-item [routerLink]="['/']" [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}" role="main">

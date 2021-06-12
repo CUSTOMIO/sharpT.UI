@@ -40,9 +40,15 @@
   .social-icon {
     display: none;
   }
-
   .title {
-    padding-left: 0px;
+    font-size: 28px;
+    padding-left: 5px;
+  }
+
+  .logo-img {
+    height: 30px;
+    padding-top: 2px;
+    padding-left: 5px
   }
 }
 
@@ -124,4 +130,77 @@
   .mat-icon:hover {
     cursor: pointer;
   }
+}
+
+
+svg {
+  height: 50px;
+  position: absolute;
+  width: 50px;
+}
+
+
+.plate {
+  height: 50px;
+  width: 50px;
+  padding: 16px;
+}
+.burger {
+  filter: url(#gooeyness);
+}
+.x {
+  transform: scale(0);
+  transition: transform 400ms;
+}
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 50%;
+  transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms, transform 500ms 200ms;
+}
+.x .line {
+  stroke-width: 5.5px;
+}
+
+@media (max-width: 640px) {
+  .plate {
+padding: 0; 
+  }
+}
+
+/* Die vierte teller */
+.plate4 .x {
+  transition: transform 400ms;
+}
+.plate4 .line {
+  transform-origin: 50%;
+  transition: transform 400ms 100ms;
+}
+.active.plate4 .line {
+  transition: transform 400ms;
+}
+.active.plate4 .line1 {
+  transform: translateX(18px) translateY(-3px) rotate(-45deg) scale(.7);
+}
+.active.plate4 .line2 {
+  transform: translateX(-18px) translateY(-3px) rotate(45deg) scale(.7);
+}
+.active.plate4 .line3 {
+  transform: translateY(0px) rotate(45deg) scale(.7);
+}
+.active.plate4 .line4 {
+  transform: translateY(0px) rotate(-45deg) scale(.7);
+}
+.active.plate4 .line5 {
+  transform: translateX(18px) translateY(3px) rotate(45deg) scale(.7);
+}
+.active.plate4 .line6 {
+  transform: translateX(-18px) translateY(3px) rotate(-45deg) scale(.7);
+}
+.active.plate4 .x {
+  transition: transform 400ms 100ms;
+  transform: scale(1);
 }
