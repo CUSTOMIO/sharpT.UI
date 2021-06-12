@@ -15,7 +15,7 @@ import { MatListModule } from '@angular/material/list';
 
 //Custom
 import { LayoutComponent } from './layout/layout.component';
-import { LayoutToolbarComponent } from './layout/layout-toolbar/layout-toolbar.component';
+import { LayoutFooterComponent } from './layout/layout-footer/layout-footer.component';
 import { LayoutSidemenuComponent } from './layout/layout-sidemenu/layout-sidemenu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -23,7 +23,7 @@ import { LayoutModule } from '@angular/cdk/layout';
   declarations: [
     AppComponent,
     LayoutComponent,
-    LayoutToolbarComponent,
+    LayoutFooterComponent,
     LayoutSidemenuComponent
   ],
   imports: [

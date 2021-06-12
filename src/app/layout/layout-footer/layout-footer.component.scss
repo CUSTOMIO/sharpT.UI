@@ -1,0 +1,15 @@
+.footer {
+  position: absolute;
+  bottom: 0px;
+  height: 28px;
+  width: 100%;
+  z-index: 11;
+  background-color: #fcddaa;
+  p{
+    display: inline-block;
+    line-height: 28px;
+    vertical-align: middle;
+    color: black;
+    margin: 0 auto;
+  }
+}

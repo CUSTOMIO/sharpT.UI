@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutToolbarComponent } from './layout-toolbar.component';
+import { LayoutFooterComponent } from './layout-footer.component';
 
-describe('LayoutToolbarComponent', () => {
-  let component: LayoutToolbarComponent;
-  let fixture: ComponentFixture<LayoutToolbarComponent>;
+describe('LayoutFooterComponent', () => {
+  let component:LayoutFooterComponent;
+  let fixture: ComponentFixture<LayoutFooterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LayoutToolbarComponent ]
+      declarations: [ LayoutFooterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LayoutToolbarComponent);
+    fixture = TestBed.createComponent(LayoutFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
