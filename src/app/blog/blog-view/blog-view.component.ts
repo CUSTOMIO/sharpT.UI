@@ -26,12 +26,13 @@ export class BlogViewComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(params => {
       this.blogId = params.id;
-      console.log(this.blogId)
+      console.log(this.blogId);     
     });
     this.blogService.getBlogbyId(this.blogId).subscribe(res => {
       this.blog = res;
-      this.isLoading = false;
-      console.log(this.blog)
+      setTimeout(() => {
+        this.isLoading = false;
+    }, 500);
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
