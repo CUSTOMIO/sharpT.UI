@@ -13,7 +13,8 @@ export class DegreeComponent implements OnInit {
   public courseId = 3;
   public subject: Subject[] = [];
   public standardId: number;
-  public loading: boolean = true;
+  isLoading: boolean = true;
+
 
   constructor(private standardService: StandardService,
     private subjectService: SubjectService  ) { }
@@ -23,18 +24,15 @@ export class DegreeComponent implements OnInit {
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
       this.standard = res;
       console.log(this.standard)
-      this.loading = false;
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
     this.subjectService.getSubject().subscribe(res => {
       this.subject = res;
       console.log(res);
-      this.loading = false;
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     }); 
-
+    setTimeout(() => this.isLoading= false, 500);
   }
-
 }

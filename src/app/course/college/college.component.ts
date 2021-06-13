@@ -13,7 +13,7 @@ export class CollegeComponent implements OnInit {
   public courseId = 2;
   public subject: Subject[] = [];
   public standardId: number;
-  public loading: boolean = true;
+  isLoading: boolean = true;
 
   constructor(private standardService: StandardService,
     private subjectService: SubjectService) { }
@@ -23,16 +23,15 @@ export class CollegeComponent implements OnInit {
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
       this.standard = res;
       //console.log(res);
-      this.loading = false;
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
       this.subjectService.getSubject().subscribe(res => {
         this.subject = res;
         console.log(res);
-        this.loading = false;
       }, (error) => {
         console.log(`THis is the error: ${error}`)
       }); 
+      setTimeout(() => this.isLoading= false, 500);
   }
 }

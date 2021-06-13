@@ -9,7 +9,7 @@ import { ReachUs } from './../core/model'
   styleUrls: ['./contactus.component.scss']
 })
 export class ContactusComponent implements OnInit {
-
+  isLoading: boolean = true;
   contactUs: any = ReachUs['']; 
 
   constructor(private fb: FormBuilder, private reachusService: ReachUsService) { }
@@ -26,7 +26,10 @@ export class ContactusComponent implements OnInit {
       message: ['',
         [Validators.required]
       ]
-    })
+    });
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 500);
   }
 
   get name() {

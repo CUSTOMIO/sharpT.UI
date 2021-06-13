@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
 .mat-toolbar {
+  position: sticky;
+  position: -webkit-sticky; 
+  width: 100%  !important;
+  top: 0;
+  z-index: 1000;
   padding: 0;
 }
 

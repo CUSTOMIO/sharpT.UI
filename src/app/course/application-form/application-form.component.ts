@@ -20,6 +20,7 @@ export class ApplicationFormComponent implements OnInit {
   public loadComponent: boolean = false;
   public sendEmail: boolean = true;
   public submitButton: boolean = false;
+  isLoading: boolean = true;
   
   get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
 
@@ -51,7 +52,9 @@ export class ApplicationFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    setTimeout(() => this.isLoading= false, 500);
+   }
 
   public whitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;

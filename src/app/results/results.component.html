@@ -1,4 +1,7 @@
-<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
+<div fxLayout="row" fxLayout.sm="column" 
+fxLayout.xs="column" *ngIf="!isLoading">
   <div class="div-one" fxFlex="45" fxFlex.sm="60" fxFlex.xs="100" align="center">
     <img class="img-div-one" src="./assets/result.png" />
     <p class="mat-display-3">

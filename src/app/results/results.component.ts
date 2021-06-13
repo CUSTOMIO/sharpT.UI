@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
+  isLoading: boolean = true;
+
+
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 500);
   }
 
 }

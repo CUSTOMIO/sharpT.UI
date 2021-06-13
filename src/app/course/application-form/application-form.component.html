@@ -1,53 +1,49 @@
-<div class="ml-10 mr-10">
-  <div class="mat-display-1 p-20" align="center"
-       style="border-bottom: 1px solid #bfbfbf">
-    <i class="fab fa-wpforms fa-sm"></i>
-    Application Form
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<div *ngIf="!isLoading">
+  <div class="ml-10 mr-10">
+    <div class="mat-display-1 p-20" align="center" style="border-bottom: 1px solid #bfbfbf">
+      <i class="fab fa-wpforms fa-sm"></i>
+      Application Form
+    </div>
+
+    <div class="pb-50">
+      <span class="mat-headline pl-35">Instruction</span>
+      <ul class="mat-subheading-1 mt-10">
+        <li>Fill up the admission form duly</li>
+        <li>You will be send an image of your fee reciept on whatsapp number</li>
+        <li>Contact on 7021186955 or 9167945708 for any query</li>
+        <li>Some more instruction</li>
+      </ul>
+    </div>
+
+    <div class="pb-50">
+      <span class="mat-headline pl-35">Form</span>
+    </div>
   </div>
 
-  <div class="pb-50">
-    <span class="mat-headline pl-35">Instruction</span>
-    <ul class="mat-subheading-1 mt-10">
-      <li>Fill up the admission form duly</li>
-      <li>You will be send an image of your fee reciept on whatsapp number</li>
-      <li>Contact on  7021186955 or 9167945708  for any query</li>
-      <li>Some more instruction</li>
-    </ul>
-  </div>
+  <mat-vertical-stepper class="pb-50" [@.disabled]="true" selectedIndex="0" [linear]="false" #stepper>
 
-  <div class="pb-50">
-    <span class="mat-headline pl-35">Form</span>
-  </div>
+    <mat-step completed="false" [stepControl]="formArray?.get([0])">
+      <ng-template matStepLabel>Basic</ng-template>
+      <app-basic-details [formGroup]="formArray?.get([0])"></app-basic-details>
+    </mat-step>
+
+    <mat-step completed="false" [stepControl]="formArray?.get([1])">
+      <ng-template matStepLabel>Contact</ng-template>
+      <app-contact-details [formGroup]="formArray?.get([1])"></app-contact-details>
+    </mat-step>
+
+    <mat-step completed="false" [stepControl]="formArray?.get([2])">
+      <ng-template matStepLabel>Course</ng-template>
+      <app-course-details [formGroup]="formArray?.get([2])"></app-course-details>
+      <button mat-button matStepperNext (click)="loadMyChildComponent();">Next</button>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Review</ng-template>
+      <app-review-details *ngIf='loadComponent' [formGroup]="appForm"></app-review-details>
+      <button mat-raised-button (click)="openDialog()">Verify</button>
+      <button type="submit" mat-raised-button (click)="submitForm()" *ngIf="submitButton">Submit Button</button>
+    </mat-step>
+  </mat-vertical-stepper>
 </div>
-
-<mat-vertical-stepper class="pb-50" [@.disabled]="true" selectedIndex="0" [linear]="false" #stepper>
-
-  <mat-step completed="false" [stepControl]="formArray?.get([0])">
-    <ng-template matStepLabel>Basic</ng-template>
-    <app-basic-details [formGroup]="formArray?.get([0])"></app-basic-details>
-  </mat-step>
-
-  <mat-step completed="false" [stepControl]="formArray?.get([1])">
-    <ng-template matStepLabel>Contact</ng-template>
-    <app-contact-details [formGroup]="formArray?.get([1])"></app-contact-details>
-  </mat-step>
-
-  <mat-step completed="false" [stepControl]="formArray?.get([2])">
-    <ng-template matStepLabel>Course</ng-template>
-    <app-course-details [formGroup]="formArray?.get([2])"></app-course-details>
-    <button mat-button matStepperNext (click)="loadMyChildComponent();">Next</button>
-  </mat-step>
-
-  <mat-step>
-    <ng-template matStepLabel>Review</ng-template>
-    <app-review-details *ngIf= 'loadComponent' [formGroup]="appForm"></app-review-details>
-    <button mat-raised-button (click)="openDialog()">Verify</button>
-    <button type="submit" mat-raised-button
-            (click)="submitForm()"
-            *ngIf="submitButton">Submit Button</button>
-  </mat-step>
-
-</mat-vertical-stepper>
-
-
-
