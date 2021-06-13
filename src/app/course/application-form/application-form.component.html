@@ -1,5 +1,5 @@
 <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
-<div *ngIf="!isLoading">
+<div *ngIf="!isLoading" class="pb-100">
   <div class="ml-10 mr-10">
     <div class="mat-display-1 p-20" align="center" style="border-bottom: 1px solid #bfbfbf">
       <i class="fab fa-wpforms fa-sm"></i>
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <mat-vertical-stepper class="pb-50" [@.disabled]="true" selectedIndex="0" [linear]="false" #stepper>
+  <mat-vertical-stepper [@.disabled]="true" selectedIndex="0" [linear]="false" #stepper>
 
     <mat-step completed="false" [stepControl]="formArray?.get([0])">
       <ng-template matStepLabel>Basic</ng-template>
