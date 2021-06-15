@@ -6,4 +6,8 @@ export * from './reach-us/reach-us.model'
 export * from './auth/verify-otp.model'
 export * from './blog/blog.model';
 export * from './blog/blogById.model';
+export * from './examination/examination.model';
+export * from './result/post-result.model';
+
+
 

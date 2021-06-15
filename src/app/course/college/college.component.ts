@@ -30,7 +30,7 @@ export class CollegeComponent implements OnInit {
         this.subject = res;
         console.log(res);
       }, (error) => {
-        console.log(`THis is the error: ${error}`)
+        console.log(`This is the error: ${error}`)
       }); 
       setTimeout(() => this.isLoading= false, 500);
   }
