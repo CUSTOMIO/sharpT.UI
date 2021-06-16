@@ -1,5 +1,8 @@
 .verify-body {
-    position: relative;
+  position: relative;
+    mat-progress-bar {
+      margin: 10px 0px;
+  }
     .top-div h1{
       float: left;
       width: 90%;

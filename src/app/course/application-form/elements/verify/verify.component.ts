@@ -15,6 +15,7 @@ export class VerifyComponent implements OnInit {
   public errorMessage: boolean;
   public isVerified: boolean = false;
   public verifyMessage: object;
+  public isLoading: boolean = false;
 
   constructor(private authService: AuthService,
     private formbuilder: FormBuilder,
@@ -34,17 +35,19 @@ export class VerifyComponent implements OnInit {
   }
 
   generateOtp() {
+    this.isLoading = true;
     this.authService.generateOtp(this.data.email)
       .subscribe({
         next: data => {
           if (data) {
             this.successMessage = data;
-            console.log(this.successMessage)
+            this.isLoading = false;
           }
         },
         error: error => {
           if (error) {
             this.errorMessage = true;
+            this.isLoading = false;
             console.log(this.errorMessage)
           }
         }
@@ -52,15 +55,18 @@ export class VerifyComponent implements OnInit {
   }
 
   verifyOtp() {
+    this.isLoading = true;
     this.authService.VerifyOtp(this.verifyForm.value)
       .subscribe({
         next: data => {
           if (data) {
             this.verifyMessage = data;
+            this.isLoading = false;
           }
         },
         error: error => {
-          console.log(error)
+          this.isLoading = false;
+          this.errorMessage = true;
         }
       })
     }

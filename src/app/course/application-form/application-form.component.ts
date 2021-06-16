@@ -93,7 +93,6 @@ export class ApplicationFormComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result.data.message);
       if(result.data.message == "Verified"){
         this.submitButton = true
       }

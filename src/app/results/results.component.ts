@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ExaminationService, ResultService } from '../core/data-service';
-import { Examination } from '../core/model';
-
+import { MatDialog } from '@angular/material/dialog';
+import { VerifyComponent } from './../course/application-form/elements/verify/verify.component'
 
 @Component({
   selector: 'app-results',
@@ -15,11 +15,14 @@ export class ResultsComponent implements OnInit {
   resultForm: FormGroup;
   examination: object;
   result: any;
+  public sendEmail: boolean = true;
+  public submitButton: boolean = false;
   displayedColumns: string[] = ['subject','marksObtained','outOf'];
 
   constructor(private fb: FormBuilder,
     private examinationService: ExaminationService,
-    private resultService: ResultService) { }
+    private resultService: ResultService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.examinationService.getExamination()
@@ -40,6 +43,25 @@ export class ResultsComponent implements OnInit {
     setTimeout(() => {
       this.isLoading = false;
     }, 500);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(VerifyComponent,  {
+      disableClose: true,
+      width: '350px',
+      data: {
+        email: this.resultForm.value.email,
+        sendEmail: this.sendEmail,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.data.message == "Verified"){
+        this.submitButton = true
+        this.resultForm.disable();
+      }
+    });
+    this.sendEmail = false
   }
 
   onSubmit() {
