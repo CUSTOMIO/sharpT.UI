@@ -1,7 +1,10 @@
 <div class="verify-body">
-  <h1 mat-dialog-title>Verify Email</h1>
+  <div class="top-div">
+    <h1 mat-dialog-title>Verify Email</h1>
+   <mat-icon class="close-button" (click)="closeDialog()">close</mat-icon>
+  </div>
   <div mat-dialog-content>
-    <p>An OTP is send to <span class="email" [innerHtml]="data.email"></span></p>
+    <p *ngIf="successMessage" [innerHtml]="successMessage.message"></p>
     <form [formGroup]="verifyForm">
       <mat-form-field class="m-mq-auto" appearance="standard">
         <mat-label>Type your OTP here</mat-label>
@@ -14,11 +17,10 @@
       <button class="m-mq-auto"
               type="submit"
               mat-stroked-button
-              (click)="verifyOtp()"
-              [mat-dialog-close]="data.submitButton">Verify OTP</button>
+              (click)="verifyOtp()">Verify OTP</button>
     </form>
-    <p *ngIf="successMessage" [innerHtml]="successMessage.result"></p>
-    <span *ngIf="errorMessage">Your email is incorrect</span>
+    <p *ngIf="verifyMessage" [innerHtml]="verifyMessage.message"></p>
+    <span *ngIf="errorMessage" class="error-msg">Check your email and otp</span>
       <p class="resend-container">Didn't recieve? <span class="resend" (click)="generateOtp()">Resend</span></p>
   </div>
 </div>

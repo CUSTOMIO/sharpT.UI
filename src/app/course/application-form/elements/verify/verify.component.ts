@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../../../../core/data-service/auth/auth.service';
-import { FormBuilder, Validators, FormControl, Form, FormGroup} from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormBuilder, Validators, Form, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-verify',
@@ -15,10 +15,11 @@ export class VerifyComponent implements OnInit {
   public errorMessage: boolean;
   public isVerified: boolean = false;
   public verifyMessage: object;
-  
+
   constructor(private authService: AuthService,
     private formbuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: { email: string, sendEmail: boolean, submitButton: boolean }) {
+    @Inject(MAT_DIALOG_DATA) public data: { email: string, sendEmail: boolean},
+    private dialogRef: MatDialogRef<VerifyComponent>) {
   }
 
   ngOnInit() {
@@ -51,23 +52,21 @@ export class VerifyComponent implements OnInit {
   }
 
   verifyOtp() {
-    console.log(this.verifyForm.value)
     this.authService.VerifyOtp(this.verifyForm.value)
       .subscribe({
         next: data => {
           if (data) {
-            console.log(this.data.submitButton)
-            this.data.submitButton = true;
-            console.log(this.data.submitButton)
             this.verifyMessage = data;
-            console.log(this.verifyMessage)
-
           }
         },
         error: error => {
           console.log(error)
         }
       })
+    }
+    
+  closeDialog(){
+    this.dialogRef.close({ data: this.verifyMessage })
   }
 
 }

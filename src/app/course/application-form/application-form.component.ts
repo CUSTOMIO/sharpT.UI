@@ -83,18 +83,20 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(VerifyComponent, {
+    const dialogRef = this.dialog.open(VerifyComponent,  {
+      disableClose: true,
       width: '350px',
       data: {
         email: this.getValue(1, 'email'),
         sendEmail: this.sendEmail,
-        submitButton: this.submitButton
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(this.submitButton);
+      console.log(result.data.message);
+      if(result.data.message == "Verified"){
+        this.submitButton = true
+      }
     });
     this.sendEmail = false
   }

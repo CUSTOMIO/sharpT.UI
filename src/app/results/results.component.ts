@@ -14,8 +14,8 @@ export class ResultsComponent implements OnInit {
   isLoading: boolean = true;
   resultForm: FormGroup;
   examination: object;
-  result: object;
-
+  result: any;
+  displayedColumns: string[] = ['subject','marksObtained','outOf'];
 
   constructor(private fb: FormBuilder,
     private examinationService: ExaminationService,
@@ -49,6 +49,16 @@ export class ResultsComponent implements OnInit {
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     }); 
+   }
+
+   getPercentage(){
+     let totalMarks : number = 0;
+     let obtainedMarks : number = 0;
+     for (let r of this.result.data){
+      totalMarks += r.marksObtained;
+      obtainedMarks += r.outOf;
+     }     
+       return `${(totalMarks/obtainedMarks*100).toFixed(2)}%`; 
    }
 
 }

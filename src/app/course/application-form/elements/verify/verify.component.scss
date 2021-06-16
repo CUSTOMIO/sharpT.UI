@@ -1,9 +1,17 @@
 .verify-body {
     position: relative;
+    .top-div h1{
+      float: left;
+      width: 90%;
+    }
+    .close-button {
+     width: 10%;
+     cursor: pointer;
+    }
 }
 
 .resend-container {
-    margin-top: 10.5px;
+  margin-top: 10.5px;
   color: grey;
   font-size: 75%;
   .resend {
@@ -20,4 +28,8 @@
 .mat-form-field {
     width: 140px !important;
     margin-right: 20px;
+}
+
+.error-msg {
+  color: red !important;
 }
