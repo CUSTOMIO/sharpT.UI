@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExaminationService, ResultService } from '../core/data-service';
 import { MatDialog } from '@angular/material/dialog';
-import { VerifyComponent } from './../course/application-form/elements/verify/verify.component'
+import { VerifyComponent } from '../verify/verify.component'
 
 @Component({
   selector: 'app-results',
@@ -17,7 +17,7 @@ export class ResultsComponent implements OnInit {
   result: any;
   public sendEmail: boolean = true;
   public submitButton: boolean = false;
-  displayedColumns: string[] = ['subject','marksObtained','outOf'];
+  displayedColumns: string[] = ['subject', 'marksObtained', 'outOf'];
 
   constructor(private fb: FormBuilder,
     private examinationService: ExaminationService,
@@ -26,11 +26,11 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.examinationService.getExamination()
-    .subscribe(res => {
-      this.examination = res;
-    }, (error) => {
-      console.log(`THis is the error: ${error}`)
-    }); 
+      .subscribe(res => {
+        this.examination = res;
+      }, (error) => {
+        console.log(`THis is the error: ${error}`)
+      });
     this.resultForm = this.fb.group({
       examination: [null,
         [Validators.required]
@@ -46,7 +46,7 @@ export class ResultsComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(VerifyComponent,  {
+    const dialogRef = this.dialog.open(VerifyComponent, {
       disableClose: true,
       width: '350px',
       data: {
@@ -56,7 +56,7 @@ export class ResultsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result.data.message == "Verified"){
+      if (result.data.message == "Verified") {
         this.submitButton = true
         this.resultForm.disable();
       }
@@ -67,20 +67,21 @@ export class ResultsComponent implements OnInit {
   onSubmit() {
     this.resultService.postResult(this.resultForm.value).subscribe(res => {
       this.result = res;
-      console.log(res)
     }, (error) => {
       console.log(`THis is the error: ${error}`)
-    }); 
-   }
+    });
+  }
 
-   getPercentage(){
-     let totalMarks : number = 0;
-     let obtainedMarks : number = 0;
-     for (let r of this.result.data){
-      totalMarks += r.marksObtained;
-      obtainedMarks += r.outOf;
-     }     
-       return `${(totalMarks/obtainedMarks*100).toFixed(2)}%`; 
-   }
+  getPercentage() {
+    let totalMarks: number = 0;
+    let obtainedMarks: number = 0;
+    if (this.result.data) {
+      for (let r of this.result.data) {
+        totalMarks += r.marksObtained;
+        obtainedMarks += r.outOf;
+      }
+    }
+    return `${(totalMarks / obtainedMarks * 100).toFixed(2)}%`;
+  }
 
 }

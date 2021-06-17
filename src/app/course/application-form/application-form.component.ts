@@ -4,7 +4,7 @@ import { FormBuilder, FormArray, FormGroup,  Validators, FormControl } from '@an
 import { ApplicationFormService } from '../../core/data-service/index';
 import { ApplicationForm } from '../../core/model/index';
 import { MatDialog } from '@angular/material/dialog';
-import { VerifyComponent } from './elements/verify/verify.component'
+import { VerifyComponent } from '../../verify/verify.component'
 
 @Component({
   selector: 'app-application-form',

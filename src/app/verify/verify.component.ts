@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { AuthService } from '../../../../core/data-service/auth/auth.service';
-import { FormBuilder, Validators, Form, FormGroup } from '@angular/forms';
+import { AuthService } from '../core/data-service/auth/auth.service';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -16,10 +16,12 @@ export class VerifyComponent implements OnInit {
   public isVerified: boolean = false;
   public verifyMessage: object;
   public isLoading: boolean = false;
+  public clicked: boolean = false;
+
 
   constructor(private authService: AuthService,
     private formbuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: { email: string, sendEmail: boolean},
+    @Inject(MAT_DIALOG_DATA) public data: { email: string, sendEmail: boolean },
     private dialogRef: MatDialogRef<VerifyComponent>) {
   }
 
@@ -55,24 +57,36 @@ export class VerifyComponent implements OnInit {
   }
 
   verifyOtp() {
+    //console.log(`function called`);
     this.isLoading = true;
+
     this.authService.VerifyOtp(this.verifyForm.value)
       .subscribe({
         next: data => {
-          if (data) {
+          this.isLoading = false;
+          if (data.message) {
             this.verifyMessage = data;
-            this.isLoading = false;
+            this.dialogRef.close({ data: this.verifyMessage });
+          }
+          if (data.error) {
+            this.errorMessage = data.error;
+            this.clicked = false;
           }
         },
         error: error => {
+          console.log('This is err' + error)
+          this.clicked = false;
           this.isLoading = false;
           this.errorMessage = true;
         }
       })
+  }
+
+  closeDialog() {
+    this.dialogRef.close({ data: '' });
+    if (this.verifyMessage !== null) {
+      this.dialogRef.close({ data: this.verifyMessage });
     }
-    
-  closeDialog(){
-    this.dialogRef.close({ data: this.verifyMessage })
   }
 
 }

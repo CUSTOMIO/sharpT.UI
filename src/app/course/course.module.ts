@@ -11,7 +11,7 @@ import { ElementsReviewDetails } from './application-form/elements/review-detail
 import { CollegeComponent } from './college/college.component';
 import { DegreeComponent } from './degree/degree.component';
 import { SchoolComponent } from './school/school.component';
-import { VerifyComponent } from './application-form/elements/verify/verify.component';
+import { VerifyComponent } from '../verify/verify.component';
 
 
 @NgModule({
