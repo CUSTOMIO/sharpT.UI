@@ -38,7 +38,6 @@ export class ContactusComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.contactUs)
     this.reachusService.postReachus(this.contactUs.value)
       .subscribe((result) => {
         console.log(result)

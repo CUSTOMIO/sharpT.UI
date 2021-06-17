@@ -20,7 +20,6 @@ export class BlogComponent implements OnInit {
     this.blogService.getBlog().subscribe(res => {
       this.blog = res;
       this.isLoading = false
-      console.log(this.blog)
       }, (error) => {
         console.log(`THis is the error: ${error}`)
       });

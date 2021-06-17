@@ -23,13 +23,13 @@ export class DegreeComponent implements OnInit {
   ngOnInit(): void {
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
       this.standard = res;
-      console.log(this.standard)
+      // console.log(this.standard)
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
     this.subjectService.getSubject().subscribe(res => {
       this.subject = res;
-      console.log(res);
+      // console.log(res);
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     }); 

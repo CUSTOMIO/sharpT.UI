@@ -26,7 +26,6 @@ export class BlogViewComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(params => {
       this.blogId = params.id;
-      console.log(this.blogId);     
     });
     this.blogService.getBlogbyId(this.blogId).subscribe(res => {
       this.blog = res;
