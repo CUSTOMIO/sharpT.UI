@@ -1,5 +1,4 @@
 export class ApplicationForm {
- 
   firstName: string;
   middleName: string;
   lastName: string;

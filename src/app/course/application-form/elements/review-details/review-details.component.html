@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutFap="10px" class="pb-25">
   <div fxFlex="20" fxFlex.sm="25" fxFlex.xs="100"
        style="margin: 0 auto;">
-    <img [src]="imageURL" [alt]="appForm.value.name" height="120" width="90">
+    <img [src]="getImage()" [alt]="appForm.value.name" height="120" width="90">
   </div>
   <div fxFlex="80" fxFlex.sm="75" fxFlex.xs="100"
        class="pt-15 ml-0 mat-subheading-2" align="left">

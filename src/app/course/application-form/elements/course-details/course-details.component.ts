@@ -26,7 +26,7 @@ export class ElementsCourseDetails implements OnInit {
     this.standardService.getStandard().subscribe(async res => {
       this.standard = await res;
     }, (error) => {
-        // create notification services.
+      // create notification services.
     });
     this.appForm = this.controlContainer.control as FormGroup;
   }
@@ -36,18 +36,25 @@ export class ElementsCourseDetails implements OnInit {
   }
 
   public showPreview(event) {
-    const file = (event.target as HTMLInputElement).files[0];
+    if ((event.target as HTMLInputElement).files[0]) {
+      const file = (event.target as HTMLInputElement).files[0];
+      var pattern = /image-*/;
 
-    this.appForm.get('image').setValue(file);
-    this.appForm.get('image').updateValueAndValidity();
+      if (!file.type.match(pattern)) {
+        alert('Invalid format');
+        return;
+      }
+      this.appForm.get('image').setValue(file);
+      this.appForm.get('image').updateValueAndValidity();
 
-    // File Preview
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imageURL = reader.result as string;
-      this.appForm.get('imageBase64').setValue(this.imageURL)
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.imageURL = reader.result as string;
+        this.appForm.get('imageBase64').setValue(this.imageURL)
+      }
+      reader.readAsDataURL(file)
     }
-    reader.readAsDataURL(file)
   }
 
 }

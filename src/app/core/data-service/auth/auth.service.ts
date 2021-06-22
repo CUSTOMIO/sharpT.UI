@@ -18,7 +18,7 @@ export class AuthService {
       email: email
     }
     const url = `${environment.api_endpoint}/generate-otp`;
-    return this.http.post(url, model)
+    return this.http.post<typeof model>(url, model)
   }
 
   public VerifyOtp(form: VerifyOtp) {

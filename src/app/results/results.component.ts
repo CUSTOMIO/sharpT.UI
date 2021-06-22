@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { ExaminationService, ResultService } from '../core/data-service';
 import { MatDialog } from '@angular/material/dialog';
 import { VerifyComponent } from '../verify/verify.component'
+import { environment } from '../../environments/environment'
+
 
 @Component({
   selector: 'app-results',
@@ -11,12 +13,14 @@ import { VerifyComponent } from '../verify/verify.component'
 })
 export class ResultsComponent implements OnInit {
 
+  @ViewChild('formDirective') private formDirective: NgForm;
+
   isLoading: boolean = true;
   resultForm: FormGroup;
   examination: object;
   result: any;
+  apiEndpoint: any = environment.api_endpoint
   public sendEmail: boolean = true;
-  public submitButton: boolean = false;
   displayedColumns: string[] = ['subject', 'marksObtained', 'outOf'];
 
   constructor(private fb: FormBuilder,
@@ -57,8 +61,7 @@ export class ResultsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.data.message == "Verified") {
-        this.submitButton = true
-        this.resultForm.disable();
+        this.onSubmit();
       }
     });
     this.sendEmail = false
@@ -67,6 +70,9 @@ export class ResultsComponent implements OnInit {
   onSubmit() {
     this.resultService.postResult(this.resultForm.value).subscribe(res => {
       this.result = res;
+      this.resultForm.reset();
+      this.formDirective.resetForm();
+  
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });

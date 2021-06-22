@@ -45,7 +45,7 @@ export class ApplicationFormComponent implements OnInit {
         this.formBuilder.group({
           standard: [null, [Validators.required, this.whitespaceValidator]],
           school: [null, [Validators.required, this.whitespaceValidator]],
-          image: [null, [Validators.required]],
+          image:  [null, [Validators.required]],
           imageBase64: [null]
         })
       ])
@@ -101,19 +101,8 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   submitForm() {
-    const submitAppForm = new ApplicationForm();
     const fd = new FormData();
 
-    //fd['firstName'] = this.getValue(0, 'firstName'); 
-    //fd['middleName'] = this.getValue(0, 'middleName'); 
-    //fd['lastName'] = this.getValue(0, 'lastName'); 
-    //fd['email'] = this.getValue(1, 'email'); 
-    //fd['studentPN'] = this.getValue(1, 'studentPN'); 
-    //fd['parentPN'] = this.getValue(1, 'parentPN'); 
-    //fd['address'] = this.getValue(1, 'address'); 
-    //fd['standard'] = this.getValue(2, 'standard'); 
-    //fd['school'] = this.getValue(2, 'school');
-    //fd['image'] = this.formArray.controls[2].get('image').value 
     fd.append('firstName', this.getValue(0, 'firstName'));
     fd.append('middleName', this.getValue(0, 'middleName'));
     fd.append('lastName', this.getValue(0, 'lastName'));
@@ -124,31 +113,6 @@ export class ApplicationFormComponent implements OnInit {
     fd.append('standard', this.getValue(2, 'standard'));
     fd.append('school', this.getValue(2, 'school'));
     fd.append('image', this.formArray.controls[2].get('image').value);
-
-    //submitAppForm.firstName = this.getValue(0, 'firstName');
-    //submitAppForm.middleName = this.getValue(0, 'middleName');
-    //submitAppForm.lastName = this.getValue(0, 'lastName');
-    //submitAppForm.email = this.getValue(1, 'email');
-    //submitAppForm.studentPN = this.getValue(1, 'studentPN');
-    //submitAppForm.parentPN = this.getValue(1, 'parentPN');
-    //submitAppForm.address = this.getValue(1, 'address');
-    //submitAppForm.standard = this.getValue(2, 'standard');
-    //submitAppForm.school = this.getValue(2, 'school');
-    //submitAppForm.image = this.formArray.controls[2].get('image').value;
-
-    //fd.forEach((value, key) => {
-    //  console.log("key %s: value %s", key, value);
-    //})
-
-    //console.log(submitAppForm)
-    //const reader = new FileReader();
-    ////reader.onload = () => {
-    ////  this.imageURL = reader.result as string;
-    ////}
-    //console.log(`${reader.readAsDataURL(this.getValue(2, 'image'))}`)
-
-    //console.log(this.formArray.controls[2].get('image').value);
-    //this.formArray.controls[2].get('image').value
 
     this.applicationFormService.postApplicationForm(fd)
       .subscribe((result) => {

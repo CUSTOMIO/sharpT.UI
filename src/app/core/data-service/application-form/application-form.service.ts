@@ -24,6 +24,6 @@ export class ApplicationFormService {
 
   public postApplicationForm(appForm) {
     const url = `${environment.api_endpoint}/application-form`;
-    return this.http.post(url, appForm);
+    return this.http.post<ApplicationForm>(url, appForm);
   }
 }

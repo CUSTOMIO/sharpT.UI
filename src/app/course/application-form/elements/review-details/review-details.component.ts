@@ -8,7 +8,7 @@ import { FormGroup, ControlContainer, FormArray } from '@angular/forms';
 export class ElementsReviewDetails implements OnInit {
 
   public appForm: FormGroup;
-  public imageURL: string;
+  //public imageURL: string;
 
   get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
 
@@ -17,10 +17,12 @@ export class ElementsReviewDetails implements OnInit {
 
   ngOnInit() {
     this.appForm = this.controlContainer.control as FormGroup;
-    this.imageURL = this.appForm.value.formArray[2].imageBase64
   }
 
   getValue(index: number, controlName: string) {
     return this.formArray.controls[index].get(controlName).value
+  }
+  getImage() {
+   return this.appForm.value.formArray[2].imageBase64;
   }
 }

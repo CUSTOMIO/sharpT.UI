@@ -14,7 +14,7 @@
       <mat-card class="mb-35">
         <mat-card-content class="p-10">
           <mat-divider></mat-divider>
-          <form [formGroup]="resultForm">
+          <form [formGroup]="resultForm" #formDirective="ngForm">
             <mat-form-field appearance="standard" style="width: 100% !important">
               <mat-label>Select your exam</mat-label>
               <mat-select formControlName="examination">
@@ -25,11 +25,8 @@
               <mat-label>Enter your email</mat-label>
               <input matInput formControlName="email">
             </mat-form-field>
-            <button mat-raised-button *ngIf="!submitButton" color="accent" (click)="openDialog()">
+            <button mat-raised-button [disabled]="!resultForm.valid" color="accent" (click)="openDialog()">
               Verify
-            </button>
-            <button type="submit" *ngIf="submitButton" mat-raised-button color="accent" (click)="onSubmit()">
-              Submit
             </button>
           </form>
         </mat-card-content>
@@ -39,6 +36,7 @@
           <p [innerHtml]="result.message"></p>
         </div>
         <div *ngIf="result.data">
+            <img src="{{apiEndpoint + result.userImageUrl}}" height="200">
           <div align="left">
             <p class="mat-subheading-2">Name:<span [innerHtml]="result.username"></span></p>
           </div>

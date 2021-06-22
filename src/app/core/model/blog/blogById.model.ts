@@ -1,4 +1,4 @@
-export class BlogById {
+export interface BlogById {
   published: string;
   updated: string;
   title: string;
@@ -6,7 +6,7 @@ export class BlogById {
   author: object;
   replies: object;
 
-  constructor(item: BlogById) {
-    Object.assign(this, item)
-  }
+  // constructor(item: BlogById) {
+  //   Object.assign(this, item)
+  // }
 }
