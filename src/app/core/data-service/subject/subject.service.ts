@@ -21,13 +21,9 @@ export class SubjectService {
         )
       );
   }
-  //public getSubjectByStandardId(standardId) {
-  //  const url = `${environment.api_endpoint}/subject/${standardId}?getActive=true`;
-  //  return this.http.get<Subject[]>(url)
-  //    .pipe(
-  //      map(data =>
-  //        data.map(x => new Subject(x))
-  //      )
-  //    );
-  //}
+  public getSubjectByStandardId(standardId) {
+   const url = `${environment.api_endpoint}/subject/${standardId}?getActive=true`;
+   return this.http.get<Subject>(url)
+     
+  }
 }

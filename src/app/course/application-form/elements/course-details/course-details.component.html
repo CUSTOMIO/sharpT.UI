@@ -16,12 +16,31 @@
       </mat-form-field>
     </div>
   </div>
+  
+  <div class="subject-list" *ngIf="subject">
+    <span *ngIf="subject.allowSubjectSelection">
+      <p class="title">Select your subjects</p>
+      <span *ngFor="let s of subject.data">
+        <p>
+          <mat-checkbox>{{s.name}}</mat-checkbox>
+        </p>
+      </span>
+    </span>
+    <span *ngIf="!subject.allowSubjectSelection">
+      <p class="title">Subject for your standard</p>
+      <span *ngFor="let s of subject.data">
+        <p>
+          <mat-checkbox checked="true" disabled>{{s.name}}</mat-checkbox>
+        </p>
+      </span>
+    </span>
+  </div>
 
   <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="row" fxLayourGap="10px" class="p-25">
     <div fxFlex="20" fxFlex.sm="30" fxFlex.xs="50">
-        <mat-label>Upload your Image</mat-label><br />
-        <input hidden type="file" (change)="showPreview($event)" accept="image/*" #fileInput/>
-        <button type="button" mat-raised-button color="accent" (click)="fileInput.click()">Choose File</button>
+      <mat-label>Upload your Image</mat-label><br />
+      <input hidden type="file" (change)="showPreview($event)" accept="image/*" #fileInput />
+      <button type="button" mat-raised-button color="accent" (click)="fileInput.click()">Choose File</button>
     </div>
 
     <div fxFlex="20" fxFlex.sm="20" fxFlex.xs="50 ">
@@ -30,4 +49,6 @@
       </div>
     </div>
   </div>
+
+  
 </form>

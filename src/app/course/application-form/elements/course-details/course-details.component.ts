@@ -1,11 +1,14 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, ControlContainer } from '@angular/forms';
-import { StandardService } from '../../../../core/data-service/index';
-import { Standard } from '../../../../core/model/index';
+import { StandardService, SubjectService } from '../../../../core/data-service/index';
+import { Standard, Subject } from '../../../../core/model/index';
+
+
 
 @Component({
   selector: '[formGroup] app-course-details',
-  templateUrl: './course-details.component.html'
+  templateUrl: './course-details.component.html',
+  styleUrls: ['./course-details.component.scss'],
 })
 export class ElementsCourseDetails implements OnInit {
 
@@ -14,21 +17,36 @@ export class ElementsCourseDetails implements OnInit {
   public srcResult: any;
   public standard: Standard[];
   public standardNames = [];
+  public subject: Subject;
 
 
   constructor(
     private standardService: StandardService,
+    private subjectService: SubjectService,
     private controlContainer: ControlContainer,
     private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
+    this.appForm = this.controlContainer.control as FormGroup;
     this.standardService.getStandard().subscribe(async res => {
       this.standard = await res;
     }, (error) => {
       // create notification services.
     });
-    this.appForm = this.controlContainer.control as FormGroup;
+    this.appForm.get("standard").valueChanges.subscribe(standardId => {
+      this.subjectService.getSubjectByStandardId(standardId)
+      .subscribe({
+        next: data => {
+          if(data){
+            this.subject = data;
+          }
+        },
+        error: error => {
+          console.log(error)
+        }
+      });
+    })
   }
 
   public hasError = (controlName: string, errorName: string) => {
@@ -56,5 +74,5 @@ export class ElementsCourseDetails implements OnInit {
       reader.readAsDataURL(file)
     }
   }
-
+  
 }

@@ -1,8 +1,7 @@
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormArray, FormGroup,  Validators, FormControl } from '@angular/forms';
-import { ApplicationFormService } from '../../core/data-service/index';
-import { ApplicationForm } from '../../core/model/index';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormArray, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
+import { ApplicationFormService, SubjectService } from '../../core/data-service/index';
 import { MatDialog } from '@angular/material/dialog';
 import { VerifyComponent } from '../../verify/verify.component'
 
@@ -15,17 +14,22 @@ import { VerifyComponent } from '../../verify/verify.component'
   }]
 })
 export class ApplicationFormComponent implements OnInit {
+
+  @ViewChild('formDirective') private formDirective: NgForm;
+
   public appForm: FormGroup;
   public imageURL: string;
   public loadComponent: boolean = false;
   public sendEmail: boolean = true;
   public submitButton: boolean = false;
   isLoading: boolean = true;
-  
+  public subject: object;
+
   get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
 
   constructor(private applicationFormService: ApplicationFormService,
     private formBuilder: FormBuilder,
+    private subjectService: SubjectService,
     public dialog: MatDialog) {
     this.appForm = this.formBuilder.group({
       formArray: this.formBuilder.array([
@@ -45,7 +49,7 @@ export class ApplicationFormComponent implements OnInit {
         this.formBuilder.group({
           standard: [null, [Validators.required, this.whitespaceValidator]],
           school: [null, [Validators.required, this.whitespaceValidator]],
-          image:  [null, [Validators.required]],
+          image: [null, [Validators.required]],
           imageBase64: [null]
         })
       ])
@@ -53,8 +57,8 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => this.isLoading= false, 500);
-   }
+    setTimeout(() => this.isLoading = false, 500);
+  }
 
   public whitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
@@ -83,7 +87,7 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(VerifyComponent,  {
+    const dialogRef = this.dialog.open(VerifyComponent, {
       disableClose: true,
       width: '350px',
       data: {
@@ -93,7 +97,7 @@ export class ApplicationFormComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result.data.message == "Verified"){
+      if (result.data.message == "Verified") {
         this.submitButton = true
       }
     });
@@ -115,10 +119,15 @@ export class ApplicationFormComponent implements OnInit {
     fd.append('image', this.formArray.controls[2].get('image').value);
 
     this.applicationFormService.postApplicationForm(fd)
-      .subscribe((result) => {
-        console.log(result) 
-      }, (error) => {
+      .subscribe({
+        next: data => {
+          this.appForm.reset();
+          this.formDirective.resetForm();
+          console.log(data)
+        },
+        error: error => {
           console.log(error)
+        }
       })
   }
 }

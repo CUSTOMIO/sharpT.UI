@@ -1,8 +1,6 @@
 export class Subject {
-  name: string;
-  description: string;
-  isActive: boolean;
-  standardId: number;
+  allowSubjectSelection: boolean;
+  data: Object;
 
   constructor(item: Subject) {
     Object.assign(this, item)

@@ -72,7 +72,6 @@ export class ResultsComponent implements OnInit {
       this.result = res;
       this.resultForm.reset();
       this.formDirective.resetForm();
-  
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
