@@ -6,3 +6,8 @@ export class Subject {
     Object.assign(this, item)
   }
 }
+
+export interface AllSubject {
+  id: number;
+  name: string;
+}

@@ -17,25 +17,90 @@
     </div>
   </div>
   
-  <div class="subject-list" *ngIf="subject">
-    <span *ngIf="subject.allowSubjectSelection">
-      <p class="title">Select your subjects</p>
-      <span *ngFor="let s of subject.data">
-        <p>
-          <mat-checkbox>{{s.name}}</mat-checkbox>
+  <!-- <div class="subject-list" *ngIf="allSubject">
+    <mat-form-field style="width: 100% !important;" appearance="standard">
+      <span *ngIf="allSubject.allowSubjectSelection">
+         <mat-label>Select Subjects</mat-label>
+          <mat-chip-list #subjectList>
+            <mat-chip
+              *ngFor="let s of subject"
+              [selectable]="selectable"
+              [removable]="removable"
+              (removed)="remove(s)"
+              >
+              {{s}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input
+              mat-input
+              #subjectInput
+              formControlName="subjects"
+              [matChipInputFor]="subjectList"
+              [matAutocomplete]="auto"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes">
+            </mat-chip-list> 
+            <span  *ngFor="let s of allSubjectArray" >
+              <p>
+                <mat-slide-toggle formControlName="subjects" value=[s]>{{s}}</mat-slide-toggle>
+              </p>
+            </span>
+          </span>
+          <span *ngIf="!allSubject.allowSubjectSelection">
+        <mat-label>Subjects Provided</mat-label>
+            <mat-chip-list #subjectList>
+              <mat-chip
+                *ngFor="let s of allSubjectArray"
+                [selectable]="selectable"
+                [removable]="removable"
+                (removed)="remove(s)"
+                >
+                {{s}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input
+              class="mt-5"
+              mat-input
+                #subjectInput
+                
+                [matChipInputFor]="subjectList"
+                [matAutocomplete]="auto"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                readonly>
+              </mat-chip-list>
+            </span>
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let s of filteredSubjects | async" [value]="s">
+                  {{s}}
+                </mat-option>
+              </mat-autocomplete>
+         </mat-form-field> 
+  </div> -->
+  <div class="subject-list" *ngIf="allSubject">
+    <!-- <mat-form-field style="width: 100% !important;" appearance="standard"> -->
+      <span *ngIf="allSubject.allowSubjectSelection"> 
+          <p *ngFor="let subject of allSubject.data">
+            <mat-slide-toggle
+            color="primary"
+            (change)="checkSubject($event, subject)"
+            [formGroupName]="'subjects'">
+              {{subject.name}}
+            </mat-slide-toggle>        
+          </p>
+      </span>
+      <span *ngIf="!allSubject.allowSubjectSelection">
+        <p *ngFor="let subject of allSubject.data">
+          <mat-slide-toggle
+          color="primary"
+          onload="printvalue()"
+          [formGroupName]="'subjects'"
+          [checked]="true"
+          [disabled]="true">
+            {{subject.name}}
+          </mat-slide-toggle>        
         </p>
       </span>
-    </span>
-    <span *ngIf="!subject.allowSubjectSelection">
-      <p class="title">Subject for your standard</p>
-      <span *ngFor="let s of subject.data">
-        <p>
-          <mat-checkbox checked="true" disabled>{{s.name}}</mat-checkbox>
-        </p>
-      </span>
-    </span>
+    <!-- </mat-form-field> -->
   </div>
-
   <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="row" fxLayourGap="10px" class="p-25">
     <div fxFlex="20" fxFlex.sm="30" fxFlex.xs="50">
       <mat-label>Upload your Image</mat-label><br />
@@ -49,6 +114,5 @@
       </div>
     </div>
   </div>
-
-  
+  <button mat-button matStepperNext (click)="printvalue()">Next</button>
 </form>

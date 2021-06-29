@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <mat-vertical-stepper [@.disabled]="true" selectedIndex="0" [linear]="false" #stepper>
+  <mat-vertical-stepper [@.disabled]="true" selectedIndex="0" [linear]="true" #stepper>
 
     <mat-step completed="false" [stepControl]="formArray?.get([0])">
       <ng-template matStepLabel>Basic</ng-template>
@@ -36,16 +36,14 @@
     <mat-step completed="false" [stepControl]="formArray?.get([2])">
       <ng-template matStepLabel>Course</ng-template>
       <app-course-details [formGroup]="formArray?.get([2])"></app-course-details>
-      <button mat-button matStepperNext (click)="loadMyChildComponent();">Next</button>
     </mat-step>
 
     <mat-step>
       <ng-template matStepLabel>Review</ng-template>
-      <app-review-details *ngIf='loadComponent' [formGroup]="appForm" #formDirective="ngForm"></app-review-details>
+      <app-review-details [formGroup]="appForm" #formDirective="ngForm"></app-review-details>
       <button mat-raised-button *ngIf="!submitButton" (click)="openDialog()">Verify</button>
       <button type="submit" mat-raised-button *ngIf="submitButton" (click)="submitForm()">Submit Button</button>
       <!-- <button type="submit" mat-raised-button  (click)="submitForm()">Submit Button</button> -->
-
     </mat-step>
   </mat-vertical-stepper>
 </div>

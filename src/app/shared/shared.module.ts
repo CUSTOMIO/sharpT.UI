@@ -31,6 +31,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 // Format used for the Intl format functions
 const fullDateTimeOptions = {
@@ -53,7 +55,7 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     MatTooltipModule,
     ReactiveFormsModule,
     NgxMatDatetimePickerModule,
-    NgxMatTimepickerModule,
+    NgxMatTimepickerModule
   ],
   exports: [
     CommonModule,
@@ -94,7 +96,7 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-
+    MatChipsModule,
     //Flex references
     FlexLayoutModule
   ],

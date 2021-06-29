@@ -1,9 +1,9 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormGroup, ControlContainer } from '@angular/forms';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormGroup, ControlContainer, FormArray, FormBuilder } from '@angular/forms';
 import { StandardService, SubjectService } from '../../../../core/data-service/index';
-import { Standard, Subject } from '../../../../core/model/index';
-
-
+import { AllSubject } from '../../../../core/model/index';
+import { Standard } from '../../../../core/model/index';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle'
 
 @Component({
   selector: '[formGroup] app-course-details',
@@ -11,41 +11,44 @@ import { Standard, Subject } from '../../../../core/model/index';
   styleUrls: ['./course-details.component.scss'],
 })
 export class ElementsCourseDetails implements OnInit {
-
   public appForm: FormGroup;
   public imageURL: string;
   public srcResult: any;
   public standard: Standard[];
   public standardNames = [];
-  public subject: Subject;
-
-
+  public allSubject: any;
+  public subject: object;
+ 
   constructor(
+    private formBuilder: FormBuilder,
     private standardService: StandardService,
     private subjectService: SubjectService,
     private controlContainer: ControlContainer,
-    private cd: ChangeDetectorRef
-  ) { }
+  ) {
+  }
+
 
   ngOnInit() {
     this.appForm = this.controlContainer.control as FormGroup;
-    this.standardService.getStandard().subscribe(async res => {
-      this.standard = await res;
+    console.log(this.appForm.controls.subjects)
+    this.standardService.getStandard().subscribe(res => {
+      this.standard = res;
     }, (error) => {
       // create notification services.
     });
     this.appForm.get("standard").valueChanges.subscribe(standardId => {
       this.subjectService.getSubjectByStandardId(standardId)
-      .subscribe({
-        next: data => {
-          if(data){
-            this.subject = data;
+        .subscribe({
+          next: data => {
+            if (data) {
+              console.log(data)
+              this.allSubject = data;
+            }
+          },
+          error: error => {
+            console.log(error)
           }
-        },
-        error: error => {
-          console.log(error)
-        }
-      });
+        });
     })
   }
 
@@ -74,5 +77,28 @@ export class ElementsCourseDetails implements OnInit {
       reader.readAsDataURL(file)
     }
   }
-  
+
+  public checkSubject(event: MatSlideToggleChange, item: AllSubject){
+    if(event.checked){
+      (this.appForm.controls['subjects'] as FormArray).push(this.patchValues(item.id, item.name));
+    }
+    else {
+      (this.appForm.controls['subjects'] as FormArray).removeAt(
+        this.appForm.controls['subjects'].value.findIndex(x => {
+          x.id === item.id
+        })
+      )
+    }
+  }
+
+  public patchValues(id: number, name: string){
+    return this.formBuilder.group({
+      id: [id],
+      name: [name]
+    })
+  }
+
+  printvalue(){
+    console.log(this.appForm.value)
+  }
 }

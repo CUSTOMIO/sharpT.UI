@@ -19,7 +19,6 @@ export class ApplicationFormComponent implements OnInit {
 
   public appForm: FormGroup;
   public imageURL: string;
-  public loadComponent: boolean = false;
   public sendEmail: boolean = true;
   public submitButton: boolean = false;
   isLoading: boolean = true;
@@ -48,7 +47,8 @@ export class ApplicationFormComponent implements OnInit {
         }),
         this.formBuilder.group({
           standard: [null, [Validators.required, this.whitespaceValidator]],
-          school: [null, [Validators.required, this.whitespaceValidator]],
+          subjects: this.formBuilder.array([], Validators.required),
+          school: [null, [Validators.required]],
           image: [null, [Validators.required]],
           imageBase64: [null]
         })
@@ -80,10 +80,6 @@ export class ApplicationFormComponent implements OnInit {
         }
       }
     }
-  }
-
-  loadMyChildComponent() {
-    this.loadComponent = true;
   }
 
   openDialog(): void {
