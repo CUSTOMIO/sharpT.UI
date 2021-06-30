@@ -18,7 +18,7 @@ export class ElementsCourseDetails implements OnInit {
   public standardNames = [];
   public allSubject: any;
   public subject: object;
- 
+
   constructor(
     private formBuilder: FormBuilder,
     private standardService: StandardService,
@@ -37,18 +37,20 @@ export class ElementsCourseDetails implements OnInit {
       // create notification services.
     });
     this.appForm.get("standard").valueChanges.subscribe(standardId => {
-      this.subjectService.getSubjectByStandardId(standardId)
-        .subscribe({
-          next: data => {
-            if (data) {
-              console.log(data)
-              this.allSubject = data;
+      if (standardId) {
+        this.subjectService.getSubjectByStandardId(standardId)
+          .subscribe({
+            next: data => {
+              if (data) {
+                console.log(data)
+                this.allSubject = data;
+              }
+            },
+            error: error => {
+              console.log(error)
             }
-          },
-          error: error => {
-            console.log(error)
-          }
-        });
+          });
+      }
     })
   }
 
@@ -78,8 +80,8 @@ export class ElementsCourseDetails implements OnInit {
     }
   }
 
-  public checkSubject(event: MatSlideToggleChange, item: AllSubject){
-    if(event.checked){
+  public checkSubject(event: MatSlideToggleChange, item: AllSubject) {
+    if (event.checked) {
       (this.appForm.controls['subjects'] as FormArray).push(this.patchValues(item.id, item.name));
     }
     else {
@@ -91,14 +93,14 @@ export class ElementsCourseDetails implements OnInit {
     }
   }
 
-  public patchValues(id: number, name: string){
+  public patchValues(id: number, name: string) {
     return this.formBuilder.group({
       id: [id],
       name: [name]
     })
   }
 
-  printvalue(){
+  printvalue() {
     console.log(this.appForm.value)
   }
 }

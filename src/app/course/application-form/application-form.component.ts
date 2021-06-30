@@ -114,11 +114,16 @@ export class ApplicationFormComponent implements OnInit {
     fd.append('school', this.getValue(2, 'school'));
     fd.append('image', this.formArray.controls[2].get('image').value);
 
+    for (let s of this.getValue(2, 'subjects')) {
+      fd.append('subjects', s.id);
+    }
+
+
     this.applicationFormService.postApplicationForm(fd)
       .subscribe({
         next: data => {
-          this.appForm.reset();
-          this.formDirective.resetForm();
+          //this.appForm.reset();
+          // this.formDirective.resetForm();
           console.log(data)
         },
         error: error => {
