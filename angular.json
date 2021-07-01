@@ -73,7 +73,6 @@
           "configurations": {
             "production": {
               "browserTarget": "sharp:build:production",
-              //"host": "sharpt.adsbaker.com"
               "host": "0.0.0.0"
             }
           }
