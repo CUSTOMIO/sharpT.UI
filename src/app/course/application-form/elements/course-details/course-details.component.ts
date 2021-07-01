@@ -30,7 +30,6 @@ export class ElementsCourseDetails implements OnInit {
 
   ngOnInit() {
     this.appForm = this.controlContainer.control as FormGroup;
-    console.log(this.appForm.controls.subjects)
     this.standardService.getStandard().subscribe(res => {
       this.standard = res;
     }, (error) => {
@@ -42,8 +41,14 @@ export class ElementsCourseDetails implements OnInit {
           .subscribe({
             next: data => {
               if (data) {
-                console.log(data)
                 this.allSubject = data;
+                (this.appForm.controls['subjects'] as FormArray).clear();
+                if(!this.allSubject.allowSubjectSelection){
+                  console.log(!this.allSubject.allowSubjectSelection);
+                  for (let subject of this.allSubject.data){
+                    (this.appForm.controls['subjects'] as FormArray).push(this.patchValues(subject.id, subject.name));
+                  }
+                }
               }
             },
             error: error => {
