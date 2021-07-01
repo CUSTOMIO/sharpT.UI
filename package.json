@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "heroku-postbuild": "npm run build:ssr",
-    "start": "node dist/angularHeroku/server/main.js",
+    "start": "node dist/sharp/server/main.js",
     "build": "ng build --prod && mv dist/sharp _static",
     "test": "ng test",
     "lint": "ng lint",
