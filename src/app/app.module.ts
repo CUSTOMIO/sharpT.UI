@@ -28,7 +28,7 @@ import { LayoutModule } from '@angular/cdk/layout';
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
