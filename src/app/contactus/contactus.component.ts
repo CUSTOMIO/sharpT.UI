@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ReachUsService } from './../core/data-service'
 import { ReachUs } from './../core/model'
 
@@ -10,7 +10,7 @@ import { ReachUs } from './../core/model'
 })
 export class ContactusComponent implements OnInit {
   isLoading: boolean = true;
-  contactUs: any = ReachUs['']; 
+  contactUs: FormGroup = ReachUs['']; 
 
   constructor(private fb: FormBuilder,
      private reachusService: ReachUsService) { }

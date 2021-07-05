@@ -4,6 +4,8 @@ import { ExaminationService, ResultService } from '../core/data-service';
 import { MatDialog } from '@angular/material/dialog';
 import { VerifyComponent } from '../verify/verify.component'
 import { environment } from '../../environments/environment'
+import { NotificationService } from '../core/system-service/notification.service';
+import { AlertType } from '../core/model';
 
 
 @Component({
@@ -26,7 +28,8 @@ export class ResultsComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private examinationService: ExaminationService,
     private resultService: ResultService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.examinationService.getExamination()
@@ -73,7 +76,7 @@ export class ResultsComponent implements OnInit {
       this.resultForm.reset();
       this.formDirective.resetForm();
     }, (error) => {
-      console.log(`THis is the error: ${error}`)
+      this.notificationService.show(AlertType.Error, error.message);
     });
   }
 

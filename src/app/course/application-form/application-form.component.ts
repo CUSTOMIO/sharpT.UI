@@ -4,6 +4,8 @@ import { FormBuilder, FormArray, FormGroup, Validators, FormControl, NgForm } fr
 import { ApplicationFormService, SubjectService } from '../../core/data-service/index';
 import { MatDialog } from '@angular/material/dialog';
 import { VerifyComponent } from '../../verify/verify.component'
+import { AlertType } from 'src/app/core/model';
+import { NotificationService } from 'src/app/core/system-service/notification.service';
 
 @Component({
   selector: 'app-application-form',
@@ -29,7 +31,8 @@ export class ApplicationFormComponent implements OnInit {
   constructor(private applicationFormService: ApplicationFormService,
     private formBuilder: FormBuilder,
     private subjectService: SubjectService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    private notificationService: NotificationService) {
     this.appForm = this.formBuilder.group({
       formArray: this.formBuilder.array([
         this.formBuilder.group({
@@ -83,6 +86,12 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   openDialog(): void {
+    console.log('testing');
+    this.notificationService.show(AlertType.Error, 'this is testing error');
+    // this.notificationService.show(AlertType.Info, 'this is testing info');
+    // this.notificationService.show(AlertType.Success, 'this is testing success');
+    // this.notificationService.show(AlertType.Warning, 'this is testing warning');
+
     const dialogRef = this.dialog.open(VerifyComponent, {
       disableClose: true,
       width: '350px',
