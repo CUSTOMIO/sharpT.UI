@@ -84,11 +84,10 @@ export class VerifyComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close({ data: '' });
-    if (this.verifyMessage !== null) {
-      this.dialogRef.close({ data: this.verifyMessage });
-    }
+      if (this.verifyMessage !== null) {
+        this.dialogRef.close({ data: this.verifyMessage });
+      }
   }
-
 }
 
 
