@@ -72,7 +72,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "sharpT.UI:build:production"
+              "browserTarget": "sharp:build:production"
             }
           }
         },
@@ -171,13 +171,9 @@
           "configurations": {
             "production": {}
           }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {}
         }
       }
     }
   },
-  "defaultProject": "sharpT.UI"
+  "defaultProject": "sharp"
 }
