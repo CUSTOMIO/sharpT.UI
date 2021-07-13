@@ -12,7 +12,11 @@ export class StandardService {
 
   constructor(private http: HttpClient) { }
 
+<<<<<<< HEAD
   public getCourses() {
+=======
+  public getStandard() {
+>>>>>>> develop
     const url = `${environment.api_endpoint}/standard?getActive=true`;
     return this.http.get<Standard[]>(url)
       .pipe(
@@ -21,4 +25,19 @@ export class StandardService {
         )
       );
   }
+<<<<<<< HEAD
 }
+=======
+
+  public getStandardBycourseId(courseId: number) {
+    const url = `${environment.api_endpoint}/standard/${courseId}?getActive=true`;
+    return this.http.get<Standard[]>(url)
+      .pipe(
+        map(data =>
+          data.map(x => new Standard(x))
+        )
+      );
+  }
+}
+
+>>>>>>> develop

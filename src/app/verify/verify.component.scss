@@ -1,0 +1,44 @@
+.verify-body {
+  position: relative;
+    mat-progress-bar {
+      margin: 10px 0px;
+  }
+    .top-div h1{
+      float: left;
+      width: 90%;
+    }
+    .close-button {
+     width: 10%;
+     cursor: pointer;
+    }
+}
+
+.resend-container {
+  margin-top: 10.5px;
+  color: grey;
+  font-size: 75%;
+  .resend {
+    text-decoration: underline;
+    cursor: pointer;
+    color: black !important
+  }
+}
+
+.email{
+    font-weight: 500
+}
+
+.mat-form-field {
+    width: 140px !important;
+    margin-right: 30px;
+}
+
+.error-msg {
+  color: red !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .mat-form-field {
+    width: 100% !important;
+}
+}

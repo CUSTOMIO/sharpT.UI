@@ -1,0 +1,24 @@
+.content {
+  margin: 0 auto;
+  width: 90%; 
+}
+
+.list-item {
+  font-size: 0.9rem;
+}
+
+
+.img-course {
+  padding: 10px 0;
+  width: 400px;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    width: 100%;
+  }
+  .img-course {
+    width: 250px;
+  }
+}

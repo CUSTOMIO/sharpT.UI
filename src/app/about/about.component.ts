@@ -8,12 +8,14 @@ import { OnInit, Component, Input } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  isLoading: boolean = true;
+
   constructor() {
 
   }
   ngOnInit() {
-    
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 500);
   }
- 
-
 }

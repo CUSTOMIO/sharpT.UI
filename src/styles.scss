@@ -1,11 +1,16 @@
+
 @import '~@angular/material/theming';
+@import "./theme/theme.scss";
 
 // font awesone
 @import '@fortawesome/fontawesome-free/css/all.css';
 
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap');
 @include mat-core();
-$sharp-primary: mat-palette($mat-indigo);
-$sharp-accent: mat-palette($mat-pink, A200, A100, A400);
+$custom-typography: mat-typography-config($font-family: '"Archivo", sans-serif;');
+@include mat-core($custom-typography);
+$sharp-primary: mat-palette($blue-palette, 400);
+$sharp-accent: mat-palette($yellow-palette, 400, 800, 700);
 
 $sharp-warn: mat-palette($mat-red);
 
@@ -21,7 +26,6 @@ $sharp-theme: mat-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-@import "./theme/theme.scss";
 
 
 html, body {
@@ -30,8 +34,9 @@ html, body {
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Dosis', sans-serif;
   overflow: hidden;
+  background-color: transparent !important;
 }
 
 //COLORS
@@ -54,6 +59,10 @@ body {
   background-color: #fffaf2 !important;
 }
 
+.color-not-so-black {
+  // color: #333333 !important;
+  color: #545454 !important;
+}
 
 ///SCROLLBAR
 ::-webkit-scrollbar {
@@ -76,4 +85,20 @@ body {
   background-color: #d4e5ff !important;
   border-radius: 10px;
 }
+
+/*Image bg transparent*/
+img {
+  background: transparent !important;
+}
+.post img {
+  background: transparent;
+}
+
+@media  (max-width: 600px) {
+  .m-mq-auto {
+    display: block !important;
+    margin: 0 auto !important;
+  }
+}
+
 

@@ -1,0 +1,25 @@
+<div class="main" *ngIf="!isLoading">
+  <div class="img-div">
+    <!-- <img src="assets/blog.png" /> -->
+  </div>
+  <div class="container" align="left" *ngIf="blog">
+    <div class="top-div">
+      <mat-icon routerLink=".." matTooltip="go back">arrow_back</mat-icon>
+      <mat-icon class="icon-share" (click)="copyLink()" matTooltip="copy link">share</mat-icon>
+    </div>
+    <div class="content">
+      <p class="mat-display-1 mt-10 mb-10" [innerHtml]="blog.title"></p>
+      <mat-divider></mat-divider>
+      <p class="mat-subheading-2 pt-25" [innerHtml]="blog.content"></p>
+      <p class="mat-caption pl-10 pt-10" [innerHtml]="blog.published" align="right"></p>
+      <p class="mat-title" align="right">- <span [innerHtml]="blog.author.displayName"></span></p>
+    </div>
+
+  </div>
+</div>
+
+<!--<mat-spinner *ngIf="isLoading"></mat-spinner>-->
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
+
+<!--<iframe src="https://sharptutorials-howto.blogspot.com/2021/06/this-is-second-post.html" allowFullscreen="" height="100%" width="100%"></iframe>-->

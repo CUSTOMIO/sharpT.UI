@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from '../core/data-service';
 
 @Component({
   selector: 'app-blog',
@@ -6,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
+  bloggerLink: string;
+  public blog: Array<object>;
+  isLoading: boolean = true;
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(
+    private blogService: BlogService) {
   }
 
+  ngOnInit() {
+    this.blogService.getBlog().subscribe(res => {
+      this.blog = res;
+      this.isLoading = false
+      }, (error) => {
+        console.log(`THis is the error: ${error}`)
+      });
+
+  }
+
+  newTab(url) {
+    window.open(url, "_blank");
+  }
 }

@@ -1,14 +1,15 @@
-<div>
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<div *ngIf="!isLoading">
   <div class="reachus-header">
-    <div class="mat-display-2 reachus-header-text ml-20">
+    <div class="mat-display-1 reachus-header-text ml-20">
       <i class="fas fa-user-friends fa-sm"></i>
       REACH US
     </div>
   </div>
 
-  <div class="pt-50 contact-div mb-50 pl-10 pr-10"
-       fxLayout="row" fxLayout.xs="column" fxLayout.sm="column"
+  <div class="contact-detail p-10" fxLayout="row" fxLayout.xs="column" fxLayout.sm="row"
        fxLayoutGap="20px">
+<<<<<<< HEAD
     <div fxFlex="48" fxFlex.xs="100" fxFlex.sm="100"
          fxLayoutGap="20px" class="contact-detail" align="left">
       <p class="mat-display-1 m-20" align="center">Contact Detail</p>
@@ -29,42 +30,62 @@
           <i class="fas fa-phone m-10 fa-sm"></i>Mobile N0.
         </p>
         <a class="subheading-2	 detail-value"
+=======
+    <div class="contact-element" fxFlex="50" fxFlex.sm="50" fxFlex.xs="100" >
+      <i class="fas fa-map-signs fa-sm address" style="float: left"></i>
+      <p class="mat-body-2 ml-20" style="vertical-align: middle">
+        Murga Giran chsg, opposite Hotel Kalpana Palace, near Daulat
+        Complex, Grant Road(East), Mumbai 400 008
+      </p>
+    </div>
+    <div class="contact-element"  fxFlex="20" fxFlex.sm="25" fxFlex.xs="100">
+    <div class="phone">
+      
+        <i class="fas fa-phone fa-sm"></i>
+        <a class="mat-body-2"
+>>>>>>> develop
            href="tel:+919167945708"
            matTooltip="Click on me to send a mail!"
            matTooltipPosition="before">
           +91 9167945708
         </a>
       </div>
-
-      <div class="detail-container mb-25">
-        <p class="mat-title detail-field m-0">
-          <i class="fas fa-tty m-10 fa-sm"></i>Telephone No.
-        </p>
-        <a class="subheading-2	 detail-value"
+      <div class="phone">
+        <i class="fas fa-tty fa-sm"></i>
+        <a class="mat-body-2"
            href="tel:+917021186955"
            matTooltip="Click on me to send a mail!"
            matTooltipPosition="before">
-          +91 70211 86955
+          +91 7021186955
         </a>
       </div>
-
-      <div class="detail-container mb-25">
-        <p class="mat-title detail-field m-0">
-          <i class="fas fa-at m-10 fa-sm"></i>Email
-        </p>
-        <a class="subheading-2 detail-value"
+    </div>
+    <div class="contact-element"  fxFlex="20" fxFlex.sm="25" fxFlex.xs="100">
+        <i class="fas fa-at fa-envelope"></i>
+        <a class="mat-body-2"
            href="mailto:info@sharptutorials.com"
            matTooltip="Click on me to send a mail!"
            matTooltipPosition="before">
           info@sharptutorials.com
         </a>
-      </div>
+    </div>
+  </div>
+
+  <div class="pt-50 contact-div mb-100 pl-10 pr-10"
+       fxLayout="row" fxLayout.xs="column" fxLayout.sm="column"
+       fxLayoutGap="20px">
+
+    <div class="map ml-10 mr-10" fxFlex="48" fxFlex.xs="100" fxFlex.sm="100">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.269539453101!2d72.81940221517473!3d18.963699960420048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce135bfaebaf%3A0x7797e4b4f588d0d3!2sMurga%20Giran%20Co.%20Op.%20Society%2C%20Bapty%20Rd%2C%20Navjeevan%20Society%2C%20Kamathipura%2C%20Mumbai%2C%20Maharashtra%20400008!5e0!3m2!1sen!2sin!4v1621401532859!5m2!1sen!2sin"
+              allowfullscreen="" loading="lazy">
+      </iframe>
     </div>
 
     <div fxFlex="48" fxFlex.xs="100" fxFlex.sm="100"
          class="contact-form flex-child pl-10 pr-10" align="center">
       <mat-card>
         <mat-card-header>
+<<<<<<< HEAD
           <mat-card-title>Fill in the Form to Secure a Strong Foundation For Your Child's Career</mat-card-title>
         </mat-card-header>
           <div class="p-20">
@@ -83,10 +104,26 @@
             <mat-form-field appearance="standard" style="width: 100% !important">
               <mat-label>Standard</mat-label>
               <input matInput formControlName="standard">
+=======
+          <mat-card-title class="mat-headline">Fill in the Form to Secure a Strong Foundation For Your Child's Career</mat-card-title>
+        </mat-card-header>
+        <div class="p-20">
+          <form [formGroup]="contactUs" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="standard" style="width: 100% !important">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name">
+              <mat-hint style="color: red" *ngIf="name.touched && name.hasError('required')">Required</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" style="width: 100% !important">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
+>>>>>>> develop
             </mat-form-field>
 
             <mat-form-field appearance="standard" style="width: 100% !important">
               <mat-label>Message</mat-label>
+<<<<<<< HEAD
               <input matInput formControlName="message">
             </mat-form-field>
           <button type="submit" [disabled]="!contactUs.valid" mat-button class="bgcolor-yellow">Submit</button>
@@ -94,16 +131,20 @@
         </div>
       
        
+=======
+              <textarea matInput formControlName="message"></textarea>
+            </mat-form-field>
+            <button type="submit" [disabled]="!contactUs.valid"
+                    mat-raised-button color="accent">
+              Submit
+            </button>
+          </form>
+        </div>
+
+>>>>>>> develop
       </mat-card>
     </div>
   </div>
 </div>
 
 
-<div class="map-div">
-  <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.269539453101!2d72.81940221517473!3d18.963699960420048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce135bfaebaf%3A0x7797e4b4f588d0d3!2sMurga%20Giran%20Co.%20Op.%20Society%2C%20Bapty%20Rd%2C%20Navjeevan%20Society%2C%20Kamathipura%2C%20Mumbai%2C%20Maharashtra%20400008!5e0!3m2!1sen!2sin!4v1621401532859!5m2!1sen!2sin"
-            width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-  </div>
-</div>

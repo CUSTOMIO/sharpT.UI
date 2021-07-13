@@ -1,218 +1,186 @@
- <div  class="aboutus-bg m-5 " align="center"></div>
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 
-<div class="m-20 pt-50">
-  <p class="mat-display-1 pt-20 mb-25 pb-25"
-     style="text-align: center; border-bottom: 1px solid #fca311">
-    About our Institution
-  </p>
-  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
-       fxLayoutGap="20px">
-    <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="100"
-         class="left-content pt-20" align="center">
+<div *ngIf="!isLoading">
+  <div class="m-20 pt-50">
+    <p class="mat-display-1 mb-25 pb-25" style="text-align: center; border-bottom: 1px solid #fca311">
+      About our Institution
+    </p>
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20px">
+      <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="100" class="left-content pt-20" align="center">
+        <p class="mat-subheading-2">
+          The Mission of the <span class="color-yellow">Sharp Tutorial</span>
+          is to partner with parentsto inspire each student to think critically,
+          communicate effectively, and achieve excellence by providing academic choice.
+          Concept-based learning techniques along with experienced
+          teachers help students to achieve a successful career.
+        </p>
+
+        <div class="m-5 pl-35 pt-30" style="text-align: justify">
+          <p class="mat-subheading-2">
+            <i class="far fa-check-square ml-5 mr-5 color-yellow"></i>
+            Timely Completion Of syllabus
+          </p>
+          <p class="mat-subheading-2">
+            <i class="far fa-check-square ml-5 mr-5 color-yellow"></i>
+            Teaching Methodology
+          </p>
+          <p class="mat-subheading-2">
+            <i class="far fa-check-square ml-5 mr-5 color-yellow"></i>
+            Test Preparation
+          </p>
+          <p class="mat-subheading-2">
+            <i class="far fa-check-square ml-5 mr-5 color-yellow"></i>
+            Qualified Teachers
+          </p>
+        </div>
+      </div>
+      <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="45" class="right-content-div">
+        <img class="right-content" src="./assets/smart-classroom.png" />
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pt-50 p-25" style="background-color: #EFEFEF">
+    <div align="center">
+      <p class="mat-display-1 pb-25" style="border-bottom: 1px solid #fca311;">
+        Why choose us?
+      </p>
       <p class="mat-subheading-2">
-        The Mission of the <span class="color-yellow">Sharp Tutorial</span>
-        is to partner with parentsto inspire each student to think critically,
-        communicate effectively, and achieve excellence by providing academic choice.
-        Concept-based learning techniques along with experienced
-        teachers help students to achieve a successful career.
-      </p>
-
-      <div class="m-5 pl-35 pt-30" style="text-align: justify">
-        <p class="mat-subheading-2">
-          <i class="far fa-check-square ml-5 mr-5 color-yellow"></i>
-          Timely Completion Of syllabus
-        </p>
-        <p class="mat-subheading-2">
-          <i class="far fa-check-square ml-5 mr-5 color-yellow"></i>
-          Teaching Methodology
-        </p>
-        <p class="mat-subheading-2">
-          <i class="far fa-check-square ml-5 mr-5 color-yellow"></i>
-          Test Preparation
-        </p>
-        <p class="mat-subheading-2">
-          <i class="far fa-check-square ml-5 mr-5 color-yellow"></i>
-          Qualified Teachers
-        </p>
-      </div>
-    </div>
-    <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="80" class="right-content-div">
-      <img class="right-content" src="./assets/smart-classroom.png" />
-    </div>
-  </div>
-
-</div>
-
-<div class="pt-50 p-25" style="background-color: #EFEFEF">
-  <div align="center">
-    <p class="mat-display-1 pb-25"
-       style="border-bottom: 1px solid #fca311">
-      Why choose us?
-    </p>
-    <p class="mat-subheading-2 p-20">
-      <span class="color-yellow">
-        Sharp Tutorials
-      </span> has limited Students In Per
-      Batch Which Help Teacher to get personal
-      attention in each and every students.
-    </p>
-  </div>
-
-  <div class="m-20" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
-       fxLayoutGap="20px" align="center">
-
-    <div fxLayout="row" fxFlex="50" fxLayoutGap="20px"
-         fxLayout.sm="row" fxLayout.xs="column">
-      <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50"
-           class="circle-img-div card" align="center">
-        <img class="circle-img p-20" src="./assets/test.jpg" />
-        <p class=" mat-subheading-1 p-10">Every Week Test Will Be Conducted</p>
-      </div>
-      <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50"
-           class="circle-img-div card" align="center">
-        <img class="circle-img p-20" src="./assets/student_per_batch.jpg" />
-        <p class="mat-subheading-1 p-10">Limited Students Per Batch</p>
-      </div>
-    </div>
-
-    <div fxLayout="row" fxFlex="50" fxLayoutGap="20px"
-         fxLayout.sm="row" fxLayout.xs="column">
-      <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50"
-           class="circle-img-div card" align="center">
-        <img class="circle-img p-20" src="./assets/book.jpg" />
-        <p class="mat-subheading-1 p-10">Well Prepared Study Material</p>
-      </div>
-      <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50"
-           class="circle-img-div card" align="center">
-        <img class="circle-img p-20" src="./assets/parents.png" />
-        <p class="mat-subheading-1 p-10">Regular Performace Updates to Parents</p>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="bgcolor-blue" style="color:white">
-  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
-       fxLayoutGap="20px"
-       align="center">
-    <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100" class="child-dark p-20">
-      <p class="mat-display-2 m-10">5+</p>
-      <p class="mat-subheading-1">YEARS OF EXPERIENCE</p>
-    </div>
-    <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100" class="child-dark p-20">
-      <p class="mat-display-2 m-10">100%</p>
-      <p class="mat-subheading-1">PASSED PERCENTAGE</p>
-    </div>
-    <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100"
-         class="child-dark p-20">
-      <p class="mat-display-2 m-10">300+</p>
-      <p class="mat-subheading-1">TRAINED STUDENTS</p>
-    </div>
-  </div>
-</div>
-
-
-<div class="pt-50 p-25">
-  <div align="center">
-    <p class="mat-display-1 pb-25"
-       style="border-bottom: 1px solid #fca311">
-      Our Expert Faculty
-    </p>
-    <p class="mat-subheading-2 p-20">
-      <span class="color-yellow">
-        Sharp Tutorials
-      </span>  has one of the best faculty in south Mumbai
-      when it comes to school & commerce coaching. Our faculty
-      comprises of experienced and renowed teachers for different
-      subjects who have a through knowledge and command of their subjects,
-      and able to answer all students querries as required.
-    </p>
-  </div>
-
-  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
-       fxLayoutGap="20px" class="m-20" align="center">
-
-    <div fxLayout="row" fxFlex="66" fxLayoutGap="20px"
-         fxLayout.sm="row" fxLayout.xs="column">
-      <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50"
-           class="circle-img-div card" style="width: 225px" align="center">
-        <p class="mat-title bgcolor-yellow p-20">School</p>
-        <p class="mat-subheading-1 p-5">Prof. Sufiyan Kojar</p>
-        <p class="mat-subheading-1 p-5">Prof. Salman Kojar</p>
-        <p class="mat-subheading-1 p-5">Prof. Sariya Kojar</p>
-      </div>
-      <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50"
-           class="circle-img-div card" style="width: 225px" align="center">
-        <p class="mat-title bgcolor-yellow p-20">Junior College</p>
-        <p class="mat-subheading-1 p-5">Prof. Sufiyan Kojar</p>
-        <p class="mat-subheading-1 p-5">Prof. Salman Kojar</p>
-        <p class="mat-subheading-1 p-5">Prof. Sariya Kojar</p>
-      </div>
-    </div>
-
-    <div fxLayout="row" fxFlex="33" fxLayoutGap="20px"
-         fxLayout.sm="row" fxLayout.xs="column">
-      <div fxFlex="100" fxFlex.xs="100" fxFlex.sm="50"
-           class="circle-img-div card" style="width: 225px" align="center">
-        <p class="mat-title bgcolor-yellow p-20">Degree</p>
-        <p class="mat-subheading-1 p-5">Prof. Sufiyan Kojar</p>
-        <p class="mat-subheading-1 p-5">Prof. Salman Kojar</p>
-        <p class="mat-subheading-1 p-5">Prof. Sariya Kojar</p>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-
-
-
-<div class="pt-50 p-25 pb-30" style="background-color: #EFEFEF">
-  <div align="center">
-    <p class="mat-display-1 pb-25"
-       style="border-bottom: 1px solid #fca311">
-      Career At Sharp Tutotial
-    </p>
-    <p class="mat-subheading-2 p-20">
-      <span class="color-yellow">
-        Sharp Tutorials
-      </span>
-      aims to be the Best Commerce Coaching Institute in Mumbai.
-      We Invite Dedicated, Talented and Passionate Teachers and
-      Administrators to come and be Part of
-      <span class="color-yellow">
-        us
-      </span>
-    </p>
-  </div>
-
-  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
-       fxLayoutGap="20px" class="m-20 p-20" align="center">
-
-    <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="100"
-         class="img-card-div mb-20 card" align="center">
-      <img class="img-card" src="./assets/student-teacher_22.jpg" />
-      <p class="mat-subheading-1 img-card-text p-10">
-        Be a part of one of the  and best commerce tutorials in South Mumbai
+        <span class="color-yellow">
+          Sharp Tutorials
+        </span> has limited Students In Per
+        Batch Which Help Teacher to get personal
+        attention in each and every students.
       </p>
     </div>
-    <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="100"
-         class="img-card-div mb-20 card" align="center">
-      <img class="img-card" src="./assets/student-teacher_11.jpg" />
-      <p class="mat-subheading-1 img-card-text p-10">
-        Champion the cause of education with training from our experienced faculty
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20px" align="center">
+
+      <div class="mb-fix" fxLayout="row" fxFlex="50" fxLayoutGap="20px" fxLayoutGap.xs="20px" fxLayout.sm="row"
+        fxLayout.xs="column">
+        <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50" class="circle-img-div card" align="center">
+          <img class="circle-img p-20" src="./assets/test.jpg" />
+          <p class=" mat-subheading-1 p-10">Every Week Test Will Be Conducted</p>
+        </div>
+        <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50" class="circle-img-div card" align="center">
+          <img class="circle-img p-20" src="./assets/student_per_batch.jpg" />
+          <p class="mat-subheading-1 p-10">Limited Students Per Batch</p>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxFlex="50" fxLayoutGap="20px" fxLayoutGap.xs="20px" fxLayout.sm="row" fxLayout.xs="column">
+        <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50" class="circle-img-div card" align="center">
+          <img class="circle-img p-20" src="./assets/book.jpg" />
+          <p class="mat-subheading-1 p-10">Well Prepared Study Material</p>
+        </div>
+        <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="50" class="circle-img-div card" align="center">
+          <img class="circle-img p-20" src="./assets/parents.png" />
+          <p class="mat-subheading-1 p-10">Regular Performace Updates to Parents</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bgcolor-blue" style="color:white">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20px" align="center">
+      <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100" class="child-dark p-20">
+        <p class="mat-display-2 m-10">5+</p>
+        <p class="mat-subheading-1">YEARS OF EXPERIENCE</p>
+      </div>
+      <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100" class="child-dark p-20">
+        <p class="mat-display-2 m-10">100%</p>
+        <p class="mat-subheading-1">PASSED PERCENTAGE</p>
+      </div>
+      <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100" class="child-dark p-20">
+        <p class="mat-display-2 m-10">300+</p>
+        <p class="mat-subheading-1">TRAINED STUDENTS</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="pt-50">
+    <div align="center">
+      <p class="mat-display-1 pb-25" style="border-bottom: 1px solid #fca311">
+        Our Expert Faculty
+      </p>
+      <p class="mat-subheading-2 p-20">
+        <span class="color-yellow">
+          Sharp Tutorials
+        </span> has one of the best faculty in south Mumbai
+        when it comes to school & commerce coaching. Our faculty
+        comprises of experienced and renowed teachers for different
+        subjects who have a through knowledge and command of their subjects,
+        and able to answer all students querries as required.
       </p>
     </div>
-    <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="100"
-         class="img-card-div mb-20 card" align="center">
-      <img class="img-card" src="./assets/student-teacher_33.jpg" />
-      <p class="mat-subheading-1 img-card-text p-10">
-        One to one attention between teachers and students
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="m-20" align="center" fxLayoutGap="20px">
+      <div class="mb-0" fxLayout="row" fxFlex="66" fxLayoutGap="20px" fxLayout.sm="row" fxLayout.xs="column">
+        <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="75" class="circle-img-div card" style="width: 225px" align="center">
+          <p class="mat-title bgcolor-yellow p-20">School</p>
+          <p class="mat-subheading-1 p-5">Prof. Sufiyan Kojar</p>
+          <p class="mat-subheading-1 p-5">Prof. Salman Kojar</p>
+          <p class="mat-subheading-1 p-5">Prof. Sariya Kojar</p>
+        </div>
+        <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="75" class="circle-img-div card mb-20" style="width: 225px"
+          align="center">
+          <p class="mat-title bgcolor-yellow p-20">Junior College</p>
+          <p class="mat-subheading-1 p-5">Prof. Sufiyan Kojar</p>
+          <p class="mat-subheading-1 p-5">Prof. Salman Kojar</p>
+          <p class="mat-subheading-1 p-5">Prof. Sariya Kojar</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="33" fxLayout.sm="row" fxLayout.xs="column">
+        <div fxFlex="100" fxFlex.xs="100" fxFlex.sm="75" class="circle-img-div card" style="width: 225px"
+          align="center">
+          <p class="mat-title bgcolor-yellow p-20">Degree</p>
+          <p class="mat-subheading-1 p-5">Prof. Sufiyan Kojar</p>
+          <p class="mat-subheading-1 p-5">Prof. Salman Kojar</p>
+          <p class="mat-subheading-1 p-5">Prof. Sariya Kojar</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pt-50 p-25 pb-100" style="background-color: #EFEFEF">
+    <div align="center">
+      <p class="mat-display-1 pb-25" style="border-bottom: 1px solid #fca311">
+        Career At Sharp Tutotial
       </p>
+      <p class="mat-subheading-2 p-20">
+        <span class="color-yellow">
+          Sharp Tutorials
+        </span>
+        aims to be the Best Commerce Coaching Institute in Mumbai.
+        We Invite Dedicated, Talented and Passionate Teachers and
+        Administrators to come and be Part of
+        <span class="color-yellow">
+          us
+        </span>
+      </p>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20px" align="center">
+      <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="100" class="img-card-div mb-20 card" align="center">
+        <img class="img-card" src="./assets/student-teacher_22.jpg" />
+        <p class="mat-subheading-1 img-card-text p-10">
+          Be a part of one of the and best commerce tutorials in South Mumbai
+        </p>
+      </div>
+      <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="100" class="img-card-div mb-20 card" align="center">
+        <img class="img-card" src="./assets/student-teacher_11.jpg" />
+        <p class="mat-subheading-1 img-card-text p-10">
+          Champion the cause of education with training from our experienced faculty
+        </p>
+      </div>
+      <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="100" class="img-card-div mb-20 card" align="center">
+        <img class="img-card" src="./assets/student-teacher_33.jpg" />
+        <p class="mat-subheading-1 img-card-text p-10">
+          One to one attention between teachers and students
+        </p>
+      </div>
     </div>
   </div>
 </div>
-
-

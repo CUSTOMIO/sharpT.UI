@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,7 +15,7 @@ import { MatListModule } from '@angular/material/list';
 
 //Custom
 import { LayoutComponent } from './layout/layout.component';
-import { LayoutToolbarComponent } from './layout/layout-toolbar/layout-toolbar.component';
+import { LayoutFooterComponent } from './layout/layout-footer/layout-footer.component';
 import { LayoutSidemenuComponent } from './layout/layout-sidemenu/layout-sidemenu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -22,12 +23,16 @@ import { LayoutModule } from '@angular/cdk/layout';
   declarations: [
     AppComponent,
     LayoutComponent,
-    LayoutToolbarComponent,
+    LayoutFooterComponent,
     LayoutSidemenuComponent
   ],
   imports: [
     AppRoutingModule,
+<<<<<<< HEAD
     BrowserModule,
+=======
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+>>>>>>> develop
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
@@ -38,7 +43,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatListModule,
     SharedModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
