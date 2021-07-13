@@ -3,14 +3,8 @@
     <div class="pl-25 pr-25" fxFlex="25" fxFlex.sm="20" fxFlex.xs="100">
       <mat-form-field appearance="standard" style="width: 100% !important;">
         <mat-label>Standard</mat-label>
-<<<<<<< HEAD
-        <mat-select formControlName="standard" >
-          <mat-option value="one" *ngFor="let s of this.standard">{{s.name}}</mat-option>
-          <!--<mat-option value="two">Second option</mat-option>-->
-=======
         <mat-select formControlName="standard">
           <mat-option *ngFor="let s of this.standard" value="{{s.id}}" [innerHtml]="s.name"></mat-option>
->>>>>>> develop
         </mat-select>
       </mat-form-field>
     </div>
@@ -22,14 +16,6 @@
       </mat-form-field>
     </div>
   </div>
-<<<<<<< HEAD
-
-
-  <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="row" fxLayourGap="10px" class="p-25">
-    <div fxFlex="20" fxFlex.sm="30" fxFlex.xs="50">
-      <mat-label>Upload your Image</mat-label><br />
-      <input hidden type="file" (change)="showPreview($event)" #fileInput />
-=======
   
   <!-- <div class="subject-list" *ngIf="allSubject">
     <mat-form-field style="width: 100% !important;" appearance="standard">
@@ -119,24 +105,14 @@
     <div fxFlex="20" fxFlex.sm="30" fxFlex.xs="50">
       <mat-label>Upload your Image</mat-label><br />
       <input hidden type="file" (change)="showPreview($event)" accept="image/*" #fileInput />
->>>>>>> develop
       <button type="button" mat-raised-button color="accent" (click)="fileInput.click()">Choose File</button>
     </div>
 
     <div fxFlex="20" fxFlex.sm="20" fxFlex.xs="50 ">
-<<<<<<< HEAD
-      <div class="imagePreview" *ngIf="imageURL">
-=======
       <div *ngIf="imageURL">
->>>>>>> develop
         <img [src]="imageURL" [alt]="appForm.value.name" height="120" width="90">
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-  <button mat-button matStepperNext>Next</button>
-</form>
-=======
   <button mat-button matStepperNext (click)="printvalue()">Next</button>
 </form>
->>>>>>> develop

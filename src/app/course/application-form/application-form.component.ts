@@ -1,9 +1,4 @@
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormArray, FormGroup, Form, Validators, FormControl } from '@angular/forms';
-import { error } from 'protractor';
-=======
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormArray, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
 import { ApplicationFormService, SubjectService } from '../../core/data-service/index';
@@ -11,30 +6,17 @@ import { MatDialog } from '@angular/material/dialog';
 import { VerifyComponent } from '../../verify/verify.component'
 import { AlertType } from 'src/app/core/model';
 import { NotificationService } from 'src/app/core/system-service/notification.service';
->>>>>>> develop
 
 @Component({
   selector: 'app-application-form',
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.scss'],
   providers: [{
-<<<<<<< HEAD
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: { displaDefaultIndicatorType: false}
-=======
     provide: STEPPER_GLOBAL_OPTIONS, useValue: { displaDefaultIndicatorType: false }
->>>>>>> develop
   }]
 })
 export class ApplicationFormComponent implements OnInit {
-  public appForm: FormGroup;
 
-<<<<<<< HEAD
-  get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
-
-  constructor(
-    private formBuilder: FormBuilder
-  ) {
-=======
   @ViewChild('formDirective') private formDirective: NgForm;
 
   public appForm: FormGroup;
@@ -51,7 +33,6 @@ export class ApplicationFormComponent implements OnInit {
     private subjectService: SubjectService,
     public dialog: MatDialog,
     private notificationService: NotificationService) {
->>>>>>> develop
     this.appForm = this.formBuilder.group({
       formArray: this.formBuilder.array([
         this.formBuilder.group({
@@ -61,11 +42,7 @@ export class ApplicationFormComponent implements OnInit {
         }),
         this.formBuilder.group({
           email: [null, [Validators.required,
-<<<<<<< HEAD
-            Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
-=======
           Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
->>>>>>> develop
           ]],
           studentPN: [null, [Validators.required, Validators.pattern("[0-9 ]{10}")]],
           parentPN: [null, [Validators.required, Validators.pattern("[0-9 ]{10}")]],
@@ -73,15 +50,10 @@ export class ApplicationFormComponent implements OnInit {
         }),
         this.formBuilder.group({
           standard: [null, [Validators.required, this.whitespaceValidator]],
-<<<<<<< HEAD
-          school: [null, [Validators.required, this.whitespaceValidator]],
-          image: [null, [Validators.required]]
-=======
           subjects: this.formBuilder.array([], Validators.required),
           school: [null, [Validators.required]],
           image: [null, [Validators.required]],
           imageBase64: [null]
->>>>>>> develop
         })
       ])
     });
@@ -137,12 +109,6 @@ export class ApplicationFormComponent implements OnInit {
     this.sendEmail = false
   }
 
-<<<<<<< HEAD
-  public whitespaceValidator(control: FormControl) {
-    const isWhitespace = (control.value || '').trim().length === 0;
-    const isValid = !isWhitespace;
-    return isValid ? null : { 'whitespace': true };
-=======
   submitForm() {
     const fd = new FormData();
 
@@ -173,7 +139,6 @@ export class ApplicationFormComponent implements OnInit {
           console.log(error)
         }
       })
->>>>>>> develop
   }
 }
 

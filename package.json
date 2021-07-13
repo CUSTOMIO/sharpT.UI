@@ -3,13 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-<<<<<<< HEAD
-    "start": "ng serve --port 33351",
-    "build": "ng build --port 33352",
-=======
     "start": "ng serve",
     "build": "ng build",
->>>>>>> develop
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

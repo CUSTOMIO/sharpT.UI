@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<mat-sidenav-container class="sidenav-container" style="width: 100%; height: 100%;">
-
-  <mat-sidenav #drawer class="sidenav  bgcolor-blue-light" fixedInViewport="false"
-=======
 <mat-toolbar class="bgcolor-yellow-light bottom-shadow">
   <span *ngIf="!(isHandset$ | async)">
       <div class="plate plate4" onclick="this.classList.toggle('active')" (click)="toggleMenu()">
@@ -60,7 +55,6 @@
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav disableClose #drawer class="sidenav  bgcolor-blue-light" fixedInViewport="false"
->>>>>>> develop
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false" id="sidenav"

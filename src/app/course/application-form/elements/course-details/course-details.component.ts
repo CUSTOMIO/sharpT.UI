@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormGroup, ControlContainer } from '@angular/forms';
-import { StandardService } from '../../../../core/data-service/index';
-import { Standard } from '../../../../core/model/index';
-
-@Component({
-  selector: '[formGroup] app-course-details',
-  templateUrl: './course-details.component.html'
-})
-export class ElementsCourseDetails implements OnInit {
-
-=======
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, ControlContainer, FormArray, FormBuilder } from '@angular/forms';
 import { StandardService, SubjectService } from '../../../../core/data-service/index';
@@ -24,34 +11,11 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle'
   styleUrls: ['./course-details.component.scss'],
 })
 export class ElementsCourseDetails implements OnInit {
->>>>>>> develop
   public appForm: FormGroup;
   public imageURL: string;
   public srcResult: any;
   public standard: Standard[];
   public standardNames = [];
-<<<<<<< HEAD
-
-
-  constructor(
-    private standardService: StandardService,
-    private controlContainer: ControlContainer,
-    private cd: ChangeDetectorRef
-  ) { }
-
-  ngOnInit() {
-    this.standardService.getCourses().subscribe(async res => {
-      this.standard = await res;
-      console.log(res[0]);
-    }, (error) => {
-      console.log(`THis is the error: ${error}`)
-    });
-    this.appForm = this.controlContainer.control as FormGroup;
-  }
-
-
-
-=======
   public allSubject: any;
   public subject: object;
 
@@ -95,30 +59,10 @@ export class ElementsCourseDetails implements OnInit {
     })
   }
 
->>>>>>> develop
   public hasError = (controlName: string, errorName: string) => {
     return this.appForm.controls[controlName].hasError(errorName);
   }
 
-<<<<<<< HEAD
-  showPreview(event) {
-    const file = (event.target as HTMLInputElement).files[0];
-    this.appForm.patchValue({
-      avatar: file
-    });
-    this.appForm.get('image').setValue(file);
-    this.appForm.get('image').updateValueAndValidity();
-
-    // File Preview
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imageURL = reader.result as string;
-    }
-    reader.readAsDataURL(file)
-  }
-
-}
-=======
   public showPreview(event) {
     if ((event.target as HTMLInputElement).files[0]) {
       const file = (event.target as HTMLInputElement).files[0];
@@ -165,4 +109,3 @@ export class ElementsCourseDetails implements OnInit {
     console.log(this.appForm.value)
   }
 }
->>>>>>> develop

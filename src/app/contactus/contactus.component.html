@@ -9,28 +9,6 @@
 
   <div class="contact-detail p-10" fxLayout="row" fxLayout.xs="column" fxLayout.sm="row"
        fxLayoutGap="20px">
-<<<<<<< HEAD
-    <div fxFlex="48" fxFlex.xs="100" fxFlex.sm="100"
-         fxLayoutGap="20px" class="contact-detail" align="left">
-      <p class="mat-display-1 m-20" align="center">Contact Detail</p>
-
-      <div class="detail-container mb-25">
-        <p class="mat-title detail-field m-0">
-          <i class="fas fa-map-signs m-10 fa-sm">
-          </i>Address
-        </p>
-        <p class="subheading-2 detail-value">
-          Murga Giran chsg, opposite Hotel Kalpana Palace, near Daulat
-          Complex, Grant Road(East), Mumbai 400 008
-        </p>
-      </div>
-
-      <div class="detail-container mb-25">
-        <p class="mat-title detail-field m-0">
-          <i class="fas fa-phone m-10 fa-sm"></i>Mobile N0.
-        </p>
-        <a class="subheading-2	 detail-value"
-=======
     <div class="contact-element" fxFlex="50" fxFlex.sm="50" fxFlex.xs="100" >
       <i class="fas fa-map-signs fa-sm address" style="float: left"></i>
       <p class="mat-body-2 ml-20" style="vertical-align: middle">
@@ -43,7 +21,6 @@
       
         <i class="fas fa-phone fa-sm"></i>
         <a class="mat-body-2"
->>>>>>> develop
            href="tel:+919167945708"
            matTooltip="Click on me to send a mail!"
            matTooltipPosition="before">
@@ -85,26 +62,6 @@
          class="contact-form flex-child pl-10 pr-10" align="center">
       <mat-card>
         <mat-card-header>
-<<<<<<< HEAD
-          <mat-card-title>Fill in the Form to Secure a Strong Foundation For Your Child's Career</mat-card-title>
-        </mat-card-header>
-          <div class="p-20">
-        <form [formGroup]="contactUs" (ngSubmit)="onSubmit()">
-          <mat-form-field appearance="standard" style="width: 100% !important">
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name">
-            <mat-hint style="color: red" *ngIf="name.touched && name.hasError('required')">Required</mat-hint>
-          </mat-form-field>
-
-            <mat-form-field appearance="standard" style="width: 100% !important">
-              <mat-label>Email</mat-label>
-              <input matInput formControlName="email">
-            </mat-form-field>
-
-            <mat-form-field appearance="standard" style="width: 100% !important">
-              <mat-label>Standard</mat-label>
-              <input matInput formControlName="standard">
-=======
           <mat-card-title class="mat-headline">Fill in the Form to Secure a Strong Foundation For Your Child's Career</mat-card-title>
         </mat-card-header>
         <div class="p-20">
@@ -118,20 +75,10 @@
             <mat-form-field appearance="standard" style="width: 100% !important">
               <mat-label>Email</mat-label>
               <input matInput formControlName="email">
->>>>>>> develop
             </mat-form-field>
 
             <mat-form-field appearance="standard" style="width: 100% !important">
               <mat-label>Message</mat-label>
-<<<<<<< HEAD
-              <input matInput formControlName="message">
-            </mat-form-field>
-          <button type="submit" [disabled]="!contactUs.valid" mat-button class="bgcolor-yellow">Submit</button>
-        </form>
-        </div>
-      
-       
-=======
               <textarea matInput formControlName="message"></textarea>
             </mat-form-field>
             <button type="submit" [disabled]="!contactUs.valid"
@@ -141,7 +88,6 @@
           </form>
         </div>
 
->>>>>>> develop
       </mat-card>
     </div>
   </div>

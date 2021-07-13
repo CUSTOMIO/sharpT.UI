@@ -8,13 +8,10 @@ import { ElementsBasicDetails } from './application-form/elements/basic-details/
 import { ElementsContactDetails } from './application-form/elements/contact-details/contact-details.component';
 import { ElementsCourseDetails } from './application-form/elements/course-details/course-details.component';
 import { ElementsReviewDetails } from './application-form/elements/review-details/review-details.component';
-<<<<<<< HEAD
-=======
 import { CollegeComponent } from './college/college.component';
 import { DegreeComponent } from './degree/degree.component';
 import { SchoolComponent } from './school/school.component';
 import { VerifyComponent } from '../verify/verify.component';
->>>>>>> develop
 
 
 @NgModule({
@@ -26,12 +23,6 @@ import { VerifyComponent } from '../verify/verify.component';
   declarations: [
     routedComponents,
     ApplicationFormComponent,
-<<<<<<< HEAD
-    ElementsBasicDetails,
-    ElementsContactDetails,
-    ElementsCourseDetails,
-    ElementsReviewDetails
-=======
     CollegeComponent,
     DegreeComponent,
     SchoolComponent,
@@ -40,7 +31,6 @@ import { VerifyComponent } from '../verify/verify.component';
     ElementsCourseDetails,
     ElementsReviewDetails,
     VerifyComponent
->>>>>>> develop
   ],
   providers: [
   ]

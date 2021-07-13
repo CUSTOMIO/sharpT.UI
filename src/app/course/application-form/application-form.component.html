@@ -16,39 +16,6 @@
       </ul>
     </div>
 
-<<<<<<< HEAD
-  <div class="pb-50">
-    <span class="mat-headline pl-35">Form</span>
-  </div>
-</div>
-
-<mat-vertical-stepper [@.disabled]="true" selectedIndex="0" [linear]="true" #stepper>
-
-  <mat-step completed="false" [stepControl]="formArray?.get([0])">
-    <ng-template matStepLabel>Basic</ng-template>
-    <app-basic-details [formGroup]="formArray?.get([0])"></app-basic-details>
-  </mat-step>
-
-  <mat-step completed="false" [stepControl]="formArray?.get([1])">
-    <ng-template matStepLabel>Contact</ng-template>
-    <app-contact-details [formGroup]="formArray?.get([1])"></app-contact-details>
-  </mat-step>
-
-  <mat-step completed="false" [stepControl]="formArray?.get([2])">
-    <ng-template matStepLabel>Course</ng-template>
-    <app-course-details [formGroup]="formArray?.get([2])"></app-course-details>
-  </mat-step>
-
-  <mat-step>
-    <ng-template matStepLabel>Review</ng-template>
-    <app-review-details [formGroup]="appForm"></app-review-details>
-  </mat-step>
-
-</mat-vertical-stepper>
-
-
-
-=======
     <div class="pb-50">
       <span class="mat-headline pl-35">Form</span>
     </div>
@@ -80,4 +47,3 @@
     </mat-step>
   </mat-vertical-stepper>
 </div>
->>>>>>> develop
