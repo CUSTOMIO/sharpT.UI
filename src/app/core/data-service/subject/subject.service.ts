@@ -13,7 +13,7 @@ export class SubjectService {
   constructor(private http: HttpClient) { }
 
   public getSubject() {
-    const url = `${environment.api_endpoint}/subject?getActive=true`;
+    const url = `${environment.api_endpoint}/subject`;
     return this.http.get<Subject[]>(url)
       .pipe(
         map(data =>

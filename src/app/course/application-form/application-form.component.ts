@@ -23,8 +23,9 @@ export class ApplicationFormComponent implements OnInit {
   public imageURL: string;
   public sendEmail: boolean = true;
   public submitButton: boolean = false;
-  isLoading: boolean = true;
+  public isLoading: boolean = true;
   public subject: object;
+  private otp: string;
 
   get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
 
@@ -49,7 +50,8 @@ export class ApplicationFormComponent implements OnInit {
           address: [null, [Validators.required, this.whitespaceValidator]]
         }),
         this.formBuilder.group({
-          standard: [null, [Validators.required, this.whitespaceValidator]],
+          standard: [null, [Validators.required]],
+          standardName: [null],
           subjects: this.formBuilder.array([], Validators.required),
           school: [null, [Validators.required]],
           image: [null, [Validators.required]],
@@ -86,8 +88,7 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   openDialog(): void {
-    console.log('testing');
-    this.notificationService.show(AlertType.Error, 'this is testing error');
+    //this.notificationService.show(AlertType.Error, 'this is testing error');
     // this.notificationService.show(AlertType.Info, 'this is testing info');
     // this.notificationService.show(AlertType.Success, 'this is testing success');
     // this.notificationService.show(AlertType.Warning, 'this is testing warning');
@@ -103,7 +104,8 @@ export class ApplicationFormComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.data.message == "Verified") {
-        this.submitButton = true
+        this.submitButton = true;
+        this.otp = result.data.otp;
       }
     });
     this.sendEmail = false
@@ -122,6 +124,7 @@ export class ApplicationFormComponent implements OnInit {
     fd.append('standard', this.getValue(2, 'standard'));
     fd.append('school', this.getValue(2, 'school'));
     fd.append('image', this.formArray.controls[2].get('image').value);
+    fd.append('otp', this.otp);
 
     for (let s of this.getValue(2, 'subjects')) {
       fd.append('subjects', s.id);
@@ -132,7 +135,7 @@ export class ApplicationFormComponent implements OnInit {
       .subscribe({
         next: data => {
           //this.appForm.reset();
-          // this.formDirective.resetForm();
+          //this.formDirective.resetForm();
           console.log(data)
         },
         error: error => {

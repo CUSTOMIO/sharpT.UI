@@ -1,43 +1,121 @@
 <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutFap="10px" class="pb-25">
-  <div fxFlex="20" fxFlex.sm="25" fxFlex.xs="100"
+  <div fxFlex="15" fxFlex.sm="25" fxFlex.xs="100"
        style="margin: 0 auto;">
     <img [src]="getImage()" [alt]="appForm.value.name" height="120" width="90">
   </div>
-  <div fxFlex="80" fxFlex.sm="75" fxFlex.xs="100"
-       class="pt-15 ml-0 mat-subheading-2" align="left">
-    <dl>
 
-      <dt class="mat-title">Basic details</dt>
-      <dd>
-        <!--<p>First Name: <span [innerHtml]="getValue(0, 'firstName')"></span></p>-->
-        <mat-form-field appearance="standard">
-          <mat-label>First Name:</mat-label>
+  <div fxFlex="80" fxFlex.sm="75" fxFlex.xs="100"
+       class="pt-15 ml-0 mat-subheading-2">
+    <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutgap="10px">
+      <div fxFlex="30" fxFlex.sm="33" fxFlex.xs="80" class="pl-25 pr-25">
+        <mat-form-field appearance="standard" style="width: 100% !important;">
+          <mat-label>First Name</mat-label>
           <input matInput [value]="getValue(0, 'firstName')" readonly />
         </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-label>Middle Name: </mat-label>
+      </div>
+
+      <div fxFlex="30" fxFlex.sm="33" fxFlex.xs="80" class="pl-25 pr-25">
+        <mat-form-field appearance="standard" style="width: 100% !important;">
+          <mat-label>Middle Name</mat-label>
           <input matInput [value]="getValue(0, 'middleName')" readonly />
         </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-label>Last Name: </mat-label>
+      </div>
+
+      <div fxFlex="30" fxFlex.sm="33" fxFlex.xs="80" class="pl-25 pr-25">
+        <mat-form-field appearance="standard" style="width: 100% !important;">
+          <mat-label>Last Name</mat-label>
           <input matInput [value]="getValue(0, 'lastName')" readonly />
         </mat-form-field>
-      </dd>
+      </div>
+    </div>
 
-      <dt class="mat-title">Contact detail</dt>
-      <dd>
-        <p>Students's phone number: <span [innerHtml]="getValue(1, 'studentPN')"></span></p>
-        <p>Parent's phone number: <span [innerHtml]="getValue(1, 'parentPN')"></span></p>
-        <p>Email: <span [innerHtml]="getValue(1, 'email')"></span></p>
-        <p>Address:  <span [innerHtml]="getValue(1, 'address')"></span></p>
-      </dd>
 
-      <dt class="mat-title">Course detail</dt>
-      <dd>
-        <p>Standard: <span [innerHtml]="getValue(2, 'standard')"></span></p>
-        <p>School/College:  <span [innerHtml]="getValue(2, 'school')"></span></p>
-      </dd>
-    </dl>
+    <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutgap="10px">
+      <div fxFlex="38" fxFlex.sm="33" fxFlex.xs="80" class="pl-25 pr-25">
+        <mat-form-field appearance="standard" style="width: 100% !important;">
+          <mat-label>Email</mat-label>
+          <input matInput [value]="getValue(1, 'email')" readonly>
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="26" fxFlex.sm="33" fxFlex.xs="80" class="pl-25 pr-25">
+        <mat-form-field appearance="standard" style="width: 100% !important;">
+          <mat-label>Student's Phone Number</mat-label>
+          <input matInput [value]="getValue(1, 'studentPN')" readonly>
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="26" fxFlex.sm="33" fxFlex.xs="80" class="pl-25 pr-25">
+        <mat-form-field appearance="standard" style="width: 100% !important;">
+          <mat-label>Parent's Phone Number</mat-label>
+          <input matInput [value]="getValue(1, 'parentPN')" readonly>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutgap="10px">
+      <div fxFlex="90" fxFlex.sm="100" fxFlex.xs="100" class="pl-25 pr-25">
+        <mat-form-field appearance="standard" style="width: 100% !important;">
+          <mat-label>Address</mat-label>
+          <input matInput [value]="getValue(1, 'address')" readonly>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutgap="10px">
+      <div class="pl-25 pr-25" fxFlex="25" fxFlex.sm="20" fxFlex.xs="100">
+        <mat-form-field appearance="standard" style="width: 100% !important;">
+          <mat-label>School / College</mat-label>
+          <input matInput [value]="getValue(2, 'standardName')">
+        </mat-form-field>
+      </div>
+
+      <div class="pl-25 pr-25" fxFlex="65" fxFlex.sm="80" fxFlex.xs="100">
+        <mat-form-field appearance="standard" style="width: 100% !important;">
+          <mat-label>School / College</mat-label>
+          <input matInput [value]="getValue(2, 'school')">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="pt-10 pl-20">
+      <h2>Selected subjects</h2>
+      <span *ngFor="let s of getValue(2, 'subjects')">
+        <p class="pl-20">{{s.name}}</p>
+      </span>
+    </div>
+    <!--<dl>
+
+        <dt class="mat-title">Basic details</dt>
+        <dd>
+    <p>First Name: <span [innerHtml]="getValue(0, 'firstName')"></span></p>
+    <mat-form-field appearance="standard">
+            <mat-label>First Name:</mat-label>
+            <input matInput [value]="getValue(0, 'firstName')" readonly />
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Middle Name: </mat-label>
+            <input matInput [value]="getValue(0, 'middleName')" readonly />
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Last Name: </mat-label>
+            <input matInput [value]="getValue(0, 'lastName')" readonly />
+          </mat-form-field>
+        </dd>
+
+        <dt class="mat-title">Contact detail</dt>
+        <dd>
+          <p>Students's phone number: <span [innerHtml]="getValue(1, 'studentPN')"></span></p>
+          <p>Parent's phone number: <span [innerHtml]="getValue(1, 'parentPN')"></span></p>
+          <p>Email: <span [innerHtml]="getValue(1, 'email')"></span></p>
+          <p>Address:  <span [innerHtml]="getValue(1, 'address')"></span></p>
+        </dd>
+
+        <dt class="mat-title">Course detail</dt>
+        <dd>
+          <p>Standard: <span [innerHtml]="getValue(2, 'standard')"></span></p>
+          <p>School/College:  <span [innerHtml]="getValue(2, 'school')"></span></p>
+        </dd>
+      </dl>-->
   </div>
 </div>
 

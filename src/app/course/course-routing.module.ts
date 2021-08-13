@@ -11,7 +11,7 @@ import { DegreeComponent } from './degree/degree.component';
 const routes: Routes = [
   {
     path: '',
-    component: CourseComponent,
+    redirectTo: 'school'
   },
   {
     path: 'enroll',

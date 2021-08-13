@@ -17,21 +17,19 @@ export class CollegeComponent implements OnInit {
 
   constructor(private standardService: StandardService,
     private subjectService: SubjectService) { }
- 
+
 
   ngOnInit(): void {
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
       this.standard = res;
-      //console.log(res);
     }, (error) => {
-      console.log(`THis is the error: ${error}`)
+      console.log(error)
     });
-      this.subjectService.getSubject().subscribe(res => {
-        this.subject = res;
-        console.log(res);
-      }, (error) => {
-        console.log(`This is the error: ${error}`)
-      }); 
-      setTimeout(() => this.isLoading= false, 500);
+    this.subjectService.getSubject().subscribe(res => {
+      this.subject = res;
+    }, (error) => {
+      console.log(error)
+    });
+    setTimeout(() => this.isLoading = false, 500);
   }
 }

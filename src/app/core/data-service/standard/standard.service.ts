@@ -13,7 +13,7 @@ export class StandardService {
   constructor(private http: HttpClient) { }
 
   public getStandard() {
-    const url = `${environment.api_endpoint}/standard?getActive=true`;
+    const url = `${environment.api_endpoint}/standard`;
     return this.http.get<Standard[]>(url)
       .pipe(
         map(data =>
@@ -23,7 +23,7 @@ export class StandardService {
   }
 
   public getStandardBycourseId(courseId: number) {
-    const url = `${environment.api_endpoint}/standard/${courseId}?getActive=true`;
+    const url = `${environment.api_endpoint}/standard/${courseId}`;
     return this.http.get<Standard[]>(url)
       .pipe(
         map(data =>
@@ -32,4 +32,3 @@ export class StandardService {
       );
   }
 }
-

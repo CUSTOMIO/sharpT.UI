@@ -57,7 +57,6 @@ export class VerifyComponent implements OnInit {
   }
 
   verifyOtp() {
-    //console.log(`function called`);
     this.isLoading = true;
 
     this.authService.VerifyOtp(this.verifyForm.value)
@@ -65,8 +64,8 @@ export class VerifyComponent implements OnInit {
         next: data => {
           this.isLoading = false;
           if (data.message) {
-            this.verifyMessage = data;
-            this.dialogRef.close({ data: this.verifyMessage });
+            this.verifyMessage = data.message;
+            this.closeDialog();
           }
           if (data.error) {
             this.errorMessage = data.error;
@@ -82,11 +81,13 @@ export class VerifyComponent implements OnInit {
       })
   }
 
-  closeDialog() {
-    this.dialogRef.close({ data: '' });
-      if (this.verifyMessage !== null) {
-        this.dialogRef.close({ data: this.verifyMessage });
-      }
+  closeDialog(): void {
+    if (this.verifyMessage !== null) {
+      this.dialogRef.close({
+        data: { otp: this.verifyForm.controls.otp.value, message: this.verifyMessage}
+      });
+    }
+   else this.dialogRef.close({ data: '' });
   }
 }
 

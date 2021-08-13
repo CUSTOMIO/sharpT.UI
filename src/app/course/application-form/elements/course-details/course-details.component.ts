@@ -15,7 +15,6 @@ export class ElementsCourseDetails implements OnInit {
   public imageURL: string;
   public srcResult: any;
   public standard: Standard[];
-  public standardNames = [];
   public allSubject: any;
   public subject: object;
 
@@ -35,28 +34,6 @@ export class ElementsCourseDetails implements OnInit {
     }, (error) => {
       // create notification services.
     });
-    this.appForm.get("standard").valueChanges.subscribe(standardId => {
-      if (standardId) {
-        this.subjectService.getSubjectByStandardId(standardId)
-          .subscribe({
-            next: data => {
-              if (data) {
-                this.allSubject = data;
-                (this.appForm.controls['subjects'] as FormArray).clear();
-                if(!this.allSubject.allowSubjectSelection){
-                  console.log(!this.allSubject.allowSubjectSelection);
-                  for (let subject of this.allSubject.data){
-                    (this.appForm.controls['subjects'] as FormArray).push(this.patchValues(subject.id, subject.name));
-                  }
-                }
-              }
-            },
-            error: error => {
-              console.log(error)
-            }
-          });
-      }
-    })
   }
 
   public hasError = (controlName: string, errorName: string) => {
@@ -91,21 +68,42 @@ export class ElementsCourseDetails implements OnInit {
     }
     else {
       (this.appForm.controls['subjects'] as FormArray).removeAt(
-        this.appForm.controls['subjects'].value.findIndex(x => {
-          x.id === item.id
+        this.appForm.controls['subjects'].value.findIndex((x, id) => {
+          return x.id === item.id
         })
       )
     }
   }
 
-  public patchValues(id: number, name: string) {
-    return this.formBuilder.group({
-      id: [id],
-      name: [name]
-    })
+    public patchValues(id: number, name: string) {
+      return this.formBuilder.group({
+        id: [id],
+        name: [name]
+      })
+    }
+
+  public getStandard(standard) {
+    this.subjectService.getSubjectByStandardId(standard.value)
+      .subscribe({
+        next: data => {
+          if (data) {
+            this.allSubject = data;
+            (this.appForm.controls['subjects'] as FormArray).clear();
+            if (!this.allSubject.allowSubjectSelection) {
+              for (let subject of this.allSubject.data) {
+                (this.appForm.controls['subjects'] as FormArray).push(this.patchValues(subject.id, subject.name));
+              }
+            }
+          }
+        },
+        error: error => {
+          console.log(error)
+        }
+      });
+    this.appForm.controls.standardName.setValue(this.standard[standard.value].name);
   }
 
-  printvalue() {
-    console.log(this.appForm.value)
+  printValue() {
+    console.log(this.appForm.value);
   }
 }

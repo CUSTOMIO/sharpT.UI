@@ -39,7 +39,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatListModule,
     SharedModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

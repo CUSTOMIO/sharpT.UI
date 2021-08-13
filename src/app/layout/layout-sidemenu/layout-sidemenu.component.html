@@ -72,8 +72,9 @@
         <span *ngIf="isMenuOpen">About</span>
       </mat-list-item>
       <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent"
+                     [routerLink]="['/course']"
                      [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}">
+                     [routerLinkActiveOptions]="{exact: false}">
         <span class="full-width" *ngIf="isExpanded || isShowing">
           <i class="fas fa-book fa-md m-10 color-not-so-black"></i>
           <span *ngIf="isMenuOpen">Course</span>
