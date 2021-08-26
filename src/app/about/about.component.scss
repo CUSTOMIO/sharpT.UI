@@ -26,6 +26,20 @@
   margin-right: auto;
 }
 
+/*Wave 1*/
+
+.spacer {
+    aspect-ratio: 900/50;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.layer1 {
+    background-image: url('../../assets/svg/wave1.svg');
+}
+
 /*WHY CHOOSE US*/
 .circle-img-div {
   width: 200px;
@@ -48,6 +62,9 @@
   line-height: 18px;
 }*/
 
+.layer2 {
+  background-image: url('../../assets/svg/wave2a.svg');
+}
 /*SECTION WITH DARK BG*/
 .child-dark {
   max-width: 200px;
