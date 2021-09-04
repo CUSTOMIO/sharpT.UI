@@ -1,6 +1,50 @@
 .motto-border {
-  border-radius: 5px;
-  border: 1px solid #fca311;
-  line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid #fca311;
+    line-height: 30px;
 }
 
+.topper-div {
+    height: 800px;
+    background-color: #EFEFEF;
+    .exam-name {
+        height: 56px;
+        margin: 0 auto 0px 50px;
+    }
+    .student-1,
+    .student-2,
+    .student-3 {
+        width: 300px;
+        height: 300px;
+        position: relative;
+    }
+    .student-2,
+    .student-3 {
+        margin: 0 auto;
+    }
+    .student-1 {
+        margin-left: auto;
+    }
+    .student-1-text {
+        line-height: 50px;
+        vertical-align: middle;
+        padding: 50px;
+    }
+    .student-img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 4px 4px 50px 50px;
+    }
+    .student-border {
+        position: absolute;
+        top: 150px;
+    }
+    .student-1-border {
+        position: absolute;
+        top: 190px;
+    }
+    .student-text {
+        text-align: center;
+        margin-top: 35px;
+    }
+}

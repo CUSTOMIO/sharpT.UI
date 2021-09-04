@@ -1,104 +1,129 @@
-
 @import '~@angular/material/theming';
 @import "./theme/theme.scss";
-
 // font awesone
 @import '@fortawesome/fontawesome-free/css/all.css';
-
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap');
 @include mat-core();
 $custom-typography: mat-typography-config($font-family: '"Archivo", sans-serif;');
 @include mat-core($custom-typography);
-$sharp-primary: mat-palette($blue-palette, 400);
-$sharp-accent: mat-palette($yellow-palette, 400, 800, 700);
-
+$sharp-primary: mat-palette($blue-palette,
+400);
+$sharp-accent: mat-palette($yellow-palette,
+400,
+800,
+700);
 $sharp-warn: mat-palette($mat-red);
-
-$sharp-theme: mat-light-theme((
-  color: (
-    primary: $sharp-primary,
-    accent: $sharp-accent,
-    warn: $sharp-warn,
-  )
-));
-
+$sharp-theme: mat-light-theme(( color: ( primary: $sharp-primary, accent: $sharp-accent, warn: $sharp-warn, )));
 @include angular-material-theme($sharp-theme);
 
 /* You can add global styles to this file, and also import other style files */
 
-
-
-html, body {
-  height: 100%;
+html,
+body {
+    height: 100%;
 }
 
 body {
-  margin: 0;
-  font-family: 'Dosis', sans-serif;
-  overflow: hidden;
-  background-color: transparent !important;
+    margin: 0;
+    font-family: 'Dosis', sans-serif;
+    overflow: hidden;
+    background-color: transparent !important;
 }
 
 //COLORS
 .color-yellow {
-  color: #fca311 !important;
-} 
+    color: #fca311 !important;
+}
+
 .bgcolor-yellow {
-  background-color: #fca311 !important;
+    background-color: #fca311 !important;
 }
+
 .color-blue {
-  color: #0a4191 !important;
+    color: #0a4191 !important;
 }
+
 .bgcolor-blue {
-  background-color: #0a4191 !important;
+    background-color: #0a4191 !important;
 }
+
 .bgcolor-blue-light {
-  background-color: #f2f5f7 !important;
+    background-color: #f2f5f7 !important;
 }
+
 .bgcolor-yellow-light {
-  background-color: #fffaf2 !important;
+    background-color: #fffaf2 !important;
 }
 
 .color-not-so-black {
-  // color: #333333 !important;
-  color: #545454 !important;
+    // color: #333333 !important;
+    color: #545454 !important;
 }
 
 ///SCROLLBAR
 ::-webkit-scrollbar {
-  width: 4px;
+    width: 4px;
 }
+
 ::-webkit-scrollbar-track {
-  background-color: #fca311;
-  border-radius: 10px;
+    background-color: #fca311;
+    border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #0a4191;
-  border-radius: 10px;
+    background: #0a4191;
+    border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #0a4191;
+    background: #0a4191;
 }
+
 
 /*CARD*/
+
 .card {
-  background-color: #d4e5ff !important;
-  border-radius: 10px;
+    background-color: #d4e5ff !important;
+    border-radius: 10px;
 }
+
 
 /*Image bg transparent*/
+
 img {
-  background: transparent !important;
+    background: transparent !important;
 }
+
 .post img {
-  background: transparent;
+    background: transparent;
 }
 
-@media  (max-width: 600px) {
-  .m-mq-auto {
-    display: block !important;
-    margin: 0 auto !important;
-  }
+@media (max-width: 600px) {
+    .m-mq-auto {
+        display: block !important;
+        margin: 0 auto !important;
+    }
 }
 
+// Spacer
+.spacer {
+    aspect-ratio: 900/50;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
+// Wave 1
+.layer1 {
+    background-image: url('assets/svg/wave1.svg');
+}
+
+// Wave 2
+.layer2 {
+    background-image: url('assets/svg/wave2a.svg');
+}
+
+.topper-background {
+    background-image: url('assets/svg/topper-background.svg');
+}
