@@ -45,8 +45,8 @@ export class ApplicationFormComponent implements OnInit {
           email: [null, [Validators.required,
           Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
           ]],
-          studentPN: [null, [Validators.required, Validators.pattern("[0-9 ]{10}")]],
-          parentPN: [null, [Validators.required, Validators.pattern("[0-9 ]{10}")]],
+          studentPN: [null, [Validators.required, Validators.pattern('[- +()0-9]+')]],
+          parentPN: [null, [Validators.required,  Validators.pattern('[- +()0-9]+')]],
           address: [null, [Validators.required, this.whitespaceValidator]]
         }),
         this.formBuilder.group({
@@ -68,7 +68,7 @@ export class ApplicationFormComponent implements OnInit {
   public whitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
-    return isValid ? null : { 'whitespace': true };
+    return isValid ? null : { whitespace: true };
   }
 
   public getValue(index: number, controlName: string) {

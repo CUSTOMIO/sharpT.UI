@@ -4161,6 +4161,54 @@ readers do not read off random characters that represent icons */
 .p-50 {
   padding: 50px !important;
 }
+.mt-52 {
+  margin-top: 52px !important;
+}
+.m-52 {
+  margin: 52px !important;
+}
+.pt-52 {
+  padding-top: 52px !important;
+}
+.p-52 {
+  padding: 52px !important;
+}
+.mb-52 {
+  margin-bottom: 52px !important;
+}
+.m-52 {
+  margin: 52px !important;
+}
+.pb-52 {
+  padding-bottom: 52px !important;
+}
+.p-52 {
+  padding: 52px !important;
+}
+.ml-52 {
+  margin-left: 52px !important;
+}
+.m-52 {
+  margin: 52px !important;
+}
+.pl-52 {
+  padding-left: 52px !important;
+}
+.p-52 {
+  padding: 52px !important;
+}
+.mr-52 {
+  margin-right: 52px !important;
+}
+.m-52 {
+  margin: 52px !important;
+}
+.pr-52 {
+  padding-right: 52px !important;
+}
+.p-52 {
+  padding: 52px !important;
+}
 .mt-75 {
   margin-top: 75px !important;
 }
@@ -6998,7 +7046,8 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   color: #fcddaa;
 }
 /* You can add global styles to this file, and also import other style files */
-html, body {
+html,
+body {
   height: 100%;
 }
 body {
@@ -7059,6 +7108,22 @@ img {
     display: block !important;
     margin: 0 auto !important;
   }
+}
+.spacer {
+  aspect-ratio: 900/50;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.layer1 {
+  background-image: url('wave1.svg');
+}
+.layer2 {
+  background-image: url('wave2a.svg');
+}
+.topper-background {
+  background-image: url('topper-background.svg');
 }
 
 /*# sourceMappingURL=styles.css.map*/

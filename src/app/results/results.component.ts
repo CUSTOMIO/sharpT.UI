@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
-import { ExaminationService, ResultService } from '../core/data-service';
+import { ExaminationService, ResultService, StandardService } from '../core/data-service';
 import { MatDialog } from '@angular/material/dialog';
 import { VerifyComponent } from '../verify/verify.component'
 import { environment } from '../../environments/environment'
@@ -20,6 +20,7 @@ export class ResultsComponent implements OnInit {
   isLoading: boolean = true;
   resultForm: FormGroup;
   examination: object;
+  standard: object;
   result: any;
   apiEndpoint: any = environment.api_endpoint
   public sendEmail: boolean = true;
@@ -29,23 +30,28 @@ export class ResultsComponent implements OnInit {
     private examinationService: ExaminationService,
     private resultService: ResultService,
     public dialog: MatDialog,
-    private notificationService: NotificationService) { }
+    private notificationService: NotificationService,
+    private standardService: StandardService) { }
 
   ngOnInit(): void {
     this.examinationService.getExamination()
       .subscribe(res => {
         this.examination = res;
-      }, (error) => {
-        console.log(`THis is the error: ${error}`)
       });
+
+    this.standardService.getStandard()
+    .subscribe(res => {
+      console.log(res);
+      this.standard = res;
+    })
     this.resultForm = this.fb.group({
-      examination: [null,
-        [Validators.required]
-      ],
+      examinationId: [null, [Validators.required]],
       email: [null,
         [Validators.required, Validators.email,
         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]
-      ]
+      ],
+      standardId: ['', [Validators.required]],
+      otp: [''],
     });
     setTimeout(() => {
       this.isLoading = false;
@@ -53,6 +59,7 @@ export class ResultsComponent implements OnInit {
   }
 
   openDialog(): void {
+    this.onSubmit();
     const dialogRef = this.dialog.open(VerifyComponent, {
       disableClose: true,
       width: '350px',
@@ -63,18 +70,22 @@ export class ResultsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result.data.message == "Verified") {
-        this.onSubmit();
-      }
+      this.resultForm.get('otp').setValue(+result.data.otp);
+      console.log(this.resultForm.value);
+      // if (result.data.message == "Verified") {
+      //   this.onSubmit();
+      // }
     });
     this.sendEmail = false
   }
 
   onSubmit() {
+    console.log(this.resultForm.value)
     this.resultService.postResult(this.resultForm.value).subscribe(res => {
+      console.log(res)
       this.result = res;
-      this.resultForm.reset();
-      this.formDirective.resetForm();
+      //this.resultForm.reset();
+      //this.formDirective.resetForm();
     }, (error) => {
       this.notificationService.show(AlertType.Error, error.message);
     });

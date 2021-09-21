@@ -16,14 +16,20 @@
           <mat-divider></mat-divider>
           <form [formGroup]="resultForm" #formDirective="ngForm">
             <mat-form-field appearance="standard" style="width: 100% !important">
+              <mat-label>Enter your email</mat-label>
+              <input matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="standard" style="width: 100% !important">
               <mat-label>Select your exam</mat-label>
-              <mat-select formControlName="examination">
+              <mat-select formControlName="examinationId">
                 <mat-option *ngFor="let e of examination" value="{{e.id}}" [innerHtml]="e.name"></mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="standard" style="width: 100% !important">
-              <mat-label>Enter your email</mat-label>
-              <input matInput formControlName="email">
+              <mat-label>Select your exam</mat-label>
+              <mat-select formControlName="standardId">
+                <mat-option *ngFor="let s of standard" value="{{s.id}}" [innerHtml]="s.name"></mat-option>
+              </mat-select>
             </mat-form-field>
             <button mat-raised-button [disabled]="!resultForm.valid" color="accent" (click)="openDialog()">
               Verify
@@ -31,6 +37,7 @@
           </form>
         </mat-card-content>
       </mat-card>
+      
       <div *ngIf="result">
         <div *ngIf="result.message">
           <p [innerHtml]="result.message"></p>
@@ -38,13 +45,13 @@
         <div *ngIf="result.data">
             <img src="{{apiEndpoint + result.userImageUrl}}" height="200">
           <div align="left">
-            <p class="mat-subheading-2">Name:<span [innerHtml]="result.username"></span></p>
+            <p class="mat-subheading-2">Name : <span [innerHtml]="result.username"></span></p>
           </div>
           <table mat-table [dataSource]="result.data" class="mat-elevation-z8">
             <!-- Subject Column -->
             <ng-container matColumnDef="subject">
               <th mat-header-cell *matHeaderCellDef> Subject </th>
-              <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.subjectName}} </td>
               <td mat-footer-cell *matFooterCellDef> Percentage </td>
             </ng-container>
 
