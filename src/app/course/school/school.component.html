@@ -14,10 +14,10 @@
             </mat-card-header>
             <mat-card-content class="pt-25" style="border-top: 1px solid #5c5c5c;">
                 <p class="mat-subheading-1" [innerHtml]="s.description"></p>
-                <p class="ml-35 mat-h3" align="left">Subjects</p>
-                <div *ngFor="let sb of subject">
-                    <ul align="left" *ngIf="sb.standardId == s.id">
-                        <li class="list-item" role="listitem" [innerHtml]="sb.name"></li>
+                <p class="ml-35 mat-title" align="left">Subjects</p>
+                <div *ngFor="let sb of subject" align="left">
+                    <ul *ngIf="sb.standardId == s.id">
+                        <li class="list-item  mat-body" role="listitem" [innerHtml]="sb.name"></li>
                     </ul>
                 </div>
             </mat-card-content>
