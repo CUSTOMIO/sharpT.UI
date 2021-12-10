@@ -3,7 +3,8 @@ import { FormGroup, ControlContainer, FormArray } from '@angular/forms';
 
 @Component({
   selector: '[formGroup] app-review-details',
-  templateUrl: './review-details.component.html'
+  templateUrl: './review-details.component.html',
+  styleUrls: ['./review-details.component.scss']
 })
 export class ElementsReviewDetails implements OnInit {
 

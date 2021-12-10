@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { ReachUsService } from './../core/data-service'
-import { ReachUs } from './../core/model'
+import { ReachUsService } from './../core/data-service';
+import { ReachUs } from './../core/model';
 
 @Component({
   selector: 'app-contactus',
@@ -9,11 +9,11 @@ import { ReachUs } from './../core/model'
   styleUrls: ['./contactus.component.scss']
 })
 export class ContactusComponent implements OnInit {
-  isLoading: boolean = true;
-  contactUs: FormGroup = ReachUs['']; 
+  isLoading = true;
+  contactUs: FormGroup = ReachUs[''];
 
   constructor(private fb: FormBuilder,
-     private reachusService: ReachUsService) { }
+              private reachusService: ReachUsService) { }
 
   ngOnInit(): void {
     this.contactUs = this.fb.group({
@@ -22,7 +22,7 @@ export class ContactusComponent implements OnInit {
       ],
       email: ['',
         [Validators.required, Validators.email,
-        Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]
       ],
       message: ['',
         [Validators.required]
@@ -40,9 +40,9 @@ export class ContactusComponent implements OnInit {
   onSubmit() {
     this.reachusService.postReachus(this.contactUs.value)
       .subscribe((result) => {
-        console.log(result)
+        console.log(result);
       }, (error) => {
-        console.log(error)
-      })
+        console.log(error);
+      });
   }
 }

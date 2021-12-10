@@ -20,7 +20,7 @@
               <input matInput formControlName="email">
             </mat-form-field>
             <mat-form-field appearance="standard" style="width: 100% !important">
-              <mat-label>Select your exam</mat-label>
+              <mat-label>Select your standard</mat-label>
               <mat-select formControlName="examinationId">
                 <mat-option *ngFor="let e of examination" value="{{e.id}}" [innerHtml]="e.name"></mat-option>
               </mat-select>

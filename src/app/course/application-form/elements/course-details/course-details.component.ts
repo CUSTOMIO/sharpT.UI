@@ -42,14 +42,14 @@ export class ElementsCourseDetails implements OnInit {
 
   public showPreview(event) {
     if ((event.target as HTMLInputElement).files[0]) {
-      const file = (event.target as HTMLInputElement).files[0];
+      const fileData = (event.target as HTMLInputElement).files[0];
       var pattern = /image-*/;
 
-      if (!file.type.match(pattern)) {
+      if (!fileData.type.match(pattern)) {
         alert('Invalid format');
         return;
       }
-      this.appForm.get('image').setValue(file);
+      this.appForm.get('image').setValue(fileData);
       this.appForm.get('image').updateValueAndValidity();
 
       const reader = new FileReader();
@@ -58,7 +58,7 @@ export class ElementsCourseDetails implements OnInit {
         this.imageURL = reader.result as string;
         this.appForm.get('imageBase64').setValue(this.imageURL)
       }
-      reader.readAsDataURL(file)
+      reader.readAsDataURL(fileData)
     }
   }
 
@@ -86,6 +86,7 @@ export class ElementsCourseDetails implements OnInit {
     this.subjectService.getSubjectByStandardId(standard.value)
       .subscribe({
         next: data => {
+          console.log(data)
           if (data) {
             this.allSubject = data;
             (this.appForm.controls['subjects'] as FormArray).clear();

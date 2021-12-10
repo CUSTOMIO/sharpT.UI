@@ -9,6 +9,15 @@
   }
 }
 
+.mat-card-subtitle {
+  text-align: left;
+}
+.mat-card-content {
+  p {
+    text-align: left;
+  }
+}
+
 @media only screen and (max-width: 960px) {
   .div-one {
     display: none

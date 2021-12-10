@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { NoticeService } from '../core/data-service/notice/notice.service';
+import { Notice } from '../core/model';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public notices: Notice[];
+  constructor(private noticeService: NoticeService) { }
 
   ngOnInit(): void {
+    this.noticeService.getNotice()
+    .subscribe(res => {
+      this.notices = res;
+    });
   }
 
 }

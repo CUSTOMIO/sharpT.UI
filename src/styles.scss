@@ -2,9 +2,10 @@
 @import "./theme/theme.scss";
 // font awesone
 @import '@fortawesome/fontawesome-free/css/all.css';
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 @include mat-core();
-$custom-typography: mat-typography-config($font-family: '"Archivo", sans-serif;');
+$custom-typography: mat-typography-config($font-family: '"Source Sans Pro", sans-serif;');
 @include mat-core($custom-typography);
 $sharp-primary: mat-palette($blue-palette,
 400);
@@ -25,7 +26,7 @@ body {
 
 body {
     margin: 0;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif !important;
     overflow: hidden;
     background-color: transparent !important;
 }
@@ -48,7 +49,7 @@ body {
 }
 
 .bgcolor-blue-light {
-    background-color: #f2f5f7 !important;
+    background-color: #f2f5f7 !important; 
 }
 
 .bgcolor-yellow-light {
@@ -83,7 +84,7 @@ body {
 /*CARD*/
 
 .card {
-    background-color: #d4e5ff !important;
+    background-color: #dce6f2 !important;//dce6f2->d4e5ff
     border-radius: 10px;
 }
 
@@ -126,4 +127,9 @@ img {
 
 .topper-background {
     background-image: url('assets/svg/topper-background.svg');
+}
+
+//Font 
+.scd-title {
+    font-family: 'Playfair Display', serif;
 }

@@ -1,0 +1,8 @@
+<h1 mat-dialog-title class="dialog-header mb-0">Notice Board</h1>
+<div class="notice-board-div pt-20">
+          <div class="notice-board-content mat-subheading-2 p-10" *ngFor="let notice of notices" style="background-color: #EFEFEF">
+              {{notice.content }}
+            <i class="far fa-eye" (click)="previewDocument(notice)" *ngIf="notice.file"></i>
+            <span class="mat-hint pl-10" [innerHtml]="notice.updatedAt" style="font-size: 12px"></span>
+          </div>
+</div>

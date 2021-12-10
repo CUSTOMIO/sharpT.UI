@@ -41,9 +41,8 @@
     <mat-step>
       <ng-template matStepLabel>Review</ng-template>
       <app-review-details [formGroup]="appForm" #formDirective="ngForm"></app-review-details>
-      <button mat-raised-button *ngIf="!submitButton" (click)="openDialog()" color="primary">Verify</button>
-      <!--<button type="submit" mat-raised-button *ngIf="submitButton" (click)="submitForm()" color="primary">Submit Button</button>-->
-       <button type="submit" mat-raised-button  (click)="submitForm()">Submit Button</button> 
+      <button mat-raised-button *ngIf="!submitButton" (click)="openDialog()" color="accent">Verify</button>
+      <button type="submit" mat-raised-button *ngIf="submitButton" (click)="submitForm()" color="accent">Submit Button</button>
     </mat-step>
   </mat-vertical-stepper>
 </div>

@@ -18,13 +18,15 @@ import { LayoutComponent } from './layout/layout.component';
 import { LayoutFooterComponent } from './layout/layout-footer/layout-footer.component';
 import { LayoutSidemenuComponent } from './layout/layout-sidemenu/layout-sidemenu.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { NoticeBoardComponent } from './shared/component/notice-board/notice-board.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     LayoutFooterComponent,
-    LayoutSidemenuComponent
+    LayoutSidemenuComponent,
+    NoticeBoardComponent
   ],
   imports: [
     AppRoutingModule,

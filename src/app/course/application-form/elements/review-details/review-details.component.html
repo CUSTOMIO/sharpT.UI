@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutFap="10px" class="pb-25">
+<!-- <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutFap="10px" class="pb-25">
   <div fxFlex="15" fxFlex.sm="25" fxFlex.xs="100"
        style="margin: 0 auto;">
     <img [src]="getImage()" [alt]="appForm.value.name" height="120" width="90">
@@ -116,7 +116,43 @@
           <p>School/College:  <span [innerHtml]="getValue(2, 'school')"></span></p>
         </dd>
       </dl>-->
-  </div>
+<!--</div>
 </div>
 
+ -->
 
+<div class="img-div">
+  <img [src]="getImage()" [alt]="appForm.value.name" height="160" width="120">
+</div>
+
+<div class="details">
+  <dl>
+    <dt class="mat-title">Basic detail</dt>
+    <dd class="mat-subheading-1">
+      <p>First Name: <span class="mat-subheading-2" [innerHtml]="getValue(0, 'firstName')"></span></p>
+      <p>Middle Name: <span class="mat-subheading-2" [innerHtml]="getValue(0, 'middleName')"></span></p>
+      <p>Last Name: <span class="mat-subheading-2" [innerHtml]="getValue(0, 'lastName')"></span></p>
+    </dd>
+
+    <dt class="mat-title">Contact detail</dt>
+    <dd class="mat-subheading-1">
+      <p>Students's phone number: <span class="mat-subheading-2" [innerHtml]="getValue(1, 'studentPN')"></span></p>
+      <p>Parent's phone number: <span class="mat-subheading-2" [innerHtml]="getValue(1, 'parentPN')"></span></p>
+      <p>Email: <span class="mat-subheading-2" [innerHtml]="getValue(1, 'email')"></span></p>
+      <p>Address: <span class="mat-subheading-2" [innerHtml]="getValue(1, 'address')"></span></p>
+    </dd>
+
+    <dt class="mat-title">Course detail</dt>
+    <dd class="mat-subheading-1">
+      <p>Standard: <span class="mat-subheading-2" [innerHtml]="getValue(2, 'standardName')"></span></p>
+      <p>School/College: <span class="mat-subheading-2" [innerHtml]="getValue(2, 'school')"></span></p>
+    </dd>
+
+    <dt class="mat-title">Selected Subjects</dt>
+    <dd class="mat-subheading-2">
+      <span *ngFor="let s of getValue(2, 'subjects')">
+        <p>{{s.name}}</p>
+      </span>
+    </dd>
+  </dl>
+</div>

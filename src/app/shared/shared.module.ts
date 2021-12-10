@@ -32,6 +32,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatChipsModule} from '@angular/material/chips';
+import { DocViewerComponent } from './component/doc-viewer/doc-viewer.component';
 
 
 // Format used for the Intl format functions
@@ -53,6 +54,7 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     MatIconModule,
     MatInputModule,
     MatTooltipModule,
+    MatDialogModule,
     ReactiveFormsModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule
@@ -64,6 +66,9 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
+
+    // Custom Components
+    DocViewerComponent,
 
     // Material references
     MatAutocompleteModule,
@@ -100,7 +105,9 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     //Flex references
     FlexLayoutModule
   ],
-  declarations: [],
+  declarations: [
+    DocViewerComponent
+  ],
   entryComponents: [],
   providers: [
     { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS }
