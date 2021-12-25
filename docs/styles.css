@@ -7093,7 +7093,7 @@ body {
 }
 /*CARD*/
 .card {
-  background-color: #dce6f2 !important;
+  background-color: #e4ebf1 !important;
   border-radius: 10px;
 }
 /*Image bg transparent*/
@@ -7124,6 +7124,9 @@ img {
 }
 .topper-background {
   background-image: url('topper-background.svg');
+}
+.scd-font {
+  font-family: "Playfair Display", serif;
 }
 
 /*# sourceMappingURL=styles.css.map*/

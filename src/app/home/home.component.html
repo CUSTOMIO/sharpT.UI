@@ -8,7 +8,7 @@
         </div>
     </span>
 </div>
-
+<!-- 
 <div class="spacer layer1"></div>
 <div class="topper-div">
     <p class="exam-name  mat-display-3">
@@ -44,5 +44,47 @@
                 <br> 72.0%
             </div>
         </div>
+    </div>
+</div> -->
+
+<div class="topCourses">
+    <p>Popular Choices</p>
+    <p *ngFor="let s of standards">{{s.name}}</p>
+</div>
+
+<div class="pt-50 mb-100">
+    <div align="center">
+        <p class="mat-headline header-title">
+            Courses Offered
+        </p>
+        <!-- <p class="mat-subheading-2 p-20">
+            <span class="color-yellow">
+      Sharp Tutorials
+    </span> has one of the best faculty in south Mumbai when it comes to school & commerce coaching. Our faculty comprises of experienced and renowed teachers for different subjects who have a through knowledge and command of their
+            subjects, and able to answer all students querries as required.
+        </p> -->
+    </div>
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="m-20" align="center" fxLayoutGap="20px">
+        <div class="mb-0" fxLayout="row" fxFlex="66" fxLayoutGap="20px" fxLayout.sm="row" fxLayout.xs="column">
+            <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="75" class="circle-img-div card" style="width: 225px" align="center">
+                <p class="mat-title bgcolor-yellow p-20">School</p>
+                <p class="mat-subheading-1 p-5">Std IX</p>
+                <p class="mat-subheading-1 p-5">Std X</p>
+            </div>
+            <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="75" class="circle-img-div card mb-20" style="width: 225px" align="center">
+                <p class="mat-title bgcolor-yellow p-20">Junior College</p>
+                <p class="mat-subheading-1 p-5">FYJC(Commerce)</p>
+                <p class="mat-subheading-1 p-5">SYJC(Commerce)</p>
+            </div>
+        </div>
+        <div fxLayout="row" fxFlex="33" fxLayout.sm="row" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.xs="100" fxFlex.sm="75" class="circle-img-div card" style="width: 225px" align="center">
+                <p class="mat-title bgcolor-yellow p-20">Degree</p>
+                <p class="mat-subheading-1 p-5">FY Bcom</p>
+                <p class="mat-subheading-1 p-5">SY Bcom</p>
+                <p class="mat-subheading-1 p-5">TY Bcom</p>
+            </div>
+        </div>
+
     </div>
 </div>

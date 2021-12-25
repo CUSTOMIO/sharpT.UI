@@ -31,4 +31,14 @@ export class StandardService {
         )
       );
   }
+
+  public getStandardByRank() {
+    const url = `${environment.api_endpoint}/standardByRank`;
+    return this.http.get<Standard[]>(url)
+      .pipe(
+        map(data =>
+          data.map(x => new Standard(x))
+        )
+      );
+  }
 }

@@ -1,10 +1,10 @@
 export class Standard {
+  id: string;
   name: string;
   description: string;
-  isActive: boolean;
   courseId: number;
 
   constructor(item: Standard) {
-    Object.assign(this, item)
+    Object.assign(this, item);
   }
 }

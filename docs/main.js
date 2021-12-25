@@ -36,7 +36,7 @@ LayoutFooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Copyright \u00A9 2021 Sharp Tutorials. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, styles: [".footer[_ngcontent-%COMP%] {\n  position: fixed;\n  bottom: 0px;\n  height: 20px;\n  width: 100%;\n  z-index: 11;\n  background-color: #fcddaa;\n}\n.footer[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 12px;\n  color: black;\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxsYXlvdXQtZm9vdGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSx5QkFBQTtBQUNGO0FBQUU7RUFDRSxlQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FBRUoiLCJmaWxlIjoibGF5b3V0LWZvb3Rlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb290ZXIge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICBib3R0b206IDBweDtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgei1pbmRleDogMTE7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZjZGRhYTtcclxuICBwe1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgY29sb3I6IGJsYWNrO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIH1cclxufSJdfQ== */"] });
+    } }, styles: [".footer[_ngcontent-%COMP%] {\n  position: fixed;\n  bottom: 0px;\n  height: 16px;\n  width: 100%;\n  z-index: 11;\n  background-color: #fcddaa;\n}\n.footer[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 12px;\n  line-height: 16px;\n  color: black;\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxsYXlvdXQtZm9vdGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSx5QkFBQTtBQUNGO0FBQUU7RUFDRSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7QUFFSiIsImZpbGUiOiJsYXlvdXQtZm9vdGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZvb3RlciB7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIGJvdHRvbTogMHB4O1xyXG4gIGhlaWdodDogMTZweDtcclxuICB3aWR0aDogMTAwJTtcclxuICB6LWluZGV4OiAxMTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmNkZGFhO1xyXG4gIHB7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICBsaW5lLWhlaWdodDogMTZweDtcclxuICAgIGNvbG9yOiBibGFjaztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB9XHJcbn0iXX0= */"] });
 
 
 /***/ }),
@@ -373,6 +373,11 @@ class StandardService {
     }
     getStandardBycourseId(courseId) {
         const url = `${_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].api_endpoint}/standard/${courseId}`;
+        return this.http.get(url)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(data => data.map(x => new _model__WEBPACK_IMPORTED_MODULE_1__["Standard"](x))));
+    }
+    getStandardByRank() {
+        const url = `${_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].api_endpoint}/standardByRank`;
         return this.http.get(url)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(data => data.map(x => new _model__WEBPACK_IMPORTED_MODULE_1__["Standard"](x))));
     }

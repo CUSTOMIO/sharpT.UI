@@ -110,7 +110,7 @@ function TestimonialsComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "p", 8);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "i", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, " REVIEWS");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Reviews");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "mat-card", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "mat-card-header");
@@ -190,7 +190,7 @@ class TestimonialsComponent {
     }
 }
 TestimonialsComponent.ɵfac = function TestimonialsComponent_Factory(t) { return new (t || TestimonialsComponent)(); };
-TestimonialsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TestimonialsComponent, selectors: [["app-testimonials"]], decls: 2, vars: 2, consts: [["mode", "indeterminate", 4, "ngIf"], ["fxLayout", "row", "fxLayout.sm", "column", "class", "pb-40", "fxLayout.xs", "column", 4, "ngIf"], ["mode", "indeterminate"], ["fxLayout", "row", "fxLayout.sm", "column", "fxLayout.xs", "column", 1, "pb-40"], ["fxFlex", "45", "fxFlex.sm", "100", "fxFlex.xs", "100", "align", "center", 1, "div-one"], ["src", "./assets/testimonial.png", 1, "img-div-one"], [1, "mat-display-3"], ["fxFlex", "55", "fxFlex.sm", "100", "fxFlex.xs", "100", "align", "center", 1, "div-two"], ["align", "center", 1, "mat-display-2", "div-two-text"], [1, "fas", "fa-comment-dots", "m-10", "fa-sm"], [1, "mb-35"], ["mat-card-avatar", "", 1, "header-image"], [1, "p-10", 2, "border-top", "0.5px solid #5c5c5c"]], template: function TestimonialsComponent_Template(rf, ctx) { if (rf & 1) {
+TestimonialsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TestimonialsComponent, selectors: [["app-testimonials"]], decls: 2, vars: 2, consts: [["mode", "indeterminate", 4, "ngIf"], ["fxLayout", "row", "fxLayout.sm", "column", "class", "pb-40", "fxLayout.xs", "column", 4, "ngIf"], ["mode", "indeterminate"], ["fxLayout", "row", "fxLayout.sm", "column", "fxLayout.xs", "column", 1, "pb-40"], ["fxFlex", "45", "fxFlex.sm", "100", "fxFlex.xs", "100", "align", "center", 1, "div-one"], ["src", "./assets/testimonial.png", 1, "img-div-one"], [1, "mat-display-2", "scd-font"], ["fxFlex", "55", "fxFlex.sm", "100", "fxFlex.xs", "100", "align", "center", 1, "div-two"], ["align", "center", 1, "mat-display-1", "scd-font"], [1, "fas", "fa-comment-dots", "m-10", "fa-xs"], [1, "mb-35"], ["mat-card-avatar", "", 1, "header-image"], [1, "p-10", 2, "border-top", "0.5px solid #5c5c5c"]], template: function TestimonialsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, TestimonialsComponent_mat_progress_bar_0_Template, 1, 0, "mat-progress-bar", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, TestimonialsComponent_div_1_Template, 49, 0, "div", 1);
     } if (rf & 2) {

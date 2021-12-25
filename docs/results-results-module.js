@@ -251,7 +251,7 @@ function ResultsComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](7, "div", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](8, "p", 8);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](9, "i", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](10, " RESULT");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](10, " Result");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](11, "div", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](12, "mat-card", 11);
@@ -324,14 +324,13 @@ class ResultsComponent {
         });
         this.standardService.getStandard()
             .subscribe(res => {
-            console.log(res);
             this.standard = res;
         });
         this.resultForm = this.fb.group({
             examinationId: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
             email: [null,
                 [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].email,
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]
             ],
             standardId: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
             otp: [''],
@@ -352,7 +351,6 @@ class ResultsComponent {
         });
         dialogRef.afterClosed().subscribe(result => {
             this.resultForm.get('otp').setValue(+result.data.otp);
-            console.log(this.resultForm.value);
             // if (result.data.message == "Verified") {
             //   this.onSubmit();
             // }
@@ -360,12 +358,10 @@ class ResultsComponent {
         this.sendEmail = false;
     }
     onSubmit() {
-        console.log(this.resultForm.value);
         this.resultService.postResult(this.resultForm.value).subscribe(res => {
-            console.log(res);
             this.result = res;
-            //this.resultForm.reset();
-            //this.formDirective.resetForm();
+            this.resultForm.reset();
+            this.formDirective.resetForm();
         }, (error) => {
             this.notificationService.show(_core_model__WEBPACK_IMPORTED_MODULE_3__["AlertType"].Error, error.message);
         });
@@ -374,7 +370,7 @@ class ResultsComponent {
         let totalMarks = 0;
         let obtainedMarks = 0;
         if (this.result.data) {
-            for (let r of this.result.data) {
+            for (const r of this.result.data) {
                 totalMarks += r.marksObtained;
                 obtainedMarks += r.outOf;
             }
@@ -388,7 +384,7 @@ ResultsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineC
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵloadQuery"]()) && (ctx.formDirective = _t.first);
-    } }, decls: 2, vars: 2, consts: [["mode", "indeterminate", 4, "ngIf"], ["fxLayout", "row", "fxLayout.sm", "column", "class", "pb-40", "fxLayout.xs", "column", 4, "ngIf"], ["mode", "indeterminate"], ["fxLayout", "row", "fxLayout.sm", "column", "fxLayout.xs", "column", 1, "pb-40"], ["fxFlex", "45", "fxFlex.sm", "60", "fxFlex.xs", "100", "align", "center", 1, "div-one"], ["src", "./assets/result.png", 1, "img-div-one"], [1, "mat-display-3"], ["fxFlex", "55", "fxFlex.sm", "100", "fxFlex.xs", "100", "align", "center", 1, "div-two"], ["align", "center", 1, "mat-display-2", "2"], [1, "fas", "fa-poll", "m-10", "fa-sm"], [1, "form-div"], [1, "mb-35"], [1, "p-10"], [3, "formGroup"], ["formDirective", "ngForm"], ["appearance", "standard", 2, "width", "100% !important"], ["matInput", "", "formControlName", "email"], ["formControlName", "examinationId"], [3, "value", "innerHtml", 4, "ngFor", "ngForOf"], ["formControlName", "standardId"], ["mat-raised-button", "", "color", "accent", 3, "disabled", "click"], [4, "ngIf"], [3, "value", "innerHtml"], [3, "innerHtml"], ["height", "200", 3, "src"], ["align", "left"], [1, "mat-subheading-2"], ["mat-table", "", 1, "mat-elevation-z8", 3, "dataSource"], ["matColumnDef", "subject"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["mat-footer-cell", "", 4, "matFooterCellDef"], ["matColumnDef", "marksObtained"], ["matColumnDef", "outOf"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["mat-footer-row", "", 4, "matFooterRowDef"], ["mat-header-cell", ""], ["mat-cell", ""], ["mat-footer-cell", ""], ["mat-header-row", ""], ["mat-row", ""], ["mat-footer-row", ""]], template: function ResultsComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 2, vars: 2, consts: [["mode", "indeterminate", 4, "ngIf"], ["fxLayout", "row", "fxLayout.sm", "column", "class", "pb-40", "fxLayout.xs", "column", 4, "ngIf"], ["mode", "indeterminate"], ["fxLayout", "row", "fxLayout.sm", "column", "fxLayout.xs", "column", 1, "pb-40"], ["fxFlex", "45", "fxFlex.sm", "60", "fxFlex.xs", "100", "align", "center", 1, "div-one"], ["src", "./assets/result.png", 1, "img-div-one"], [1, "mat-display-2", "scd-font"], ["fxFlex", "55", "fxFlex.sm", "100", "fxFlex.xs", "100", "align", "center", 1, "div-two"], ["align", "center", 1, "mat-display-1", "scd-font"], [1, "fas", "fa-poll", "m-10", "fa-sm"], [1, "form-div"], [1, "mb-35"], [1, "p-10"], [3, "formGroup"], ["formDirective", "ngForm"], ["appearance", "standard", 2, "width", "100% !important"], ["matInput", "", "formControlName", "email"], ["formControlName", "examinationId"], [3, "value", "innerHtml", 4, "ngFor", "ngForOf"], ["formControlName", "standardId"], ["mat-raised-button", "", "color", "accent", 3, "disabled", "click"], [4, "ngIf"], [3, "value", "innerHtml"], [3, "innerHtml"], ["height", "200", 3, "src"], ["align", "left"], [1, "mat-subheading-2"], ["mat-table", "", 1, "mat-elevation-z8", 3, "dataSource"], ["matColumnDef", "subject"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["mat-footer-cell", "", 4, "matFooterCellDef"], ["matColumnDef", "marksObtained"], ["matColumnDef", "outOf"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["mat-footer-row", "", 4, "matFooterRowDef"], ["mat-header-cell", ""], ["mat-cell", ""], ["mat-footer-cell", ""], ["mat-header-row", ""], ["mat-row", ""], ["mat-footer-row", ""]], template: function ResultsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](0, ResultsComponent_mat_progress_bar_0_Template, 1, 0, "mat-progress-bar", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](1, ResultsComponent_div_1_Template, 34, 5, "div", 1);
     } if (rf & 2) {

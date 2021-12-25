@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { ExaminationService, ResultService, StandardService } from '../core/data-service';
 import { MatDialog } from '@angular/material/dialog';
-import { VerifyComponent } from '../verify/verify.component'
-import { environment } from '../../environments/environment'
+import { VerifyComponent } from '../verify/verify.component';
+import { environment } from '../../environments/environment';
 import { NotificationService } from '../core/system-service/notification.service';
 import { AlertType } from '../core/model';
 
@@ -17,21 +17,21 @@ export class ResultsComponent implements OnInit {
 
   @ViewChild('formDirective') private formDirective: NgForm;
 
-  isLoading: boolean = true;
+  isLoading = true;
   resultForm: FormGroup;
   examination: object;
   standard: object;
   result: any;
-  apiEndpoint: any = environment.api_endpoint
-  public sendEmail: boolean = true;
+  apiEndpoint: any = environment.api_endpoint;
+  public sendEmail = true;
   displayedColumns: string[] = ['subject', 'marksObtained', 'outOf'];
 
   constructor(private fb: FormBuilder,
-    private examinationService: ExaminationService,
-    private resultService: ResultService,
-    public dialog: MatDialog,
-    private notificationService: NotificationService,
-    private standardService: StandardService) { }
+              private examinationService: ExaminationService,
+              private resultService: ResultService,
+              public dialog: MatDialog,
+              private notificationService: NotificationService,
+              private standardService: StandardService) { }
 
   ngOnInit(): void {
     this.examinationService.getExamination()
@@ -41,14 +41,13 @@ export class ResultsComponent implements OnInit {
 
     this.standardService.getStandard()
     .subscribe(res => {
-      console.log(res);
       this.standard = res;
-    })
+    });
     this.resultForm = this.fb.group({
       examinationId: [null, [Validators.required]],
       email: [null,
         [Validators.required, Validators.email,
-        Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]
       ],
       standardId: ['', [Validators.required]],
       otp: [''],
@@ -71,31 +70,28 @@ export class ResultsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.resultForm.get('otp').setValue(+result.data.otp);
-      console.log(this.resultForm.value);
       // if (result.data.message == "Verified") {
       //   this.onSubmit();
       // }
     });
-    this.sendEmail = false
+    this.sendEmail = false;
   }
 
-  onSubmit() {
-    console.log(this.resultForm.value)
+  onSubmit(): void {
     this.resultService.postResult(this.resultForm.value).subscribe(res => {
-      console.log(res)
       this.result = res;
-      //this.resultForm.reset();
-      //this.formDirective.resetForm();
+      this.resultForm.reset();
+      this.formDirective.resetForm();
     }, (error) => {
       this.notificationService.show(AlertType.Error, error.message);
     });
   }
 
   getPercentage() {
-    let totalMarks: number = 0;
-    let obtainedMarks: number = 0;
+    let totalMarks = 0;
+    let obtainedMarks = 0;
     if (this.result.data) {
-      for (let r of this.result.data) {
+      for (const r of this.result.data) {
         totalMarks += r.marksObtained;
         obtainedMarks += r.outOf;
       }
