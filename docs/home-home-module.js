@@ -11,42 +11,75 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _core_data_service_notice_notice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/data-service/notice/notice.service */ "I5sb");
-/* harmony import */ var _core_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/data-service */ "7hpk");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/flex-layout/flex */ "XiUz");
+/* harmony import */ var _core_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/data-service */ "7hpk");
+/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/divider */ "f0Cb");
+/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/flex-layout/flex */ "XiUz");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
 
 
 
 
 
-function HomeComponent_p_12_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+
+function HomeComponent_div_49_div_3_p_2_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const s_r1 = ctx.$implicit;
+    const s_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](s_r1.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](s_r3.name);
+} }
+function HomeComponent_div_49_div_3_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, HomeComponent_div_49_div_3_p_2_Template, 2, 1, "p", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const s_r3 = ctx.$implicit;
+    const c_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/course/", c_r1.name.toLowerCase(), "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", s_r3.courseId == c_r1.id);
+} }
+function HomeComponent_div_49_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, HomeComponent_div_49_div_3_Template, 3, 2, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const c_r1 = ctx.$implicit;
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](c_r1.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r0.standards);
 } }
 class HomeComponent {
-    constructor(noticeService, standardService) {
-        this.noticeService = noticeService;
+    constructor(standardService, courseService) {
         this.standardService = standardService;
+        this.courseService = courseService;
     }
     ngOnInit() {
-        this.noticeService.getNotice()
-            .subscribe(res => {
-            this.notices = res;
-        });
-        this.standardService.getStandardByRank()
+        this.standardService.getStandard()
             .subscribe(res => {
             this.standards = res;
+            console.log(this.standards);
+        });
+        this.courseService.getCourses()
+            .subscribe(res => {
+            this.courses = res;
+            console.log(this.courses);
         });
     }
 }
-HomeComponent.ɵfac = function HomeComponent_Factory(t) { return new (t || HomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_data_service_notice_notice_service__WEBPACK_IMPORTED_MODULE_1__["NoticeService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_data_service__WEBPACK_IMPORTED_MODULE_2__["StandardService"])); };
-HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomeComponent, selectors: [["app-main"]], decls: 43, vars: 1, consts: [["align", "center", 1, "m-25"], [1, "bg-img-child"], ["src", "./assets/logo.png"], [1, "header-subtitle", "m-20"], [1, "header-subtitle", "motto-border", "p-10"], [1, "topCourses"], [4, "ngFor", "ngForOf"], [1, "pt-50", "mb-100"], ["align", "center"], [1, "mat-headline", "header-title"], ["fxLayout", "row", "fxLayout.sm", "column", "fxLayout.xs", "column", "align", "center", "fxLayoutGap", "20px", 1, "m-20"], ["fxLayout", "row", "fxFlex", "66", "fxLayoutGap", "20px", "fxLayout.sm", "row", "fxLayout.xs", "column", 1, "mb-0"], ["fxFlex", "50", "fxFlex.xs", "100", "fxFlex.sm", "75", "align", "center", 1, "circle-img-div", "card", 2, "width", "225px"], [1, "mat-title", "bgcolor-yellow", "p-20"], [1, "mat-subheading-1", "p-5"], ["fxFlex", "50", "fxFlex.xs", "100", "fxFlex.sm", "75", "align", "center", 1, "circle-img-div", "card", "mb-20", 2, "width", "225px"], ["fxLayout", "row", "fxFlex", "33", "fxLayout.sm", "row", "fxLayout.xs", "column"], ["fxFlex", "100", "fxFlex.xs", "100", "fxFlex.sm", "75", "align", "center", 1, "circle-img-div", "card", 2, "width", "225px"]], template: function HomeComponent_Template(rf, ctx) { if (rf & 1) {
+HomeComponent.ɵfac = function HomeComponent_Factory(t) { return new (t || HomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_data_service__WEBPACK_IMPORTED_MODULE_1__["StandardService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_data_service__WEBPACK_IMPORTED_MODULE_1__["CourseService"])); };
+HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomeComponent, selectors: [["app-main"]], decls: 50, vars: 1, consts: [["align", "center", 1, "m-25"], [1, "bg-img-child"], ["src", "./assets/logo.png"], [1, "header-subtitle", "m-20"], [1, "header-subtitle", "motto-border", "p-10"], [1, "spacer", "layer1"], [1, "topper-div"], [1, "exam-name", "mat-display-3"], [1, "mat-caption", "ml-52"], ["fxLayout", "row warp", 1, "mt-50"], ["fxFlex", "30", "fxFlex.sm", "45", "fxFlex.xs", "100", 1, "student-1"], ["src", "http://localhost:3000/assets/images/2021-10-19T08-1.jpg", "height", "240", "width", "180", 1, "student-img"], ["src", "assets/1st.png", 1, "student-border"], [1, "student-text", "mat-title"], ["fxFlex", "30", "fxFlex.sm", "45", "fxFlex.xs", "100", 1, "student-2"], ["src", "assets/2nd.png", 1, "student-border"], ["fxFlex", "30", "fxFlex.sm", "45", "fxFlex.xs", "100", 1, "student-3"], ["src", "assets/3rd.png", 1, "student-border"], [1, "pt-50", "mb-100"], ["align", "center"], [1, "mat-headline", "header-title"], ["fxLayout", "row warp", "fxLayoutAlign", "center", "fxLayoutGap", "20px grid", "align", "center"], ["fxFlex", "33%", "fxFlex.xs", "70%", "fxFlex.sm", "40%", "class", "card", 4, "ngFor", "ngForOf"], ["fxFlex", "33%", "fxFlex.xs", "70%", "fxFlex.sm", "40%", 1, "card"], [1, "mat-title", "bgcolor-yellow", "p-12"], [4, "ngFor", "ngForOf"], ["href", "...", 3, "routerLink"], ["class", "mat-subheading-1 p-5 m-0 standard", 4, "ngIf"], [1, "mat-subheading-1", "p-5", "m-0", "standard"]], template: function HomeComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 2);
@@ -60,65 +93,65 @@ HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Popular Choices");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "p", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, " H.S.C. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, HomeComponent_p_12_Template, 2, 1, "p", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "2021-2022");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "p", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, " Courses Offered ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "mat-divider");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "img", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "img", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "p", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "School");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "p", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "Std IX");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "p", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "Std X");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, " Sana Sunasra ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, " Std X ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, " 91.6% ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "p", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Junior College");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "img", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](28, "img", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "p", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, " Isa Sunasra ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](31, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, " Std X ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](33, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, " 86.2% ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "p", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, "FYJC(Commerce)");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "p", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "SYJC(Commerce)");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "div", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "p", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36, "Degree");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "p", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](38, "FY Bcom");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "p", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](40, "SY Bcom");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "p", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](42, "TY Bcom");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](36, "img", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](37, "img", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "p", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, " Bilal Sunasra ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](40, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, " Std X ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](42, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, " 72.0% ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "div", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "p", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](47, " Courses Offered ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](48, "div", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](49, HomeComponent_div_49_Template, 4, 2, "div", 22);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.standards);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_4__["DefaultLayoutDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_4__["DefaultLayoutGapDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_4__["DefaultFlexDirective"]], styles: [".motto-border[_ngcontent-%COMP%] {\n  border-radius: 5px;\n  border: 1px solid #fca311;\n  line-height: 30px;\n}\n\n.topper-div[_ngcontent-%COMP%] {\n  height: 650px;\n  padding-top: 10px;\n  background-color: #EFEFEF;\n}\n\n.topper-div[_ngcontent-%COMP%]   .exam-name[_ngcontent-%COMP%] {\n  height: 56px;\n  margin: 0 auto 0px 50px;\n}\n\n.topper-div[_ngcontent-%COMP%]   .student-1[_ngcontent-%COMP%], .topper-div[_ngcontent-%COMP%]   .student-2[_ngcontent-%COMP%], .topper-div[_ngcontent-%COMP%]   .student-3[_ngcontent-%COMP%] {\n  width: 300px;\n  height: 300px;\n  margin: 0 auto;\n  position: relative;\n}\n\n.topper-div[_ngcontent-%COMP%]   .student-img[_ngcontent-%COMP%] {\n  aspect-ratio: 4/3;\n  display: block;\n  margin: 0 auto;\n  object-fit: cover;\n  border-radius: 4px 4px 50px 50px;\n}\n\n.topper-div[_ngcontent-%COMP%]   .student-border[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 25px;\n  margin: 0 auto;\n  width: 50%;\n}\n\n.topper-div[_ngcontent-%COMP%]   .student-text[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-top: 35px;\n}\n\n.notice-board-div[_ngcontent-%COMP%] {\n  margin: 2.5vw 2.5vw 5vw 2.5vw;\n}\n\n.notice-board-div[_ngcontent-%COMP%]   .notice-board-card[_ngcontent-%COMP%]   .mat-card-header[_ngcontent-%COMP%] {\n  padding: 0 2.5vw;\n}\n\n.notice-board-div[_ngcontent-%COMP%]   .notice-board-card[_ngcontent-%COMP%]   .mat-card-content[_ngcontent-%COMP%] {\n  padding: 1vw 2.5vw;\n  height: 350px;\n  overflow-y: auto;\n}\n\n.notice-board-div[_ngcontent-%COMP%]   .notice-board-card[_ngcontent-%COMP%]   .mat-card-content[_ngcontent-%COMP%]   .notice-board-content[_ngcontent-%COMP%] {\n  margin: 8px 0;\n}\n\n.header-title[_ngcontent-%COMP%] {\n  text-align: left;\n  font-family: \"Playfair Display\", serif;\n  font-weight: 700;\n  border-bottom: 1px solid #fca311;\n  margin-bottom: 25px;\n  padding: 0 0 25px 25px;\n}\n\n@media only screen and (max-width: 960px) {\n  .topper-div[_ngcontent-%COMP%] {\n    height: 1500px;\n  }\n\n  .student-border[_ngcontent-%COMP%] {\n    bottom: 0;\n    top: 180px;\n    width: 70% !important;\n  }\n\n  .student-1[_ngcontent-%COMP%], .student-2[_ngcontent-%COMP%], .student-3[_ngcontent-%COMP%] {\n    margin-bottom: 30px !important;\n  }\n\n  .notice-board-div[_ngcontent-%COMP%] {\n    margin-bottom: 20vw;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXGhvbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxrQkFBQTtFQUNBLHlCQUFBO0VBQ0EsaUJBQUE7QUFDSjs7QUFFQTtFQUNJLGFBQUE7RUFDQSxpQkFBQTtFQUNBLHlCQUFBO0FBQ0o7O0FBQUk7RUFDSSxZQUFBO0VBQ0EsdUJBQUE7QUFFUjs7QUFBSTs7O0VBR0ksWUFBQTtFQUNBLGFBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7QUFFUjs7QUFBSTtFQUNJLGlCQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7RUFDQSxpQkFBQTtFQUNBLGdDQUFBO0FBRVI7O0FBQUk7RUFDSSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxRQUFBO0VBQ0EsWUFBQTtFQUNBLGNBQUE7RUFDQSxVQUFBO0FBRVI7O0FBQUk7RUFDSSxrQkFBQTtFQUNBLGdCQUFBO0FBRVI7O0FBRUE7RUFDSSw2QkFBQTtBQUNKOztBQUNRO0VBQ0ksZ0JBQUE7QUFDWjs7QUFDUTtFQUNJLGtCQUFBO0VBQ0EsYUFBQTtFQUNBLGdCQUFBO0FBQ1o7O0FBQVk7RUFDSSxhQUFBO0FBRWhCOztBQUlBO0VBQ0ksZ0JBQUE7RUFDQSxzQ0FBQTtFQUNBLGdCQUFBO0VBQ0EsZ0NBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0FBREo7O0FBSUE7RUFDSTtJQUNJLGNBQUE7RUFETjs7RUFHRTtJQUNJLFNBQUE7SUFDQSxVQUFBO0lBQ0EscUJBQUE7RUFBTjs7RUFFRTs7O0lBR0ksOEJBQUE7RUFDTjs7RUFDRTtJQUNJLG1CQUFBO0VBRU47QUFDRiIsImZpbGUiOiJob21lLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1vdHRvLWJvcmRlciB7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZmNhMzExO1xyXG4gICAgbGluZS1oZWlnaHQ6IDMwcHg7XHJcbn1cclxuXHJcbi50b3BwZXItZGl2IHtcclxuICAgIGhlaWdodDogNjUwcHg7XHJcbiAgICBwYWRkaW5nLXRvcDogMTBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNFRkVGRUY7XHJcbiAgICAuZXhhbS1uYW1lIHtcclxuICAgICAgICBoZWlnaHQ6IDU2cHg7XHJcbiAgICAgICAgbWFyZ2luOiAwIGF1dG8gMHB4IDUwcHg7XHJcbiAgICB9XHJcbiAgICAuc3R1ZGVudC0xLFxyXG4gICAgLnN0dWRlbnQtMixcclxuICAgIC5zdHVkZW50LTMge1xyXG4gICAgICAgIHdpZHRoOiAzMDBweDtcclxuICAgICAgICBoZWlnaHQ6IDMwMHB4O1xyXG4gICAgICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIH1cclxuICAgIC5zdHVkZW50LWltZyB7XHJcbiAgICAgICAgYXNwZWN0LXJhdGlvOiA0LzM7XHJcbiAgICAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICAgICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICAgICAgb2JqZWN0LWZpdDogY292ZXI7XHJcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4IDRweCA1MHB4IDUwcHg7XHJcbiAgICB9XHJcbiAgICAuc3R1ZGVudC1ib3JkZXIge1xyXG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgICBsZWZ0OiAwO1xyXG4gICAgICAgIHJpZ2h0OiAwO1xyXG4gICAgICAgIGJvdHRvbTogMjVweDtcclxuICAgICAgICBtYXJnaW46IDAgYXV0bztcclxuICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgfVxyXG4gICAgLnN0dWRlbnQtdGV4dCB7XHJcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgICAgIG1hcmdpbi10b3A6IDM1cHg7XHJcbiAgICB9XHJcbn1cclxuXHJcbi5ub3RpY2UtYm9hcmQtZGl2IHtcclxuICAgIG1hcmdpbjogMi41dncgMi41dncgNXZ3IDIuNXZ3O1xyXG4gICAgLm5vdGljZS1ib2FyZC1jYXJkIHtcclxuICAgICAgICAubWF0LWNhcmQtaGVhZGVyIHtcclxuICAgICAgICAgICAgcGFkZGluZzogMCAyLjV2dztcclxuICAgICAgICB9XHJcbiAgICAgICAgLm1hdC1jYXJkLWNvbnRlbnQge1xyXG4gICAgICAgICAgICBwYWRkaW5nOiAxdncgMi41dnc7XHJcbiAgICAgICAgICAgIGhlaWdodDogMzUwcHg7XHJcbiAgICAgICAgICAgIG92ZXJmbG93LXk6IGF1dG87XHJcbiAgICAgICAgICAgIC5ub3RpY2UtYm9hcmQtY29udGVudCB7XHJcbiAgICAgICAgICAgICAgICBtYXJnaW46IDhweCAwO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG59XHJcblxyXG4uaGVhZGVyLXRpdGxlIHtcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7IFxyXG4gICAgZm9udC1mYW1pbHk6ICdQbGF5ZmFpciBEaXNwbGF5Jywgc2VyaWY7XHJcbiAgICBmb250LXdlaWdodDogNzAwO1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNmY2EzMTE7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAyNXB4O1xyXG4gICAgcGFkZGluZzogMCAwIDI1cHggMjVweDtcclxufVxyXG5cclxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5NjBweCkge1xyXG4gICAgLnRvcHBlci1kaXYge1xyXG4gICAgICAgIGhlaWdodDogMTUwMHB4O1xyXG4gICAgfVxyXG4gICAgLnN0dWRlbnQtYm9yZGVyIHtcclxuICAgICAgICBib3R0b206IDA7XHJcbiAgICAgICAgdG9wOiAxODBweDtcclxuICAgICAgICB3aWR0aDogNzAlICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbiAgICAuc3R1ZGVudC0xLFxyXG4gICAgLnN0dWRlbnQtMixcclxuICAgIC5zdHVkZW50LTMge1xyXG4gICAgICAgIG1hcmdpbi1ib3R0b206IDMwcHggIWltcG9ydGFudDtcclxuICAgIH1cclxuICAgIC5ub3RpY2UtYm9hcmQtZGl2IHtcclxuICAgICAgICBtYXJnaW4tYm90dG9tOiAyMHZ3O1xyXG4gICAgfVxyXG59Il19 */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](49);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.courses);
+    } }, directives: [_angular_material_divider__WEBPACK_IMPORTED_MODULE_2__["MatDivider"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_3__["DefaultLayoutDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_3__["DefaultFlexDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_3__["DefaultLayoutAlignDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_3__["DefaultLayoutGapDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterLinkWithHref"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"]], styles: [".motto-border[_ngcontent-%COMP%] {\n  border-radius: 5px;\n  border: 1px solid #fca311;\n  line-height: 30px;\n}\n\n.topper-div[_ngcontent-%COMP%] {\n  height: -moz-fit-content;\n  height: fit-content;\n  background-color: #EFEFEF;\n}\n\n.topper-div[_ngcontent-%COMP%]   .exam-name[_ngcontent-%COMP%] {\n  height: 56px;\n  margin: 0 auto 0px 50px;\n}\n\n.topper-div[_ngcontent-%COMP%]   .student-1[_ngcontent-%COMP%], .topper-div[_ngcontent-%COMP%]   .student-2[_ngcontent-%COMP%], .topper-div[_ngcontent-%COMP%]   .student-3[_ngcontent-%COMP%] {\n  width: 300px;\n  height: 380px;\n  margin: 0 auto;\n  position: relative;\n}\n\n.topper-div[_ngcontent-%COMP%]   .student-1[_ngcontent-%COMP%]   .student-text[_ngcontent-%COMP%], .topper-div[_ngcontent-%COMP%]   .student-2[_ngcontent-%COMP%]   .student-text[_ngcontent-%COMP%], .topper-div[_ngcontent-%COMP%]   .student-3[_ngcontent-%COMP%]   .student-text[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-top: 30px;\n}\n\n.topper-div[_ngcontent-%COMP%]   .student-img[_ngcontent-%COMP%] {\n  aspect-ratio: 4/3;\n  display: block;\n  margin: 0 auto;\n  object-fit: cover;\n  border-radius: 4px 4px 50px 50px;\n}\n\n.topper-div[_ngcontent-%COMP%]   .student-border[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 123px;\n  margin: 0 auto;\n  width: 200px;\n}\n\n.notice-board-div[_ngcontent-%COMP%] {\n  margin: 2.5vw 2.5vw 5vw 2.5vw;\n}\n\n.notice-board-div[_ngcontent-%COMP%]   .notice-board-card[_ngcontent-%COMP%]   .mat-card-header[_ngcontent-%COMP%] {\n  padding: 0 2.5vw;\n}\n\n.notice-board-div[_ngcontent-%COMP%]   .notice-board-card[_ngcontent-%COMP%]   .mat-card-content[_ngcontent-%COMP%] {\n  padding: 1vw 2.5vw;\n  height: 350px;\n  overflow-y: auto;\n}\n\n.notice-board-div[_ngcontent-%COMP%]   .notice-board-card[_ngcontent-%COMP%]   .mat-card-content[_ngcontent-%COMP%]   .notice-board-content[_ngcontent-%COMP%] {\n  margin: 8px 0;\n}\n\n.header-title[_ngcontent-%COMP%] {\n  text-align: left;\n  font-family: \"Playfair Display\", serif;\n  font-weight: 700;\n  border-bottom: 1px solid #fca311;\n  margin-bottom: 25px;\n  padding: 0 0 25px 25px;\n}\n\na[_ngcontent-%COMP%] {\n  text-decoration: none;\n  color: rgba(0, 0, 0, 0.87);\n}\n\n.standard[_ngcontent-%COMP%]:hover {\n  cursor: pointer;\n  box-shadow: -1px 5px 23px -15px rgba(0, 0, 0, 0.64);\n  -webkit-box-shadow: -1px 5px 23px -15px rgba(0, 0, 0, 0.64);\n  -moz-box-shadow: -1px 5px 23px -15px rgba(0, 0, 0, 0.64);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXGhvbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBQTtFQUNBLHlCQUFBO0VBQ0EsaUJBQUE7QUFDRjs7QUFFQTtFQUNFLHdCQUFBO0VBQUEsbUJBQUE7RUFDQSx5QkFBQTtBQUNGOztBQUNFO0VBQ0UsWUFBQTtFQUNBLHVCQUFBO0FBQ0o7O0FBRUU7OztFQUdFLFlBQUE7RUFDQSxhQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0FBQUo7O0FBRUk7OztFQUNFLGtCQUFBO0VBQ0EsZ0JBQUE7QUFFTjs7QUFFRTtFQUNFLGlCQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7RUFDQSxpQkFBQTtFQUNBLGdDQUFBO0FBQUo7O0FBR0U7RUFDRSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxRQUFBO0VBQ0EsYUFBQTtFQUNBLGNBQUE7RUFDQSxZQUFBO0FBREo7O0FBS0E7RUFDRSw2QkFBQTtBQUZGOztBQUtJO0VBQ0UsZ0JBQUE7QUFITjs7QUFNSTtFQUNFLGtCQUFBO0VBQ0EsYUFBQTtFQUNBLGdCQUFBO0FBSk47O0FBTU07RUFDRSxhQUFBO0FBSlI7O0FBVUE7RUFDRSxnQkFBQTtFQUNBLHNDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQ0FBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7QUFQRjs7QUFXQTtFQUNFLHFCQUFBO0VBQ0EsMEJBQUE7QUFSRjs7QUFXQTtFQUNFLGVBQUE7RUFDQSxtREFBQTtFQUNBLDJEQUFBO0VBQ0Esd0RBQUE7QUFSRiIsImZpbGUiOiJob21lLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1vdHRvLWJvcmRlciB7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNmY2EzMTE7XHJcbiAgbGluZS1oZWlnaHQ6IDMwcHg7XHJcbn1cclxuXHJcbi50b3BwZXItZGl2IHtcclxuICBoZWlnaHQ6IGZpdC1jb250ZW50O1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNFRkVGRUY7XHJcblxyXG4gIC5leGFtLW5hbWUge1xyXG4gICAgaGVpZ2h0OiA1NnB4O1xyXG4gICAgbWFyZ2luOiAwIGF1dG8gMHB4IDUwcHg7XHJcbiAgfVxyXG5cclxuICAuc3R1ZGVudC0xLFxyXG4gIC5zdHVkZW50LTIsXHJcbiAgLnN0dWRlbnQtMyB7XHJcbiAgICB3aWR0aDogMzAwcHg7XHJcbiAgICBoZWlnaHQ6IDM4MHB4O1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcblxyXG4gICAgLnN0dWRlbnQtdGV4dCB7XHJcbiAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgICAgbWFyZ2luLXRvcDogMzBweDtcclxuICAgIH1cclxuICB9XHJcblxyXG4gIC5zdHVkZW50LWltZyB7XHJcbiAgICBhc3BlY3QtcmF0aW86IDQvMztcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICBvYmplY3QtZml0OiBjb3ZlcjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDRweCA0cHggNTBweCA1MHB4O1xyXG4gIH1cclxuXHJcbiAgLnN0dWRlbnQtYm9yZGVyIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGxlZnQ6IDA7XHJcbiAgICByaWdodDogMDtcclxuICAgIGJvdHRvbTogMTIzcHg7XHJcbiAgICBtYXJnaW46IDAgYXV0bztcclxuICAgIHdpZHRoOiAyMDBweDtcclxuICB9XHJcbn1cclxuXHJcbi5ub3RpY2UtYm9hcmQtZGl2IHtcclxuICBtYXJnaW46IDIuNXZ3IDIuNXZ3IDV2dyAyLjV2dztcclxuXHJcbiAgLm5vdGljZS1ib2FyZC1jYXJkIHtcclxuICAgIC5tYXQtY2FyZC1oZWFkZXIge1xyXG4gICAgICBwYWRkaW5nOiAwIDIuNXZ3O1xyXG4gICAgfVxyXG5cclxuICAgIC5tYXQtY2FyZC1jb250ZW50IHtcclxuICAgICAgcGFkZGluZzogMXZ3IDIuNXZ3O1xyXG4gICAgICBoZWlnaHQ6IDM1MHB4O1xyXG4gICAgICBvdmVyZmxvdy15OiBhdXRvO1xyXG5cclxuICAgICAgLm5vdGljZS1ib2FyZC1jb250ZW50IHtcclxuICAgICAgICBtYXJnaW46IDhweCAwO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG4uaGVhZGVyLXRpdGxlIHtcclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIGZvbnQtZmFtaWx5OiAnUGxheWZhaXIgRGlzcGxheScsIHNlcmlmO1xyXG4gIGZvbnQtd2VpZ2h0OiA3MDA7XHJcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNmY2EzMTE7XHJcbiAgbWFyZ2luLWJvdHRvbTogMjVweDtcclxuICBwYWRkaW5nOiAwIDAgMjVweCAyNXB4O1xyXG59XHJcblxyXG4vL0NvdXJzZXMgb2ZmZXJlZCBTVEFSVFxyXG5hIHtcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgY29sb3I6IHJnYmEoMCwgMCwgMCwgMC44Nyk7XHJcbn1cclxuXHJcbi5zdGFuZGFyZDpob3ZlciB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIGJveC1zaGFkb3c6IC0xcHggNXB4IDIzcHggLTE1cHggcmdiYSgwLDAsMCwwLjY0KTtcclxuICAtd2Via2l0LWJveC1zaGFkb3c6IC0xcHggNXB4IDIzcHggLTE1cHggcmdiYSgwLDAsMCwwLjY0KTtcclxuICAtbW96LWJveC1zaGFkb3c6IC0xcHggNXB4IDIzcHggLTE1cHggcmdiYSgwLDAsMCwwLjY0KTtcclxufVxyXG4vL0NvdXJzZXMgb2ZmZXJlZCBFTkRcclxuIl19 */"] });
 
 
 /***/ }),

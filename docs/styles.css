@@ -7094,11 +7094,12 @@ body {
 /*CARD*/
 .card {
   background-color: #e4ebf1 !important;
+  background-clip: content-box;
   border-radius: 10px;
 }
 /*Image bg transparent*/
 img {
-  background: transparent !important;
+  background: transparent;
 }
 .post img {
   background: transparent;
@@ -7127,6 +7128,9 @@ img {
 }
 .scd-font {
   font-family: "Playfair Display", serif;
+}
+.mlr-auto {
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=styles.css.map*/

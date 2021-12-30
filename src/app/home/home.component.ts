@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StandardService } from '../core/data-service';
+import { CourseService, StandardService } from '../core/data-service';
 import { NoticeService } from '../core/data-service/notice/notice.service';
-import { Notice, Standard } from '../core/model';
+import { Notice, Standard, Course } from '../core/model';
 
 @Component({
   selector: 'app-main',
@@ -10,22 +10,23 @@ import { Notice, Standard } from '../core/model';
 })
 export class HomeComponent implements OnInit {
 
-  public notices: Notice[];
   public standards: Standard[];
-  constructor(private noticeService: NoticeService,
-              private standardService: StandardService) { }
+  public courses: Course[];
+  constructor(private standardService: StandardService,
+              private courseService: CourseService) { }
 
   ngOnInit(): void {
-
-    this.noticeService.getNotice()
-      .subscribe(res => {
-        this.notices = res;
-      });
-
-    this.standardService.getStandardByRank()
+    this.standardService.getStandard()
       .subscribe(res => {
         this.standards = res;
+        console.log(this.standards);
+
       });
+    this.courseService.getCourses()
+      .subscribe(res => {
+        this.courses = res;
+        console.log(this.courses);
+      })
   }
 
 }

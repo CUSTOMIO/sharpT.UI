@@ -1,14 +1,14 @@
 <div align="center" class="m-25">
-    <span class="bg-img-child">
-        <img src="./assets/logo.png">
-        <div class="header-subtitle m-20">PROF. SUFIYAN KOJAR</div>
-        <div class="header-subtitle motto-border p-10">
-            "COMMERCE & SCHOOL EDUCATION MEANS SHARP TUTORIALS<br />
-            ANY THING ELSE IS A COMPROMISE"
-        </div>
-    </span>
+  <span class="bg-img-child">
+    <img src="./assets/logo.png">
+    <div class="header-subtitle m-20">PROF. SUFIYAN KOJAR</div>
+    <div class="header-subtitle motto-border p-10">
+      "COMMERCE & SCHOOL EDUCATION MEANS SHARP TUTORIALS<br />
+      ANY THING ELSE IS A COMPROMISE"
+    </div>
+  </span>
 </div>
-<!-- 
+
 <div class="spacer layer1"></div>
 <div class="topper-div">
     <p class="exam-name  mat-display-3">
@@ -16,75 +16,51 @@
     </p>
     <p class="mat-caption ml-52">2021-2022</p>
     <mat-divider></mat-divider>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="mt-50">
-        <div class="student-1" fxFlex="33" fxFlex.sm="100" fxFlex.xs="100">
-            <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg" height="240" width="180">
-            <img class="student-border" src="assets/1st.png" width="300">
-            <div class="student-text mat-title">
+    <div fxLayout="row warp" class="mt-50">
+        <div class="student-1" fxFlex="30" fxFlex.sm="45" fxFlex.xs="100">
+            <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg"  height="240" width="180">
+            <img class="student-border" src="assets/1st.png">
+            <p class="student-text mat-title">
                 Sana Sunasra
                 <br> Std X
                 <br> 91.6%
-            </div>
+            </p>
         </div>
-        <div class="student-2" fxFlex="33" fxFlex.sm="100" fxFlex.xs="100">
+        <div class="student-2" fxFlex="30" fxFlex.sm="45" fxFlex.xs="100">
             <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg" height="240" width="180">
-            <img class="student-border" src="assets/2nd.png" width="300">
-            <div class="student-text mat-title">
+            <img class="student-border" src="assets/2nd.png">
+            <p class="student-text mat-title">
                 Isa Sunasra
                 <br> Std X
                 <br> 86.2%
-            </div>
+            </p>
         </div>
-        <div class="student-3" fxFlex="33" fxFlex.sm="100" fxFlex.xs="100">
+        <div class="student-3" fxFlex="30" fxFlex.sm="45" fxFlex.xs="100">
             <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg" height="240" width="180">
-            <img class="student-border" src="assets/3rd.png" width="300">
-            <div class="student-text mat-title">
+            <img class="student-border" src="assets/3rd.png">
+            <p class="student-text mat-title">
                 Bilal Sunasra
                 <br> Std X
                 <br> 72.0%
-            </div>
+            </p>
         </div>
     </div>
-</div> -->
-
-<div class="topCourses">
-    <p>Popular Choices</p>
-    <p *ngFor="let s of standards">{{s.name}}</p>
 </div>
 
 <div class="pt-50 mb-100">
-    <div align="center">
-        <p class="mat-headline header-title">
-            Courses Offered
-        </p>
-        <!-- <p class="mat-subheading-2 p-20">
-            <span class="color-yellow">
-      Sharp Tutorials
-    </span> has one of the best faculty in south Mumbai when it comes to school & commerce coaching. Our faculty comprises of experienced and renowed teachers for different subjects who have a through knowledge and command of their
-            subjects, and able to answer all students querries as required.
-        </p> -->
+  <div align="center">
+    <p class="mat-headline header-title">
+      Courses Offered
+    </p>
+  </div>
+  <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="20px grid" align="center">
+    <div fxFlex="33%" fxFlex.xs="70%" fxFlex.sm="40%" class="card" *ngFor="let c of courses">
+      <p class="mat-title bgcolor-yellow p-12">{{c.name}}</p>
+      <div *ngFor="let s of standards">
+        <a href="..." routerLink="/course/{{c.name.toLowerCase()}}">
+          <p class="mat-subheading-1 p-5 m-0 standard" *ngIf="s.courseId == c.id">{{s.name}}</p>
+        </a>
+      </div>
     </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="m-20" align="center" fxLayoutGap="20px">
-        <div class="mb-0" fxLayout="row" fxFlex="66" fxLayoutGap="20px" fxLayout.sm="row" fxLayout.xs="column">
-            <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="75" class="circle-img-div card" style="width: 225px" align="center">
-                <p class="mat-title bgcolor-yellow p-20">School</p>
-                <p class="mat-subheading-1 p-5">Std IX</p>
-                <p class="mat-subheading-1 p-5">Std X</p>
-            </div>
-            <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="75" class="circle-img-div card mb-20" style="width: 225px" align="center">
-                <p class="mat-title bgcolor-yellow p-20">Junior College</p>
-                <p class="mat-subheading-1 p-5">FYJC(Commerce)</p>
-                <p class="mat-subheading-1 p-5">SYJC(Commerce)</p>
-            </div>
-        </div>
-        <div fxLayout="row" fxFlex="33" fxLayout.sm="row" fxLayout.xs="column">
-            <div fxFlex="100" fxFlex.xs="100" fxFlex.sm="75" class="circle-img-div card" style="width: 225px" align="center">
-                <p class="mat-title bgcolor-yellow p-20">Degree</p>
-                <p class="mat-subheading-1 p-5">FY Bcom</p>
-                <p class="mat-subheading-1 p-5">SY Bcom</p>
-                <p class="mat-subheading-1 p-5">TY Bcom</p>
-            </div>
-        </div>
-
-    </div>
+  </div>
 </div>

@@ -1,87 +1,89 @@
 .motto-border {
-    border-radius: 5px;
-    border: 1px solid #fca311;
-    line-height: 30px;
+  border-radius: 5px;
+  border: 1px solid #fca311;
+  line-height: 30px;
 }
 
 .topper-div {
-    height: 650px;
-    padding-top: 10px;
-    background-color: #EFEFEF;
-    .exam-name {
-        height: 56px;
-        margin: 0 auto 0px 50px;
-    }
-    .student-1,
-    .student-2,
-    .student-3 {
-        width: 300px;
-        height: 300px;
-        margin: 0 auto;
-        position: relative;
-    }
-    .student-img {
-        aspect-ratio: 4/3;
-        display: block;
-        margin: 0 auto;
-        object-fit: cover;
-        border-radius: 4px 4px 50px 50px;
-    }
-    .student-border {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 25px;
-        margin: 0 auto;
-        width: 50%;
-    }
+  height: fit-content;
+  background-color: #EFEFEF;
+
+  .exam-name {
+    height: 56px;
+    margin: 0 auto 0px 50px;
+  }
+
+  .student-1,
+  .student-2,
+  .student-3 {
+    width: 300px;
+    height: 380px;
+    margin: 0 auto;
+    position: relative;
+
     .student-text {
-        text-align: center;
-        margin-top: 35px;
+      text-align: center;
+      margin-top: 30px;
     }
+  }
+
+  .student-img {
+    aspect-ratio: 4/3;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 4px 4px 50px 50px;
+  }
+
+  .student-border {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 123px;
+    margin: 0 auto;
+    width: 200px;
+  }
 }
 
 .notice-board-div {
-    margin: 2.5vw 2.5vw 5vw 2.5vw;
-    .notice-board-card {
-        .mat-card-header {
-            padding: 0 2.5vw;
-        }
-        .mat-card-content {
-            padding: 1vw 2.5vw;
-            height: 350px;
-            overflow-y: auto;
-            .notice-board-content {
-                margin: 8px 0;
-            }
-        }
+  margin: 2.5vw 2.5vw 5vw 2.5vw;
+
+  .notice-board-card {
+    .mat-card-header {
+      padding: 0 2.5vw;
     }
+
+    .mat-card-content {
+      padding: 1vw 2.5vw;
+      height: 350px;
+      overflow-y: auto;
+
+      .notice-board-content {
+        margin: 8px 0;
+      }
+    }
+  }
 }
 
 .header-title {
-    text-align: left; 
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    border-bottom: 1px solid #fca311;
-    margin-bottom: 25px;
-    padding: 0 0 25px 25px;
+  text-align: left;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  border-bottom: 1px solid #fca311;
+  margin-bottom: 25px;
+  padding: 0 0 25px 25px;
 }
 
-@media only screen and (max-width: 960px) {
-    .topper-div {
-        height: 1500px;
-    }
-    .student-border {
-        bottom: 0;
-        top: 180px;
-        width: 70% !important;
-    }
-    .student-1,
-    .student-2,
-    .student-3 {
-        margin-bottom: 30px !important;
-    }
-    .notice-board-div {
-        margin-bottom: 20vw;
-    }
+//Courses offered START
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
 }
+
+.standard:hover {
+  cursor: pointer;
+  box-shadow: -1px 5px 23px -15px rgba(0,0,0,0.64);
+  -webkit-box-shadow: -1px 5px 23px -15px rgba(0,0,0,0.64);
+  -moz-box-shadow: -1px 5px 23px -15px rgba(0,0,0,0.64);
+}
+//Courses offered END
