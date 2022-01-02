@@ -38,6 +38,7 @@ export class LayoutSidemenuComponent implements OnInit {
   ngOnInit(): void {
     this.courseService.getCourses().subscribe(res => {
       this.course = res;
+      console.log(this.course);
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });

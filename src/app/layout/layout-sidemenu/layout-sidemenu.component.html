@@ -71,6 +71,7 @@
         <i class="fas fa-address-card m-10 fa-md color-not-so-black"></i>
         <span *ngIf="isMenuOpen">About</span>
       </mat-list-item>
+
       <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent"
                      [routerLink]="['/course']"
                      [routerLinkActive]="['active-nav-item']"
@@ -87,6 +88,7 @@
       <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded && isMenuOpen">
         <a mat-list-item href="..." *ngFor="let c of course" routerLink="/course/{{c.name.toLowerCase()}}">{{c.name}}</a>
       </div>
+
       <mat-list-item [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: true}" role="main">
         <i class="fas fa-quote-right fa-md m-10 color-not-so-black"></i>

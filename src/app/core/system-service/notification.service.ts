@@ -38,7 +38,6 @@ export class NotificationService {
 
     // main alert method
     notify(alert: SystemNotification) {
-        console.log(alert);
         this.keepAfterRouteChange = alert.keepAfterRouteChange;
         this.subject.next(alert);
     }

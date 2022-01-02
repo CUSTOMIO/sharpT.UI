@@ -33,6 +33,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatChipsModule} from '@angular/material/chips';
 import { DocViewerComponent } from './component/doc-viewer/doc-viewer.component';
+import { SystemNotificationComponent } from './component/notification/notification.component';
 
 
 // Format used for the Intl format functions
@@ -69,6 +70,7 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
 
     // Custom Components
     DocViewerComponent,
+    SystemNotificationComponent,
 
     // Material references
     MatAutocompleteModule,
@@ -106,9 +108,12 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     FlexLayoutModule
   ],
   declarations: [
-    DocViewerComponent
+    DocViewerComponent,
+    SystemNotificationComponent
   ],
-  entryComponents: [],
+  entryComponents: [
+    SystemNotificationComponent
+  ],
   providers: [
     { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS }
   ]

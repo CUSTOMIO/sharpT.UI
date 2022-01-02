@@ -34,6 +34,7 @@ export class ApplicationFormComponent implements OnInit {
     private subjectService: SubjectService,
     public dialog: MatDialog,
     private notificationService: NotificationService) {
+
     this.appForm = this.formBuilder.group({
       formArray: this.formBuilder.array([
         this.formBuilder.group({
@@ -46,7 +47,7 @@ export class ApplicationFormComponent implements OnInit {
           Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
           ]],
           studentPN: [null, [Validators.required, Validators.pattern('[- +()0-9]+')]],
-          parentPN: [null, [Validators.required,  Validators.pattern('[- +()0-9]+')]],
+          parentPN: [null, [Validators.required, Validators.pattern('[- +()0-9]+')]],
           address: [null, [Validators.required, this.whitespaceValidator]]
         }),
         this.formBuilder.group({
@@ -88,10 +89,6 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   openDialog(): void {
-    //this.notificationService.show(AlertType.Error, 'this is testing error');
-    // this.notificationService.show(AlertType.Info, 'this is testing info');
-    // this.notificationService.show(AlertType.Success, 'this is testing success');
-    // this.notificationService.show(AlertType.Warning, 'this is testing warning');
 
     const dialogRef = this.dialog.open(VerifyComponent, {
       disableClose: true,
@@ -133,13 +130,16 @@ export class ApplicationFormComponent implements OnInit {
 
     this.applicationFormService.postApplicationForm(fd)
       .subscribe({
-        next: data => {
-          //this.appForm.reset();
-          //this.formDirective.resetForm();
-          console.log(data)
+        next: (data: any) => {
+          if (data.message) {
+            this.notificationService.show(AlertType.Success, 'Your form has been submitted, you will recievce an email once it is verified 😊😊😊.');
+          }
+          else {
+            this.notificationService.show(AlertType.Warning, 'There was error submitting the form, please try again 😕😕😕.');
+          }
         },
         error: error => {
-          console.log(error)
+          this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.')
         }
       })
   }
