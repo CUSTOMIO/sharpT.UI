@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../core/data-service/auth/auth.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { NotificationService } from '../core/system-service/notification.service';
+import { AlertType } from '../core/model';
 
 @Component({
   selector: 'app-verify',
@@ -11,19 +13,19 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class VerifyComponent implements OnInit {
 
   public verifyForm: FormGroup;
-  public successMessage: object;
-  public errorMessage: boolean;
+  public emailSend: boolean = false;
+  public error: boolean;
+  public errorMessage: string;
   public isVerified: boolean = false;
-  public verifyMessage: object;
+  public verified: boolean = false;
   public isLoading: boolean = false;
-  public clicked: boolean = false;
 
 
   constructor(private authService: AuthService,
-    private formbuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: { email: string, sendEmail: boolean },
-    private dialogRef: MatDialogRef<VerifyComponent>) {
-  }
+              private formbuilder: FormBuilder,
+              private notificationService: NotificationService,
+              @Inject(MAT_DIALOG_DATA) public data: { email: string, sendEmail: boolean },
+              private dialogRef: MatDialogRef<VerifyComponent>) { }
 
   ngOnInit() {
     if (this.data.sendEmail) {
@@ -33,61 +35,68 @@ export class VerifyComponent implements OnInit {
       otp: [null, [Validators.required]],
       email: [this.data.email, [Validators.required]],
     })
-
   }
 
   generateOtp() {
+    this.error = false;
     this.isLoading = true;
+
     this.authService.generateOtp(this.data.email)
       .subscribe({
-        next: data => {
-          if (data) {
-            this.successMessage = data;
-            this.isLoading = false;
+        next: (data: any) => {
+          if (data.message) {
+            this.emailSend = data.message;
+          } else {
+            this.error = true;
+            this.errorMessage = 'Check your email and try again.'
           }
+            this.isLoading = false;
         },
         error: error => {
           if (error) {
-            this.errorMessage = true;
-            this.isLoading = false;
-            console.log(this.errorMessage)
+            this.error = true;
+            this.errorMessage = 'Oops, something is not right with our servers!!'
           }
+            this.isLoading = false;
         }
       })
   }
 
   verifyOtp() {
     this.isLoading = true;
+    this.error = false;
 
     this.authService.VerifyOtp(this.verifyForm.value)
       .subscribe({
         next: data => {
           this.isLoading = false;
           if (data.message) {
-            this.verifyMessage = data.message;
+            this.verified = data.message;
             this.closeDialog();
+            return;
           }
-          if (data.error) {
-            this.errorMessage = data.error;
-            this.clicked = false;
-          }
+          this.error = true;
+          this.errorMessage = 'Check your otp once again'
         },
         error: error => {
-          console.log('This is err' + error)
-          this.clicked = false;
+          this.error = true;
+          this.errorMessage = 'Oops, something is not right with our servers!!'
           this.isLoading = false;
-          this.errorMessage = true;
         }
       })
   }
 
   closeDialog(): void {
-    if (this.verifyMessage !== null) {
+    if (this.verified) {
       this.dialogRef.close({
-        data: { otp: this.verifyForm.controls.otp.value, message: this.verifyMessage}
+        data: { otp: this.verifyForm.controls.otp.value, message: this.emailSend }
       });
+      this.notificationService.show(AlertType.Success, 'Your Email is verified');
     }
-   else this.dialogRef.close({ data: '' });
+    else {
+      this.notificationService.show(AlertType.Warning, 'Your Email is NOT verified');
+      this.dialogRef.close({ data: '' });
+    }
   }
 }
 

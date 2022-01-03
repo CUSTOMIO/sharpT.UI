@@ -20,30 +20,32 @@
               <input matInput formControlName="email">
             </mat-form-field>
             <mat-form-field appearance="standard" style="width: 100% !important">
-              <mat-label>Select your standard</mat-label>
+              <mat-label>Select your Exam</mat-label>
               <mat-select formControlName="examinationId">
                 <mat-option *ngFor="let e of examination" value="{{e.id}}" [innerHtml]="e.name"></mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="standard" style="width: 100% !important">
-              <mat-label>Select your exam</mat-label>
+              <mat-label>Select your Standard</mat-label>
               <mat-select formControlName="standardId">
                 <mat-option *ngFor="let s of standard" value="{{s.id}}" [innerHtml]="s.name"></mat-option>
               </mat-select>
             </mat-form-field>
-            <button mat-raised-button [disabled]="!resultForm.valid" color="accent" (click)="openDialog()">
+            <button *ngIf="!isVerified" mat-raised-button color="accent" (click)="openDialog()">
               Verify
             </button>
+            <!--<button *ngIf="isVerified" mat-raised-button color="accent" (click)="onSubmit()" [disabled]="!this.resultForm.valid">Submit</button>-->
+            <button mat-raised-button color="accent" (click)="onSubmit()" >Submit</button>
           </form>
         </mat-card-content>
       </mat-card>
-      
+
       <div *ngIf="result">
         <div *ngIf="result.message">
           <p [innerHtml]="result.message"></p>
         </div>
         <div *ngIf="result.data">
-            <img src="{{apiEndpoint + result.userImageUrl}}" height="200">
+          <img src="{{apiEndpoint + result.userImageUrl}}" height="200">
           <div align="left">
             <p class="mat-subheading-2">Name : <span [innerHtml]="result.username"></span></p>
           </div>

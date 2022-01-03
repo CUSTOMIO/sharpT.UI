@@ -100,7 +100,7 @@ export class ApplicationFormComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result.data.message == "Verified") {
+      if (result.data.message) {
         this.submitButton = true;
         this.otp = result.data.otp;
       }
@@ -139,7 +139,7 @@ export class ApplicationFormComponent implements OnInit {
           }
         },
         error: error => {
-          this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.')
+          this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.');
         }
       })
   }

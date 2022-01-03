@@ -1,12 +1,12 @@
 <div class="verify-body">
-    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
   <div class="top-div">
     <h1 mat-dialog-title>Verify Email</h1>
     <mat-icon class="close-button" (click)="closeDialog()">close</mat-icon>
   </div>
   <div mat-dialog-content>
     <p class="mat-caption">Once your email is verified, you cannot change the form</p>
-    <p *ngIf="successMessage" [innerHtml]="successMessage.message"></p>
+    <p *ngIf="emailSend" [innerHtml]="'An otp has been send to ' + this.verifyForm.get('email').value"></p>
     <form [formGroup]="verifyForm">
       <mat-form-field class="m-mq-auto" appearance="standard">
         <mat-label>Type your OTP here</mat-label>
@@ -19,13 +19,14 @@
       <button class="m-mq-auto"
               type="submit"
               mat-flat-button
-              (click)="verifyOtp(); clicked = true;"
-              [disabled]="!verifyForm.valid || clicked"
-              color="primary">Verify OTP</button>
+              (click)="verifyOtp()"
+              [disabled]="!verifyForm.valid "
+              color="primary">
+        Verify OTP
+      </button>
     </form>
-    <p *ngIf="verifyMessage" [innerHtml]="verifyMessage.message"></p>
-    <span *ngIf="errorMessage" class="error-msg" [innerHtml]="errorMessage"></span>
-      <p class="resend-container">Didn't recieve? <span class="resend" (click)="generateOtp()">Resend</span></p>
+    <span *ngIf="error" class="error-msg" [innerHtml]="errorMessage"></span>
+    <p class="resend-container">Didn't recieve? <span class="resend" (click)="generateOtp()">Resend</span></p>
   </div>
 </div>
 

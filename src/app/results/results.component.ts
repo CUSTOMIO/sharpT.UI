@@ -18,6 +18,7 @@ export class ResultsComponent implements OnInit {
   @ViewChild('formDirective') private formDirective: NgForm;
 
   isLoading = true;
+  isVerified: boolean = false;
   resultForm: FormGroup;
   examination: object;
   standard: object;
@@ -27,11 +28,11 @@ export class ResultsComponent implements OnInit {
   displayedColumns: string[] = ['subject', 'marksObtained', 'outOf'];
 
   constructor(private fb: FormBuilder,
-              private examinationService: ExaminationService,
-              private resultService: ResultService,
-              public dialog: MatDialog,
-              private notificationService: NotificationService,
-              private standardService: StandardService) { }
+    private examinationService: ExaminationService,
+    private resultService: ResultService,
+    public dialog: MatDialog,
+    private notificationService: NotificationService,
+    private standardService: StandardService) { }
 
   ngOnInit(): void {
     this.examinationService.getExamination()
@@ -40,9 +41,9 @@ export class ResultsComponent implements OnInit {
       });
 
     this.standardService.getStandard()
-    .subscribe(res => {
-      this.standard = res;
-    });
+      .subscribe(res => {
+        this.standard = res;
+      });
     this.resultForm = this.fb.group({
       examinationId: [null, [Validators.required]],
       email: [null,
@@ -58,7 +59,8 @@ export class ResultsComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.onSubmit();
+    if (!this.resultForm.valid) return;
+
     const dialogRef = this.dialog.open(VerifyComponent, {
       disableClose: true,
       width: '350px',
@@ -69,21 +71,21 @@ export class ResultsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.resultForm.get('otp').setValue(+result.data.otp);
-      // if (result.data.message == "Verified") {
-      //   this.onSubmit();
-      // }
+      if (result.data.message) {
+        this.resultForm.get('otp').setValue(+result.data.otp);
+        this.isVerified = true;
+      }
     });
     this.sendEmail = false;
   }
 
   onSubmit(): void {
+    if (!this.resultForm.valid) return;
     this.resultService.postResult(this.resultForm.value).subscribe(res => {
       this.result = res;
-      this.resultForm.reset();
-      this.formDirective.resetForm();
+      console.log(res);
     }, (error) => {
-      this.notificationService.show(AlertType.Error, error.message);
+      this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.');
     });
   }
 
