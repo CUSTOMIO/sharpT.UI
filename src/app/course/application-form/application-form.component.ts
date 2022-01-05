@@ -131,14 +131,15 @@ export class ApplicationFormComponent implements OnInit {
     this.applicationFormService.postApplicationForm(fd)
       .subscribe({
         next: (data: any) => {
-          if (data.message) {
-            this.notificationService.show(AlertType.Success, 'Your form has been submitted, you will recievce an email once it is verified 😊😊😊.');
-          }
-          else {
-            this.notificationService.show(AlertType.Warning, 'There was error submitting the form, please try again 😕😕😕.');
-          }
+          if (data.message) this.notificationService.show(AlertType.Success, 'Your form has been submitted, you will recievce an email once it is verified 😊😊😊.');
+          else  this.notificationService.show(AlertType.Warning, 'There was error submitting the form, please try again 😕😕😕.');
+          
         },
         error: error => {
+          if (error.status == 401) {
+            this.notificationService.show(AlertType.Warning, error.error.message);
+            return
+          }
           this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.');
         }
       })

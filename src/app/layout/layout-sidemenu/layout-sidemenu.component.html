@@ -112,15 +112,6 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content [ngStyle]="{ 'margin-left.px': contentMargin, 'transition': '300ms' }">
-    <!--<mat-toolbar p-0 *ngIf="(isHandset$ | async)">
-      <button type="button"
-              class="mr-16"
-              aria-label="Toggle sidenav"
-              mat-icon-button
-              (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </mat-toolbar>-->
     <button mat-mini-fab class="notice-button" (click)="toggleBoard()">
       <mat-icon>assignment_late</mat-icon>
     </button>

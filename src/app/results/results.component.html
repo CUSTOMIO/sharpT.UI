@@ -17,7 +17,7 @@
           <form [formGroup]="resultForm" #formDirective="ngForm">
             <mat-form-field appearance="standard" style="width: 100% !important">
               <mat-label>Enter your email</mat-label>
-              <input matInput formControlName="email">
+              <input matInput type="email" formControlName="email">
             </mat-form-field>
             <mat-form-field appearance="standard" style="width: 100% !important">
               <mat-label>Select your Exam</mat-label>
@@ -34,15 +34,17 @@
             <button *ngIf="!isVerified" mat-raised-button color="accent" (click)="openDialog()">
               Verify
             </button>
-            <!--<button *ngIf="isVerified" mat-raised-button color="accent" (click)="onSubmit()" [disabled]="!this.resultForm.valid">Submit</button>-->
-            <button mat-raised-button color="accent" (click)="onSubmit()" >Submit</button>
+            <button *ngIf="isVerified" mat-raised-button color="accent" (click)="onSubmit()" [disabled]="!this.resultForm.valid && isSubmitting">Submit</button>
+            <!--<button mat-raised-button color="accent" (click)="onSubmit()" >Submit</button>-->
           </form>
         </mat-card-content>
       </mat-card>
 
+      <mat-spinner *ngIf="!result && isSubmitting" [diameter]="30"></mat-spinner>
+
       <div *ngIf="result">
         <div *ngIf="result.message">
-          <p [innerHtml]="result.message"></p>
+          <p class="mat-title" [innerHtml]="result.message"></p>
         </div>
         <div *ngIf="result.data">
           <img src="{{apiEndpoint + result.userImageUrl}}" height="200">

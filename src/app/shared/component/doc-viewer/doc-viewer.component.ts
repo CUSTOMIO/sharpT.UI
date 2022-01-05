@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+//import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 
 @Component({
     selector: 'app-doc-viewer',
@@ -20,12 +20,12 @@ export class DocViewerComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any,
         private dialogRef: MatDialogRef<DocViewerComponent>
     ) {
-        pdfDefaultOptions.assetsFolder = '/dist/assets';
+        //pdfDefaultOptions.assetsFolder = '/dist/assets';
         this.pdfFileName = data.pdfFileName;
         this.previewContentType = data.previewContentType;
         this.pdfSource = data.pdfSource;
-        this.pdfBase64Source = data.pdfBase64Source;
-        this.pdfIsLoading = !(!(this.previewContentType === 'application/pdf') && !this.isImage());
+        //this.pdfBase64Source = data.pdfBase64Source;
+        //this.pdfIsLoading = !(!(this.previewContentType === 'application/pdf') && !this.isImage());
 
         console.log(this.pdfFileName, this.previewContentType, this.pdfSource, this.pdfIsLoading);
     }

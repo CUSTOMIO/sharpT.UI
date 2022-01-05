@@ -43,6 +43,7 @@
       <app-review-details [formGroup]="appForm" #formDirective="ngForm"></app-review-details>
       <button mat-raised-button *ngIf="!submitButton" (click)="openDialog()" color="accent">Verify</button>
       <button type="submit" mat-raised-button *ngIf="submitButton" (click)="submitForm()" color="accent">Submit Button</button>
+      <!--<button type="submit" mat-raised-button  (click)="submitForm()" color="accent">Submit Button</button>-->
     </mat-step>
   </mat-vertical-stepper>
 </div>

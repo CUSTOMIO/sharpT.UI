@@ -19,6 +19,7 @@ export class ResultsComponent implements OnInit {
 
   isLoading = true;
   isVerified: boolean = false;
+  isSubmitting: boolean = false;
   resultForm: FormGroup;
   examination: object;
   standard: object;
@@ -81,10 +82,18 @@ export class ResultsComponent implements OnInit {
 
   onSubmit(): void {
     if (!this.resultForm.valid) return;
+
+    this.isSubmitting = true;
     this.resultService.postResult(this.resultForm.value).subscribe(res => {
       this.result = res;
-      console.log(res);
+      this.isSubmitting = false;
     }, (error) => {
+      if (error.status == 401) {
+        this.isSubmitting = false;
+        this.result = error.error;
+        this.notificationService.show(AlertType.Warning, error.error.message);
+        return
+      }
       this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.');
     });
   }
