@@ -93,7 +93,7 @@ export class VerifyComponent implements OnInit {
       });
       this.notificationService.show(AlertType.Success, 'Your Email is verified');
     }
-    else {
+    else if(!this.isVerified) {
       this.notificationService.show(AlertType.Warning, 'Your Email is NOT verified');
       this.dialogRef.close({ data: '' });
     }

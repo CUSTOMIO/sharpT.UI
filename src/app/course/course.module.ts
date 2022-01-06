@@ -8,9 +8,7 @@ import { ElementsBasicDetails } from './application-form/elements/basic-details/
 import { ElementsContactDetails } from './application-form/elements/contact-details/contact-details.component';
 import { ElementsCourseDetails } from './application-form/elements/course-details/course-details.component';
 import { ElementsReviewDetails } from './application-form/elements/review-details/review-details.component';
-import { CollegeComponent } from './college/college.component';
-import { DegreeComponent } from './degree/degree.component';
-import { SchoolComponent } from './school/school.component';
+import { CourseStandardComponent } from './course-standard/course-standard.component';
 import { VerifyComponent } from '../verify/verify.component';
 
 
@@ -23,9 +21,7 @@ import { VerifyComponent } from '../verify/verify.component';
   declarations: [
     routedComponents,
     ApplicationFormComponent,
-    CollegeComponent,
-    DegreeComponent,
-    SchoolComponent,
+    CourseStandardComponent,
     ElementsBasicDetails,
     ElementsContactDetails,
     ElementsCourseDetails,

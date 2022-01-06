@@ -10,8 +10,11 @@ import { Notice, Standard, Course } from '../core/model';
 })
 export class HomeComponent implements OnInit {
 
+  public isLoading: boolean = true;
   public standards: Standard[];
   public courses: Course[];
+
+
   constructor(private standardService: StandardService,
               private courseService: CourseService) { }
 
@@ -19,13 +22,11 @@ export class HomeComponent implements OnInit {
     this.standardService.getStandard()
       .subscribe(res => {
         this.standards = res;
-        console.log(this.standards);
-
       });
     this.courseService.getCourses()
       .subscribe(res => {
         this.courses = res;
-        console.log(this.courses);
+        this.isLoading = false;
       })
   }
 

@@ -9,7 +9,6 @@ import { FormGroup, ControlContainer, FormArray } from '@angular/forms';
 export class ElementsReviewDetails implements OnInit {
 
   public appForm: FormGroup;
-  //public imageURL: string;
 
   get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
 

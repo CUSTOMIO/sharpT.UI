@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { CourseService } from '../../core/data-service';
-import { Course, Notice } from '../../core/model';
+import { Course } from '../../core/model';
 import { environment } from 'src/environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { NoticeBoardComponent } from 'src/app/shared/component/notice-board/notice-board.component';
@@ -38,7 +38,6 @@ export class LayoutSidemenuComponent implements OnInit {
   ngOnInit(): void {
     this.courseService.getCourses().subscribe(res => {
       this.course = res;
-      console.log(this.course);
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
@@ -55,7 +54,6 @@ export class LayoutSidemenuComponent implements OnInit {
   }
 
   toggleBoard(): void {
-
     const dialogRef = this.dialog.open(NoticeBoardComponent, {
       width: '90%',
       height: '80%'

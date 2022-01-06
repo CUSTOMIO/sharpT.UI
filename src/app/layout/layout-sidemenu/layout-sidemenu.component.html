@@ -73,7 +73,6 @@
       </mat-list-item>
 
       <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent"
-                     [routerLink]="['/course']"
                      [routerLinkActive]="['active-nav-item']"
                      [routerLinkActiveOptions]="{exact: false}">
         <span class="full-width" *ngIf="isExpanded || isShowing">
@@ -86,7 +85,7 @@
         </mat-icon>
       </mat-list-item>
       <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded && isMenuOpen">
-        <a mat-list-item href="..." *ngFor="let c of course" routerLink="/course/{{c.name.toLowerCase()}}">{{c.name}}</a>
+        <a mat-list-item *ngFor="let c of course" routerLink="/course/{{c.id}}" [state]="c">{{c.name}}</a>
       </div>
 
       <mat-list-item [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']"

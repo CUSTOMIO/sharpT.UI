@@ -1,65 +1,68 @@
-<div align="center" class="m-25">
-  <span class="bg-img-child">
-    <img src="./assets/logo.png">
-    <div class="header-subtitle m-20">PROF. SUFIYAN KOJAR</div>
-    <div class="header-subtitle motto-border p-10">
-      "COMMERCE & SCHOOL EDUCATION MEANS SHARP TUTORIALS<br />
-      ANY THING ELSE IS A COMPROMISE"
-    </div>
-  </span>
-</div>
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 
-<div class="spacer layer1"></div>
-<div class="topper-div">
-  <p class="exam-name  mat-display-3">
-    H.S.C.
-  </p>
-  <p class="mat-caption ml-52">2021-2022</p>
-  <mat-divider></mat-divider>
-  <div fxLayout="row warp" class="mt-50">
-    <div class="student-1" fxFlex="30" fxFlex.sm="45" fxFlex.xs="100">
-      <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg" height="240" width="180">
-      <img class="student-border" src="assets/1st.png">
-      <p class="student-text mat-title">
-        Sana Sunasra
-        <br> Std X
-        <br> 91.6%
+<div *ngIf="!isLoading">
+  <div align="center" class="m-25">
+    <span class="bg-img-child">
+      <img src="./assets/logo.png">
+      <p class="header-subtitle m-20">PROF. SUFIYAN KOJAR</p>
+      <p class="header-subtitle motto-border p-10">
+        "COMMERCE & SCHOOL EDUCATION MEANS SHARP TUTORIALS<br />
+        ANY THING ELSE IS A COMPROMISE"
       </p>
-    </div>
-    <div class="student-2" fxFlex="30" fxFlex.sm="45" fxFlex.xs="100">
-      <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg" height="240" width="180">
-      <img class="student-border" src="assets/2nd.png">
-      <p class="student-text mat-title">
-        Isa Sunasra
-        <br> Std X
-        <br> 86.2%
-      </p>
-    </div>
-    <div class="student-3" fxFlex="30" fxFlex.sm="45" fxFlex.xs="100">
-      <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg" height="240" width="180">
-      <img class="student-border" src="assets/3rd.png">
-      <p class="student-text mat-title">
-        Bilal Sunasra
-        <br> Std X
-        <br> 72.0%
-      </p>
-    </div>
+    </span>
   </div>
-</div>
 
-<div class="pt-50 mb-100">
-  <div align="center">
-    <p class="mat-headline header-title">
-      Courses Offered
+  <div class="spacer layer1"></div>
+  <div class="topper-div">
+    <p class="exam-name  mat-display-3">
+      H.S.C.
     </p>
+    <p class="mat-caption ml-52">2021-2022</p>
+    <mat-divider></mat-divider>
+    <div fxLayout="row warp" class="mt-50">
+      <div class="student-1" fxFlex="30" fxFlex.sm="45" fxFlex.xs="100">
+        <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg" height="240" width="180">
+        <img class="student-border" src="assets/1st.png">
+        <p class="student-text mat-title">
+          Sana Sunasra
+          <br> Std X
+          <br> 91.6%
+        </p>
+      </div>
+      <div class="student-2" fxFlex="30" fxFlex.sm="45" fxFlex.xs="100">
+        <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg" height="240" width="180">
+        <img class="student-border" src="assets/2nd.png">
+        <p class="student-text mat-title">
+          Isa Sunasra
+          <br> Std X
+          <br> 86.2%
+        </p>
+      </div>
+      <div class="student-3" fxFlex="30" fxFlex.sm="45" fxFlex.xs="100">
+        <img class="student-img" src="http://localhost:3000/assets/images/2021-10-19T08-1.jpg" height="240" width="180">
+        <img class="student-border" src="assets/3rd.png">
+        <p class="student-text mat-title">
+          Bilal Sunasra
+          <br> Std X
+          <br> 72.0%
+        </p>
+      </div>
+    </div>
   </div>
-  <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="20px grid" align="center">
-    <div fxFlex="33%" fxFlex.xs="70%" fxFlex.sm="40%" class="card" *ngFor="let c of courses">
-      <p class="mat-title bgcolor-yellow p-12">{{c.name}}</p>
-      <div *ngFor="let s of standards">
-        <a href="..." routerLink="/course/{{c.name.toLowerCase()}}">
-          <p class="mat-subheading-1 p-5 m-0 standard" *ngIf="s.courseId == c.id">{{s.name}}</p>
-        </a>
+
+  <div class="pt-50 mb-100">
+      <p class="mat-headline header-title scd-font">
+        Courses Offered
+      </p>
+    <mat-divider></mat-divider>
+    <div class="pt-20" fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="20px grid" align="center">
+      <div fxFlex="30" fxFlex.xs="70" fxFlex.sm="40" class="card" *ngFor="let c of courses">
+        <p class="mat-title bgcolor-yellow p-12">{{c.name}}</p>
+        <div *ngFor="let s of standards">
+          <a href="..." routerLink="/course/{{c.name.toLowerCase()}}">
+            <p class="mat-subheading-1 p-5 m-0 standard" *ngIf="s.courseId == c.id">{{s.name}}</p>
+          </a>
+        </div>
       </div>
     </div>
   </div>
