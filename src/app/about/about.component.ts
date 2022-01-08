@@ -1,4 +1,4 @@
-import { OnInit, Component, Input } from '@angular/core';
+import { OnInit, Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -13,8 +13,6 @@ export class AboutComponent implements OnInit {
 
   }
   ngOnInit() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 500);
+    this.isLoading = false;
   }
 }

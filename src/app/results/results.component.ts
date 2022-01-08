@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { ExaminationService, ResultService, StandardService } from '../core/data-service';
 import { MatDialog } from '@angular/material/dialog';
@@ -44,6 +44,7 @@ export class ResultsComponent implements OnInit {
     this.standardService.getStandard()
       .subscribe(res => {
         this.standard = res;
+        this.isLoading = false;
       });
     this.resultForm = this.fb.group({
       examinationId: [null, [Validators.required]],
@@ -54,9 +55,6 @@ export class ResultsComponent implements OnInit {
       standardId: ['', [Validators.required]],
       otp: [''],
     });
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 500);
   }
 
   openDialog(): void {
@@ -80,6 +78,18 @@ export class ResultsComponent implements OnInit {
     this.sendEmail = false;
   }
 
+  getPercentage() {
+    let totalMarks = 0;
+    let obtainedMarks = 0;
+    if (this.result.data) {
+      for (const r of this.result.data) {
+        totalMarks += r.marksObtained;
+        obtainedMarks += r.outOf;
+      }
+    }
+    return `${(totalMarks / obtainedMarks * 100).toFixed(2)}%`;
+  }
+
   onSubmit(): void {
     if (!this.resultForm.valid) return;
 
@@ -97,17 +107,4 @@ export class ResultsComponent implements OnInit {
       this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.');
     });
   }
-
-  getPercentage() {
-    let totalMarks = 0;
-    let obtainedMarks = 0;
-    if (this.result.data) {
-      for (const r of this.result.data) {
-        totalMarks += r.marksObtained;
-        obtainedMarks += r.outOf;
-      }
-    }
-    return `${(totalMarks / obtainedMarks * 100).toFixed(2)}%`;
-  }
-
 }

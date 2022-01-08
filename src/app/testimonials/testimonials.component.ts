@@ -1,3 +1,4 @@
+import { AfterViewInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,9 +13,7 @@ export class TestimonialsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-  }, 500);
+    this.isLoading = false;
   }
 
 }

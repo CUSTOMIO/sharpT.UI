@@ -59,7 +59,7 @@
       <div fxFlex="30" fxFlex.xs="70" fxFlex.sm="40" class="card" *ngFor="let c of courses">
         <p class="mat-title bgcolor-yellow p-12">{{c.name}}</p>
         <div *ngFor="let s of standards">
-          <a href="..." routerLink="/course/{{c.name.toLowerCase()}}">
+          <a href="..." routerLink="/course/{{c.id}}">
             <p class="mat-subheading-1 p-5 m-0 standard" *ngIf="s.courseId == c.id">{{s.name}}</p>
           </a>
         </div>

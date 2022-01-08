@@ -26,7 +26,6 @@
     "@angular/router": "~11.2.13",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "date-fns": "^2.21.3",
-    "ng2-pdf-viewer": "^6.4.1",
     "ngx-extended-pdf-viewer": "^10.5.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

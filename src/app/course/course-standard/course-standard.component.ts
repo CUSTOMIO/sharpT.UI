@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StandardService, SubjectService } from '../../core/data-service';
@@ -16,13 +16,14 @@ export class CourseStandardComponent implements OnInit {
   public standardId: number;
   public courseId: number;
   public course: object;
-  isLoading: boolean = true;
+  public isLoading: boolean = true;
 
 
   constructor(private standardService: StandardService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private subjectService: SubjectService) {
+              private route: ActivatedRoute,
+              private router: Router,
+              private subjectService: SubjectService) {
+    console.log('constructd');
     this.route.paramMap.subscribe(params => {
       this.ngOnInit();
     });
@@ -33,11 +34,8 @@ export class CourseStandardComponent implements OnInit {
 
   ngOnInit(): void {
     this.courseId = Number(this.route.snapshot.paramMap.get('courseId'));
-    //this.course = this.router.getCurrentNavigation().extras.state;
     this.course = history.state;
-    //if (this.router.getCurrentNavigation().extras.state !== null) {
-    //  this.course = this.router.getCurrentNavigation().extras.state;
-    //}
+
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
       this.standard = res;
     }, (error) => {

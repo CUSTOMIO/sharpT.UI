@@ -8,12 +8,12 @@ import { CourseStandardComponent } from './course-standard/course-standard.compo
 
 const routes: Routes = [
   {
-    path: ':courseId',
-    component: CourseStandardComponent,
-  },
-  {
     path: 'enroll',
     component: ApplicationFormComponent
+  },
+  {
+    path: ':courseId',
+    component: CourseStandardComponent,
   }
 ];
 

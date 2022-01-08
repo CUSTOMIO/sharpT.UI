@@ -4,7 +4,7 @@
 </div>
   
 <div class="content p-15 mb-75 pb-20" *ngIf="!isLoading && standard.length !== 0" fxLayout="column" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20px" align="center">
-    <div *ngIf="course" fxFlex="60" fxFlex.sm="80" fxFlex.xs="90">
+    <div *ngIf="course.length !== 0" fxFlex="60" fxFlex.sm="80" fxFlex.xs="90">
         <img class="img-course" src="./assets/{{course.name.toLowerCase()}}.png" />
     </div>
     <div class="content" fxFlex="60" fxFlex.sm="80" fxFlex.xs="100" *ngFor="let s of standard">

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ReachUsService } from './../core/data-service';
-import { ReachUs } from './../core/model';
+import { AlertType, ReachUs } from './../core/model';
+import { NotificationService } from '../core/system-service/notification.service';
+
 
 @Component({
   selector: 'app-contactus',
@@ -13,7 +15,9 @@ export class ContactusComponent implements OnInit {
   contactUs: FormGroup = ReachUs[''];
 
   constructor(private fb: FormBuilder,
-              private reachusService: ReachUsService) { }
+    private reachusService: ReachUsService,
+    private notificationService: NotificationService,
+  ) { }
 
   ngOnInit(): void {
     this.contactUs = this.fb.group({
@@ -39,10 +43,14 @@ export class ContactusComponent implements OnInit {
 
   onSubmit() {
     this.reachusService.postReachus(this.contactUs.value)
-      .subscribe((result) => {
-        console.log(result);
+      .subscribe((result: any) => {
+        if (result.message) {
+          this.notificationService.show(AlertType.Success, 'We heard you 🙂🙂🙂')
+          return;
+        }
+        this.notificationService.show(AlertType.Warning, 'Something doesn\'t look right');
       }, (error) => {
-        console.log(error);
+        this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.');
       });
   }
 }
