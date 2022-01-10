@@ -15,7 +15,8 @@ export class CourseStandardComponent implements OnInit {
   public subject: Subject[] = [];
   public standardId: number;
   public courseId: number;
-  public course: object;
+  public course: any;
+  public imageUrl: string;
   public isLoading: boolean = true;
 
 
@@ -23,7 +24,7 @@ export class CourseStandardComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private subjectService: SubjectService) {
-    console.log('constructd');
+    console.log('constructed');
     this.route.paramMap.subscribe(params => {
       this.ngOnInit();
     });
@@ -35,6 +36,9 @@ export class CourseStandardComponent implements OnInit {
   ngOnInit(): void {
     this.courseId = Number(this.route.snapshot.paramMap.get('courseId'));
     this.course = history.state;
+    if (this.course) {
+      this.imageUrl = this.course.name.toLowerCase();
+    }
 
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
       this.standard = res;

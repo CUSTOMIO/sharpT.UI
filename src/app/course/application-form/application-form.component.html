@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <mat-vertical-stepper [@.disabled]="true" selectedIndex="0" [linear]="true" #stepper>
+  <mat-vertical-stepper [@.disabled]="true" selectedIndex="0" [linear]="false" #stepper>
 
     <mat-step completed="false" [stepControl]="formArray?.get([0])">
       <ng-template matStepLabel>Basic</ng-template>

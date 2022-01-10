@@ -51,17 +51,32 @@
   </div>
 
   <div class="pt-50 mb-100">
-      <p class="mat-headline header-title scd-font">
-        Courses Offered
-      </p>
+    <p class="mat-headline header-title scd-font">
+      Courses Offered
+    </p>
     <mat-divider></mat-divider>
-    <div class="pt-20" fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="20px grid" align="center">
-      <div fxFlex="30" fxFlex.xs="70" fxFlex.sm="40" class="card" *ngFor="let c of courses">
-        <p class="mat-title bgcolor-yellow p-12">{{c.name}}</p>
-        <div *ngFor="let s of standards">
-          <a href="..." routerLink="/course/{{c.id}}">
-            <p class="mat-subheading-1 p-5 m-0 standard" *ngIf="s.courseId == c.id">{{s.name}}</p>
-          </a>
+    <div class="pt-20"  fxLayout="row warp" fxLayoutAlign="space-evenly center" >
+      <div class="card standard-div" fxFlex="26" fxFlex.xs="90" fxFlex.sm="40" *ngFor="let s of standards">
+        <div class="standard-img-div">
+          <img src="assets\std9.png" class="standard-img" />
+        </div>
+        <div class="standard-detail">
+          <ul class="mat-subheading-1 mb-8">
+            <li>{{s.courseName}}</li>
+          </ul>
+          <!--<p class="mat-subheading-1 mb-10">· {{s.courseName}}</p>-->
+          <p class="mat-display-1 mb-5">{{s.name}}</p>
+          <span *ngFor="let sc of subjectCount">
+            <p class="mat-subheading-2 pl-5 m-0" *ngIf="sc.standardId == s.id" align="left">
+              <!--<mat-icon style="transform: scale(0.75);" style=" vertical-align: middle">subject</mat-icon>-->
+              <i class="far fa-file mr-5"></i> 
+               {{sc.count}} subjects
+            </p>
+          </span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="button-div">
+          <button class="standard-button" mat-icon-button> <mat-icon>arrow_forward</mat-icon></button>
         </div>
       </div>
     </div>

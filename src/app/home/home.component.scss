@@ -45,7 +45,7 @@
   }
 }
 
-.notice-board-div {
+/*.notice-board-div {
   margin: 2.5vw 2.5vw 5vw 2.5vw;
 
   .notice-board-card {
@@ -63,7 +63,9 @@
       }
     }
   }
-}
+}*/
+
+//Courses offered START
 
 .header-title {
   text-align: left;
@@ -71,16 +73,47 @@
   padding: 0 0 25px 25px;
 }
 
-//Courses offered START
-a {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.87);
+.standard-div {
+  border-radius: 12px;
+  margin-bottom: 50px;
+
+    .standard-img {
+      width: 100%
+    }
+
+  .standard-detail {
+    padding: 20px;
+    text-align: left;
+    ul {
+        padding-left: 20px !important;
+    }
+  }
+
+  .button-div {
+    text-align: right;
+
+    button {
+      margin: 5px;  
+    }
+
+    .mat-icon {
+      /*color: #fff;*/
+      background-color: #C2D5E4;
+      border-radius: 50%;
+      padding: 5px;
+    }
+  }
 }
 
-.standard:hover {
-  cursor: pointer;
-  box-shadow: -1px 5px 23px -15px rgba(0,0,0,0.64);
-  -webkit-box-shadow: -1px 5px 23px -15px rgba(0,0,0,0.64);
-  -moz-box-shadow: -1px 5px 23px -15px rgba(0,0,0,0.64);
+.standard-div:hover {
+  transition: all 0.4s ease;
+  background-color: #DCE6EE !important;
+  box-shadow: 1px 7px 12px -11px rgba(0,0,0,0.64);
+  -webkit-box-shadow: 1px 7px 12px -11px rgba(0,0,0,0.64);
+  -moz-box-shadow: 1px 7px 12px -11px rgba(0,0,0,0.64);
+
+  .mat-icon {
+    opacity: 0.8;
+  }
 }
 //Courses offered END

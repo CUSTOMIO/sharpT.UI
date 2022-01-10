@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseService, StandardService } from '../core/data-service';
-import { Standard, Course } from '../core/model';
+import { StandardService, SubjectService } from '../core/data-service';
+import { Standard, Course, SubjectCount } from '../core/model';
 
 @Component({
   selector: 'app-main',
@@ -13,19 +13,20 @@ export class HomeComponent implements OnInit {
   public isLoading: boolean = true;
   public standards: Standard[];
   public courses: Course[];
+  public subjectCount: SubjectCount;
 
   constructor(private standardService: StandardService,
-    private courseService: CourseService) { }
+    private subjectService: SubjectService) { }
 
   ngOnInit(): void {
     this.standardService.getStandard()
       .subscribe(res => {
         this.standards = res;
       });
-    this.courseService.getCourses()
-      .subscribe(res => {
-        this.courses = res;
-        this.isLoading = false;
+    this.subjectService.getSubjectCount()
+      .subscribe((res: SubjectCount) => {
+        this.subjectCount = res;
       })
+        this.isLoading = false;
   }
 }

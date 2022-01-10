@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../../environments/environment';
-import { Subject } from '../../model';
+import { Subject, SubjectCount } from '../../model';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -24,6 +24,9 @@ export class SubjectService {
   public getSubjectByStandardId(standardId) {
    const url = `${environment.api_endpoint}/subject/${standardId}?getActive=true`;
    return this.http.get<Subject>(url)
-     
+  }
+  public getSubjectCount() {
+    const url = `${environment.api_endpoint}/subjectCountByS`;
+    return this.http.get<SubjectCount>(url)
   }
 }
