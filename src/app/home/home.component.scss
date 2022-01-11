@@ -45,26 +45,6 @@
   }
 }
 
-/*.notice-board-div {
-  margin: 2.5vw 2.5vw 5vw 2.5vw;
-
-  .notice-board-card {
-    .mat-card-header {
-      padding: 0 2.5vw;
-    }
-
-    .mat-card-content {
-      padding: 1vw 2.5vw;
-      height: 350px;
-      overflow-y: auto;
-
-      .notice-board-content {
-        margin: 8px 0;
-      }
-    }
-  }
-}*/
-
 //Courses offered START
 
 .header-title {
@@ -73,19 +53,30 @@
   padding: 0 0 25px 25px;
 }
 
+
+
 .standard-div {
   border-radius: 12px;
   margin-bottom: 50px;
+  margin-top: 80px;
+  transition: all 0.4s ease;
+  box-shadow: 0px 3px 8px -11px rgba(0,0,0,0.64);
+  -webkit-box-shadow: 0px 3px 11px -8px rgba(0,0,0,0.64);
+  -moz-box-shadow: 0px 3px 11px -8px rgba(0,0,0,0.64);
 
-    .standard-img {
-      width: 100%
-    }
+  .standard-img {
+    display: block;
+    margin: -92px auto 0 auto;
+    border-radius: 20px;
+    width: 80%;
+  }
 
   .standard-detail {
     padding: 20px;
     text-align: left;
+
     ul {
-        padding-left: 20px !important;
+      padding-left: 20px !important;
     }
   }
 
@@ -93,27 +84,29 @@
     text-align: right;
 
     button {
-      margin: 5px;  
+      margin: 7px;
     }
 
     .mat-icon {
-      /*color: #fff;*/
-      background-color: #C2D5E4;
+      background-color: #e4ebf1;
       border-radius: 50%;
-      padding: 5px;
+      padding: 7px;
     }
   }
 }
 
 .standard-div:hover {
   transition: all 0.4s ease;
-  background-color: #DCE6EE !important;
-  box-shadow: 1px 7px 12px -11px rgba(0,0,0,0.64);
-  -webkit-box-shadow: 1px 7px 12px -11px rgba(0,0,0,0.64);
-  -moz-box-shadow: 1px 7px 12px -11px rgba(0,0,0,0.64);
+  color: #fff;
+  background-color: #0a4191 !important;
+
+  .mat-divider {
+    border-top-color: rgba(255, 255, 255, 0.6);
+  }
 
   .mat-icon {
-    opacity: 0.8;
+    color: black;
+    background-color: #f2f5f7 !important;
   }
 }
 //Courses offered END
