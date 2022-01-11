@@ -28,20 +28,21 @@ export class CourseStandardComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.ngOnInit();
     });
-    this.course = this.router.getCurrentNavigation().extras.state;
+    //this.course = this.router.getCurrentNavigation().extras.state;
 
   }
 
 
   ngOnInit(): void {
     this.courseId = Number(this.route.snapshot.paramMap.get('courseId'));
-    this.course = history.state;
-    if (this.course) {
-      this.imageUrl = this.course.name.toLowerCase();
-    }
+    //this.course = history.state;
+    //if (this.course) {
+    //  this.imageUrl = this.course.name.toLowerCase();
+    //}
 
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
       this.standard = res;
+      console.log(this.standard);
     }, (error) => {
       console.log(error)
     });

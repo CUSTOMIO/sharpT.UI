@@ -64,19 +64,20 @@
           <ul class="mat-subheading-1 mb-8">
             <li>{{s.courseName}}</li>
           </ul>
-          <!--<p class="mat-subheading-1 mb-10">· {{s.courseName}}</p>-->
-          <p class="mat-display-1 mb-5">{{s.name}}</p>
-          <span *ngFor="let sc of subjectCount">
-            <p class="mat-subheading-2 pl-5 m-0" *ngIf="sc.standardId == s.id" align="left">
-              <!--<mat-icon style="transform: scale(0.75);" style=" vertical-align: middle">subject</mat-icon>-->
-              <i class="far fa-file mr-5"></i> 
-               {{sc.count}} subjects
-            </p>
-          </span>
+          <p class="mat-display-1 mb-5 scd-font">{{s.name}}</p>
+          <div fxLayout="row warp" fxLayoutAlign="start center">
+            <span *ngFor="let sc of subjectCount">
+              <p class="mat-subheading-2 pl-5 m-0" *ngIf="sc.standardId == s.id">
+                <i class="fas fa-file mr-5"></i>
+                {{sc.count}} subjects
+              </p>
+            </span>
+            <p class="mat-subheading-2 pl-20 m-0"><i class="fas fa-users mr-5"></i> {{s.activeStudents}}</p>
+          </div>
         </div>
         <mat-divider></mat-divider>
         <div class="button-div">
-          <button class="standard-button" mat-icon-button> <mat-icon>arrow_forward</mat-icon></button>
+          <button class="standard-button" mat-icon-button [routerLink]="['/course/{{s.courseId}}']" [state]="s.courseName"> <mat-icon>arrow_forward</mat-icon></button>
         </div>
       </div>
     </div>
