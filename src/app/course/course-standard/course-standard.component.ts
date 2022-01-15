@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { StandardService, SubjectService } from '../../core/data-service';
-import { Course, Standard, Subject, SubjectCount } from '../../core/model';
+import {  Standard, Subject, SubjectCount } from '../../core/model';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-degree',
@@ -20,6 +21,7 @@ export class CourseStandardComponent implements OnInit {
   public imageUrl: string;
   public isLoading: boolean = true;
   public subjectCount: SubjectCount;
+  public apiEndpoint: any = environment.api_endpoint;
 
 
   constructor(private standardService: StandardService,
