@@ -1,55 +1,85 @@
 <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 <div *ngIf="standard.length === 0 && !isLoading">
-    <p class="mat-subheading-2" align="center">No courses found :(</p>
+  <p class="mat-subheading-2" align="center">No courses found :(</p>
 </div>
-  
+
 <!--<div class="content p-15 mb-75 pb-20"  fxLayout="column" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20px" align="center">-->
-    <!--<div *ngIf="course.length !== 0" fxFlex="60" fxFlex.sm="80" fxFlex.xs="90">
-        <img class="img-course" src="./assets/{{imageUrl}}.png" />
-    </div>-->
-      <!--<mat-card>
-        <mat-card-header>
-          <mat-card-title [innerHtml]="s.name"></mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="pt-25" style="border-top: 1px solid #5c5c5c;">
-        <mat-tab-group mat-align-tabs="center">
-          <mat-tab label="First">Content 1</mat-tab>
-          <mat-tab label="Second">Content 2</mat-tab>
-          <mat-tab label="Third">Content 3</mat-tab>
-        </mat-tab-group>
-          <p class="mat-subheading-1" [innerHtml]="s.description"></p>
-          <p class="ml-35 mat-h3" align="left">Subjects</p>
-          <div *ngFor="let sb of subject">
-            <ul align="left" *ngIf="sb.standardId == s.id">
-              <li class="list-item" role="listitem" [innerHtml]="sb.name"></li>
-            </ul>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button style="background-color:#f2eee6" [routerLink]="['./../enroll']">APPLY NOW</button>
-        </mat-card-actions>
-      </mat-card>-->
-      <div fxLayout="row warp" fxLayoutAlign="space-evenly center">
-        <div class="standard-container" fxFlex="80" *ngFor="let s of standard" align="center">
-          <img class="standard-image" src="./assets/std9.png" />
-          <p class="mat-display-2 m-20">{{s.name}}</p>
-          <mat-divider></mat-divider>
-          <mat-tab-group class="mat-title" mat-align-tabs="center">
-            <mat-tab label="Overview">{{s.description}}</mat-tab>
-            <mat-tab label="Subjects">
-              <div *ngFor="let sb of subject" >
-                <ul *ngIf="sb.standardId == s.id">
-                  <li class="list-item" role="listitem" [innerHtml]="sb.name"></li>
-                </ul>
-              </div>
-            </mat-tab>
-            <mat-tab>
-              <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-                Third
-              </ng-template>
-            </mat-tab>
-          </mat-tab-group>
-        </div>
+<!--<div *ngIf="course.length !== 0" fxFlex="60" fxFlex.sm="80" fxFlex.xs="90">
+    <img class="img-course" src="./assets/{{imageUrl}}.png" />
+</div>-->
+<!--<mat-card>
+  <mat-card-header>
+    <mat-card-title [innerHtml]="s.name"></mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="pt-25" style="border-top: 1px solid #5c5c5c;">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="First">Content 1</mat-tab>
+    <mat-tab label="Second">Content 2</mat-tab>
+    <mat-tab label="Third">Content 3</mat-tab>
+  </mat-tab-group>
+    <p class="mat-subheading-1" [innerHtml]="s.description"></p>
+    <p class="ml-35 mat-h3" align="left">Subjects</p>
+    <div *ngFor="let sb of subject">
+      <ul align="left" *ngIf="sb.standardId == s.id">
+        <li class="list-item" role="listitem" [innerHtml]="sb.name"></li>
+      </ul>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button style="background-color:#f2eee6" [routerLink]="['./../enroll']">APPLY NOW</button>
+  </mat-card-actions>
+</mat-card>-->
+<div fxLayout="row warp" fxLayoutAlign="space-evenly center">
+  <div class="standard-container" fxFlex="60" fxFlex.xs="95" *ngFor="let s of standard" align="center">
+    <div class="img-div">
+      <img class="standard-image" src="./assets/std9.png" />
+      <p class="standard-rate bgcolor-blue mat-subheading-2">₹ {{s.rate}}</p>
+    </div>
+    <p class="mat-display-2 m-20">{{s.name}}</p>
+    <div class="row mb-10" fxLayoutAlign="center center">
+      <div class="p-10">
+        <span *ngFor="let sc of subjectCount">
+          <p class="mat-subheading-2 pl-5 m-0" *ngIf="sc.standardId == s.id">
+            <i class="fas fa-file mr-5"></i>
+            {{sc.count}} subjects
+          </p>
+        </span>
       </div>
+      <div class="p-10">
+        <li><i class="fas fa-users mr-5"></i>  {{s.activeStudents}} students </li>
+      </div>
+    </div>
+    <!--<div class="row" fxLayoutAlign="center center">
+      <div class="p-10 mat-subheading-2 m-0">
+        Batches :
+      </div>
+      <div class="p-10" *ngFor="let b of s.batches">
+        {{b.batchName}}
+      </div>
+    </div>-->
+    <mat-divider></mat-divider>
+    <mat-tab-group class="mat-title" mat-align-tabs="center">
+      <mat-tab label="Overview">
+        <div [innerHtml]="s.description">
+          {{s.description}}
+        </div>
+      </mat-tab>
+      <mat-tab label="Subjects">
+        <div *ngFor="let sb of subject">
+          <ul *ngIf="sb.standardId == s.id">
+            <li class="list-item" role="listitem" [innerHtml]="sb.name"></li>
+          </ul>
+        </div>
+      </mat-tab>
+      <!--<mat-tab label="Pricing">
+        {{s.rate}} <br />
+        {{s.rate * 0.8}}
+        <div *ngFor="let b of s.batches">
+          {{b.batchName}}
+        </div>
+      </mat-tab>-->
+    </mat-tab-group>
+    <button mat-raised-button color="primary" [routerLink]="['./../enroll']">Apply</button>
+  </div>
+</div>
 <!--</div>-->

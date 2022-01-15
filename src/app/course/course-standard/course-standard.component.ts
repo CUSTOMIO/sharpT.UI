@@ -1,13 +1,14 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StandardService, SubjectService } from '../../core/data-service';
-import { Course, Standard, Subject } from '../../core/model';
+import { Course, Standard, Subject, SubjectCount } from '../../core/model';
 
 @Component({
   selector: 'app-degree',
   templateUrl: './course-standard.component.html',
-  styleUrls: ['./course-standard.component.scss']
+  styleUrls: ['./course-standard.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CourseStandardComponent implements OnInit {
 
@@ -18,6 +19,7 @@ export class CourseStandardComponent implements OnInit {
   public course: any;
   public imageUrl: string;
   public isLoading: boolean = true;
+  public subjectCount: SubjectCount;
 
 
   constructor(private standardService: StandardService,
@@ -52,5 +54,10 @@ export class CourseStandardComponent implements OnInit {
     }, (error) => {
       console.log(error)
     });
+    this.subjectService.getSubjectCount()
+      .subscribe((res: SubjectCount) => {
+        console.log(res);
+        this.subjectCount = res;
+     })
   }
 }
