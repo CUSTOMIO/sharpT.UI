@@ -1,7 +1,18 @@
-.motto-border {
-  border-radius: 5px;
-  border: 1px solid #fca311;
-  line-height: 30px;
+.landing-div {
+  /*background-image: url('../../assets/landing.jpg');*/
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.0)), url('../../assets/landing.jpg');
+  /*background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.0)), url('../../assets/svg/Live-Motion-Background.svg');*/
+  background-size: cover;
+  background-position: center center;
+  /*background-repeat: no-repeat;*/
+
+  color: #0a4191;
+  /*background-size: 100% auto;*/
+  height: 87vh;
+
+  p {
+    padding-top: 20vh;
+  }
 }
 
 .topper-div {
@@ -47,11 +58,6 @@
 
 //Courses offered START
 
-.header-title {
-  text-align: left;
-  font-weight: 500;
-  padding: 0 0 25px 25px;
-}
 
 
 
@@ -72,7 +78,7 @@
   }
 
   .standard-detail {
-    padding: 20px;
+    padding: 35px 20px;
     text-align: left;
 
     ul {
@@ -84,7 +90,7 @@
     text-align: right;
 
     button {
-      margin: 7px;
+      margin: 10px;
     }
 
     .mat-icon {
@@ -99,6 +105,12 @@
   transition: all 0.4s ease;
   color: #fff;
   background-color: #0a4191 !important;
+
+  .standard-img {
+    box-shadow: 0px 4px 11px -4px rgba(255,255,255,0.26);
+    -webkit-box-shadow: 0px 4px 11px -4px rgba(255,255,255,0.26);
+    -moz-box-shadow: 0px 4px 11px -4px rgba(255,255,255,0.26);
+  }
 
   .mat-divider {
     border-top-color: rgba(255, 255, 255, 0.6);

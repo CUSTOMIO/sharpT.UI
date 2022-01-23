@@ -42,6 +42,10 @@ export class ContactusComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.contactUs.valid) {
+      return;
+    }
+
     this.reachusService.postReachus(this.contactUs.value)
       .subscribe((result: any) => {
         if (result.message) {

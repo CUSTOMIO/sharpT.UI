@@ -1,9 +1,9 @@
 <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
-<div *ngIf="!isLoading">
+<!--<div *ngIf="!isLoading">
   <div class="reachus-header">
-    <div class="mat-display-1  reachus-header-text scd-font pl-20">
-      <!-- <i class="fas fa-user-friends fa-sm"></i> -->
-      Reach Us
+    <div class="mat-display-1  reachus-header-text scd-font pl-20">-->
+<!-- <i class="fas fa-user-friends fa-sm"></i> -->
+<!--Reach Us
     </div>
   </div>
 
@@ -88,6 +88,101 @@
 
       </mat-card>
     </div>
+  </div>
+</div>-->
+<div class="container" align="center">
+  <p class="mat-display-1 m-50">Contact</p>
+</div>
+
+<div class="container pt-50" fxLayout="row" fxLayoutAlign="space-around center">
+  <div fxFLex="40" align="left">
+    <p class="m-5 mat-body-2 color-blue">CONTACT DETAILS</p>
+    <p class="mat-display-1">Get in touch</p>
+
+    <div class="contact-element-div" fxLayout="row">
+      <div class="contact-element-icon" fxFlex="15" align="center">
+        <i class="fas fa-map-marker-alt fa-2x"></i>
+      </div>
+      <div fxFlex="60">
+        <p class="mat-headline m-10">
+          Our Address
+        </p>
+        <p class="mat-subheading-2 m-10">
+          Murga Giran chsg, opposite Hotel Kalpana Palace, near Daulat
+          Complex, Grant Road(East), Mumbai 400 008
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-element-div" fxLayout="row">
+      <div class="contact-element-icon" fxFlex="15" align="center">
+        <i class="far fa-envelope fa-2x"></i>
+      </div>
+      <div fxFlex="60">
+        <p class="mat-headline m-10">
+          Email
+        </p>
+        <p class="mat-subheading-2 m-10">
+          Mail:
+          <a class="color-blue"
+             href="mailto:info@sharptutorials.com"
+             matTooltip="Click on me to send a mail!"
+             matTooltipPosition="after">
+            info@sharptutorials.com
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="contact-element-div" fxLayout="row">
+      <div class="contact-element-icon" fxFlex="15" align="center">
+        <i class="fas fa-address-book fa-2x"></i>
+      </div>
+      <div fxFlex="60">
+        <p class="mat-headline m-10">
+          Contact
+        </p>
+        <p class="mat-subheading-2 m-10">
+          Mobile:
+          <a class="color-blue"
+             href="tel:+917021186955"
+             matTooltip="Click on me to call!"
+             matTooltipPosition="after">
+            +91 7021186955
+          </a>
+          <br />
+          Phone:
+          <a class="color-blue"
+             href="tel:+919167945708"
+             matTooltip="Click on me to call!"
+             matTooltipPosition="after">
+            +91 9167945708
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="form-div bgcolor-blue" fxFLex="40">
+    <p class="mat-display-1">Ready to Get Started?</p>
+    <form [formGroup]="contactUs" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" style="width: 100% !important">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+        <mat-hint style="color:salmon" *ngIf="name.touched && name.hasError('required')">Required</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 100% !important">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 100% !important">
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message"></textarea>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">
+        Submit
+      </button>
+    </form>
   </div>
 </div>
 

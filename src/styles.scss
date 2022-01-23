@@ -8,7 +8,7 @@
 $custom-typography: mat-typography-config($font-family: '"Source Sans Pro", sans-serif;');
 @include mat-core($custom-typography);
 $sharp-primary: mat-palette($blue-palette,
-400);
+900);
 $sharp-accent: mat-palette($yellow-palette,
 400,
 800,
@@ -27,7 +27,7 @@ body {
 body {
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif !important;
-    overflow: hidden;
+    /*overflow: hidden;*/
     background-color: transparent !important;
 }
 
@@ -89,6 +89,19 @@ body {
   border-radius: 15px;
 }
 
+.container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 20px;
+  }
+.header-title {
+  text-align: left;
+  font-weight: 500;
+  padding: 0 0 25px 100px;
+}
+
+
+
 
 /*Image bg transparent*/
 
@@ -114,6 +127,12 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+@media only screen and (max-width: 600px) {
+  .spacer {
+      display: none;
+  }
 }
 
 // Wave 1

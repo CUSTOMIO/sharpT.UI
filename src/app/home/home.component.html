@@ -1,18 +1,18 @@
 <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 
 <div *ngIf="!isLoading">
-  <div align="center" class="m-25">
+  <div align="center" class="p-25 landing-div">
     <span class="bg-img-child">
-      <img src="./assets/logo.png">
-      <p class="header-subtitle m-20">PROF. SUFIYAN KOJAR</p>
-      <p class="header-subtitle motto-border p-10">
-        "COMMERCE & SCHOOL EDUCATION MEANS SHARP TUTORIALS<br />
-        ANY THING ELSE IS A COMPROMISE"
+      <!--<img src="./assets/logo.png">-->
+      <p class="mat-display-1">
+        Commerce & school education means sharp tutorials,<br />
+        anything else is a compromise<span class="mat-headline">  -Prof. Sufiyan Kojar</span>
       </p>
+      
     </span>
   </div>
 
-  <div class="spacer layer1"></div>
+  <!--<div class="spacer layer1 overlap"></div>
   <div class="topper-div">
     <p class="exam-name  mat-display-3">
       H.S.C.
@@ -48,40 +48,43 @@
         </p>
       </div>
     </div>
-  </div>
+  </div>-->
 
-  <div class="pt-50 mb-100">
-    <p class="mat-headline header-title scd-font">
-      Courses Offered
+  <div class="pt-50 mb-50">
+    <p class="mat-display-1 header-title scd-font container">
+      Featured Standards
     </p>
-    <mat-divider></mat-divider>
-    <div class="pt-20"  fxLayout="row warp" fxLayoutAlign="space-evenly center" >
-      <div class="standard-div" fxFlex="26" fxFlex.xs="90" fxFlex.sm="40" *ngFor="let s of standards">
-        <div class="standard-img-div">
-          <img src="assets\std9.png" class="standard-img" />
-        </div>
-        <div class="standard-detail">
-          <ul class="mat-subheading-1 mb-8">
-            <li>{{s.courseName}}</li>
-          </ul>
-          <p class="mat-display-1 mb-5 scd-font">{{s.name}}</p>
-          <div fxLayout="row warp" fxLayoutAlign="start center">
-            <span *ngFor="let sc of subjectCount">
-              <p class="mat-subheading-2 pl-5 m-0" *ngIf="sc.standardId == s.id">
-                <i class="fas fa-file mr-5"></i>
-                {{sc.count}} subjects
-              </p>
-            </span>
-            <p class="mat-subheading-2 pl-25 m-0">
-              <li><i class="fas fa-users"></i>  {{s.activeStudents}} students </li>
-            </p>
+      <mat-divider></mat-divider>
+    <div class="container">
+      <div class="pt-50" fxLayout="row warp" fxLayoutAlign="space-evenly center">
+        <div class="standard-div" fxFlex="30" fxFlex.xs="90" fxFlex.sm="40" *ngFor="let s of standards">
+          <div class="standard-img-div">
+            <img src="{{apiEndpoint + s.image}}" class="standard-img" />
           </div>
-        </div>
-        <mat-divider></mat-divider>
-        <div class="button-div">
-          <button class="standard-button" mat-icon-button [routerLink]="['/course/{{s.courseId}}']" [state]="s.courseName"> <mat-icon>arrow_forward</mat-icon></button>
+          <div class="standard-detail">
+            <ul class="mat-subheading-1 mb-8">
+              <li>{{s.courseName}}</li>
+            </ul>
+            <p class="mat-display-1 mb-5 scd-font">{{s.name}}</p>
+            <div fxLayout="row warp" fxLayoutAlign="start center">
+              <span *ngFor="let sc of subjectCount">
+                <p class="mat-body-2 pl-5 m-0" *ngIf="sc.standardId == s.id">
+                  <i class="fas fa-file mr-5"></i>
+                  {{sc.count}} subjects
+                </p>
+              </span>
+              <p class="mat-body-2 pl-25 m-0">
+                <li><i class="fas fa-users mr-5"></i>  {{s.activeStudents}} students </li>
+              </p>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="button-div">
+            <button class="standard-button" mat-icon-button routerLink="/course/{{s.courseId}}" [state]="s.courseName"> <mat-icon>arrow_forward</mat-icon></button>
+          </div>
         </div>
       </div>
     </div>
+   
   </div>
 </div>

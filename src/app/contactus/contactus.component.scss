@@ -1,4 +1,4 @@
-.reachus-header {
+/*.reachus-header {
   max-width: 100%;
   height: 80px;
   border-bottom: 1px solid #fca311;
@@ -7,17 +7,72 @@
     line-height: 80px;
   }
 }
+*/
+.contact-element-div {
+    height: 110px;
+    margin: 10px 0;
 
-.contact-element {
-  margin-left: 20px;
+    .contact-element-icon {
+        margin: 10px;
+        border-radius: 6px;
+        i {
+             line-height: 90px;
+        }
+    }
 
-  a {
-    color: black;
+    a {
+        text-decoration: none;
+    }
+}
+
+.contact-element-div:hover {
+    /*transition-delay: 3s;*/
+  .contact-element-icon {
+    color: #fff;
+    background-color: #0a4191;
   }
 }
 
+.form-div {
+  padding: 50px;
+  border-radius: 6px;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../assets/svg/stacked-steps-haikei.svg');
+  background-size: cover;
+  /*background-image: url('../../assets/svg/stacked-steps-haikei.svg');*/
+  /*background-image: url('../../assets/svg/wave2a.svg');*/
 
+  ::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: #fff !important;
+    }
 
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+      background-color: #fff !important;
+    }
+
+    .mat-form-field-underline {
+      background-color: #fff !important;
+    }
+
+    mat-form-field {
+      .mat-hint, input, ::placeholder, .mat-form-field-label {
+        color: #fff;
+      }
+    }
+
+    .mat-input-element {
+      color: #fff;
+    }
+  }
+
+  button {
+    display: block;
+    color: #fff;
+    margin: 0 auto;
+  }
+}
+/*
 .map {
   overflow: hidden;
   position: relative;
@@ -53,4 +108,4 @@
   .reachus-header-text {
     margin-left: 0px;
   }
-}
+}*/

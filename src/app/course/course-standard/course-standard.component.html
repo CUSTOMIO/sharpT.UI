@@ -29,7 +29,7 @@
     <button mat-button style="background-color:#f2eee6" [routerLink]="['./../enroll']">APPLY NOW</button>
   </mat-card-actions>
 </mat-card>-->
-<div fxLayout="row warp" fxLayoutAlign="space-evenly center">
+<div class="mt-50" fxLayout="row warp" fxLayoutAlign="space-evenly center">
   <div class="standard-container" fxFlex="60" fxFlex.xs="95" *ngFor="let s of standard" align="center">
     <div class="img-div">
       <img class="standard-image" src="{{apiEndpoint + s.image}}" />
@@ -87,10 +87,8 @@
           {{b.batchName}}
         </div>
       </mat-tab>-->
-      <mat-tab label="Batches">
-        <div *ngFor="let b of s.batches">
-          {{b.batchName}}
-        </div>
+      <mat-tab label="Pricing">
+        {{s.rate}}
       </mat-tab>
     </mat-tab-group>
     <button mat-raised-button color="primary" [routerLink]="['./../enroll']">Apply</button>

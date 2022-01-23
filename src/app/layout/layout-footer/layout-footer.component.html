@@ -1,3 +1,23 @@
-<div class="footer">
+<!--<div class="footer">
     <p class="mat-caption" align="center">Copyright &#169; 2021 Sharp Tutorials. </p>
+</div>-->
+<div id="stars-container">
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+  <div class="container footer-div" fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="30" align="center">
+      <p class="mat-headline">Courses</p>
+      <ul class="mat-subheading-2">
+        <li *ngFor="let c of courses">
+          <a routerLink="/course/{{c.id}}" [state]="c">
+            {{c.name}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div fxFlex="30" align="center">
+      <p class="mat-headline">Contact</p>
+    </div>
+  </div>
 </div>

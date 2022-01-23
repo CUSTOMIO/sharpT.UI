@@ -1,17 +1,15 @@
-<div class="m-20 mt-50 pb-20" *ngIf="blog && !isLoading">
+<div class="mt-50 container" *ngIf="blog && !isLoading">
   <div class="blog-div" *ngFor="let b of blog">
     <mat-card appMaterialElevation class="card-blog" style="max-width: 90%;">
       <mat-card-header class="mt-10">
         <mat-card-title [innerHtml]="b.title">
-          Hello there
         </mat-card-title>
         <mat-card-subtitle [innerHtml]="b.published" class="pt-5"></mat-card-subtitle>
         <div class="icon">
           <mat-icon (click)="newTab(b.url)" matTooltip="open in blogger">open_in_new</mat-icon>
         </div>
       </mat-card-header>
-      <mat-card-content class="border-top pt-20" [innerHtml]="b.content">
-        <p> body text </p>
+      <mat-card-content class="border-top pt-20" [innerHtml]="b.content + '.....'">
       </mat-card-content>
       <mat-card-actions class="pb-8" align="right">
         <button mat-button style="background-color: #f2eee6;" [routerLink]="[b.id]">Read</button>
