@@ -8,9 +8,14 @@
   }
 }
 */
+
+.contact-container{
+  background-image: url('../../assets/svg/blob-scatter.svg');
+  background-size: cover;
+}
 .contact-element-div {
-    height: 110px;
-    margin: 10px 0;
+    height: fit-content;
+      margin: 5px 0;
 
     .contact-element-icon {
         margin: 10px;
