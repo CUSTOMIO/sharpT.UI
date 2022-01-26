@@ -15,7 +15,7 @@
 }
 .contact-element-div {
     height: fit-content;
-      margin: 5px 0;
+    margin: 5px 0;
 
     .contact-element-icon {
         margin: 10px;
@@ -75,6 +75,12 @@
     display: block;
     color: #fff;
     margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form-div {
+    padding: 20px;
   }
 }
 /*
