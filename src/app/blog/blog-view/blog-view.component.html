@@ -1,6 +1,5 @@
-<div class="main" *ngIf="!isLoading">
+<!-- <div class="main" *ngIf="!isLoading">
   <div class="img-div">
-    <!-- <img src="assets/blog.png" /> -->
   </div>
   <div class="container" align="left" *ngIf="blog">
     <div class="top-div">
@@ -16,10 +15,19 @@
     </div>
 
   </div>
-</div>
+</div> -->
 
-<!--<mat-spinner *ngIf="isLoading"></mat-spinner>-->
 <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 
-
-<!--<iframe src="https://sharptutorials-howto.blogspot.com/2021/06/this-is-second-post.html" allowFullscreen="" height="100%" width="100%"></iframe>-->
+<div *ngIf="blog">
+  <div class="container-blog blog-title-div">
+    <p class="mat-display-1 blog-title">{{blog.title}}</p>
+  </div>
+  <div class="container-blog blog-content">
+    <p class="mat-body-2 blog-additional-detial color-blue">
+      <i class="fas fa-clock mr-5"></i>{{blog.published}}
+      <i class="fas fa-user mr-5 ml-20"></i>{{blog.author}}
+    </p>
+    <p class="mat-subheading-2 blog-content" [innerHtml]="blog.content"></p>
+  </div>
+</div>

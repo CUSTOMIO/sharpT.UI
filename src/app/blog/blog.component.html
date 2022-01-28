@@ -1,22 +1,17 @@
-<div class="mt-50 container" *ngIf="blog && !isLoading">
-  <div class="blog-div" *ngFor="let b of blog">
-    <mat-card appMaterialElevation class="card-blog" style="max-width: 90%;">
-      <mat-card-header class="mt-10">
-        <mat-card-title [innerHtml]="b.title">
-        </mat-card-title>
-        <mat-card-subtitle [innerHtml]="b.published" class="pt-5"></mat-card-subtitle>
-        <div class="icon">
-          <mat-icon (click)="newTab(b.url)" matTooltip="open in blogger">open_in_new</mat-icon>
-        </div>
-      </mat-card-header>
-      <mat-card-content class="border-top pt-20" [innerHtml]="b.content + '.....'">
-      </mat-card-content>
-      <mat-card-actions class="pb-8" align="right">
-        <button mat-button style="background-color: #f2eee6;" [routerLink]="[b.id]">Read</button>
-      </mat-card-actions>
-    </mat-card>
+<mat-progress-bar color="accent" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<div class="pt-50 pb-50 container" *ngIf="blog && !isLoading">
+  <div fxLayout="row warp" fxLayoutAlign="space-around center">
+    <div class="blog-div" fxFlex="45" fxFlex.sm="80" fxFlex.xs="95" *ngFor="let b of blog">
+      <div class="img-div">
+        <img class="blog-img" src="{{b.imageUrl[0]}}">
+      </div>
+      <p class="mat-body-2 blog-additional-detial color-blue">
+        <i class="fas fa-clock mr-5"></i>{{b.published}}
+        <i class="fas fa-user mr-5 ml-20"></i>{{b.author}}
+      </p>
+      <p class="mat-headline blog-title">{{b.title}}</p>
+      <p class="mat-subheading-1 blog-content" [innerHtml]="b.content + ' […]'"></p>
+      <button mat-stroked-button color="primary" [routerLink]="[b.id]">Continue<i class="fas fa-arrow-right ml-5"></i></button>
+    </div>
   </div>
-</div>
-
-<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
-
+</div>  

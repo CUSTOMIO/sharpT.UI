@@ -10,10 +10,9 @@ import { Clipboard } from '@angular/cdk/clipboard';
 })
 export class BlogViewComponent implements OnInit {
 
-  bodyTag: HTMLBodyElement = document.getElementsByTagName('body')[0];
 
   blogId: number;
-  blog: object;
+  blog: any;
 
   isLoading: boolean = true;
 
@@ -22,7 +21,6 @@ export class BlogViewComponent implements OnInit {
     private clipboard: Clipboard) { }
 
   ngOnInit() {
-    this.bodyTag.classList.add('main');
 
     this.activatedRoute.params.subscribe(params => {
       this.blogId = params.id;
@@ -35,9 +33,6 @@ export class BlogViewComponent implements OnInit {
     }, (error) => {
       console.log(`THis is the error: ${error}`)
     });
-  }
-  ngOnDestroy() {
-    this.bodyTag.classList.remove('main');
   }
 
 
