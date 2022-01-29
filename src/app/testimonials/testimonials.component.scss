@@ -1,37 +1,62 @@
-/*.div-one {
-  position: fixed;
-  top: 50%;
-  margin-top: -150px;
-  .img-div-one {
-    max-width: 400px;
+.title-div {
+  margin: 100px;
+  p {
+    margin: 10px;
   }
-}*/
-// .mat-card {
-//     max-width: 1200px;
-// }
-// .mat-card-subtitle {
-//   text-align: left;
-// }
+}
 
-// .mat-card-content {
-//   p {
-//     text-align: left;
-//   }
-// }
+.form-div {
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../assets/svg/stacked-steps-haikei.svg');
+  background-size: cover;
+  padding: 50px;
+  max-width: 650px;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.3);
 
-// .div-two {
-// }
+  ::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: #fff !important;
+    }
 
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+      background-color: #fff !important;
+    }
 
-.testimonial-div{
+    .mat-form-field-underline {
+      background-color: #fff !important;
+    }
+
+    mat-form-field {
+      .mat-hint, input, ::placeholder, .mat-form-field-label {
+        color: #fff;
+      }
+    }
+
+    .mat-input-element {
+      color: #fff;
+    }
+  }
+
+  button {
+    display: block;
+    color: #fff;
+    margin: 0 auto;
+  }
+}
+
+.testimonial-div {
   position: relative;
   margin: 20px;
   padding: 10px;
   text-align: center;
   border-radius: 6px;
-  box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.3);
-  -webkit-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.3);
-  -moz-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.3);
+  box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.3);
   i {
     position: absolute;
     top: -9px;
@@ -44,36 +69,30 @@
   .image {
     display: block;
     margin: 10px auto;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-image: url('../../assets/dp.jpg');
-    background-size: cover;
+    width: 45px;
+    height: 60px;
+    border-radius: 2px;
+    // background-image: url("../../assets/dp.jpg");
+    // background-size: cover;
   }
   .content {
     margin: 10px auto;
   }
-  .date{
-   margin: 0;
+  .date {
+    margin: 0;
   }
   .name {
-    margin: 3px 0 0 0 ;
+    margin: 3px 0 0 0;
   }
 }
 
 .testimonial-div:hover {
-  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.3);
-  -webkit-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.3);
-  -moz-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.3);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3);
   i {
     transition: 0.3s ease-in;
     color: white !important;
     background-color: #134693;
   }
 }
-/*@media only screen and (max-width: 600px) {
-  .div-one {
-    display: none;
-  }
-}
-*/

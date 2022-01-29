@@ -57,6 +57,7 @@ export class ResultsComponent implements OnInit {
       standardId: ['', [Validators.required]],
       otp: [''],
     });
+    this.isLoading = false;
   }
 
   openDialog(): void {

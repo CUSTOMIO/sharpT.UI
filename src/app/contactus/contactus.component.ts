@@ -12,7 +12,7 @@ import { NotificationService } from '../core/system-service/notification.service
 })
 export class ContactusComponent implements OnInit {
   isLoading = true;
-  contactUs: FormGroup = ReachUs[''];
+  contactUs: FormGroup;
 
   constructor(private fb: FormBuilder,
     private reachusService: ReachUsService,

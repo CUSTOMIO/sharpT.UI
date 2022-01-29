@@ -10,5 +10,6 @@ export * from './examination/examination.model';
 export * from './result/post-result.model';
 export * from './system-notification.model';
 export * from './notice/notice.model';
+export * from './testimonial/testimonial.model';
 
 

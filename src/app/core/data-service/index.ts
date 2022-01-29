@@ -7,5 +7,6 @@ export * from './reach-us/reach-us.service'
 export * from './examination/examination.service'
 export * from './result/result.service'
 export * from './notice/notice.service'
+export * from './testimonial/testimonial.service'
 
 

@@ -1,5 +1,8 @@
 <mat-progress-bar color="accent" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 <div class="pt-50 pb-50 container" *ngIf="blog && !isLoading">
+  <div align="center">
+    <p class="mat-display-2 m-50">Blog</p>
+  </div>
   <div fxLayout="row warp" fxLayoutAlign="space-around center">
     <div class="blog-div" fxFlex="45" fxFlex.sm="80" fxFlex.xs="95" *ngFor="let b of blog">
       <div class="img-div">

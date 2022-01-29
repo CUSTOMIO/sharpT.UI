@@ -1,107 +1,45 @@
-<!-- <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
-
-<div fxLayout="row warp" fxLayoutAlign="center" *ngIf="!isLoading">
-  <div fxFlex="60" fxFlex.sm="80" fxFlex.xs="90" class="div-two" align="center">
-    <p class="mat-display-1 scd-font" align="center"><i class="fas fa-comment-dots m-10 fa-xs"></i>Reviews</p>
-    <mat-card class="mb-35">
-      <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>Username</mat-card-title>
-        <mat-card-subtitle>Date</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="p-10" style="border-top: 0.5px solid #5c5c5c">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Fusce in scelerisque tortor. Nunc dictum nulla sit amet cursus molestie.
-          Donec lacinia vehicula nunc eu tincidunt. Pellentesque scelerisque augue
-          nec magna laoreet molestie. Cras eu risus hendrerit, semper eros non,
-          hendrerit magna. Proin consequat, dui quis consectetur sollicitudin,
-          erat sem molestie dolor, posuere aliquet metus ipsum fermentum orci.
-          Morbi sit amet purus fermentum risus viverra accumsan vitae sit amet magna.
-        </p>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="mb-35">
-      <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>Username</mat-card-title>
-        <mat-card-subtitle>Date</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="p-10" style="border-top: 0.5px solid #5c5c5c">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Fusce in scelerisque tortor. Nunc dictum nulla sit amet cursus molestie.
-          Donec lacinia vehicula nunc eu tincidunt. Pellentesque scelerisque augue
-          nec magna laoreet molestie. Cras eu risus hendrerit, semper eros non,
-          hendrerit magna. Proin consequat, dui quis consectetur sollicitudin,
-          erat sem molestie dolor, posuere aliquet metus ipsum fermentum orci.
-          Morbi sit amet purus fermentum risus viverra accumsan vitae sit amet magna.
-        </p>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="mb-35">
-      <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>Username</mat-card-title>
-        <mat-card-subtitle>Date</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="p-10" style="border-top: 0.5px solid #5c5c5c">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Fusce in scelerisque tortor. Nunc dictum nulla sit amet cursus molestie.
-          Donec lacinia vehicula nunc eu tincidunt. Pellentesque scelerisque augue
-          nec magna laoreet molestie. Cras eu risus hendrerit, semper eros non,
-          hendrerit magna. Proin consequat, dui quis consectetur sollicitudin,
-          erat sem molestie dolor, posuere aliquet metus ipsum fermentum orci.
-          Morbi sit amet purus fermentum risus viverra accumsan vitae sit amet magna.
-        </p>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="mb-35">
-      <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>Username</mat-card-title>
-        <mat-card-subtitle>Date</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="p-10" style="border-top: 0.5px solid #5c5c5c">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Fusce in scelerisque tortor. Nunc dictum nulla sit amet cursus molestie.
-          Donec lacinia vehicula nunc eu tincidunt. Pellentesque scelerisque augue
-          nec magna laoreet molestie. Cras eu risus hendrerit, semper eros non,
-          hendrerit magna. Proin consequat, dui quis consectetur sollicitudin,
-          erat sem molestie dolor, posuere aliquet metus ipsum fermentum orci.
-          Morbi sit amet purus fermentum risus viverra accumsan vitae sit amet magna.
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</div> -->
 <div class="container">
+  <div class="title-div" align="center">
+    <p class="mat-display-2">Testimonial</p>
+  </div>
+  <div class="form-div">
+    <p class="mat-headline mb-50">Add Your Review ...</p>
+    <form [formGroup]="testimonialForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" style="width: 100% !important">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+      <mat-form-field appearance="outline" style="width: 100% !important">
+        <mat-label>Review</mat-label>
+        <textarea matInput formControlName="review"></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Submit</button>
+    </form>
+  </div>
   <div class="mt-50 mb-50" fxLayout="row warp" fxLayoutAlign="space-evenly center">
-    <div class="testimonial-div" fxFlex="30" fxFlex.sm="40" fxFlex.xs="80">
+    <div class="testimonial-div" fxFlex="30" fxFlex.sm="40" fxFlex.xs="95" *ngFor="let t of testimonial">
       <i class="fas fa-quote-left color-blue"></i>
-      <img class="image">
+      <img class="image" src="{{apiEndpoint + t.imageUrl}}">
+      <p class="name mat-subheading-1">{{t.firstName + ' ' + t.lastName}}</p>
       <p class="content mat-body-1">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur illum odit labore, dignissimos excepturi deleniti molestiae incidunt magni veritatis pariatur. Cumque, id nesciunt! Maiores illo minus blanditiis minima laborum voluptatem.
+        <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur illum odit labore, dignissimos excepturi deleniti molestiae incidunt magni veritatis pariatur. Cumque, id nesciunt! Maiores illo minus blanditiis minima laborum voluptatem. -->
+        {{t.review}}
       </p>
       <mat-divider></mat-divider>
-      <p class="name mat-subheading-1">Isa Rizwan</p>
-      <p class="date mat-caption">10th Jan 2022</p>
+      <p class="name mat-subheading-1">{{t.school}}</p>
+      <p class="date mat-caption">{{t.createdAt}}</p>
     </div>
     
-    <div class="testimonial-div" fxFlex="30" fxFlex.sm="40" fxFlex.xs="80">
+    <!-- <div class="testimonial-div" fxFlex="30" fxFlex.sm="40" fxFlex.xs="80">
       <i class="fas fa-quote-left color-blue"></i>
       <img class="image">
+      <p class="name mat-subheading-1">Isa Rizwan</p>
       <p class="content mat-body-1">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur illum odit labore, dignissimos excepturi deleniti molestiae incidunt magni veritatis pariatur. Cumque, id nesciunt! Maiores illo minus blanditiis minima laborum voluptatem.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
       </p>
       <mat-divider></mat-divider>
-      <p class="name mat-subheading-1">Isa Rizwan</p>
+      <p class="name mat-subheading-1">St Sebastian Gone High School</p>
       <p class="date mat-caption">10th Jan 2022</p>
     </div>
     <div class="testimonial-div" fxFlex="30" fxFlex.sm="40" fxFlex.xs="80">
@@ -171,6 +109,6 @@
       <mat-divider></mat-divider>
       <p class="name mat-subheading-1">Isa Rizwan</p>
       <p class="date mat-caption">10th Jan 2022</p>
-    </div>
+    </div> -->
   </div>
 </div>
