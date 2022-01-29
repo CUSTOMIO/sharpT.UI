@@ -1,42 +1,107 @@
-.div-one {
-  /*margin-left: 1%;*/
-  /*width: 30%;*/
-  /*margin-left: 1%;*/
-  position: fixed;
-  top: 50%;
-  margin-top: -200px;
+// .div-one {
+//   /*margin-left: 1%;*/
+//   /*width: 30%;*/
+//   /*margin-left: 1%;*/
+//   position: fixed;
+//   top: 50%;
+//   margin-top: -200px;
 
-  .img-div-one {
-    /*width: 70%;*/
+//   .img-div-one {
+//     /*width: 70%;*/
+//   }
+// }
+
+// .div-two { 
+//  padding: 2%;
+//  margin-left: 40%;
+//  /*margin-bottom: 50px;*/
+//   .div-two-text {
+//     font-size: 56px;
+//     font-weight: 300;
+//     padding-left: 30px;
+//     margin: 50px 0;
+//   }
+//   .form-div {  
+//     padding: 20px;
+//   }
+//   table {
+//     width: 100%;
+//   }
+//   tr.mat-footer-row {
+//     font-weight: bold;
+//   }
+// }
+
+// @media only screen and (max-width: 960px) {
+//   .div-one {
+//     display: none
+//   }
+//   .div-two {
+//       margin-left: 0px;
+//   }
+// }
+
+.result-container {
+  max-width: 650px;
+  margin: 50px auto;
+}
+
+.form-div {
+  color: #fff;
+  border-radius: 6px;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../assets/svg/stacked-steps-haikei.svg');
+  padding: 50px;
+  ::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline,.mat-select-value-text {
+      color: #fff !important;
+    }
+
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+      background-color: #fff !important;
+    }
+
+    .mat-form-field-underline {
+      background-color: #fff !important;
+    }
+
+    mat-form-field {
+      .mat-hint, input, ::placeholder, .mat-form-field-label {
+        color: #fff;
+      }
+    }
+
+    .mat-input-element {
+      color: #fff;
+    }
+  }
+  button {
+    display: block;
+    margin: 0 auto;
+    color: #fff;
   }
 }
 
-.div-two { 
- padding: 2%;
- margin-left: 40%;
- /*margin-bottom: 50px;*/
-  .div-two-text {
-    font-size: 56px;
-    font-weight: 300;
-    padding-left: 30px;
-    margin: 50px 0;
+.table-div {
+  max-width: 650px;
+  margin: 50px auto;
+  box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.75);
+  padding: 20px;
+
+  img {
+    border-radius: 6px;
   }
-  .form-div {  
-    padding: 20px;
-  }
+
   table {
-    width: 100%;
-  }
-  tr.mat-footer-row {
-    font-weight: bold;
-  }
-}
-
-@media only screen and (max-width: 960px) {
-  .div-one {
-    display: none
-  }
-  .div-two {
-      margin-left: 0px;
+   text-align: center;
+   width: 100%;
+    .mat-footer-cell{
+      font-weight: 600;
+    }
+    .mat-header-cell{
+      text-align: center;
+      font-size: 15px;
+    }
   }
 }

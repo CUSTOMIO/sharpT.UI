@@ -1,6 +1,6 @@
 <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 
-<div class="pb-40 container" fxLayout="row warp" fxLayoutAlign="space-between center" *ngIf="!isLoading">
+<!--<div class="pb-40 container" fxLayout="row warp" fxLayoutAlign="space-between center" *ngIf="!isLoading">
   <div class="div-one" fxFlex="30" fxFlex.xs="100" align="center">
     <img class="img-div-one" src="./assets/result.png"/>
     <p class="mat-headline">
@@ -35,7 +35,7 @@
               Verify
             </button>
             <button *ngIf="isVerified" mat-raised-button color="accent" (click)="onSubmit()" [disabled]="!this.resultForm.valid && isSubmitting">Submit</button>
-            <!--<button mat-raised-button color="accent" (click)="onSubmit()" >Submit</button>-->
+            <button mat-raised-button color="accent" (click)="onSubmit()" >Submit</button>
           </form>
         </mat-card-content>
       </mat-card>
@@ -53,32 +53,105 @@
           </div>
           <table mat-table [dataSource]="result.data" class="mat-elevation-z8">
             <!-- Subject Column -->
-            <ng-container matColumnDef="subject">
+<!-- <ng-container matColumnDef="subject">
               <th mat-header-cell *matHeaderCellDef> Subject </th>
               <td mat-cell *matCellDef="let element"> {{element.subjectName}} </td>
               <td mat-footer-cell *matFooterCellDef> Percentage </td>
-            </ng-container>
+            </ng-container> -->
 
-            <!-- Marks Column -->
-            <ng-container matColumnDef="marksObtained">
+<!-- Marks Column -->
+<!-- <ng-container matColumnDef="marksObtained">
               <th mat-header-cell *matHeaderCellDef> Marks Scored </th>
               <td mat-cell *matCellDef="let element"> {{element.marksObtained}} </td>
               <td mat-footer-cell *matFooterCellDef> {{getPercentage()}} </td>
-            </ng-container>
+            </ng-container> -->
 
-            <!-- Total Marks Column -->
-            <ng-container matColumnDef="outOf">
+<!-- Total Marks Column -->
+<!-- <ng-container matColumnDef="outOf">
               <th mat-header-cell *matHeaderCellDef> Total Marks </th>
               <td mat-cell *matCellDef="let element"> {{element.outOf}} </td>
               <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
+            </ng-container> -->
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
           </table>
         </div>
       </div>
     </div>
+  </div> -->
+<!--</div>-->
+
+<div class="result-container" align="center">
+  <p class="mat-display-2 p-50">Result</p>
+</div>
+
+<div class="result-container form-div">
+  <p class="mat-headline">View your result</p>
+  <form [formGroup]="resultForm" #formDirective="ngForm">
+    <mat-form-field appearance="outline" style="width: 100% !important">
+      <mat-label>Enter your email</mat-label>
+      <input matInput type="email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100% !important">
+      <mat-label>Select your Exam</mat-label>
+      <mat-select formControlName="examinationId">
+        <mat-option *ngFor="let e of examination" value="{{e.id}}" [innerHtml]="e.name"></mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100% !important">
+      <mat-label>Select your Standard</mat-label>
+      <mat-select formControlName="standardId">
+        <mat-option *ngFor="let s of standard" value="{{s.id}}" [innerHtml]="s.name"></mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button *ngIf="!isVerified" mat-raised-button color="primary" (click)="openDialog()">
+      Verify
+    </button>
+    <button *ngIf="isVerified" mat-raised-button color="primary" (click)="onSubmit()"
+      [disabled]="!this.resultForm.valid && isSubmitting">Submit</button>
+  </form>
+</div>
+
+
+<div class="table-div" *ngIf="result" align="center">
+  <div *ngIf="result.message">
+    <p class="mat-title" [innerHtml]="result.message"></p>
+  </div>
+  <div *ngIf="result.data">
+    <img src="{{apiEndpoint + result.userImageUrl}}" height="200">
+    <div align="left">
+      <p class="mat-subheading-2 m-20">Name : {{result.username}}</p>
+      <p class="mat-subheading-2 m-20">School : {{result.school}}</p>
+      <p class="mat-subheading-2 m-20">Standard : {{result.standardName}}</p>
+      <p class="mat-subheading-2 m-20">Examination : {{result.examinationName}}</p>
+    </div>
+    <table mat-table [dataSource]="result.data">
+      <!-- Subject Column -->
+      <ng-container matColumnDef="subject">
+        <th mat-header-cell *matHeaderCellDef> Subject </th>
+        <td mat-cell *matCellDef="let element"> {{element.subjectName}} </td>
+        <td mat-footer-cell *matFooterCellDef> Percentage </td>
+      </ng-container>
+
+      <!-- Marks Column -->
+      <ng-container matColumnDef="marksObtained">
+        <th mat-header-cell *matHeaderCellDef> Marks Scored </th>
+        <td mat-cell *matCellDef="let element"> {{element.marksObtained}} </td>
+        <td mat-footer-cell *matFooterCellDef> {{getPercentage()}} </td>
+      </ng-container>
+
+      <!-- Total Marks Column -->
+      <ng-container matColumnDef="outOf">
+        <th mat-header-cell *matHeaderCellDef> Total Marks </th>
+        <td mat-cell *matCellDef="let element"> {{element.outOf}} </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </table>
   </div>
 </div>

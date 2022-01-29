@@ -24,6 +24,7 @@ export class ResultsComponent implements OnInit {
   examination: object;
   standard: object;
   result: any;
+  // result: any = {"username":"Isa Sunasra","userImageUrl":"/assets/images/2022-01-29T05-1.jpg  ","data":[{"marksObtained":12,"subjectId":1,"subjectName":"English","outOf":100},{"marksObtained":54,"subjectId":2,"subjectName":"Marathi","outOf":100},{"marksObtained":78,"subjectId":3,"subjectName":"Hindi","outOf":100},{"marksObtained":54,"subjectId":5,"subjectName":"Science","outOf":100},{"marksObtained":54,"subjectId":4,"subjectName":"Maths","outOf":100},{"marksObtained":21,"subjectId":6,"subjectName":"Social Science","outOf":99}]};
   apiEndpoint: any = environment.api_endpoint;
   public sendEmail = true;
   displayedColumns: string[] = ['subject', 'marksObtained', 'outOf'];
@@ -96,6 +97,7 @@ export class ResultsComponent implements OnInit {
     this.isSubmitting = true;
     this.resultService.postResult(this.resultForm.value).subscribe(res => {
       this.result = res;
+      console.log(this.result);
       this.isSubmitting = false;
     }, (error) => {
       if (error.status == 401) {
