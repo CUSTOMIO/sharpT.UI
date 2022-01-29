@@ -23,8 +23,9 @@ export class ResultsComponent implements OnInit {
   resultForm: FormGroup;
   examination: object;
   standard: object;
+  testVariable = false;
   result: any;
-  // result: any = {"username":"Isa Sunasra","userImageUrl":"/assets/images/2022-01-29T05-1.jpg  ","data":[{"marksObtained":12,"subjectId":1,"subjectName":"English","outOf":100},{"marksObtained":54,"subjectId":2,"subjectName":"Marathi","outOf":100},{"marksObtained":78,"subjectId":3,"subjectName":"Hindi","outOf":100},{"marksObtained":54,"subjectId":5,"subjectName":"Science","outOf":100},{"marksObtained":54,"subjectId":4,"subjectName":"Maths","outOf":100},{"marksObtained":21,"subjectId":6,"subjectName":"Social Science","outOf":99}]};
+  // result: any = {"username":"Isa Sunasra","userImageUrl":"/assets/images/2022-01-29T05-1.jpg  ","data":[{"marksObtained":1,"subjectId":1,"subjectName":"English","outOf":100},{"marksObtained":1,"subjectId":2,"subjectName":"Marathi","outOf":100},{"marksObtained":1,"subjectId":3,"subjectName":"Hindi","outOf":100},{"marksObtained":1,"subjectId":5,"subjectName":"Science","outOf":100},{"marksObtained":54,"subjectId":4,"subjectName":"Maths","outOf":100},{"marksObtained":21,"subjectId":6,"subjectName":"Social Science","outOf":99}]};
   apiEndpoint: any = environment.api_endpoint;
   public sendEmail = true;
   displayedColumns: string[] = ['subject', 'marksObtained', 'outOf'];
@@ -63,7 +64,7 @@ export class ResultsComponent implements OnInit {
 
     const dialogRef = this.dialog.open(VerifyComponent, {
       disableClose: true,
-      width: '350px',
+      width: '400px',
       data: {
         email: this.resultForm.value.email,
         sendEmail: this.sendEmail,

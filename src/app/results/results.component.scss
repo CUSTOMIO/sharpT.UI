@@ -83,6 +83,7 @@
 
 .table-div {
   max-width: 650px;
+  border-radius: 6px;
   margin: 50px auto;
   box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.75);
   -webkit-box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.75);
@@ -94,6 +95,7 @@
   }
 
   table {
+  background-color:rgba(255, 255, 255, 0.4);
    text-align: center;
    width: 100%;
     .mat-footer-cell{
@@ -104,4 +106,11 @@
       font-size: 15px;
     }
   }
+}
+
+.passed {
+  background-image: url('../../assets/svg/passed.svg');
+}
+.failed {
+  background-image: url('../../assets/svg/failed.svg');
 }
