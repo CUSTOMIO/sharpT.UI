@@ -82,14 +82,15 @@
     </div>
   </div> -->
 <!--</div>-->
-  <div class="result-container" align="center">
-    <p class="mat-display-2 p-50">Result</p>
-    <!-- <p class="mat-display-2 p-50"  ng-attr-class="{{testVariable && 'color-blue' || 'color-red' }}">Result</p> -->
-
+<div class="parallex">
+  <div class="title-div">
+    <div class="result-container" align="center">
+      <p class="mat-display-2">Result</p>
+    </div>
   </div>
 
   <div class="result-container form-div">
-    <p class="mat-headline">View your result</p>
+    <p class="mat-display-1">View your result</p>
     <form [formGroup]="resultForm" #formDirective="ngForm">
       <mat-form-field appearance="outline" style="width: 100% !important">
         <mat-label>Enter your email</mat-label>
@@ -156,3 +157,7 @@
       </table>
     </div>
   </div>
+
+</div>
+
+ 
