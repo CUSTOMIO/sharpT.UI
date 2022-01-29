@@ -127,13 +127,18 @@
 
 
 <mat-toolbar color="primary" class="mat-elevation-z1">
+  <div class="menu-button" fxShow="true" fxHide.gt-sm="true">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- <a (click)="sidenav.toggle()">Show Side Menu</a> -->
+  </div>
   <div class="title-div bgcolor-blue-light color-not-so-black">
     <div class="log-img-div">
-      <img class="logo-img" src="./assets/logo_notext.png" />
-      <p class="title mat-display-1 m-0">Sharp Tutorials</p>
+      <p class="title mat-display-1 m-0"> <img class="logo-img" src="./assets/logo_notext.png"  />Sharp Tutorials</p>
     </div>
   </div>
-  <div class="navigation-btn">
+  <div class="navigation-btn" fxShow="true" fxHide.lt-md="true">
     <a mat-button [routerLink]="['/']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Home</a>
     <a mat-button [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">About Us</a>
     <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['active-nav-item']">Course<i class="fas fa-caret-down pl-5"></i></a>
@@ -146,5 +151,22 @@
     <a mat-button [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
   </div>
 </mat-toolbar>
-<router-outlet></router-outlet>
+<mat-sidenav-container fxFlexFill class="example-container">
+  <mat-sidenav #sidenav fxLayout="column">
+    <div fxLayout="column">
+      <a mat-button [routerLink]="['/']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a mat-button [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">About Us</a>
+      <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['active-nav-item']">Course<i class="fas fa-caret-down pl-5"></i></a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let c of course" routerLink="/course/{{c.id}}" [state]="c">{{c.name}}</button>
+      </mat-menu>
+      <a mat-button [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Testimonials</a>
+      <a mat-button [routerLink]="['/results']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Result</a>
+      <a mat-button [routerLink]="['/blog']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Blog</a>
+      <a mat-button [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container>
+
 
