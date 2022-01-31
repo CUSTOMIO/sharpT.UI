@@ -13,6 +13,7 @@
   height: 100%;
   width: fit-content;
   padding: 0 20px;
+  background-color: #fff !important;
 
   .title {
     font-family: 'Playfair Display', serif;
@@ -46,9 +47,23 @@
   font-weight: 600;
 }
 
-.mat-sidenav{
+.mat-drawer{
   width: 20%;
   min-width: 175px;
+}
+
+.nav-sm{
+  a{
+    text-align: left;
+    font-size: 16px;
+    padding: 4px 10px;  
+    border-radius: 0px;
+  }
+}
+.active-nav-sm {
+  background-color: #f2f5f7;
+  font-weight: 600;
+  border-left: 2px solid #134693;
 }
 
 @media (max-width: 960px) {
@@ -70,3 +85,12 @@
     }
   }
 }
+.notice-button {
+  position: fixed;
+  top: 95vh;
+  right: 2vh;
+  background-color: #fff;
+}
+
+
+

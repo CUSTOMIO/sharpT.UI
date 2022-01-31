@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { ExaminationService, ResultService, StandardService } from '../core/data-service';
 import { MatDialog } from '@angular/material/dialog';
@@ -99,7 +99,6 @@ export class ResultsComponent implements OnInit {
     this.isSubmitting = true;
     this.resultService.postResult(this.resultForm.value).subscribe(res => {
       this.result = res;
-      console.log(this.result);
       this.isSubmitting = false;
     }, (error) => {
       if (error.status == 401) {

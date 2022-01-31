@@ -125,8 +125,8 @@
 <!--</mat-sidenav-content>-->
 <!--</mat-sidenav-container>-->
 
-
-<mat-toolbar color="primary" class="mat-elevation-z1">
+<div style="overflow: hidden; height: 100vh;">
+<mat-toolbar color="primary" class="mat-elevation-z4">
   <div class="menu-button" fxShow="true" fxHide.gt-sm="true">
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
@@ -151,9 +151,9 @@
     <a mat-button [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
   </div>
 </mat-toolbar>
-<mat-sidenav-container fxFlexFill class="example-container">
+<!-- <mat-sidenav-container fxFlexFill class="example-container">
   <mat-sidenav #sidenav fxLayout="column">
-    <div fxLayout="column">
+    <div class="nav-sm" fxLayout="column">
       <a mat-button [routerLink]="['/']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Home</a>
       <a mat-button [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">About Us</a>
       <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['active-nav-item']">Course<i class="fas fa-caret-down pl-5"></i></a>
@@ -166,7 +166,36 @@
       <a mat-button [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
     </div>
   </mat-sidenav>
-  <mat-sidenav-content fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
-</mat-sidenav-container>
-
+  <mat-sidenav-content fxFlexFill>
+    <router-outlet></router-outlet>
+    <app-layout-footer></app-layout-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+<mat-drawer-container fxFlexFill class="example-container">
+  <mat-drawer #sidenav fxLayout="column">
+    <div class="nav-sm" fxLayout="column">
+      <a mat-button [routerLink]="['/']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a mat-button [routerLink]="['/about']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">About Us</a>
+      <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['active-nav-sm']">Course<i class="fas fa-caret-down pl-10"></i></a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let c of course" routerLink="/course/{{c.id}}" [state]="c">{{c.name}}</button>
+      </mat-menu>
+      <a mat-button [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">Testimonials</a>
+      <a mat-button [routerLink]="['/results']" [routerLinkActive]="['active-nav-sm ']" [routerLinkActiveOptions]="{exact: true}">Result</a>
+      <a mat-button [routerLink]="['/blog']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">Blog</a>
+      <a mat-button [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content fxFlexFill>
+    <router-outlet></router-outlet>
+    <!-- <button mat-mini-fab class="notice-button" (click)="toggleBoard()">
+      <mat-icon>assignment_late</mat-icon>
+    </button> -->
+    <button mat-stroked-button class="notice-button" (click)="toggleBoard()" color="primary">
+      Notice Board
+    </button>
+    <app-layout-footer></app-layout-footer>
+  </mat-drawer-content>
+</mat-drawer-container>
+</div>
 

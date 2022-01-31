@@ -9,7 +9,12 @@
   z-index: 10;
 }
 
+::ng-deep   .mat-step-icon {
+  color: #fff !important;
+}
+
 button{
+    color: #fff;
     display:block;
     margin: 0 auto;
 }

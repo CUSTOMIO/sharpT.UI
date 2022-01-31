@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TestimonialService } from '../core/data-service';
-import { Testimonial } from '../core/model';
+import { AlertType, Testimonial } from '../core/model';
 import { environment } from 'src/environments/environment';
+import { NotificationService } from '../core/system-service/notification.service';
 
 @Component({
   selector: 'app-testimonials',
@@ -10,14 +11,15 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./testimonials.component.scss']
 })
 export class TestimonialsComponent implements OnInit {
-  
-  public isLoading: boolean = true;
+
+  public isLoading = true;
   public testimonialForm: FormGroup;
-  public testimonial : Testimonial[];
+  public testimonial: Testimonial[];
   public apiEndpoint = environment.api_endpoint;
 
-  constructor( private fb : FormBuilder,
-               private testimonialService : TestimonialService) { }
+  constructor(private fb: FormBuilder,
+              private testimonialService: TestimonialService,
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.isLoading = false;
@@ -31,17 +33,19 @@ export class TestimonialsComponent implements OnInit {
       ]
     });
     this.testimonialService.getTestimonial()
-    .subscribe((res: Testimonial[]) => {
-      this.testimonial = res;
-    })
+      .subscribe((res: Testimonial[]) => {
+        this.testimonial = res;
+      });
 
   }
 
   onSubmit() {
     this.testimonialService.postTestimonial(this.testimonialForm.value)
-    .subscribe(res => {
-      console.log(res);
-    })
-    // console.log('Submitted')
+      .subscribe((res: any) => {
+        if (res.message === true) {
+          return this.notificationService.show(AlertType.Success, 'Thank you for taking your time and writing about');
+        }
+        return this.notificationService.show(AlertType.Warning, res.message);
+      });
   }
 }
