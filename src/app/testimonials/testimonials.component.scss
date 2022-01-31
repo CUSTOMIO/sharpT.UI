@@ -95,3 +95,9 @@
     background-color: #134693;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .form-div {
+    padding: 20px;
+  }
+}
