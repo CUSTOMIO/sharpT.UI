@@ -87,10 +87,13 @@
 }
 .notice-button {
   position: fixed;
-  top: 95vh;
+  bottom: 1vh;
   right: 2vh;
   background-color: #fff;
 }
-
-
-
+@media (max-width: 600px) {
+  .notice-button {
+    bottom: 1vh;
+    right: 1vh;
+  }
+}

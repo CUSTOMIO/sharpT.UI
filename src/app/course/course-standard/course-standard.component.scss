@@ -64,11 +64,32 @@
     text-align: left;
   }
 
-  .mat-tab-label {
-    font-size: 16px;
-  }
+
   button {
       font-weight: 600;
+      color: #fff;
+  }
+}
+
+.pricing {
+  .pricing-div {
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid  #0a4191;
+    margin: 20px auto;
+    padding: 20px;
+    .pricing-rate {
+      background-color: #fff;
+      color: #0a4191;
+      border: 1px solid #0a4191;
+      position: absolute;
+      border-radius: 6px;
+      padding: 4px 8px 4px 8px;
+      margin: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      bottom: -15px;
+    }
   }
 }
 
@@ -95,5 +116,27 @@
     color: #0a4191;
     font-weight: 600;
     background-color: #f2f5f7 !important;
+  }
+  .pricing {
+    .pricing-div {
+      border: 1px solid  #fff;
+      .pricing-rate {
+        background-color: #0a4191;
+        color: #fff;
+        border: 1px solid #fff;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .pricing {
+    .pricing-div {
+      padding: 5px 0px;
+
+    }
+  }
+  .mat-tab-label {
+    font-size: 12px;
   }
 }

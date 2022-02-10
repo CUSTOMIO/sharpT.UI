@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormArray, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
 import { ApplicationFormService, SubjectService } from '../../core/data-service/index';
 import { MatDialog } from '@angular/material/dialog';
-import { VerifyComponent } from '../../verify/verify.component'
+import { VerifyComponent } from '../../verify/verify.component';
 import { AlertType } from 'src/app/core/model';
 import { NotificationService } from 'src/app/core/system-service/notification.service';
 
@@ -21,19 +21,19 @@ export class ApplicationFormComponent implements OnInit {
 
   public appForm: FormGroup;
   public imageURL: string;
-  public sendEmail: boolean = true;
-  public submitButton: boolean = false;
-  public isLoading: boolean = true;
+  public sendEmail = true;
+  public submitButton = false;
+  public isLoading = true;
   public subject: object;
   private otp: string;
 
-  get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray }
+  get formArray(): FormArray | null { return this.appForm.get('formArray') as FormArray; }
 
   constructor(private applicationFormService: ApplicationFormService,
-    private formBuilder: FormBuilder,
-    private subjectService: SubjectService,
-    public dialog: MatDialog,
-    private notificationService: NotificationService) {
+              private formBuilder: FormBuilder,
+              private subjectService: SubjectService,
+              public dialog: MatDialog,
+              private notificationService: NotificationService) {
 
     this.appForm = this.formBuilder.group({
       formArray: this.formBuilder.array([
@@ -44,7 +44,7 @@ export class ApplicationFormComponent implements OnInit {
         }),
         this.formBuilder.group({
           email: [null, [Validators.required,
-          Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
           ]],
           studentPN: [null, [Validators.required, Validators.pattern('[- +()0-9]+')]],
           parentPN: [null, [Validators.required, Validators.pattern('[- +()0-9]+')]],
@@ -79,10 +79,10 @@ export class ApplicationFormComponent implements OnInit {
           const reader = new FileReader();
           reader.onload = () => {
             this.imageURL = reader.result as string;
-          }
+          };
           reader.readAsDataURL(this.formArray.controls[2].get('image').value);
         } else {
-          return this.formArray.controls[index].get(controlName).value
+          return this.formArray.controls[index].get(controlName).value;
         }
       }
     }
@@ -105,17 +105,17 @@ export class ApplicationFormComponent implements OnInit {
         this.otp = result.data.otp;
       }
     });
-    this.sendEmail = false
+    this.sendEmail = false;
   }
 
-  submitForm() {
+  submitForm(): void {
     const fd = new FormData();
 
     fd.append('firstName', this.getValue(0, 'firstName'));
     fd.append('middleName', this.getValue(0, 'middleName'));
     fd.append('lastName', this.getValue(0, 'lastName'));
     fd.append('email', this.getValue(1, 'email'));
-    fd.append('studentPN', this.getValue(1, 'studentPN'))
+    fd.append('studentPN', this.getValue(1, 'studentPN'));
     fd.append('parentPN', this.getValue(1, 'parentPN'));
     fd.append('address', this.getValue(1, 'address'));
     fd.append('standard', this.getValue(2, 'standard'));
@@ -123,7 +123,7 @@ export class ApplicationFormComponent implements OnInit {
     fd.append('image', this.formArray.controls[2].get('image').value);
     fd.append('otp', this.otp);
 
-    for (let s of this.getValue(2, 'subjects')) {
+    for (const s of this.getValue(2, 'subjects')) {
       fd.append('subjects', s.id);
     }
 
@@ -131,18 +131,18 @@ export class ApplicationFormComponent implements OnInit {
     this.applicationFormService.postApplicationForm(fd)
       .subscribe({
         next: (data: any) => {
-          if (data.message) this.notificationService.show(AlertType.Success, 'Your form has been submitted, you will recievce an email once it is verified 😊😊😊.');
-          else  this.notificationService.show(AlertType.Warning, 'There was error submitting the form, please try again 😕😕😕.');
-          
+          if (data.message) { this.notificationService.show(AlertType.Success, 'Your form has been submitted, you will recievce an email once it is verified 😊😊😊.'); }
+          else {  this.notificationService.show(AlertType.Warning, 'There was error submitting the form, please try again 😕😕😕.'); }
+
         },
         error: error => {
-          if (error.status == 401) {
+          if (error.status === 401) {
             this.notificationService.show(AlertType.Warning, error.error.message);
-            return
+            return;
           }
           this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.');
         }
-      })
+      });
   }
 }
 

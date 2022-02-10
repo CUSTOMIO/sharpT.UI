@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StandardService, SubjectService } from '../../core/data-service';
-import {  Standard, Subject, SubjectCount } from '../../core/model';
+import { Standard, StandardRate, Subject, SubjectCount } from '../../core/model';
 import { environment } from 'src/environments/environment';
 
 
@@ -15,6 +15,7 @@ export class CourseStandardComponent implements OnInit {
 
   public standard: Standard[] = [];
   public subject: Subject[] = [];
+  public standardRate: StandardRate[];
   public standardId: number;
   public courseId: number;
   public course: any;
@@ -25,10 +26,9 @@ export class CourseStandardComponent implements OnInit {
 
 
   constructor(private standardService: StandardService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private subjectService: SubjectService) {
-    console.log('constructed');
+    private route: ActivatedRoute,
+    private router: Router,
+    private subjectService: SubjectService) {
     this.route.paramMap.subscribe(params => {
       this.ngOnInit();
     });
@@ -46,7 +46,6 @@ export class CourseStandardComponent implements OnInit {
 
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
       this.standard = res;
-      console.log(this.standard);
     }, (error) => {
       console.log(error)
     });
@@ -58,8 +57,15 @@ export class CourseStandardComponent implements OnInit {
     });
     this.subjectService.getSubjectCount()
       .subscribe((res: SubjectCount) => {
-        console.log(res);
         this.subjectCount = res;
-     })
+    });
+    this.standardService.getStandardRate()
+    .subscribe((res: StandardRate[]) => {
+      this.standardRate = res;
+    });
+  }
+
+  getRateByStandardId(standardId: number) {
+    return this.standardRate.filter(x => x.standardId == standardId);
   }
 }

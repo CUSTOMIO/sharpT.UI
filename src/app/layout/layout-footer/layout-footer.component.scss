@@ -99,11 +99,16 @@ $stars-big: generateStars(100);
 
 #stars-container {
   height: fit-content;
-  /*background: radial-gradient(ellipse at bottom, #1B2735 0%, #191F24 100%);*/
-  /*background: radial-gradient(ellipse at bottom, #0a4191 0%, black 100%);*/
+  margin-bottom: 100px;
   background: radial-gradient(ellipse at bottom, #000 10%, #0a4191 100%);
   overflow: hidden;
   @include translate50;
+}
+
+@media (max-width: 600px) {
+  #stars-container {
+    margin-bottom: 64px;
+  }
 }
 
 #stars {
