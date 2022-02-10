@@ -4,23 +4,6 @@
 </div>
 
 <div *ngIf="!isLoading" class="pb-100 container" style="border-radius: 6px;">
-  <div class="ml-10 mr-10">
-
-    <div class="pb-50">
-      <span class="mat-headline pl-35">Instruction</span>
-      <ul class="mat-subheading-1 mt-10">
-        <li>Fill up the admission form duly</li>
-        <li>You will be send an image of your fee reciept on whatsapp number</li>
-        <li>Contact on 7021186955 or 9167945708 for any query</li>
-        <li>Some more instruction</li>
-      </ul>
-    </div>
-
-    <div class="pb-50">
-      <span class="mat-headline pl-35">Form</span>
-    </div>
-  </div>
-
   <mat-vertical-stepper [@.disabled]="true" selectedIndex="0" [linear]="false" #stepper>
 
     <mat-step completed="false" [stepControl]="formArray?.get([0])">

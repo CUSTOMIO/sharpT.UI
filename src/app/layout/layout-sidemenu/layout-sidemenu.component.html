@@ -1,201 +1,69 @@
-<!--<mat-toolbar class="bgcolor-yellow-light bottom-shadow">-->
-<!--<span *ngIf="!(isHandset$ | async)">
-    <div class="plate plate4" onclick="this.classList.toggle('active')" (click)="toggleMenu()">
-  <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-    <path class="line line1" d="M 50,35 H 30" />
-    <path class="line line2" d="M 50,35 H 70" />
-    <path class="line line3" d="M 50,50 H 30" />
-    <path class="line line4" d="M 50,50 H 70" />
-    <path class="line line5" d="M 50,65 H 30" />
-    <path class="line line6" d="M 50,65 H 70" />
-  </svg>
-  <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-    <path class="line" d="M 34,32 L 66,68" />
-    <path class="line" d="M 66,32 L 34,68" />
-  </svg>
-</div>
-  </span>-->
-<!--Mobile View Only-->
-<!--<span *ngIf="(isHandset$ | async)">
-<div class="plate plate4" onclick="this.classList.toggle('active')" (click)="!drawer.toggle()">
-    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-      <path class="line line1" d="M 50,35 H 30" />
-      <path class="line line2" d="M 50,35 H 70" />
-      <path class="line line3" d="M 50,50 H 30" />
-      <path class="line line4" d="M 50,50 H 70" />
-      <path class="line line5" d="M 50,65 H 30" />
-      <path class="line line6" d="M 50,65 H 70" />
-    </svg>
-    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-      <path class="line" d="M 34,32 L 66,68" />
-      <path class="line" d="M 66,32 L 34,68" />
-    </svg>
-  </div>
-</span>-->
-<!--<div class="main-title">
-    <img class="logo-img" src="./assets/logo_notext.png" />
-    <span class="title color-not-so-black">Sharp Tutorials</span>
-  </div>
-
-  <div class="navigation-btn">
-    <a mat-button>Home</a>
-    <a mat-button>About Us</a>
-    <a mat-button>Course</a>
-  </div>
-
-  <div class="social-icon">
-    <a href="https://www.instagram.com/sharptutorials_/">
-      <i class="fab fa-instagram fa-md mr-10"></i>
-    </a>
-    <a href="https://www.facebook.com/632508334061501/posts/632574827388185/">
-      <i class="fab fa-facebook fa-md mr-10"></i>
-    </a>
-    <a href="https://www.linkedin.com/company/sharp-tutorials/">
-      <i class="fab fa-linkedin fa-md mr-10"></i>
-    </a>
-    <a href="https://www.youtube.com/channel/UCid9_yoxEfu02gtVXItEiYQ?app=desktop">
-      <i class="fab fa-youtube fa-md mr-10"></i>
-    </a>
-    <a href="https://wa.me/917021186955?text=I%27m%20Interested%20with%20Sharp%20Tutorials">
-      <i class="fab fa-whatsapp fa-md"></i>
-    </a>
-  </div>
-</mat-toolbar>-->
-<!--<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav disableClose #drawer class="sidenav  bgcolor-blue-light" fixedInViewport="false"
-               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-               [mode]="(isHandset$ | async) ? 'over' : 'side'"
-               [opened]="(isHandset$ | async) === false" id="sidenav"
-               [ngClass]="{'menu-open' : isMenuOpen, 'menu-close' : !isMenuOpen}">
-    <mat-nav-list>
-      <mat-list-item [routerLink]="['/']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}" role="main">
-                     <i class="fas fa-home fa-md m-10 color-not-so-black"></i>
-        <span *ngIf="isMenuOpen">Home</span>
-
-      </mat-list-item>
-      <mat-list-item [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-address-card m-10 fa-md color-not-so-black"></i>
-        <span *ngIf="isMenuOpen">About</span>
-      </mat-list-item>
-
-      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent"
-                     [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: false}">
-        <span class="full-width" *ngIf="isExpanded || isShowing">
-          <i class="fas fa-book fa-md m-10 color-not-so-black"></i>
-          <span *ngIf="isMenuOpen">Course</span>
-        </span>
-        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}"
-                  *ngIf="(isExpanded || isShowing) && isMenuOpen" style="color: #b5b5b5">
-          expand_more
-        </mat-icon>
-      </mat-list-item>
-      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded && isMenuOpen">
-        <a mat-list-item *ngFor="let c of course" routerLink="/course/{{c.id}}" [state]="c">{{c.name}}</a>
-      </div>
-
-      <mat-list-item [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-quote-right fa-md m-10 color-not-so-black"></i>
-        <span *ngIf="isMenuOpen">Testimonials</span>
-      </mat-list-item>
-      <mat-list-item [routerLink]="['/results']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-poll fa-md m-10 color-not-so-black"></i>
-        <span *ngIf="isMenuOpen">Results</span>
-      </mat-list-item>
-      <mat-list-item [routerLink]="['/blog']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-blog fa-md m-10 color-not-so-black"></i>
-        <span *ngIf="isMenuOpen">Blog</span>
-      </mat-list-item>
-      <mat-list-item [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']"
-                     [routerLinkActiveOptions]="{exact: true}" role="main">
-        <i class="fas fa-address-book fa-md m-10 color-not-so-black"></i>
-        <span *ngIf="isMenuOpen">Contact Us</span>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content [ngStyle]="{ 'margin-left.px': contentMargin, 'transition': '300ms' }">-->
-<!--<button mat-mini-fab class="notice-button" (click)="toggleBoard()">
-  <mat-icon>assignment_late</mat-icon>
-</button>
-<!--</mat-sidenav-content>-->
-<!--</mat-sidenav-container>-->
-
 <div style="overflow: hidden; height: 100vh;">
-<mat-toolbar color="primary" class="mat-elevation-z4">
-  <div class="menu-button" fxShow="true" fxHide.gt-sm="true">
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <!-- <a (click)="sidenav.toggle()">Show Side Menu</a> -->
-  </div>
-  <div class="title-div bgcolor-blue-light color-not-so-black">
-    <div class="log-img-div">
-      <p class="title mat-display-1 m-0"> <img class="logo-img" src="./assets/logo_notext.png"  />Sharp Tutorials</p>
+  <mat-toolbar color="primary" class="mat-elevation-z4">
+    <div class="menu-button" fxShow="true" fxHide.gt-sm="true">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
     </div>
-  </div>
-  <div class="navigation-btn" fxShow="true" fxHide.lt-md="true">
-    <a mat-button [routerLink]="['/']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Home</a>
-    <a mat-button [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">About Us</a>
-    <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['active-nav-item']">Course<i class="fas fa-caret-down pl-5"></i></a>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item *ngFor="let c of course" routerLink="/course/{{c.id}}" [state]="c">{{c.name}}</button>
-    </mat-menu>
-    <a mat-button [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Testimonials</a>
-    <a mat-button [routerLink]="['/results']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Result</a>
-    <a mat-button [routerLink]="['/blog']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Blog</a>
-    <a mat-button [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
-  </div>
-</mat-toolbar>
-<!-- <mat-sidenav-container fxFlexFill class="example-container">
-  <mat-sidenav #sidenav fxLayout="column">
-    <div class="nav-sm" fxLayout="column">
-      <a mat-button [routerLink]="['/']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Home</a>
-      <a mat-button [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">About Us</a>
-      <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['active-nav-item']">Course<i class="fas fa-caret-down pl-5"></i></a>
+    <div class="title-div bgcolor-blue-light color-not-so-black">
+      <div class="log-img-div">
+        <p class="title mat-display-1 m-0"> <img class="logo-img" src="./assets/logo_notext.png" />Sharp Tutorials</p>
+      </div>
+    </div>
+    <div class="navigation-btn" fxShow="true" fxHide.lt-md="true">
+      <a mat-button [routerLink]="['/']" [routerLinkActive]="['active-nav-item']"
+        [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a mat-button [routerLink]="['/about']" [routerLinkActive]="['active-nav-item']"
+        [routerLinkActiveOptions]="{exact: true}">About Us</a>
+      <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['active-nav-item']">Course<i
+          class="fas fa-caret-down pl-5"></i></a>
       <mat-menu #menu="matMenu">
         <button mat-menu-item *ngFor="let c of course" routerLink="/course/{{c.id}}" [state]="c">{{c.name}}</button>
       </mat-menu>
-      <a mat-button [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Testimonials</a>
-      <a mat-button [routerLink]="['/results']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Result</a>
-      <a mat-button [routerLink]="['/blog']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Blog</a>
-      <a mat-button [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']" [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
+      <a mat-button [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-item']"
+        [routerLinkActiveOptions]="{exact: true}">Testimonials</a>
+      <a mat-button [routerLink]="['/results']" [routerLinkActive]="['active-nav-item']"
+        [routerLinkActiveOptions]="{exact: true}">Result</a>
+      <a mat-button [routerLink]="['/blog']" [routerLinkActive]="['active-nav-item']"
+        [routerLinkActiveOptions]="{exact: true}">Blog</a>
+      <a mat-button [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-item']"
+        [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
     </div>
-  </mat-sidenav>
-  <mat-sidenav-content fxFlexFill>
-    <router-outlet></router-outlet>
-    <app-layout-footer></app-layout-footer>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-<mat-drawer-container fxFlexFill class="example-container">
-  <mat-drawer #sidenav fxLayout="column">
-    <div class="nav-sm" fxLayout="column">
-      <a mat-button [routerLink]="['/']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">Home</a>
-      <a mat-button [routerLink]="['/about']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">About Us</a>
-      <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['active-nav-sm']">Course<i class="fas fa-caret-down pl-10"></i></a>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item *ngFor="let c of course" routerLink="/course/{{c.id}}" [state]="c">{{c.name}}</button>
-      </mat-menu>
-      <a mat-button [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">Testimonials</a>
-      <a mat-button [routerLink]="['/results']" [routerLinkActive]="['active-nav-sm ']" [routerLinkActiveOptions]="{exact: true}">Result</a>
-      <a mat-button [routerLink]="['/blog']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">Blog</a>
-      <a mat-button [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-sm']" [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
-    </div>
-  </mat-drawer>
-  <mat-drawer-content fxFlexFill>
-    <router-outlet></router-outlet>
-    <!-- <button mat-mini-fab class="notice-button" (click)="toggleBoard()">
-      <mat-icon>assignment_late</mat-icon>
-    </button> -->
-    <button mat-stroked-button class="notice-button" (click)="toggleBoard()" color="primary">
-      Notice Board
-    </button>
-    <app-layout-footer></app-layout-footer>
-  </mat-drawer-content>
-</mat-drawer-container>
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav #sidenav fxLayout="column">
+      <mat-nav-list>
+        <mat-list-item [routerLink]="['/']" [routerLinkActive]="['active-nav-sm']"
+          [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-home pr-5"></i>Home</mat-list-item>
+        <mat-list-item [routerLink]="['/about']" [routerLinkActive]="['active-nav-sm']"
+          [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-address-card pr-5"></i>About</mat-list-item>
+        <mat-expansion-panel [class.mat-elevation-z0]="true" [routerLinkActive]="['active-nav-sm']" dense>
+          <mat-expansion-panel-header class="pl-16">
+            <span style="line-height: 48px; font-size: 16px;">
+              <i class="fas fa-layer-group pr-5" ></i>Courses
+            </span>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item *ngFor="let c of course" routerLink="/course/{{c.id}}" [state]="c" (click)="sidenav.close()">{{c.name}}</a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+        <mat-list-item [routerLink]="['/testimonials']" [routerLinkActive]="['active-nav-sm']"
+          [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-comments pr-5"></i>Testimonial</mat-list-item>
+        <mat-list-item [routerLink]="['/results']" [routerLinkActive]="['active-nav-sm']"
+          [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-poll pr-5"></i>Result</mat-list-item>
+        <mat-list-item [routerLink]="['/blog']" [routerLinkActive]="['active-nav-sm']"
+          [routerLinkActiveOptions]="{exact: true}"><i class="fab fa-blogger pr-5"></i>Blog</mat-list-item>
+        <mat-list-item [routerLink]="['/contactus']" [routerLinkActive]="['active-nav-sm']"
+          [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-phone-square-alt pr-5"></i>Contact Us
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+      <button mat-stroked-button class="notice-button" (click)="toggleBoard()" color="primary">
+        Notice Board
+      </button>
+      <app-layout-footer></app-layout-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
-
