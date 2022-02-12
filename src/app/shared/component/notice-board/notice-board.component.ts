@@ -16,9 +16,9 @@ export class NoticeBoardComponent implements OnInit {
 
 
   constructor(private noticeService: NoticeService,
-    @Inject(MAT_DIALOG_DATA) public data: {},
-    private dialogRef: MatDialogRef<NoticeBoardComponent>,
-    private dialog: MatDialog
+              @Inject(MAT_DIALOG_DATA) public data: {},
+              private dialogRef: MatDialogRef<NoticeBoardComponent>,
+              private dialog: MatDialog
     ) {
   }
 
@@ -26,11 +26,12 @@ export class NoticeBoardComponent implements OnInit {
     this.noticeService.getNotice()
     .subscribe(res => {
       this.notices = res;
-      console.log(res)
+      console.log(res);
     });
   }
 
   public previewDocument(notice: Notice) {
+    console.log(notice);
     const pdfSource = this.endpoint + notice.file;
     const dialogData = {
       width: '90%',

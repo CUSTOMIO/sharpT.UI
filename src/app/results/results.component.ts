@@ -18,8 +18,8 @@ export class ResultsComponent implements OnInit {
   @ViewChild('formDirective') private formDirective: NgForm;
 
   isLoading = true;
-  isVerified: boolean = false;
-  isSubmitting: boolean = false;
+  isVerified = false;
+  isSubmitting = false;
   resultForm: FormGroup;
   examination: object;
   standard: object;
@@ -31,11 +31,21 @@ export class ResultsComponent implements OnInit {
   displayedColumns: string[] = ['subject', 'marksObtained', 'outOf'];
 
   constructor(private fb: FormBuilder,
-    private examinationService: ExaminationService,
-    private resultService: ResultService,
-    public dialog: MatDialog,
-    private notificationService: NotificationService,
-    private standardService: StandardService) { }
+              private examinationService: ExaminationService,
+              private resultService: ResultService,
+              public dialog: MatDialog,
+              private notificationService: NotificationService,
+              private standardService: StandardService) {
+    this.resultForm = fb.group({
+      examinationId: [null, [Validators.required]],
+      email: [null,
+        [Validators.required, Validators.email,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]
+      ],
+      standardId: ['', [Validators.required]],
+      otp: [''],
+    });
+  }
 
   ngOnInit(): void {
     this.examinationService.getExamination()
@@ -48,20 +58,11 @@ export class ResultsComponent implements OnInit {
         this.standard = res;
         this.isLoading = false;
       });
-    this.resultForm = this.fb.group({
-      examinationId: [null, [Validators.required]],
-      email: [null,
-        [Validators.required, Validators.email,
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]
-      ],
-      standardId: ['', [Validators.required]],
-      otp: [''],
-    });
     this.isLoading = false;
   }
 
   openDialog(): void {
-    if (!this.resultForm.valid) return;
+    if (!this.resultForm.valid) { return; }
 
     const dialogRef = this.dialog.open(VerifyComponent, {
       disableClose: true,
@@ -81,11 +82,18 @@ export class ResultsComponent implements OnInit {
     this.sendEmail = false;
   }
 
-  getPercentage() {
+  getPercentage(): string {
     let totalMarks = 0;
     let obtainedMarks = 0;
     if (this.result.data) {
-      for (const r of this.result.data) {
+      this.result.data.sort((a, b) => {
+        return b.marksObtained - a.marksObtained;
+      });
+      let subjectData = this.result.data;
+      if (this.result.bestOf !== null) {
+        subjectData =  this.result.data.slice(0, this.result.bestOf);
+      }
+      for (const r of subjectData) {
         totalMarks += r.marksObtained;
         obtainedMarks += r.outOf;
       }
@@ -94,18 +102,22 @@ export class ResultsComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.resultForm.valid) return;
+    if (!this.resultForm.valid) { return; }
 
     this.isSubmitting = true;
     this.resultService.postResult(this.resultForm.value).subscribe(res => {
       this.result = res;
+
+      // if(this.result.bestOf != null){
+      //   this.result.data = this.result.data.slice(0, this.result.bestOf);
+      // }
       this.isSubmitting = false;
     }, (error) => {
-      if (error.status == 401) {
+      if (error.status === 401) {
         this.isSubmitting = false;
         this.result = error.error;
         this.notificationService.show(AlertType.Warning, error.error.message);
-        return
+        return;
       }
       this.notificationService.show(AlertType.Error, 'We are afraid, something is not right with our server 😨😨😨.');
     });

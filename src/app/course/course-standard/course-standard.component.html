@@ -33,7 +33,7 @@
   <div class="standard-container" fxFlex="60" fxFlex.xs="95" *ngFor="let s of standard" align="center">
     <div class="img-div">
       <img class="standard-image" src="{{apiEndpoint + s.image}}" />
-      <p class="standard-rate bgcolor-blue mat-subheading-2">₹ {{s.rate}}</p>
+      <p class="standard-rate bgcolor-blue mat-title">₹ {{s.rate}}</p>
     </div>
     <p class="mat-display-2 m-20">{{s.name}}</p>
     <div class="row mb-10" fxLayoutAlign="center center">
@@ -69,18 +69,27 @@
     <mat-divider></mat-divider>
     <mat-tab-group class="mat-subheading-2" mat-align-tabs="center">
       <mat-tab label="Overview">
-        <div [innerHtml]="s.description">
-          {{s.description}}
+        <div class="mb-50" [innerHtml]="s.description">
         </div>
+        Available batches :
+        <ul>
+          <span *ngFor="let b of s.batches">
+            <li>{{b.batchName}}</li>
+          </span>
+        </ul>
       </mat-tab>
       <mat-tab label="Subjects">
-        <div *ngFor="let sb of subject">
-          <ul *ngIf="sb.standardId == s.id">
-            <li class="list-item" role="listitem" [innerHtml]="sb.name"></li>
-          </ul>
+        <div *ngIf="s.allowSubjectSelection">
+            <p class="mat-subheading-1">You can select subjects of your choice, check pricing tab for more detail.</p>
         </div>
+        Available subjects :
+          <ol class="m-0">
+            <span  *ngFor="let sb of subject">
+              <li *ngIf="sb.standardId == s.id" [innerHtml]="sb.name"></li>
+            </span>
+          </ol>
       </mat-tab>
-      <mat-tab label="Pricing">
+      <mat-tab label="Pricing" *ngIf="s.allowSubjectSelection">
         <div class="pricing" fxLayout="row warp" fxLayoutAlign="space-evenly stretch">
             <div fxFlex="45" fxFlex.xs="90" fxFlex.sm="50"  *ngFor="let sr of getRateByStandardId(s.id)">
               <div class="pricing-div" *ngIf="s.id === sr.standardId">

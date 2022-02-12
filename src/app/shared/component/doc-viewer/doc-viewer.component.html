@@ -1,64 +1,56 @@
-<!--<h1 mat-dialog-title class="dialog-header mb-0">
+<!-- <h1 mat-dialog-title class="dialog-header mb-0">
   {{ pdfFileName }}
-</h1>-->
-<!--<div style="height: 70vh;">
-  <div class="justify-content-center h-100">
-    <div class="flex-column col h-100" style="padding-left: 0; padding-right: 0;">
-      <div class="d-flex h-100" *ngIf="previewContentType === 'application/pdf'">
-        <div style="overflow-y: auto; min-height: 0; flex: 1 1 auto;">-->
-          <!--<ngx-extended-pdf-viewer *ngIf="pdfSource"
-                                   [src]="'/assets/ER.pdf'"
-                                   useBrowserLocale="true"
-                                   delayFirstView="1250"
-                                   [zoom]="100"
-                                   [showBookmarkButton]="false"
-                                   [showOpenFileButton]="false"
-                                   [showSecondaryToolbarButton]="false"
-                                   (pageRendered)="onDocLoadComplete()">
-          </ngx-extended-pdf-viewer>-->
-          <!--<pdf-viewer [src]="pdfSource"
-          [render-text]="true"
-          [original-size]="false"></pdf-viewer>-->
-          <!--<pdf-viewer src="https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf" [original-size]="false" style="height: 500px; width: 400px;"></pdf-viewer>-->
-          <!--<pdf-viewer [src]="pdfSource" [render-text]="false" [original-size]="true" [fit-to-page]="true" style="display: block;"></pdf-viewer>-->
-          <!--<ngx-extended-pdf-viewer  [(src)]="pdfSource"
-                                    useBrowserLocale="true"
-                                    height="300vh"
-                                    width="300vh">
-          </ngx-extended-pdf-viewer>
-           <ngx-extended-pdf-viewer *ngIf="pdfBase64Source"
-                                   [base64Src]="pdfBase64Source"
-                                   useBrowserLocale="true"
-                                   delayFirstView="1250"
-                                   [zoom]="100"
-                                   [showBookmarkButton]="false"
-                                   [showOpenFileButton]="false"
-                                   [showSecondaryToolbarButton]="false"
-                                   (pageRendered)="onDocLoadComplete()">
-          </ngx-extended-pdf-viewer>-->
-        <!--</div>
-      </div>
-      <div class="d-flex h-100 justify-content-center p-3" *ngIf="isImage()">
-        <img [src]="pdfSource" (load)="onDocLoadComplete()" class="img-fluid">
-      </div>
-      <div class="d-flex h-100 justify-content-center p-5"
-           *ngIf="previewContentType !== 'application/pdf' && !isImage()">
-        File not supported for preivew.
-      </div>
-      <div class="overlay text-center" *ngIf="pdfIsLoading">
-        <mat-spinner></mat-spinner>
-      </div>
+</h1>
+<div style="padding-left: 0; padding-right: 0;">
+  <div *ngIf="previewContentType === 'application/pdf'">
+    <div style="overflow-y: auto; min-height: 0; flex: 1 1 auto;">
+      <ngx-extended-pdf-viewer *ngIf="pdfSource" [src]="pdfSource" useBrowserLocale="true" delayFirstView="1250"
+        [zoom]="100" [showBookmarkButton]="false" [showOpenFileButton]="false" [showSecondaryToolbarButton]="false"
+        (pageRendered)="onDocLoadComplete()">
+      </ngx-extended-pdf-viewer>
     </div>
   </div>
+  <div *ngIf="isImage()">
+    <img [src]="pdfSource" (load)="onDocLoadComplete()" class="img-fluid">
+  </div>
+  <div *ngIf="previewContentType !== 'application/pdf' && !isImage()">
+    File not supported for preivew.
+  </div>
+  <div *ngIf="pdfIsLoading">
+    <mat-spinner></mat-spinner>
+  </div>
 </div>
-<mat-dialog-actions class="dialog-actions" style="justify-content:space-between">
-  <button (click)="close()" class="p-0 m-0" mat-button>
+<mat-dialog-actions style="justify-content:space-between">
+  <button mat-flat-button (click)="close()" class="p-0 m-0" color="accent">
     Cancel
   </button>
   <a mat-flat-button color="primary" href="{{pdfSource}}">
     Download
   </a>
-</mat-dialog-actions>-->
-
-
-
+</mat-dialog-actions> -->
+ <h1 mat-dialog-title class="dialog-header mb-0">
+  {{ pdfFileName }}
+</h1>
+<div *ngIf="previewContentType === 'application/pdf'">
+  <ngx-extended-pdf-viewer *ngIf="pdfSource" [src]="pdfSource" useBrowserLocale="true" delayFirstView="1250"
+    [zoom]="100" [showBookmarkButton]="false" [showOpenFileButton]="false" [showSecondaryToolbarButton]="false"
+    (pageRendered)="onDocLoadComplete()">
+  </ngx-extended-pdf-viewer>
+</div>
+<div *ngIf="isImage()">
+  <img [src]="pdfSource" (load)="onDocLoadComplete()" class="img-fluid">
+</div>
+<div *ngIf="previewContentType !== 'application/pdf' && !isImage()">
+  File not supported for preivew.
+</div>
+<div *ngIf="pdfIsLoading">
+  <mat-spinner></mat-spinner>
+</div>
+  <mat-dialog-actions style="justify-content:space-between">
+    <button mat-flat-button (click)="close()" class="p-0 m-0" color="accent">
+      Cancel
+    </button>
+    <a mat-flat-button color="primary" href="{{pdfSource}}"  target="_blank">
+      Download
+    </a>
+  </mat-dialog-actions>

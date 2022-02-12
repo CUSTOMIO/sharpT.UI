@@ -82,7 +82,8 @@
           </div>
           <mat-divider></mat-divider>
           <div class="button-div">
-            <button class="standard-button" mat-icon-button routerLink="/course/{{s.courseId}}" [state]="s.courseName"> <mat-icon>arrow_forward</mat-icon></button>
+            <button mat-stroked-button color="primary" routerLink="/course/{{s.courseId}}" [state]="s.courseName">Continue<i class="fas fa-arrow-right ml-5"></i></button>
+            <!-- <button class="standard-button" mat-icon-button routerLink="/course/{{s.courseId}}" [state]="s.courseName"> <mat-icon>arrow_forward</mat-icon></button> -->
           </div>
         </div>
       </div>

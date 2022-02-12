@@ -35,6 +35,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { DocViewerComponent } from './component/doc-viewer/doc-viewer.component';
 import { SystemNotificationComponent } from './component/notification/notification.component';
 
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
 // Format used for the Intl format functions
 const fullDateTimeOptions = {
   year: 'numeric', month: 'numeric',
@@ -57,7 +59,8 @@ const CUSTOM_DATE_FORMATS = Object.assign({}, NGX_MAT_NATIVE_DATE_FORMATS, {
     MatDialogModule,
     ReactiveFormsModule,
     NgxMatDatetimePickerModule,
-    NgxMatTimepickerModule
+    NgxMatTimepickerModule,
+    NgxExtendedPdfViewerModule
   ],
   exports: [
     CommonModule,

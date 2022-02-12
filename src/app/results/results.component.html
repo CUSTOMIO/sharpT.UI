@@ -36,7 +36,7 @@
 
   <div class="table-div" *ngIf="result" align="center" [ngClass]="getPercentage() >= '35.00' ? 'passed' : 'failed'">
     <div *ngIf="result.message">
-      <p class="mat-title" [innerHtml]="result.message"></p>
+      <p class="mat-title m-0" [innerHtml]="result.message"></p>
     </div>
     <div *ngIf="result.data">
       <img src="{{apiEndpoint + result.userImageUrl}}" height="200">
@@ -51,7 +51,9 @@
         <ng-container matColumnDef="subject">
           <th mat-header-cell *matHeaderCellDef> Subject </th>
           <td mat-cell *matCellDef="let element"> {{element.subjectName}} </td>
-          <td mat-footer-cell *matFooterCellDef> Percentage </td>
+          <td mat-footer-cell *matFooterCellDef> Percentage
+            <span class="mat-caption m-0" *ngIf="result.bestOf !== null">(Best of {{result.bestOf}})</span>  
+          </td>
         </ng-container>
 
         <!-- Marks Column -->

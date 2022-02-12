@@ -20,40 +20,41 @@ export class CourseStandardComponent implements OnInit {
   public courseId: number;
   public course: any;
   public imageUrl: string;
-  public isLoading: boolean = true;
+  public isLoading = true;
   public subjectCount: SubjectCount;
   public apiEndpoint: any = environment.api_endpoint;
 
 
   constructor(private standardService: StandardService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private subjectService: SubjectService) {
+              private route: ActivatedRoute,
+              private router: Router,
+              private subjectService: SubjectService) {
     this.route.paramMap.subscribe(params => {
       this.ngOnInit();
     });
-    //this.course = this.router.getCurrentNavigation().extras.state;
+    // this.course = this.router.getCurrentNavigation().extras.state;
 
   }
 
 
   ngOnInit(): void {
     this.courseId = Number(this.route.snapshot.paramMap.get('courseId'));
-    //this.course = history.state;
-    //if (this.course) {
+    // this.course = history.state;
+    // if (this.course) {
     //  this.imageUrl = this.course.name.toLowerCase();
-    //}
+    // }
 
     this.standardService.getStandardBycourseId(this.courseId).subscribe(res => {
+      console.log(res);
       this.standard = res;
     }, (error) => {
-      console.log(error)
+      console.log(error);
     });
     this.subjectService.getSubject().subscribe(res => {
       this.subject = res;
-      this.isLoading = false
+      this.isLoading = false;
     }, (error) => {
-      console.log(error)
+      console.log(error);
     });
     this.subjectService.getSubjectCount()
       .subscribe((res: SubjectCount) => {
@@ -66,6 +67,9 @@ export class CourseStandardComponent implements OnInit {
   }
 
   getRateByStandardId(standardId: number) {
-    return this.standardRate.filter(x => x.standardId == standardId);
+    if (this.standardRate) {
+      return this.standardRate.filter(x => x.standardId === standardId);
+    }
+    return null;
   }
 }
